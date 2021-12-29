@@ -3,5 +3,8 @@
   "private": true,
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "publishConfig": {
+    "tbarous:registry": "https://npm.pkg.github.com"
   }
 }
