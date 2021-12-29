@@ -1,0 +1,13 @@
+{
+  "name": "root",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "scripts": {
+    "prepublish": "cd ./packages/ui-library && cp package.json ./dist/package.json",
+    "pl": "lerna publish --registry=https://npm.pkg.github.com --contents dist"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/tbarous"
+  }
+}
