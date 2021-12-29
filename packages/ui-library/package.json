@@ -1,11 +1,20 @@
 {
-  "name": "@tbarous/ui-library",
   "version": "0.0.3",
+  "name": "@tbarous/ui-library",
+  "description": "description",
+  "author": {
+    "name": "Tasos Barous",
+    "email": "tasosbarous@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tbarous/prosperity"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/tbarous"
+  },
   "private": true,
   "scripts": {},
-  "publishConfig": {
-    "tbarous:registry": "https://npm.pkg.github.com"
-  },
   "dependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2",
