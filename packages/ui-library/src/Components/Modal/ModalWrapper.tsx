@@ -1,11 +1,11 @@
 import React, {ReactNode, useEffect, useLayoutEffect, useRef, useState} from "react";
 import styled, {css, keyframes} from "styled-components";
-import {ReactElementOrNull} from "../Types";
-import Theme from "../Theme/Theme";
-import {down, up} from "../Theme/Breakpoint";
+import Theme from "@theme/Theme";
+import {down, up} from "@theme/Breakpoint";
 import Icon from "../Icon/Icon";
 import {Times} from "../Icon/Icons";
-import useOnClickOutside from "../Hooks/useOnClickOutside";
+import useOnClickOutside from "@hooks/useOnClickOutside";
+import {ReactElementOrNull} from "@customTypes/Types";
 
 const animationDuration = ".4s";
 

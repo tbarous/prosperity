@@ -1,6 +1,6 @@
 import React, {ReactNode} from "react";
 import styled, {keyframes} from "styled-components";
-import Theme from "../../Theme/Theme";
+import Theme from "@theme/Theme";
 
 interface Props {
     children?: ReactNode,

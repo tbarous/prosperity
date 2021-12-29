@@ -1,7 +1,7 @@
 import React, {ReactNode} from "react";
 import styled from "styled-components";
-import {ReactElementOrNull} from "../Types";
-import Theme from "../Theme/Theme";
+import {ReactElementOrNull} from "@customTypes/Types";
+import Theme from "../../Theme/Theme";
 
 const Wrapper = styled.div`
    width: ${(props: { theme: Theme, width: number, height: number, }) => `${props.width}px`};

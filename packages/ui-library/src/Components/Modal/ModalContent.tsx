@@ -1,7 +1,7 @@
 import React, {ReactNode} from "react";
 import styled from "styled-components";
-import {ReactElementOrNull} from "../Types";
-import Theme from "../Theme/Theme";
+import {ReactElementOrNull} from "@customTypes/Types";
+import Theme from "@theme/Theme";
 
 const Wrapper = styled.div`
     font-size: ${(props: { theme: Theme }) => props.theme.font.size.md};

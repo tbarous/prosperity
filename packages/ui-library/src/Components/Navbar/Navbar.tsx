@@ -1,6 +1,6 @@
 import {FunctionComponent, ReactNode} from "react";
-import {ReactElementOrNull} from "../Types";
 import styled from "styled-components";
+import {ReactElementOrNull} from "@customTypes/Types";
 
 const Wrapper = styled.div`
     // position: fixed;

@@ -1,7 +1,7 @@
 import React, {ReactNode} from "react";
 import styled from "styled-components";
-import {ReactElementOrNull} from "../Types";
-import Theme from "../Theme/Theme";
+import Theme from "@theme/Theme";
+import {ReactElementOrNull} from "@customTypes/Types";
 
 const Wrapper = styled.div`
     box-shadow: ${(props: { theme: Theme }) => props.theme.shadow.primary};

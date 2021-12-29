@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM, {unmountComponentAtNode} from "react-dom";
 import {ThemeProvider} from "styled-components";
-import Basic from "../../Themes/Basic";
 
 class ModalQueue {
     private readonly items: any[];
@@ -29,7 +28,7 @@ class ModalQueue {
         const FirstComponent = this.items[this.items.length - 1].Component;
 
         ReactDOM.render(
-            <ThemeProvider theme={Basic}>
+            <ThemeProvider theme={{}}>
                 <FirstComponent onClose={() => this.close()}/>
             </ThemeProvider>,
             document.getElementById("modal")
