@@ -21,7 +21,7 @@ const links = [
 const Sidebar = () => {
     return (
         <Wrapper>
-            <div>qadsadsa</div>
+            <div>qadsadsa!!</div>
 
             {links.map((link: ILink, index: number) => <Link key={index} href={link.href}>{link.name}</Link>)}
         </Wrapper>
