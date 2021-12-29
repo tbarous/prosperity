@@ -10,7 +10,7 @@ const Basic: Theme = {
     color: colorExample,
     border: borderExample,
     shadow: shadowExample,
-    font: {...fontExample, family: {primary: 'Roboto', secondary: 'PlayfairDisplay'}},
+    font: fontExample,
     spacing: spacingExample,
     breakpoint: breakpointExample
 }

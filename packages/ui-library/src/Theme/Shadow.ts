@@ -1,6 +1,6 @@
 export const shadowExample: Shadow = {
-    primary: '0px 0px 4px 4px rgba(0,0,0,0.3)',
-    secondary: '0px 0px 4px 4px rgba(0,0,0,0.6)'
+    primary: '4px 4px 14px 2px rgba(0,0,0,0.4)',
+    secondary: '4px 4px 14px 2px rgba(0,0,0,0.5)'
 }
 
 interface Shadow {

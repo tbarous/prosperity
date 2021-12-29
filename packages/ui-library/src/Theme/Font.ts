@@ -5,7 +5,7 @@ export const fontExample: Font = {
         lg: '1.6rem'
     },
     family: {
-        primary: 'Open Sans',
+        primary: 'OpenSans',
         secondary: 'Trebuchet'
     }
 }

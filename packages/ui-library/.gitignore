@@ -3,3 +3,4 @@
 /dist
 yarn.lock
 .idea
+.yarn-error.log
