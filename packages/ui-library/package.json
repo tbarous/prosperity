@@ -1,5 +1,5 @@
 {
-  "version": "0.0.32",
+  "version": "0.0.33",
   "name": "@tbarous/ui-library",
   "description": "description",
   "main": "dist/cjs/index.js",
