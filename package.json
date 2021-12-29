@@ -4,6 +4,7 @@
     "lerna": "^4.0.0"
   },
   "scripts": {
+    "prepublish": "cd ./packages/ui-library && cp package.json ./dist/package.json",
     "publish-packages": "lerna publish --registry=https://npm.pkg.github.com --contents dist"
   },
   "publishConfig": {
