@@ -13,6 +13,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/tbarous"
   },
+  "private": true,
   "scripts": {},
   "dependencies": {
     "react": "17.0.2",
