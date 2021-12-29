@@ -19,7 +19,7 @@ const links = [
 const Sidebar = () => {
     return (
         <Wrapper>
-            {/*<div>qadsd</div>*/}
+            <div>qadsd</div>
 
             {/*{links.map((link: ILink, index: number) => <Link key={index} href={link.href}>{link.name}</Link>)}*/}
         </Wrapper>
