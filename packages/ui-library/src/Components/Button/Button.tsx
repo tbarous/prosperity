@@ -55,7 +55,7 @@ const Button: React.FunctionComponent<Props> = (props: Props): React.ReactElemen
     const {children, onClick, variation, size} = props;
 
     return (
-        <Wrapper onClick={onClick} variation={variation} size={size}>
+        <Wrapper onClick={onClick} variation={variation} size={size} type="button" data-testid="button">
             {children}
         </Wrapper>
     );
