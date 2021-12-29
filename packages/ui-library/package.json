@@ -38,5 +38,6 @@
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "4.5.4"
-  }
+  },
+  "gitHead": "2332e705a867764bd8e0ee5f44a77cd27533132e"
 }
