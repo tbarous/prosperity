@@ -6,7 +6,7 @@ interface Props {
     theme: Theme
 }
 
-const ModalClose = styled(Icon)<Props>`
+const ModalCloseStyled = styled(Icon)<Props>`
   position: fixed;
   top: .5rem;
   right: .5rem;
@@ -20,4 +20,4 @@ const ModalClose = styled(Icon)<Props>`
   align-items: center;
 `;
 
-export default ModalClose;
+export default ModalCloseStyled;

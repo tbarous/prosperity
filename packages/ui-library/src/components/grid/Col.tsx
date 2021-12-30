@@ -1,6 +1,6 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import ColWrapper from "./styled/ColWrapper";
+import ColStyled from "./styled/ColStyled";
 
 interface Props extends BasicComponentProps {
     xs?: number,
@@ -16,9 +16,9 @@ const Col: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull =
     const {children} = props;
 
     return (
-        <ColWrapper {...props}>
+        <ColStyled {...props}>
             {children}
-        </ColWrapper>
+        </ColStyled>
     )
 }
 

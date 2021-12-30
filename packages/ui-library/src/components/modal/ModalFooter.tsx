@@ -1,14 +1,14 @@
 import React, {ReactNode} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import ModalFooterWrapper from "@components/modal/styled/ModalFooterWrapper";
+import ModalFooterStyled from "@components/modal/styled/ModalFooterStyled";
 
 const ModalFooter: React.FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElementOrNull => {
     const {children, className} = props;
 
     return (
-        <ModalFooterWrapper className={className}>
+        <ModalFooterStyled className={className}>
             {children}
-        </ModalFooterWrapper>
+        </ModalFooterStyled>
     );
 }
 

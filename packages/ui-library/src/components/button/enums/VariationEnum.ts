@@ -1,6 +1,6 @@
-enum Variation {
+enum VariationEnum {
     PRIMARY = 'Primary',
     SECONDARY = 'Secondary'
 }
 
-export default Variation;
+export default VariationEnum;

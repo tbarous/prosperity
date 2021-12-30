@@ -5,7 +5,7 @@ interface Props {
     theme: Theme
 }
 
-const ModalFooterWrapper = styled.div`
+const ModalFooterStyled = styled.div`
   box-shadow: ${(props: Props) => props.theme.shadow.primary};
   border-bottom-left-radius: ${(props: Props) => props.theme.border.radius.primary};
   border-bottom-right-radius: ${(props: Props) => props.theme.border.radius.primary};
@@ -19,4 +19,4 @@ const ModalFooterWrapper = styled.div`
   box-sizing: border-box;
 `;
 
-export default ModalFooterWrapper;
+export default ModalFooterStyled;

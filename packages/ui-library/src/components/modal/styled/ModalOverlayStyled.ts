@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ModalOverlay = styled.div`
+const ModalOverlayStyled = styled.div`
   background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
@@ -12,4 +12,4 @@ const ModalOverlay = styled.div`
   height: 100%;
 `;
 
-export default ModalOverlay;
+export default ModalOverlayStyled;

@@ -1,14 +1,14 @@
 import React, {ReactNode} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import ModalBodyWrapper from "@components/modal/styled/ModalBodyWrapper";
+import ModalBodyStyled from "@components/modal/styled/ModalBodyStyled";
 
 const ModalBody: React.FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElementOrNull => {
     const {children, className} = props;
 
     return (
-        <ModalBodyWrapper className={className}>
+        <ModalBodyStyled className={className}>
             {children}
-        </ModalBodyWrapper>
+        </ModalBodyStyled>
     );
 }
 

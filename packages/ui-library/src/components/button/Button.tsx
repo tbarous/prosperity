@@ -1,15 +1,15 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import ButtonWrapper from "./styled/ButtonWrapper";
-import Size from "@components/button/enums/Size";
-import Variation from "@components/button/enums/Variation";
-import Type from "@components/button/enums/Type";
+import SizeEnum from "@components/button/enums/SizeEnum";
+import VariationEnum from "@components/button/enums/VariationEnum";
+import TypeEnum from "@components/button/enums/TypeEnum";
+import ButtonStyled from "./styled/ButtonStyled";
 
 export interface Props extends BasicComponentProps {
     onClick: () => void,
-    variation?: Variation,
-    size?: Size,
-    type?: Type,
+    variation?: VariationEnum,
+    size?: SizeEnum,
+    type?: TypeEnum,
 }
 
 const Button: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
@@ -17,15 +17,15 @@ const Button: React.FunctionComponent<Props> = (props: Props): ReactElementOrNul
 
     const enhancedProps = {
         ...props,
-        variation: props.variation || Variation.PRIMARY,
-        size: props.size || Size.MEDIUM,
-        type: props.type || Type.BUTTON,
+        variation: props.variation || VariationEnum.PRIMARY,
+        size: props.size || SizeEnum.MEDIUM,
+        type: props.type || TypeEnum.BUTTON,
     }
 
     return (
-        <ButtonWrapper {...enhancedProps}>
+        <ButtonStyled {...enhancedProps}>
             {children}
-        </ButtonWrapper>
+        </ButtonStyled>
     );
 }
 

@@ -1,7 +1,7 @@
-enum Size {
+enum SizeEnum {
     SMALL = 'Small',
     MEDIUM = "Medium",
     LARGE = 'Large'
 }
 
-export default Size;
+export default SizeEnum;

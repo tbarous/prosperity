@@ -1,6 +1,6 @@
-enum Type {
+enum TypeEnum {
     BUTTON = "button",
     SUBMIT = "submit"
 }
 
-export default Type;
+export default TypeEnum;

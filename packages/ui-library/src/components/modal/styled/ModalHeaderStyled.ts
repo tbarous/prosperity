@@ -5,7 +5,7 @@ interface Props {
     theme: Theme
 }
 
-const ModalHeaderWrapper = styled.div`
+const ModalHeaderStyled = styled.div`
   border-top-left-radius: ${(props: Props) => props.theme.border.radius.primary};
   border-top-right-radius: ${(props: Props) => props.theme.border.radius.primary};
   box-shadow: ${(props: Props) => props.theme.shadow.primary};
@@ -16,4 +16,4 @@ const ModalHeaderWrapper = styled.div`
   box-sizing: border-box;
 `;
 
-export default ModalHeaderWrapper;
+export default ModalHeaderStyled;

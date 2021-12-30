@@ -1,6 +1,6 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import RowWrapper from "./styled/RowWrapper";
+import RowStyled from "./styled/RowStyled";
 
 interface Props extends BasicComponentProps {
     gutter?: number
@@ -16,9 +16,9 @@ const Row: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull =
     });
 
     return (
-        <RowWrapper {...props}>
+        <RowStyled {...props}>
             {childrenWithProps}
-        </RowWrapper>
+        </RowStyled>
     )
 }
 

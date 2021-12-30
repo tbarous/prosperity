@@ -13,13 +13,13 @@ interface Props {
     theme: Theme
 }
 
-const ColWrapper = styled.div<Props>`
+const ColStyled = styled.div<Props>`
   flex: 0 0 auto;
-  //width: 100%;
-  //max-width: 100%;
-  //position: relative;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
   display: block;
-      -webkit-box-flex: 0;
+  -webkit-box-flex: 0;
   box-sizing: border-box;
 
   ${(props: Props) => calculateGutter(props.gutter)};
@@ -31,4 +31,4 @@ const ColWrapper = styled.div<Props>`
   ${(props: Props) => calculateCols(props.theme.breakpoint.xxl, props.xxl, props.gutter)};
 `;
 
-export default ColWrapper;
+export default ColStyled;

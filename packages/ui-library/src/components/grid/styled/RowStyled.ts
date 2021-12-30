@@ -8,12 +8,11 @@ interface Props {
     gutter?: number
 }
 
-const RowWrapper = styled.div<Props>`
+const RowStyled = styled.div<Props>`
   ${(props: Props) => calculateMargin(props.gutter)};
-
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
 `;
 
-export default RowWrapper;
+export default RowStyled;

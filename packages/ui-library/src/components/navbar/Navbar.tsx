@@ -1,32 +1,15 @@
-import {FunctionComponent, ReactNode} from "react";
-import styled from "styled-components";
-import {ReactElementOrNull} from "@customTypes/Types";
 import React from "react";
+import {FunctionComponent} from "react";
+import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import NavbarStyled from "./styled/NavbarStyled";
 
-const Wrapper = styled.div`
-    // position: fixed;
-    // top: 0;
-    // left: 0;
-    width: 100%;
-    height: 60px;
-    z-index: 11;
-    background: white;
-    display: flex;
-    align-items: center;
-`;
-
-interface Props {
-    children?: ReactNode,
-    className?: string
-}
-
-const Navbar: FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+const Navbar: FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElementOrNull => {
     const {children, className} = props;
 
     return (
-        <Wrapper className={className}>
+        <NavbarStyled {...props}>
             {children}
-        </Wrapper>
+        </NavbarStyled>
     )
 }
 

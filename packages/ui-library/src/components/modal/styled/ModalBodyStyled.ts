@@ -5,7 +5,7 @@ interface Props {
     theme: Theme
 }
 
-const ModalBodyWrapper = styled.div<Props>`
+const ModalBodyStyled = styled.div<Props>`
   font-size: ${(props: Props) => props.theme.font.size.md};
   width: ${(props: Props) => props.theme.spacing.width.full};
   overflow-y: auto;
@@ -13,4 +13,4 @@ const ModalBodyWrapper = styled.div<Props>`
   box-sizing: border-box;
 `;
 
-export default ModalBodyWrapper;
+export default ModalBodyStyled;

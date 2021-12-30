@@ -1,6 +1,6 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import IconWrapper from "./styled/IconWrapper";
+import IconStyled from "./styled/IconStyled";
 import {IIcon} from "@components/icon/Icons";
 
 interface Props extends BasicComponentProps {
@@ -20,7 +20,7 @@ const Icon: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull 
     } = props;
 
     return (
-        <IconWrapper
+        <IconStyled
             onClick={onClick}
             className={className}
             width={width}
@@ -40,7 +40,7 @@ const Icon: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull 
                 >
                 </path>
             </svg>
-        </IconWrapper>
+        </IconStyled>
     );
 }
 

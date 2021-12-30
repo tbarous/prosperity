@@ -1,9 +1,9 @@
 import React, {ReactNode, useEffect, useRef, useState} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import useOnClickOutside from "@hooks/useOnClickOutside";
-import ModalOverlay from "@components/modal/styled/ModalOverlay";
-import ModalClose from "@components/modal/styled/ModalClose";
-import ModalContent from "@components/modal/styled/ModalContent";
+import ModalOverlayStyled from "@components/modal/styled/ModalOverlayStyled";
+import ModalCloseStyled from "@components/modal/styled/ModalCloseStyled";
+import ModalContentStyled from "@components/modal/styled/ModalContentStyled";
 import {Times} from "@components/icon/Icons";
 
 interface Props extends BasicComponentProps {
@@ -29,13 +29,13 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
     }, [unmounting]);
 
     return (
-        <ModalOverlay>
-            <ModalContent ref={modalWrapperRef} unmounting={unmounting}>
-                <ModalClose onClick={close} width={14} height={14} icon={Times}/>
+        <ModalOverlayStyled>
+            <ModalContentStyled ref={modalWrapperRef} unmounting={unmounting}>
+                <ModalCloseStyled onClick={close} width={14} height={14} icon={Times}/>
 
                 {children}
-            </ModalContent>
-        </ModalOverlay>
+            </ModalContentStyled>
+        </ModalOverlayStyled>
     );
 }
 

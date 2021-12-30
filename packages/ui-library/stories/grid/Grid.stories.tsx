@@ -1,10 +1,8 @@
 import React from 'react';
-import styled from "styled-components";
-import StorybookWrapper from "../StorybookWrapper";
+import {StorybookColContent, StorybookWrapperStyled} from "../StorybookWrapper";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
-import Theme from "@theme/interfaces";
 
 export default {
     title: 'Grid',
@@ -17,44 +15,35 @@ export default {
     },
 };
 
-const ColContent = styled.div`
-  background-color: ${(props: { theme: Theme }) => props.theme.color.primary};
-  padding: 1rem;
-  border: 1px solid;
-  text-align: center;
-`;
-
 const GridTemplate = (args: any) => {
     const {container} = args;
 
     const fluid = container === "fluid";
 
     return (
-        <StorybookWrapper>
+        <StorybookWrapperStyled>
             <Container fluid={fluid}>
                 <Row>
                     <Col xs={8}>
-                        <ColContent>
+                        <StorybookColContent>
                             8/12
-                        </ColContent>
+                        </StorybookColContent>
                     </Col>
 
                     <Col xs={1}>
-                        <ColContent>
-                            1/12
-                        </ColContent>
+                        <StorybookColContent>1/12</StorybookColContent>
                     </Col>
 
                     <Col xs={1}>
-                        <ColContent>
+                        <StorybookColContent>
                             1/12
-                        </ColContent>
+                        </StorybookColContent>
                     </Col>
 
                     <Col xs={2}>
-                        <ColContent>
+                        <StorybookColContent>
                             2/12
-                        </ColContent>
+                        </StorybookColContent>
                     </Col>
                 </Row>
 
@@ -62,15 +51,15 @@ const GridTemplate = (args: any) => {
 
                 <Row gutter={6}>
                     <Col sm={12} lg={6}>
-                        <ColContent>
+                        <StorybookColContent>
                             6/12
-                        </ColContent>
+                        </StorybookColContent>
                     </Col>
 
                     <Col sm={12} lg={6}>
-                        <ColContent>
+                        <StorybookColContent>
                             6/12
-                        </ColContent>
+                        </StorybookColContent>
                     </Col>
                 </Row>
 
@@ -78,25 +67,25 @@ const GridTemplate = (args: any) => {
 
                 <Row gutter={12}>
                     <Col sm={12} lg={4}>
-                        <ColContent>
+                        <StorybookColContent>
                             4/12
-                        </ColContent>
+                        </StorybookColContent>
                     </Col>
 
                     <Col sm={12} lg={4}>
-                        <ColContent>
+                        <StorybookColContent>
                             4/12
-                        </ColContent>
+                        </StorybookColContent>
                     </Col>
 
                     <Col sm={12} lg={4}>
-                        <ColContent>
+                        <StorybookColContent>
                             4/12
-                        </ColContent>
+                        </StorybookColContent>
                     </Col>
                 </Row>
             </Container>
-        </StorybookWrapper>
+        </StorybookWrapperStyled>
     )
 };
 

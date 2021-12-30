@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
 import Theme from "@theme/interfaces";
-import {closeModalAnimation, openModalAnimation} from "@components/modal/utils/Animations";
+import {closeModalAnimation, openModalAnimation} from "@components/modal/utils/AnimationsUtils";
 import {up} from "@theme/utils/Media";
 
 const animationDuration: string = ".4s";
@@ -10,7 +10,7 @@ interface Props {
     unmounting: boolean,
 }
 
-const ModalContent = styled.div<Props>`
+const ModalContentStyled = styled.div<Props>`
   background: ${(props: Props) => props.theme.color.white};
   border-radius: ${(props: Props) => props.theme.border.radius.primary};
   box-shadow: ${(props: Props) => props.theme.shadow.primary};
@@ -25,4 +25,4 @@ const ModalContent = styled.div<Props>`
   `)};
 `;
 
-export default ModalContent;
+export default ModalContentStyled;

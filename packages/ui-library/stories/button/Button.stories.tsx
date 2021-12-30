@@ -1,43 +1,38 @@
 import React from 'react';
-import StorybookWrapper from "../StorybookWrapper";
+import {StorybookButtonWrapper, StorybookWrapperStyled} from "../StorybookWrapper";
 import Button, {Props} from "@components/button/Button";
-import Variation from "@components/button/enums/Variation";
-import Size from "@components/button/enums/Size";
-import styled from "styled-components";
+import VariationEnum from "@components/button/enums/VariationEnum";
+import SizeEnum from "@components/button/enums/SizeEnum";
 
 export default {
     title: 'Button',
     component: Button,
     argTypes: {
         variation: {
-            options: [Variation.PRIMARY, Variation.SECONDARY],
+            options: [VariationEnum.PRIMARY, VariationEnum.SECONDARY],
             control: {type: 'radio'},
         },
         size: {
-            options: [Size.SMALL, Size.MEDIUM, Size.LARGE],
+            options: [SizeEnum.SMALL, SizeEnum.MEDIUM, SizeEnum.LARGE],
             control: {type: 'radio'},
         },
     },
 };
 
-const Wrapper = styled.div`
-  margin: 2rem;
-  width: 150px;
-`;
-
 const DefaultButtonTemplate = (args: Props) => (
-    <StorybookWrapper>
-        <Wrapper>
+    <StorybookWrapperStyled>
+        <StorybookButtonWrapper>
             <Button {...args}>
-                Default Button
+                {args.children}
             </Button>
-        </Wrapper>
-    </StorybookWrapper>
+        </StorybookButtonWrapper>
+    </StorybookWrapperStyled>
 );
 
 export const Default: any = DefaultButtonTemplate.bind({});
 
 Default.args = {
-    variation: Variation.PRIMARY,
-    size: Size.MEDIUM
+    variation: VariationEnum.PRIMARY,
+    size: SizeEnum.MEDIUM,
+    children: "Button"
 };

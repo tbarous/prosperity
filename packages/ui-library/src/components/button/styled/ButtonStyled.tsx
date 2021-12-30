@@ -1,23 +1,23 @@
 import styled from "styled-components";
 import Theme from "@theme/interfaces";
-import Variation from "@components/button/enums/Variation";
-import Size from "@components/button/enums/Size";
-import {sizeMapping} from "@components/button/utils/Size";
-import {variationMapping} from "@components/button/utils/Variation";
+import VariationEnum from "@components/button/enums/VariationEnum";
+import SizeEnum from "@components/button/enums/SizeEnum";
+import {applySize} from "@components/button/utils/SizeUtils";
+import {applyVariation} from "@components/button/utils/VariationUtils";
 
 interface Props {
     theme: Theme,
-    variation: Variation,
-    size: Size
+    variation: VariationEnum,
+    size: SizeEnum
 }
 
-const ButtonWrapper = styled.button<Props>`
-  ${(props: Props) => sizeMapping(props.size, props.theme)}
-  ${(props: Props) => variationMapping(props.variation, props.theme)}
-
+const ButtonStyled = styled.button<Props>`
+  ${(props: Props) => applySize(props.size, props.theme)}
+  ${(props: Props) => applyVariation(props.variation, props.theme)}
   border-radius: ${(props: Props) => props.theme.border.radius.primary};
   font-family: ${(props: Props) => props.theme.font.family.primary};
   box-shadow: ${(props: Props) => props.theme.shadow.primary};
+  
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -44,4 +44,4 @@ const ButtonWrapper = styled.button<Props>`
   }
 `;
 
-export default ButtonWrapper;
+export default ButtonStyled;

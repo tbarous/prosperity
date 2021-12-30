@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-import StorybookWrapper from "../StorybookWrapper";
+import {
+    StorybookButtonWrapper,
+    StorybookColContent,
+    StorybookWrapperStyled
+} from "../StorybookWrapper";
 import Modal from "@components/modal/Modal";
 import Col from "@components/grid/Col";
 import Container from "@components/grid/Container";
@@ -21,12 +25,6 @@ export default {
     },
 };
 
-const StyledCol = styled(Col)`
-  border: 1px solid;
-  background-color: cyan;
-  padding: 1rem;
-`;
-
 const StyledModalHeader = styled(ModalHeader)`
   display: flex;
   align-items: center;
@@ -41,10 +39,12 @@ const ModalTemplate = (args: any) => {
     const [modal, setModal] = useState(false);
 
     return (
-        <StorybookWrapper>
-            <Button onClick={() => setModal(true)}>
-                Toggle Modal
-            </Button>
+        <StorybookWrapperStyled>
+            <StorybookButtonWrapper>
+                <Button onClick={() => setModal(true)}>
+                    Toggle Modal
+                </Button>
+            </StorybookButtonWrapper>
 
             {modal ?
                 <Modal closeOnClickOutside onClose={() => setModal(false)}>
@@ -54,18 +54,13 @@ const ModalTemplate = (args: any) => {
 
                     <StyledModalBody>
                         <Container>
-                            <Row>
-                                <StyledCol xs={1}>1 1/4 Column</StyledCol>
-                                <StyledCol xs={1}>1 1/4 Column</StyledCol>
-                                <StyledCol xs={1}>1 1/4 Column</StyledCol>
-                                <StyledCol xs={1}>1 1/4 Column</StyledCol>
-                            </Row>
-
-                            <br/>
-
-                            <Row>
-                                <StyledCol sm={12} lg={6}>Half LG | Full SM</StyledCol>
-                                <StyledCol sm={12} lg={6}>Half LG | Full SM</StyledCol>
+                            <Row gutter={12}>
+                                <Col xs={6}>
+                                    <StorybookColContent>1/12</StorybookColContent>
+                                </Col>
+                                <Col xs={6}>
+                                    <StorybookColContent>1/12</StorybookColContent>
+                                </Col>
                             </Row>
                         </Container>
                     </StyledModalBody>
@@ -75,7 +70,7 @@ const ModalTemplate = (args: any) => {
                     </ModalFooter>
                 </Modal>
                 : null}
-        </StorybookWrapper>
+        </StorybookWrapperStyled>
     )
 };
 
