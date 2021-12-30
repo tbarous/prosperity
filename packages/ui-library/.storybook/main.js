@@ -5,10 +5,10 @@ module.exports = {
     webpackFinal: async (config, {configType}) => {
         config.resolve.alias = {
             ...config.resolve.alias,
-            '@/components': path.resolve(__dirname, "../src/Components"),
-            '@/customTypes': path.resolve(__dirname, "../src/Types"),
-            '@/theme': path.resolve(__dirname, "../src/Theme"),
-            '@/hooks': path.resolve(__dirname, "../src/Hooks"),
+            '@/components': path.resolve(__dirname, "../src/components"),
+            '@/customTypes': path.resolve(__dirname, "../src/typings"),
+            '@/theme': path.resolve(__dirname, "../src/theme"),
+            '@/hooks': path.resolve(__dirname, "../src/hooks"),
         };
 
         return config;

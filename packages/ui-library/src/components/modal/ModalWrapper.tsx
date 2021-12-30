@@ -34,38 +34,38 @@ const closeModalAnimation = keyframes`
 `;
 
 const Wrapper = styled.div`
-    background: ${(props: { theme: Theme, unmounting: boolean }) => props.theme.color.white};
-    border-radius: ${(props: { theme: Theme, unmounting: boolean }) => props.theme.border.radius.primary};
-    box-shadow: ${(props: { theme: Theme, unmounting: boolean }) => props.theme.shadow.primary};
-    width: ${(props: { theme: Theme, unmounting: boolean }) => props.theme.spacing.width.full};
-    height: 100%;
-    animation: ${(props: { theme: Theme, unmounting: boolean }) => !props.unmounting ? css`${openModalAnimation} ${animationDuration}` : css`${closeModalAnimation} ${animationDuration}`};
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-    
-    ${props => up(props.theme.breakpoint.md, `
-        width: 500px;
-        height: 500px;
-    `)};
+  background: ${(props: { theme: Theme, unmounting: boolean }) => props.theme.color.white};
+  border-radius: ${(props: { theme: Theme, unmounting: boolean }) => props.theme.border.radius.primary};
+  box-shadow: ${(props: { theme: Theme, unmounting: boolean }) => props.theme.shadow.primary};
+  width: ${(props: { theme: Theme, unmounting: boolean }) => props.theme.spacing.width.full};
+  height: 100%;
+  animation: ${(props: { theme: Theme, unmounting: boolean }) => !props.unmounting ? css`${openModalAnimation} ${animationDuration}` : css`${closeModalAnimation} ${animationDuration}`};
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+
+  ${props => up(props.theme.breakpoint.md, `
+    width: 500px;
+    height: 500px;
+  `)};
 `;
 
 const TimesButton = styled(Icon)`
-    position: fixed;
-    top: 0;
-    right: 0;
-    cursor: pointer;
+  position: fixed;
+  top: 0;
+  right: 0;
+  cursor: pointer;
 `;
 
 const Overlay = styled.div`
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position:fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 `;
 
 interface Props {

@@ -1,24 +1,37 @@
 import React, {ReactNode} from "react";
 import styled from "styled-components";
 import {BasicComponentProps, ReactElementOrNull} from "@customTypes/index";
+import Theme from "@theme/interfaces";
+import {up} from "../../theme/utils/Breakpoint";
 
-const Wrapper = styled.div`
+enum fluidityMapping {
+    MD = "750px",
+    LG = "970px",
+    XL = "1170px"
+}
+
+const calculateContainerWidth = (breakpoint: string, width: string, isFluid?: boolean) => {
+    if (isFluid) return;
+
+    return up(breakpoint, `width: ${width};`)
+}
+
+interface WrapperProps {
+    fluid?: boolean,
+    theme: Theme
+}
+
+const Wrapper = styled.div<WrapperProps>`
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  width: auto;
+  box-sizing: border-box;
 
-  @media (min-width: 768px) {
-    ${(props: { fluid?: boolean }) => props.fluid ? "auto" : "width: 750px;"}
-  }
-
-  @media (min-width: 992px) {
-    ${(props: { fluid?: boolean }) => props.fluid ? "auto" : "width: 970px;"}
-  }
-
-  @media (min-width: 1200px) {
-    ${(props: { fluid?: boolean }) => props.fluid ? "auto" : "width: 1170px;"}
-  }
+  ${(props: WrapperProps) => calculateContainerWidth(props.theme.breakpoint.md, fluidityMapping.MD, props.fluid)};
+  ${(props: WrapperProps) => calculateContainerWidth(props.theme.breakpoint.lg, fluidityMapping.LG, props.fluid)};
+  ${(props: WrapperProps) => calculateContainerWidth(props.theme.breakpoint.xl, fluidityMapping.XL, props.fluid)};
 `;
 
 interface Props extends BasicComponentProps {

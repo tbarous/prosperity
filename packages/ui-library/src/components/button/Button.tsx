@@ -1,6 +1,6 @@
 import React, {ReactNode} from "react";
 import styled from "styled-components";
-import Theme from "@theme/Theme";
+import Theme from "@theme/interfaces";
 
 export enum Variation {
     PRIMARY = 'primary',

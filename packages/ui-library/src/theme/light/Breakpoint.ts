@@ -1,7 +1,7 @@
 import {IBreakpoint} from "@theme/interfaces";
 
 const Breakpoint: IBreakpoint = {
-    xs: "350px",
+    xs: "320px",
     sm: "576px",
     md: "768px",
     lg: "992px",

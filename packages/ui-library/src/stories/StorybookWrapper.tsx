@@ -7,7 +7,9 @@ const theme = {
     theme: Light
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  font-family: OpenSans, serif;
+`;
 
 interface Props {
     children?: ReactNode
