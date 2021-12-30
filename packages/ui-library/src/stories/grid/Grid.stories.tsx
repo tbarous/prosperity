@@ -1,86 +1,32 @@
 import React from 'react';
-import styled, {ThemeProvider} from "styled-components";
-import Basic from "../../Theme";
-import Button, {Size, Variation} from '../../Components/Button/Button';
-import "../../../fonts/fonts.css";
+import StorybookWrapper from "../StorybookWrapper";
+import Container from "../../components/grid/Container";
+import Row from "../../components/grid/Row";
+import Col from "../../components/grid/Col";
+import styled from "styled-components";
 
 export default {
-    title: 'Button',
-    component: Button,
+    title: 'Grid',
+    component: Container,
 };
 
-const Wrapper = styled.div` 
-    max-width: 300px;
+const StyledCol = styled(Col)`
+  border: 1px solid;
+  background-color: cyan;
 `;
 
-const theme = {
-    theme: Basic
-}
-
-const DefaultButtonTemplate = (args: { variation: Variation, onClick: () => void, size: Size }) => (
-    <Wrapper>
-        <ThemeProvider {...theme}>
-            <Button {...args}>
-                Default Button
-            </Button>
-        </ThemeProvider>
-    </Wrapper>
+const GridTemplate = (args: any) => (
+    <StorybookWrapper>
+        <Container {...args}>
+            <Row>
+                <StyledCol grow={1}>Col 1</StyledCol>
+                <StyledCol grow={2}>Col 2</StyledCol>
+                <StyledCol grow={1}>Col 3</StyledCol>
+            </Row>
+        </Container>
+    </StorybookWrapper>
 );
 
-const PrimaryButtonTemplate = (args: any) => (
-    <Wrapper>
-        <ThemeProvider {...theme}>
-            <Button {...args} variation={Variation.PRIMARY}>
-                Primary Button
-            </Button>
-        </ThemeProvider>
-    </Wrapper>
-);
+export const Default: any = GridTemplate.bind({});
 
-const SecondaryButtonTemplate = (args: any) => (
-    <Wrapper>
-        <ThemeProvider {...theme}>
-            <Button {...args} variation={Variation.SECONDARY}>
-                Secondary Button
-            </Button>
-        </ThemeProvider>
-    </Wrapper>
-);
-
-const BigButtonTemplate = (args: any) => (
-    <Wrapper>
-        <ThemeProvider {...theme}>
-            <Button {...args} size={Size.BIG}>
-                Big Button
-            </Button>
-        </ThemeProvider>
-    </Wrapper>
-);
-
-const SmallButtonTemplate = (args: any) => (
-    <Wrapper>
-        <ThemeProvider {...theme}>
-            <Button {...args} size={Size.SMALL}>
-                Small Button
-            </Button>
-        </ThemeProvider>
-    </Wrapper>
-);
-
-export const Primary = PrimaryButtonTemplate.bind({});
-export const Secondary = SecondaryButtonTemplate.bind({});
-export const Big = BigButtonTemplate.bind({});
-export const Small = SmallButtonTemplate.bind({});
-
-export const Default = DefaultButtonTemplate.bind({});
-
-Default.args = {
-    variation: Variation.PRIMARY,
-    size: Size.BIG,
-    onClick: () => alert('Hello')
-};
-
-// Secondary.args = {
-//     primary: true,
-//     label: 'Button',
-// };
+Default.args = {};

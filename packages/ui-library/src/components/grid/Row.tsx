@@ -1,19 +1,20 @@
-import React from "react";
+import React, {ReactNode} from "react";
 import styled from "styled-components";
+import {BasicComponentProps, ReactElementOrNull} from "@customTypes/index";
 
 const Wrapper = styled.div`
-    padding: 0 1rem;
-
+  margin-left: -1rem;
+  margin-right: -1rem;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
-interface Props {
+const Row: React.FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElementOrNull => {
+    const {children} = props;
 
-}
-
-const Row: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
     return (
         <Wrapper>
-
+            {children}
         </Wrapper>
     )
 }

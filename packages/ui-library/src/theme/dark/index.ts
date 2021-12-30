@@ -5,13 +5,13 @@ import Font from "./Font";
 import Spacing from "./Spacing";
 import Breakpoint from "./Breakpoint";
 
-interface Theme {
-    color: Color,
+const Light = {
     border: Border,
+    breakpoint: Breakpoint,
+    color: Color,
     shadow: Shadow,
     font: Font,
     spacing: Spacing,
-    breakpoint: Breakpoint
 }
 
-export default Theme;
+export default Light;
