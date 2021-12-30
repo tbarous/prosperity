@@ -1,39 +1,46 @@
-import React, {ReactNode} from "react";
-import styled from "styled-components";
-import {ReactElementOrNull} from "@customTypes/Types";
-import Theme from "../../Theme/Theme";
+import React from "react";
+import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import IconWrapper from "./styled/IconWrapper";
+import {IIcon} from "@components/icon/Icons";
 
-const Wrapper = styled.div`
-   width: ${(props: { theme: Theme, width: number, height: number, }) => `${props.width}px`};
-   height: ${(props: { theme: Theme, height: number, width: number }) => `${props.height}px`};
-   
-   svg {
-        width: 100%;
-        height: 100%;
-    }
-`;
-
-interface Props {
-    children?: ReactNode,
-    specific: any,
-    width: number,
-    height: number,
-    onClick?: () => void,
-    className?: string
+interface Props extends BasicComponentProps {
+    icon: IIcon,
+    width?: number,
+    height?: number,
+    onClick?: () => void
 }
 
 const Icon: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {specific, width, height, onClick, className} = props;
+    const {
+        icon,
+        width = 14,
+        height = 14,
+        onClick = () => console.log('clicked'),
+        className
+    } = props;
 
     return (
-        <Wrapper
+        <IconWrapper
             onClick={onClick}
             className={className}
             width={width}
             height={height}
-            dangerouslySetInnerHTML={{__html: specific}}
         >
-        </Wrapper>
+            <svg
+                aria-hidden="true"
+                focusable="false"
+                data-icon={icon.data}
+                role="img"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox={icon.viewBox}
+            >
+                <path
+                    fill={icon.fill}
+                    d={icon.d}
+                >
+                </path>
+            </svg>
+        </IconWrapper>
     );
 }
 

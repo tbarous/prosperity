@@ -1,7 +1,7 @@
 import styled, {ThemeProvider} from "styled-components";
 import React, {ReactNode} from "react";
-import "../../fonts/fonts.css";
-import Light from "../theme/light";
+import Light from "@theme/light";
+import "../fonts/fonts.css";
 
 const theme = {
     theme: Light

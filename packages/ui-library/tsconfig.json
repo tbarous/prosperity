@@ -23,8 +23,8 @@
       "@components/*": [
         "src/components/*"
       ],
-      "@customTypes/*": [
-        "src/typings/*"
+      "@typings": [
+        "src/typings/index"
       ],
       "@theme/*": [
         "src/theme/*"

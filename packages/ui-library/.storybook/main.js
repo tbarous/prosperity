@@ -1,21 +1,11 @@
 const path = require("path");
+const {TsconfigPathsPlugin} = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
-    typescript: { reactDocgen: false },
-    webpackFinal: async (config, {configType}) => {
-        config.resolve.alias = {
-            ...config.resolve.alias,
-            '@/components': path.resolve(__dirname, "../src/components"),
-            '@/customTypes': path.resolve(__dirname, "../src/typings"),
-            '@/theme': path.resolve(__dirname, "../src/theme"),
-            '@/hooks': path.resolve(__dirname, "../src/hooks"),
-        };
-
-        return config;
-    },
+    typescript: {reactDocgen: false},
     "stories": [
-        "../src/**/*.stories.mdx",
-        "../src/**/*.stories.@(js|jsx|ts|tsx)"
+        "../stories/**/*.stories.mdx",
+        "../stories/**/*.stories.@(js|jsx|ts|tsx)"
     ],
     "addons": [
         "@storybook/addon-links",
@@ -24,5 +14,15 @@ module.exports = {
     "framework": "@storybook/react",
     core: {
         builder: "webpack5",
-    }
+    },
+    webpackFinal: async (config, {configType}) => {
+        config.resolve.plugins = config.resolve.plugins || [];
+        config.resolve.plugins.push(
+            new TsconfigPathsPlugin({
+                configFile: path.resolve(__dirname, "../tsconfig.json"),
+            })
+        );
+
+        return config;
+    },
 }

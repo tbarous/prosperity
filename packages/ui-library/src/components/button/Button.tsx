@@ -1,63 +1,31 @@
-import React, {ReactNode} from "react";
-import styled from "styled-components";
-import Theme from "@theme/interfaces";
+import React from "react";
+import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import ButtonWrapper from "./styled/ButtonWrapper";
+import Size from "@components/button/enums/Size";
+import Variation from "@components/button/enums/Variation";
+import Type from "@components/button/enums/Type";
 
-export enum Variation {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary'
+export interface Props extends BasicComponentProps {
+    onClick: () => void,
+    variation?: Variation,
+    size?: Size,
+    type?: Type,
 }
 
-export enum Size {
-    SMALL = 'sm',
-    BIG = 'md'
-}
+const Button: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+    const {children} = props;
 
-export interface Props {
-    children?: ReactNode,
-    onClick: any,
-    variation: Variation,
-    size: Size
-}
-
-const Wrapper = styled.button`
-    padding: ${(props: { theme: Theme, variation: Variation, size: Size }) => props.theme.spacing.padding[props.size] || props.theme.spacing.padding.sm};
-    border-radius: ${(props: { theme: Theme, variation: Variation }) => props.theme.border.radius.primary};
-    background: ${(props: { theme: Theme, variation: Variation }) => props.theme.color[props.variation] || props.theme.color.primary};
-    font-family: ${(props: { theme: Theme, variation: Variation }) => props.theme.font.family.primary};
-    box-shadow: ${(props: { theme: Theme, variation: Variation }) => props.theme.shadow.primary};
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    border: none;
-    color: white;
-    letter-spacing: 1px;
-    font-size: 14px;
-    font-weight: bold;
-    
-    &:hover {
-        box-shadow: ${(props: { theme: Theme, variation: Variation }) => props.theme.shadow.secondary};
+    const enhancedProps = {
+        ...props,
+        variation: props.variation || Variation.PRIMARY,
+        size: props.size || Size.MEDIUM,
+        type: props.type || Type.BUTTON,
     }
-    
-    &:focus {
-        filter: brightness(110%);
-    }
-    
-    // &:active {
-    //     filter: brightness(85%);
-    // }
-    
-    &:visited {
-        background: red;
-    }
-`;
-
-const Button: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
-    const {children, onClick, variation, size} = props;
 
     return (
-        <Wrapper onClick={onClick} variation={variation} size={size} type="button" data-testid="button">
+        <ButtonWrapper {...enhancedProps}>
             {children}
-        </Wrapper>
+        </ButtonWrapper>
     );
 }
 

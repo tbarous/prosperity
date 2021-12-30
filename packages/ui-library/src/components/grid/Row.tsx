@@ -1,22 +1,24 @@
 import React from "react";
-import styled from "styled-components";
-import {BasicComponentProps, ReactElementOrNull} from "@customTypes/index";
+import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import RowWrapper from "./styled/RowWrapper";
 
-const Wrapper = styled.div`
-  margin-left: -15px;
-  margin-right: -15px;
-  display: flex;
-  flex-wrap: wrap;
-  box-sizing: border-box;
-`;
+interface Props extends BasicComponentProps {
+    gutter?: number
+}
 
-const Row: React.FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElementOrNull => {
-    const {children} = props;
+const Row: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+    const {children, gutter} = props;
+
+    const childrenWithProps = React.Children.map(children, child => {
+        if (React.isValidElement(child) && gutter) return React.cloneElement(child, {gutter});
+
+        return child;
+    });
 
     return (
-        <Wrapper>
-            {children}
-        </Wrapper>
+        <RowWrapper {...props}>
+            {childrenWithProps}
+        </RowWrapper>
     )
 }
 

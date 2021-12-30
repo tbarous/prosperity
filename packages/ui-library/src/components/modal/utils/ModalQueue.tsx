@@ -1,13 +1,20 @@
 import React from "react";
 import ReactDOM, {unmountComponentAtNode} from "react-dom";
 import {ThemeProvider} from "styled-components";
+import Theme from "@theme/interfaces";
+import Light from "@theme/light";
 
 class ModalQueue {
     private readonly items: any[];
     private lock: boolean = false;
+    private theme: Theme = Light;
 
     constructor() {
         this.items = [];
+    }
+
+    setTheme(theme: Theme) {
+        this.theme = theme;
     }
 
     add(component: { id: string, Component: any }) {
@@ -28,7 +35,7 @@ class ModalQueue {
         const FirstComponent = this.items[this.items.length - 1].Component;
 
         ReactDOM.render(
-            <ThemeProvider theme={{}}>
+            <ThemeProvider theme={this.theme}>
                 <FirstComponent onClose={() => this.close()}/>
             </ThemeProvider>,
             document.getElementById("modal")
