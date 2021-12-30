@@ -21,16 +21,16 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": [
-        "src/Components/*"
+        "src/components/*"
       ],
       "@customTypes/*": [
-        "src/Types/*"
+        "src/typings/*"
       ],
       "@theme/*": [
-        "src/Theme/*"
+        "src/theme/*"
       ],
       "@hooks/*": [
-        "src/Hooks/*"
+        "src/hooks/*"
       ]
     }
   },

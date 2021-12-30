@@ -9,7 +9,7 @@ export default {
     component: Button,
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.div` 
     max-width: 300px;
 `;
 

@@ -2,8 +2,6 @@
   "version": "0.0.36",
   "name": "@tbarous/ui-library",
   "description": "description",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
   "author": {
     "name": "Tasos Barous",
     "email": "tasosbarous@gmail.com"
@@ -17,10 +15,9 @@
   },
   "scripts": {
     "build": "tsc",
+    "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "start": "start-storybook -p 8080",
-    "test": "jest"
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "react": "17.0.2",
@@ -29,9 +26,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.1.1",
-    "@rollup/plugin-typescript": "^8.3.0",
+    "@babel/eslint-parser": "^7.16.5",
     "@storybook/addon-actions": "^6.4.9",
     "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addon-links": "^6.4.9",
@@ -46,16 +41,18 @@
     "@types/react": "17.0.37",
     "@types/react-dom": "17.0.11",
     "@types/styled-components": "5.1.18",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.3",
     "babel-plugin-styled-components": "2.0.2",
     "babel-preset-react-app": "^10.0.1",
-    "eslint": "8.5.0",
+    "eslint": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.5.5",
     "jest": "^27.4.5",
-    "rollup": "^2.62.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss": "^4.0.2",
-    "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^27.1.2",
     "typescript": "4.5.4"
   },
