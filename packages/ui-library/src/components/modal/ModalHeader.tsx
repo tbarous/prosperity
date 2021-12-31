@@ -1,4 +1,4 @@
-import React, {ReactNode} from "react";
+import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import ModalHeaderStyled from "@components/modal/styled/ModalHeaderStyled";
 

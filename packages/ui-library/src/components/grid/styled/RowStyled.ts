@@ -1,15 +1,15 @@
 import styled from "styled-components";
-import Theme from "@theme/interfaces";
 import {calculateMargin} from "@components/grid/utils/RowUtils";
+import {StyledProps} from "@typings";
 
-interface Props {
+interface Props extends StyledProps{
     fluid?: boolean,
-    theme: Theme,
     gutter?: number
 }
 
 const RowStyled = styled.div<Props>`
   ${(props: Props) => calculateMargin(props.gutter)};
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;

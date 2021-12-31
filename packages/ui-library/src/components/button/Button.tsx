@@ -15,15 +15,8 @@ export interface Props extends BasicComponentProps {
 const Button: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
     const {children} = props;
 
-    const enhancedProps = {
-        ...props,
-        variation: props.variation || VariationEnum.PRIMARY,
-        size: props.size || SizeEnum.MEDIUM,
-        type: props.type || TypeEnum.BUTTON,
-    }
-
     return (
-        <ButtonStyled {...enhancedProps}>
+        <ButtonStyled {...props}>
             {children}
         </ButtonStyled>
     );

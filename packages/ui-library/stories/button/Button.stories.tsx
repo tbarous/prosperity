@@ -1,5 +1,5 @@
 import React from 'react';
-import {StorybookButtonWrapper, StorybookWrapperStyled} from "../StorybookWrapper";
+import {StorybookButtonWrapper, StorybookWrapperStyled} from "@stories/GenericComponents";
 import Button, {Props} from "@components/button/Button";
 import VariationEnum from "@components/button/enums/VariationEnum";
 import SizeEnum from "@components/button/enums/SizeEnum";

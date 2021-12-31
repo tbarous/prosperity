@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import Theme from "@theme/interfaces";
+import {StyledProps} from "@typings";
 
-interface Props {
-    theme: Theme,
+interface Props extends StyledProps {
     width: number,
     height: number
 }
 
-const IconStyled = styled.div`
+const IconStyled = styled.div<Props>`
   width: ${(props: Props) => `${props.width}px`};
   height: ${(props: Props) => `${props.height}px`};
 

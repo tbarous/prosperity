@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components";
+import {createGlobalStyle, GlobalStyleComponent} from "styled-components";
 
 const defaultGlobalStyle = `
     * {
@@ -8,10 +8,10 @@ const defaultGlobalStyle = `
     }
 `;
 
-export function extendGlobalStyle(extra?: string) {
+export function extendGlobalStyle(extra?: string): GlobalStyleComponent<any, any> {
     if (!extra) return createGlobalStyle`${defaultGlobalStyle}`;
 
-    return createGlobalStyle`${defaultGlobalStyle} ${extra}`
+    return createGlobalStyle`${defaultGlobalStyle} ${extra}`;
 }
 
 export default extendGlobalStyle;

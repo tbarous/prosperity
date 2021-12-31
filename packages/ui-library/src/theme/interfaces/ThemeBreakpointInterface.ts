@@ -1,4 +1,4 @@
-interface IBreakpoint {
+interface ThemeBreakpointInterface {
     xs: string,
     sm: string,
     md: string,
@@ -7,4 +7,4 @@ interface IBreakpoint {
     xxl: string
 }
 
-export default IBreakpoint;
+export default ThemeBreakpointInterface;

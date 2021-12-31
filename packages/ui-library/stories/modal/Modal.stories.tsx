@@ -4,7 +4,7 @@ import {
     StorybookButtonWrapper,
     StorybookColContent,
     StorybookWrapperStyled
-} from "../StorybookWrapper";
+} from "@stories/GenericComponents";
 import Modal from "@components/modal/Modal";
 import Col from "@components/grid/Col";
 import Container from "@components/grid/Container";

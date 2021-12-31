@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import Theme from "@theme/interfaces";
+import {StyledProps} from "@typings";
 
-interface Props {
-    theme: Theme
+interface Props extends StyledProps {
+
 }
 
 const ModalBodyStyled = styled.div<Props>`
   font-size: ${(props: Props) => props.theme.font.size.md};
-  width: ${(props: Props) => props.theme.spacing.width.full};
+  width: ${(props: Props) => props.theme.dimension.d100};
   overflow-y: auto;
   height: 70%;
   box-sizing: border-box;

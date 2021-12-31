@@ -1,17 +1,15 @@
 import styled from "styled-components";
-import Theme from "@theme/interfaces";
 import {calculateContainerPadding, calculateContainerWidth} from "@components/grid/utils/ContainerUtils";
 import FluidMediaEnum from "@components/grid/enums/FluidMediaEnum";
+import {StyledProps} from "@typings";
 
-interface Props {
-    fluid?: boolean,
-    theme: Theme
+interface Props extends StyledProps{
+    fluid?: boolean
 }
 
 const ContainerStyled = styled.div<Props>`
-  margin-right: auto;
-  margin-left: auto;
-  width: auto;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
   ${(props: Props) => calculateContainerWidth(props.theme.breakpoint.md, FluidMediaEnum.MD, props.fluid)};
   ${(props: Props) => calculateContainerWidth(props.theme.breakpoint.lg, FluidMediaEnum.LG, props.fluid)};

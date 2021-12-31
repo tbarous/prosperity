@@ -1,6 +1,6 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import RowStyled from "./styled/RowStyled";
+import RowStyled from "@components/grid/styled/RowStyled";
 
 interface Props extends BasicComponentProps {
     gutter?: number

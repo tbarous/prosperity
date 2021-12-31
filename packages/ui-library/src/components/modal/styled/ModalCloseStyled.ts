@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Icon from "@components/icon/Icon";
-import Theme from "@theme/interfaces";
+import {StyledProps} from "@typings";
 
-interface Props {
-    theme: Theme
+interface Props extends StyledProps {
+
 }
 
 const ModalCloseStyled = styled(Icon)<Props>`

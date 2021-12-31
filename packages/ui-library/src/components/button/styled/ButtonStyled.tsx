@@ -1,34 +1,31 @@
 import styled from "styled-components";
-import Theme from "@theme/interfaces";
 import VariationEnum from "@components/button/enums/VariationEnum";
 import SizeEnum from "@components/button/enums/SizeEnum";
-import {applySize} from "@components/button/utils/SizeUtils";
-import {applyVariation} from "@components/button/utils/VariationUtils";
+import {ButtonBackgroundColor, ButtonPadding, ButtonColor} from "@components/button/styled/ButtonStyledUtils";
+import {StyledProps} from "@typings";
 
-interface Props {
-    theme: Theme,
-    variation: VariationEnum,
-    size: SizeEnum
+export interface ButtonStyledProps extends StyledProps {
+    variation?: VariationEnum,
+    size?: SizeEnum
 }
 
-const ButtonStyled = styled.button<Props>`
-  ${(props: Props) => applySize(props.size, props.theme)}
-  ${(props: Props) => applyVariation(props.variation, props.theme)}
-  border-radius: ${(props: Props) => props.theme.border.radius.primary};
-  font-family: ${(props: Props) => props.theme.font.family.primary};
-  box-shadow: ${(props: Props) => props.theme.shadow.primary};
-  
-  width: 100%;
-  height: 100%;
+const ButtonStyled = styled.button<ButtonStyledProps>`
+  padding: ${ButtonPadding};
+  background-color: ${ButtonBackgroundColor};
+  color: ${ButtonColor};
+  border-radius: ${(props: ButtonStyledProps) => props.theme.border.radius.primary};
+  font-family: ${(props: ButtonStyledProps) => props.theme.font.family.primary};
+  box-shadow: ${(props: ButtonStyledProps) => props.theme.shadow.primary};
+  font-size: ${(props: ButtonStyledProps) => props.theme.font.size.md};
+  font-weight: ${(props: ButtonStyledProps) => props.theme.font.weight.bold};
+  width: ${(props: ButtonStyledProps) => props.theme.dimension.d100};
+  height: ${(props: ButtonStyledProps) => props.theme.dimension.d100};
+  letter-spacing: ${(props: ButtonStyledProps) => props.theme.font.letterSpacing.small};
   cursor: pointer;
   border: none;
-  color: white;
-  letter-spacing: 1px;
-  font-size: 14px;
-  font-weight: bold;
 
   &:hover {
-    box-shadow: ${(props: Props) => props.theme.shadow.secondary};
+    box-shadow: ${(props: ButtonStyledProps) => props.theme.shadow.secondary};
   }
 
   &:focus {

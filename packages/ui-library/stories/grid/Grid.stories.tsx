@@ -1,5 +1,5 @@
 import React from 'react';
-import {StorybookColContent, StorybookWrapperStyled} from "../StorybookWrapper";
+import {StorybookColContent, StorybookWrapperStyled} from "@stories/GenericComponents";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
@@ -24,23 +24,23 @@ const GridTemplate = (args: any) => {
         <StorybookWrapperStyled>
             <Container fluid={fluid}>
                 <Row>
-                    <Col xs={8}>
-                        <StorybookColContent>
+                    <Col>
+                        <StorybookColContent bold>
                             8/12
                         </StorybookColContent>
                     </Col>
 
-                    <Col xs={1}>
+                    <Col>
                         <StorybookColContent>1/12</StorybookColContent>
                     </Col>
 
-                    <Col xs={1}>
+                    <Col>
                         <StorybookColContent>
                             1/12
                         </StorybookColContent>
                     </Col>
 
-                    <Col xs={2}>
+                    <Col>
                         <StorybookColContent>
                             2/12
                         </StorybookColContent>

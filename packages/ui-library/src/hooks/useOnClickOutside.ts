@@ -1,6 +1,6 @@
 import React, {useEffect, useLayoutEffect, useState} from "react";
 
-function useOnClickOutside(ref: any, callback?: () => void) {
+function useOnClickOutside(ref: any, callback?: () => void): void {
     useEffect(() => {
         const listener = (event: MouseEvent | TouchEvent) => {
             if (!callback || !ref.current || ref.current.contains(event.target)) return;

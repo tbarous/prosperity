@@ -1,4 +1,4 @@
-import React, {ReactNode, useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 import ModalOverlayStyled from "@components/modal/styled/ModalOverlayStyled";

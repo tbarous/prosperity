@@ -1,8 +1,7 @@
 import styled from "styled-components";
-import Theme from "@theme/interfaces";
+import {StyledProps} from "@typings";
 
-interface Props {
-    theme: Theme
+interface Props extends StyledProps {
 }
 
 const ModalFooterStyled = styled.div`
@@ -10,8 +9,8 @@ const ModalFooterStyled = styled.div`
   border-bottom-left-radius: ${(props: Props) => props.theme.border.radius.primary};
   border-bottom-right-radius: ${(props: Props) => props.theme.border.radius.primary};
   font-size: ${(props: Props) => props.theme.font.size.md};
-  padding: ${(props: Props) => props.theme.spacing.padding.sm} ${(props: Props) => props.theme.spacing.padding.lg};
-  width: ${(props: Props) => props.theme.spacing.width.full};
+  padding: ${(props: Props) => props.theme.spacing.s3} ${(props: Props) => props.theme.spacing.s5};
+  width: ${(props: Props) => props.theme.dimension.d100};
   position: absolute;
   bottom: 0;
   height: 20%;

@@ -3,7 +3,11 @@ import {up} from "@theme/utils/Media";
 const calculateContainerWidth = (breakpoint: string, width: string, isFluid?: boolean) => {
     if (isFluid) return;
 
-    return up(breakpoint, `max-width: ${width};`)
+    return up(breakpoint, `
+        max-width: ${width};
+        margin-right: auto;
+        margin-left: auto;
+    `)
 }
 
 const calculateContainerPadding = (gutter?: number) => {
