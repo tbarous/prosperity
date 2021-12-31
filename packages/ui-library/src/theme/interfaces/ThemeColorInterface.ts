@@ -2,7 +2,10 @@ interface ThemeColorInterface {
     primary: string
     secondary: string,
     white: string,
-    dark: string
+    dark: string,
+    warning: string,
+    success: string,
+    danger: string
 }
 
 export default ThemeColorInterface;
