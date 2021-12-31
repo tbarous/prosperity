@@ -2,8 +2,27 @@
 
 ## Components
 
-Grid System:
+### Grid System:
 
- - Container
- - Row
- - Col
+- Container
+- Row
+- Col
+
+### Modal
+
+- Modal Header
+- Modal Body
+- Modal Footer
+
+### Card
+
+- Card
+
+### Button
+
+- Primary
+- Secondary
+
+### Link
+
+- Link
