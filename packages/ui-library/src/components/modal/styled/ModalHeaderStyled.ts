@@ -1,18 +1,28 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
+import {
+    ModalHeaderBorderBottomLeftRadius,
+    ModalHeaderBorderTopLeftRadius,
+    ModalHeaderBoxShadow,
+    ModalHeaderBoxSizing,
+    ModalHeaderFontFamily,
+    ModalHeaderFontSize,
+    ModalHeaderHeight,
+    ModalHeaderWidth
+} from "@components/modal/styled/ModalHeaderStyledGetters";
 
-interface Props extends StyledProps {
+export interface ModalHeaderStyledProps extends StyledProps {
 }
 
-const ModalHeaderStyled = styled.div`
-  border-top-left-radius: ${(props: Props) => props.theme.border.radius.primary};
-  border-top-right-radius: ${(props: Props) => props.theme.border.radius.primary};
-  box-shadow: ${(props: Props) => props.theme.shadow.primary};
-  font-size: ${(props: Props) => props.theme.font.size.lg};
-  width: ${(props: Props) => props.theme.dimension.d100};
-  font-family: ${(props: Props) => props.theme.font.family.secondary};
-  height: 10%;
-  box-sizing: border-box;
+const ModalHeaderStyled = styled.div<ModalHeaderStyledProps>`
+  border-top-left-radius: ${ModalHeaderBorderBottomLeftRadius};
+  border-top-right-radius: ${ModalHeaderBorderTopLeftRadius};
+  box-shadow: ${ModalHeaderBoxShadow};
+  font-size: ${ModalHeaderFontSize};
+  width: ${ModalHeaderWidth};
+  font-family: ${ModalHeaderFontFamily};
+  height: ${ModalHeaderHeight};
+  box-sizing: ${ModalHeaderBoxSizing};
 `;
 
 export default ModalHeaderStyled;

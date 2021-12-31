@@ -1,16 +1,8 @@
+import {ModalContentStyledProps} from "@components/modal/styled/ModalContentStyled";
 
-
-const animationDuration: string = ".4s";
-
-background: ${(props: Props) => props.theme.color.white};
-  border-radius: ${(props: Props) => props.theme.border.radius.primary};
-  box-shadow: ${(props: Props) => props.theme.shadow.primary};
-  width: ${(props: Props) => props.theme.dimension.d100};
-  animation: ${(props: Props) => !props.unmounting ? css`${openModalAnimation} ${animationDuration}` : css`${closeModalAnimation} ${animationDuration}`};
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  height: 80%;
-
-  ${props => up(props.theme.breakpoint.md, `
-    width: 500px;
-  `)};
+export const ModalContentBackgroundColor = (props: ModalContentStyledProps) => props.theme.color.white;
+export const ModalContentBorderRadius = (props: ModalContentStyledProps) => props.theme.borderRadius.medium;
+export const ModalContentBoxShadow = (props: ModalContentStyledProps) => props.theme.shadow.primary;
+export const ModalContentWidth = (props: ModalContentStyledProps) => props.theme.dimension.d100;
+export const ModalContentHeight = (props: ModalContentStyledProps) => props.theme.dimension.d80;
+export const ModalContentWidthMd =  (props: ModalContentStyledProps) => `500px`;

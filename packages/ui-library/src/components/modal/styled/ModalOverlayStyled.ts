@@ -1,15 +1,26 @@
 import styled from "styled-components";
+import {StyledProps} from "@typings";
+import {
+    ModalOverlayBackgroundColor,
+    ModalOverlayDisplay,
+    ModalOverlayHeight,
+    ModalOverlayPosition,
+    ModalOverlayWidth
+} from "@components/modal/styled/ModalOverlayStyledGetters";
+
+export interface ModalOverlayStyledProps extends StyledProps {
+}
 
 const ModalOverlayStyled = styled.div`
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
+  background: ${ModalOverlayBackgroundColor};
+  display: ${ModalOverlayDisplay};
+  position: ${ModalOverlayPosition};
+  width: ${ModalOverlayWidth};
+  height: ${ModalOverlayHeight};
   align-items: center;
   justify-content: center;
-  position: fixed;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
 `;
 
 export default ModalOverlayStyled;
