@@ -16,6 +16,10 @@ import ThemePositionInterface from "@theme/interfaces/ThemePositionInterface";
 import ThemeObjectFitInterface from "@theme/interfaces/ThemeObjectFitInterface";
 import ThemeTextDecoration from "@theme/light/ThemeTextDecoration";
 import ThemeTextDecorationInterface from "@theme/interfaces/ThemeTextDecorationInterface";
+import ThemeFlexGrowInterface from "@theme/interfaces/ThemeFlexGrowInterface";
+import ThemeFlexWrapInterface from "@theme/interfaces/ThemeFlexWrapInterface";
+import ThemeAlignItemsInterface from "@theme/interfaces/ThemeAlignItemsInterface";
+import ThemeOverflowInterface from "@theme/interfaces/ThemeOverflowInterface";
 
 interface ThemeInterface {
     breakpoint: ThemeBreakpointInterface,
@@ -34,7 +38,11 @@ interface ThemeInterface {
     display: ThemeDisplayInterface,
     position: ThemePositionInterface,
     objectFit: ThemeObjectFitInterface,
-    textDecoration: ThemeTextDecorationInterface
+    textDecoration: ThemeTextDecorationInterface,
+    flexGrow: ThemeFlexGrowInterface,
+    flexWrap: ThemeFlexWrapInterface,
+    alignItems: ThemeAlignItemsInterface,
+    overflow: ThemeOverflowInterface
 }
 
 export default ThemeInterface;

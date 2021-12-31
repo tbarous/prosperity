@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {
+    NavbarAlignItems,
     NavbarBackgroundColor,
     NavbarBoxShadow,
     NavbarDisplay,
@@ -15,7 +16,7 @@ const NavbarStyled = styled.div<NavbarStyledProps>`
   background: ${NavbarBackgroundColor};
   display: ${NavbarDisplay};
   box-shadow: ${NavbarBoxShadow};
-  align-items: center;
+  align-items: ${NavbarAlignItems};
   height: 60px;
   z-index: 11;
 `;

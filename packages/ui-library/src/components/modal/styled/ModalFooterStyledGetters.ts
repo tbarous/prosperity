@@ -9,3 +9,5 @@ export const ModalFooterWidth = (props: ModalFooterStyledProps) => props.theme.d
 export const ModalFooterPosition = (props: ModalFooterStyledProps) => props.theme.position.absolute;
 export const ModalFooterHeight = (props: ModalFooterStyledProps) => props.theme.dimension.d20;
 export const ModalFooterBoxSizing = (props: ModalFooterStyledProps) => props.theme.boxSizing.borderBox;
+export const ModalFooterBottom = (props: ModalFooterStyledProps) => props.theme.spacing.s0;
+export const ModalFooterOverflowY = (props: ModalFooterStyledProps) => props.theme.overflow.auto;

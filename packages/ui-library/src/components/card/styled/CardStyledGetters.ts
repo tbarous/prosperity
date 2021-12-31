@@ -1,5 +1,6 @@
 import {StyledProps} from "@typings";
 
+// Styles
 export const CardBoxShadow = (props: StyledProps) => props.theme.shadow.primary;
 export const CardBackgroundColor = (props: StyledProps) => props.theme.color.white;
 export const CardBorderRadius = (props: StyledProps) => props.theme.borderRadius.medium;

@@ -7,3 +7,6 @@ export const ModalCloseBackgroundColor = (props: ModalCloseStyledProps) => props
 export const ModalCloseColor = (props: ModalCloseStyledProps) => props.theme.color.white;
 export const ModalClosePadding = (props: ModalCloseStyledProps) => props.theme.spacing.s2;
 export const ModalCloseDisplay = (props: ModalCloseStyledProps) => props.theme.display.flex;
+export const ModalCloseTop = (props: ModalCloseStyledProps) => props.theme.spacing.s4;
+export const ModalCloseRight = (props: ModalCloseStyledProps) => props.theme.spacing.s4;
+export const ModalCloseAlignItems = (props: ModalCloseStyledProps) => props.theme.alignItems.center;

@@ -3,7 +3,6 @@ import {StyledProps} from "@typings";
 import {ImageHeight, ImageObjectFit, ImageWidth} from "@components/image/styled/ImageStyledGetters";
 
 export interface ImageStyledProps extends StyledProps {
-
 }
 
 const ImageStyled = styled.img<ImageStyledProps>`

@@ -16,20 +16,8 @@ export default {
 
 const DefaultButtonTemplate = (args: BasicComponentProps) => (
     <StorybookWrapperStyled>
-        <Container>
+        <Container fluid>
             <Row gutter={14}>
-                <Col xs={4}>
-                    <CardStyled {...args}>
-                        {args.children}
-                    </CardStyled>
-                </Col>
-
-                <Col xs={4}>
-                    <CardStyled {...args}>
-                        {args.children}
-                    </CardStyled>
-                </Col>
-
                 <Col xs={4}>
                     <CardStyled {...args}>
                         {args.children}

@@ -4,6 +4,8 @@ import Media from "@theme/utils/Media";
 import {
     ContainerBoxSizing,
     ContainerHeight,
+    ContainerPaddingLeft,
+    ContainerPaddingRight,
     ContainerWidth,
     GetMargin,
     GetMaxWidth,
@@ -23,6 +25,8 @@ const ContainerStyled = styled.div<ContainerStyledProps>`
   width: ${ContainerWidth};
   height: ${ContainerHeight};
   box-sizing: ${ContainerBoxSizing};
+  padding-right: ${ContainerPaddingRight};
+  padding-left: ${ContainerPaddingLeft};
 
   ${props => Media.up(props.theme.breakpoint.md, css`
     max-width: ${GetMaxWidth(props, ContainerMaxWidthEnum.Medium)};

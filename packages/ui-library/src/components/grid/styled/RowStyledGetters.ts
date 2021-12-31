@@ -5,3 +5,4 @@ export const RowMarginRight = (props: RowStyledProps) => `-${!props.gutter ? 15 
 export const RowHeight = (props: RowStyledProps) => props.theme.dimension.d100;
 export const RowBoxSizing = (props: RowStyledProps) => props.theme.boxSizing.borderBox;
 export const RowDisplay = (props: RowStyledProps) => props.theme.display.flex;
+export const RowFlexWrap = (props: RowStyledProps) => props.theme.flexWrap.wrap;

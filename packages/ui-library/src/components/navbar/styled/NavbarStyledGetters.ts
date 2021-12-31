@@ -4,3 +4,4 @@ export const NavbarWidth = (props: NavbarStyledProps) => props.theme.dimension.d
 export const NavbarBackgroundColor = (props: NavbarStyledProps) => props.theme.color.white;
 export const NavbarDisplay = (props: NavbarStyledProps) => props.theme.display.flex;
 export const NavbarBoxShadow = (props: NavbarStyledProps) => props.theme.shadow.primary;
+export const NavbarAlignItems = (props: NavbarStyledProps) => props.theme.alignItems.center;

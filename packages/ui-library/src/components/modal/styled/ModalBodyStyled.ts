@@ -4,11 +4,11 @@ import {
     ModalBodyBoxSizing,
     ModalBodyFontSize,
     ModalBodyHeight,
+    ModalBodyOverflowY,
     ModalBodyWidth
 } from "@components/modal/styled/ModalBodyStyledGetters";
 
 export interface ModalBodyStyledProps extends StyledProps {
-
 }
 
 const ModalBodyStyled = styled.div<ModalBodyStyledProps>`
@@ -16,7 +16,7 @@ const ModalBodyStyled = styled.div<ModalBodyStyledProps>`
   width: ${ModalBodyWidth};
   height: ${ModalBodyHeight};
   box-sizing: ${ModalBodyBoxSizing};
-  overflow-y: auto;
+  overflow-y: ${ModalBodyOverflowY};
 `;
 
 export default ModalBodyStyled;

@@ -3,6 +3,7 @@ import {StyledProps} from "@typings";
 import {
     RowBoxSizing,
     RowDisplay,
+    RowFlexWrap,
     RowHeight,
     RowMarginLeft,
     RowMarginRight
@@ -19,7 +20,7 @@ const RowStyled = styled.div<RowStyledProps>`
   height: ${RowHeight};
   box-sizing: ${RowBoxSizing};
   display: ${RowDisplay};
-  flex-wrap: wrap;
+  flex-wrap: ${RowFlexWrap};
 `;
 
 export default RowStyled;

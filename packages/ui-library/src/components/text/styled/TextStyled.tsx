@@ -8,7 +8,7 @@ export interface TextStyledProps extends StyledProps {
 
 const TextStyled = styled.div<TextStyledProps>`
   font-size: ${TextFontSize};
-  color: ${(TextColor};
+  color: ${TextColor};
   font-weight: ${TextFontWeight};
 `;
 

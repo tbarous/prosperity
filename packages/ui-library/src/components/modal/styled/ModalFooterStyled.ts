@@ -2,11 +2,11 @@ import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {
     ModalFooterBorderBottomLeftRadius,
-    ModalFooterBorderBottomRightRadius,
+    ModalFooterBorderBottomRightRadius, ModalFooterBottom,
     ModalFooterBoxShadow,
     ModalFooterBoxSizing,
     ModalFooterFontSize,
-    ModalFooterHeight,
+    ModalFooterHeight, ModalFooterOverflowY,
     ModalFooterPadding,
     ModalFooterPosition,
     ModalFooterWidth
@@ -25,8 +25,8 @@ const ModalFooterStyled = styled.div`
   position: ${ModalFooterPosition};
   box-sizing: ${ModalFooterBoxSizing};
   height: ${ModalFooterHeight};
-  bottom: 0;
-  overflow-y: auto;
+  bottom: ${ModalFooterBottom};
+  overflow-y: ${ModalFooterOverflowY};
 `;
 
 export default ModalFooterStyled;

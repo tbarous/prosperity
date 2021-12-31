@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {
+    ModalOverlayAlignItems,
     ModalOverlayBackgroundColor,
     ModalOverlayDisplay,
-    ModalOverlayHeight,
-    ModalOverlayPosition,
+    ModalOverlayHeight, ModalOverlayLeft,
+    ModalOverlayPosition, ModalOverlayTop,
     ModalOverlayWidth
 } from "@components/modal/styled/ModalOverlayStyledGetters";
 
@@ -17,10 +18,10 @@ const ModalOverlayStyled = styled.div`
   position: ${ModalOverlayPosition};
   width: ${ModalOverlayWidth};
   height: ${ModalOverlayHeight};
-  align-items: center;
+  align-items: ${ModalOverlayAlignItems};
+  left: ${ModalOverlayLeft};
+  top: ${ModalOverlayTop};
   justify-content: center;
-  left: 0;
-  top: 0;
 `;
 
 export default ModalOverlayStyled;

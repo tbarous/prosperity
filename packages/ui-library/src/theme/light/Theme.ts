@@ -16,6 +16,10 @@ import ThemeDisplay from "@theme/light/ThemeDisplay";
 import ThemePosition from "@theme/light/ThemePosition";
 import ThemeObjectFit from "@theme/light/ThemeObjectFit";
 import ThemeTextDecoration from "@theme/light/ThemeTextDecoration";
+import ThemeFlexGrow from "@theme/light/ThemeFlexGrow";
+import ThemeFlexWrap from "@theme/light/ThemeFlexWrap";
+import ThemeAlignItems from "@theme/light/ThemeAlignItems";
+import ThemeOverflow from "@theme/light/ThemeOverflow";
 
 const Light: ThemeInterface = {
     breakpoint: ThemeBreakpoint,
@@ -34,7 +38,11 @@ const Light: ThemeInterface = {
     display: ThemeDisplay,
     position: ThemePosition,
     objectFit: ThemeObjectFit,
-    textDecoration: ThemeTextDecoration
+    textDecoration: ThemeTextDecoration,
+    flexGrow: ThemeFlexGrow,
+    flexWrap: ThemeFlexWrap,
+    alignItems: ThemeAlignItems,
+    overflow: ThemeOverflow
 }
 
 export default Light;

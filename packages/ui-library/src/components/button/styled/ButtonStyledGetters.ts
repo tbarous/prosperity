@@ -2,6 +2,7 @@ import VariationEnum from "@components/button/enums/VariationEnum";
 import {ButtonStyledProps} from "@components/button/styled/ButtonStyled";
 import SizeEnum from "@components/button/enums/SizeEnum";
 
+// Helpers
 export function ButtonBackgroundColor(props: ButtonStyledProps) {
     const color = props.theme.color;
     const variation = props.variation;
@@ -45,6 +46,7 @@ export function ButtonPadding(props: ButtonStyledProps) {
     return mapping[size];
 }
 
+// Styles
 export const ButtonLetterSpacing = (props: ButtonStyledProps) => props.theme.fontLetterSpacing.small;
 export const ButtonHeight = (props: ButtonStyledProps) => props.theme.dimension.d100;
 export const ButtonWidth = (props: ButtonStyledProps) => props.theme.dimension.d100;
@@ -55,15 +57,7 @@ export const ButtonFontFamily = (props: ButtonStyledProps) => props.theme.fontFa
 export const ButtonBorderRadius = (props: ButtonStyledProps) => props.theme.borderRadius.medium;
 export const ButtonBorder = (props: ButtonStyledProps) => props.theme.border.none;
 export const ButtonCursor = (props: ButtonStyledProps) => props.theme.cursor.pointer;
-
-// Hover
 export const ButtonHoveredShadow = (props: ButtonStyledProps) => props.theme.shadow.secondary;
-
-// Focus
 export const ButtonFocusedFocusFilter = (props: ButtonStyledProps) => "brightness(110%)";
-
-// Active
 export const ButtonActiveFocusFilter = (props: ButtonStyledProps) => "brightness(110%)";
-
-// Visited
 export const ButtonVisitedFocusFilter = (props: ButtonStyledProps) => "brightness(110%)";

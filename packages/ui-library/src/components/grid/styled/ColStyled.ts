@@ -4,9 +4,11 @@ import Media from "@theme/utils/Media";
 import {
     ColBoxSizing,
     ColDisplay,
+    ColFlexGrow,
     ColPaddingLeft,
     ColPaddingRight,
-    ColPosition, GetWidth,
+    ColPosition,
+    GetWidth,
 } from "@components/grid/styled/ColStyledGetters";
 
 export interface ColStyledProps extends StyledProps {
@@ -20,7 +22,7 @@ export interface ColStyledProps extends StyledProps {
 }
 
 const ColStyled = styled.div<ColStyledProps>`
-  flex-grow: 1;
+  flex-grow: ${ColFlexGrow};
   position: ${ColPosition};
   display: ${ColDisplay};
   box-sizing: ${ColBoxSizing};

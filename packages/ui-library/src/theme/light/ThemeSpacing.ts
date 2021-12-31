@@ -3,6 +3,7 @@ import ThemeSpacingInterface from "@theme/interfaces/ThemeSpacingInterface";
 const base: number = 1;
 
 const ThemeSpacing: ThemeSpacingInterface = {
+    s0: `0`,
     s1: `${base * 0.125}rem`,
     s2: `${base * 0.25}rem`,
     s3: `${base * 0.5}rem`,

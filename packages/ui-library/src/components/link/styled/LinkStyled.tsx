@@ -5,11 +5,11 @@ import {
     LinkDisplay,
     LinkFontSize,
     LinkFontWeight,
-    LinkHoveredColor, LinkTextDecoration
+    LinkHoveredColor,
+    LinkTextDecoration
 } from "@components/link/styled/LInkStyledGetters";
 
 export interface LinkStyledProps extends StyledProps {
-
 }
 
 const LinkStyled = styled.a<LinkStyledProps>`
