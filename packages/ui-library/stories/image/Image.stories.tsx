@@ -20,6 +20,6 @@ export const Default: any = DefaultButtonTemplate.bind({});
 Default.args = {
     src: "/img.jpg",
     alt: "img",
-    width: "100",
-    height: "100"
+    width: "300",
+    height: "300"
 };

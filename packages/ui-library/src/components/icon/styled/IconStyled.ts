@@ -1,18 +1,19 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
+import {IconHeight, IconSvgHeight, IconSvgWidth, IconWidth} from "@components/icon/styled/IconStyledGetters";
 
-interface Props extends StyledProps {
+export interface IconStyledProps extends StyledProps {
     width: number,
     height: number
 }
 
-const IconStyled = styled.div<Props>`
-  width: ${(props: Props) => `${props.width}px`};
-  height: ${(props: Props) => `${props.height}px`};
+const IconStyled = styled.div<IconStyledProps>`
+  width: ${IconWidth};
+  height: ${IconHeight};
 
   svg {
-    width: 100%;
-    height: 100%;
+    width: ${IconSvgWidth};
+    height: ${IconSvgHeight};
   }
 `;
 

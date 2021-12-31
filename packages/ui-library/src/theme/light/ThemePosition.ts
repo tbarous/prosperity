@@ -1,7 +1,8 @@
 import ThemePositionInterface from "@theme/interfaces/ThemePositionInterface";
 
 const ThemePosition: ThemePositionInterface = {
-    relative: "relative"
+    relative: "relative",
+    fixed: "fixed"
 }
 
 export default ThemePosition;

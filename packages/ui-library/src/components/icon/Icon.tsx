@@ -1,10 +1,10 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import IconStyled from "./styled/IconStyled";
-import {IIcon} from "@components/icon/Icons";
+import {IconInterface} from "@components/icon/Icons";
 
 interface Props extends BasicComponentProps {
-    icon: IIcon,
+    icon: IconInterface,
     width?: number,
     height?: number,
     onClick?: () => void

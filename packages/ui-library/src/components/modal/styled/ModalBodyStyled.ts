@@ -1,16 +1,22 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
+import {
+    ModalBodyBoxSizing,
+    ModalBodyFontSize,
+    ModalBodyHeight,
+    ModalBodyWidth
+} from "@components/modal/styled/ModalBodyStyledGetters";
 
-interface Props extends StyledProps {
+export interface ModalBodyStyledProps extends StyledProps {
 
 }
 
-const ModalBodyStyled = styled.div<Props>`
-  font-size: ${(props: Props) => props.theme.font.size.md};
-  width: ${(props: Props) => props.theme.dimension.d100};
+const ModalBodyStyled = styled.div<ModalBodyStyledProps>`
+  font-size: ${ModalBodyFontSize};
+  width: ${ModalBodyWidth};
+  height: ${ModalBodyHeight};
+  box-sizing: ${ModalBodyBoxSizing};
   overflow-y: auto;
-  height: 70%;
-  box-sizing: border-box;
 `;
 
 export default ModalBodyStyled;

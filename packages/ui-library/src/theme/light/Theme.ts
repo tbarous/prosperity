@@ -5,15 +5,17 @@ import ThemeColor from "@theme/light/ThemeColor";
 import ThemeSpacing from "@theme/light/ThemeSpacing";
 import ThemeShadow from "@theme/light/ThemeShadow";
 import ThemeDimension from "@theme/light/ThemeDimension";
-import ThemeFontSize from "@theme/light/ThemeFontSizeInterface";
-import ThemeFontFamily from "@theme/light/ThemeFontFamilyInterface";
-import ThemeFontWeight from "@theme/light/ThemeFontWeightInterface";
-import ThemeFontLetterSpacing from "@theme/light/ThemeFontLetterSpacingInterface";
+import ThemeFontSize from "@theme/light/ThemeFontSize";
+import ThemeFontFamily from "@theme/light/ThemeFontFamily";
+import ThemeFontWeight from "@theme/light/ThemeFontWeight";
+import ThemeFontLetterSpacing from "@theme/light/ThemeFontLetterSpacing";
 import ThemeBorderRadius from "@theme/light/ThemeBorderRadius";
 import ThemeCursor from "@theme/light/ThemeCursor";
 import ThemeBoxSizing from "@theme/light/ThemeBoxSizing";
 import ThemeDisplay from "@theme/light/ThemeDisplay";
 import ThemePosition from "@theme/light/ThemePosition";
+import ThemeObjectFit from "@theme/light/ThemeObjectFit";
+import ThemeTextDecoration from "@theme/light/ThemeTextDecoration";
 
 const Light: ThemeInterface = {
     breakpoint: ThemeBreakpoint,
@@ -30,7 +32,9 @@ const Light: ThemeInterface = {
     cursor: ThemeCursor,
     boxSizing: ThemeBoxSizing,
     display: ThemeDisplay,
-    position: ThemePosition
+    position: ThemePosition,
+    objectFit: ThemeObjectFit,
+    textDecoration: ThemeTextDecoration
 }
 
 export default Light;

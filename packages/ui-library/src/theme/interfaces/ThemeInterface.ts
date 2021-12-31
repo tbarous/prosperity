@@ -13,6 +13,9 @@ import ThemeCursorInterface from "@theme/interfaces/ThemeCursorInterface";
 import ThemeBoxSizingInterface from "@theme/interfaces/ThemeBoxSizingInterface";
 import ThemeDisplayInterface from "@theme/interfaces/ThemeDisplayInterface";
 import ThemePositionInterface from "@theme/interfaces/ThemePositionInterface";
+import ThemeObjectFitInterface from "@theme/interfaces/ThemeObjectFitInterface";
+import ThemeTextDecoration from "@theme/light/ThemeTextDecoration";
+import ThemeTextDecorationInterface from "@theme/interfaces/ThemeTextDecorationInterface";
 
 interface ThemeInterface {
     breakpoint: ThemeBreakpointInterface,
@@ -29,7 +32,9 @@ interface ThemeInterface {
     cursor: ThemeCursorInterface,
     boxSizing: ThemeBoxSizingInterface,
     display: ThemeDisplayInterface,
-    position: ThemePositionInterface
+    position: ThemePositionInterface,
+    objectFit: ThemeObjectFitInterface,
+    textDecoration: ThemeTextDecorationInterface
 }
 
 export default ThemeInterface;

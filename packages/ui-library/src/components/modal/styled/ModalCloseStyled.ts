@@ -1,23 +1,28 @@
 import styled from "styled-components";
 import Icon from "@components/icon/Icon";
 import {StyledProps} from "@typings";
+import {
+    ModalCloseBackgroundColor,
+    ModalCloseBorderRadius, ModalCloseColor,
+    ModalCloseCursor, ModalCloseDisplay, ModalClosePadding,
+    ModalClosePosition
+} from "@components/modal/styled/ModalCloseStyledGetters";
 
-interface Props extends StyledProps {
+export interface ModalCloseStyledProps extends StyledProps {
 
 }
 
-const ModalCloseStyled = styled(Icon)<Props>`
-  position: fixed;
+const ModalCloseStyled = styled(Icon)<ModalCloseStyledProps>`
   top: .5rem;
   right: .5rem;
-  cursor: pointer;
-  border-radius: 50%;
-  background: black;
-  color: white;
-  border: 1px solid;
-  padding: .3rem;
-  display: flex;
   align-items: center;
+  position: ${ModalClosePosition};
+  cursor: ${ModalCloseCursor};
+  border-radius: ${ModalCloseBorderRadius};
+  background: ${ModalCloseBackgroundColor};
+  color: ${ModalCloseColor};
+  padding: ${ModalClosePadding};
+  display: ${ModalCloseDisplay};
 `;
 
 export default ModalCloseStyled;

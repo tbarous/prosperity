@@ -1,13 +1,15 @@
 import styled from "styled-components";
+import {StyledProps} from "@typings";
+import {ImageWrapperHeight, ImageWrapperWidth} from "@components/image/styled/ImageWrapperStyledGetters";
 
-interface Props {
+export interface ImageWrapperStyledProps extends StyledProps {
     width?: number,
     height?: number
 }
 
-const ImageWrapperStyled = styled.div<Props>`
-  width: ${(props: Props) => props.width ? `${props.width}px` : `100%`};
-  height: ${(props: Props) => props.height ? `${props.height}px` : `100%`};
+const ImageWrapperStyled = styled.div<ImageWrapperStyledProps>`
+  width: ${ImageWrapperWidth};
+  height: ${ImageWrapperHeight};
 `;
 
 export default ImageWrapperStyled;
