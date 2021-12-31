@@ -1,5 +1,5 @@
 interface ThemeTextDecorationInterface {
-    none: "none"
+    none: string
 }
 
 export default ThemeTextDecorationInterface;

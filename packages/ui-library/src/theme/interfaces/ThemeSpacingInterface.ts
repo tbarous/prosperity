@@ -13,7 +13,7 @@ interface ThemeSpacingInterface {
     s11: string,
     s12: string,
     s13: string,
-    auto: "auto"
+    auto: string
 }
 
 export default ThemeSpacingInterface;

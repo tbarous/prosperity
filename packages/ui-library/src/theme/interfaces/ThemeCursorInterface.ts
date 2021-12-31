@@ -1,5 +1,5 @@
 interface ThemeCursorInterface {
-    pointer: "pointer" | "auto" | "zoom-out"
+    pointer: string
 }
 
 export default ThemeCursorInterface;

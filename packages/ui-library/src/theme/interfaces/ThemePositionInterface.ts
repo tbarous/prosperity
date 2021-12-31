@@ -1,7 +1,7 @@
 interface ThemePositionInterface {
-    relative: "relative",
-    fixed: "fixed",
-    absolute: "absolute"
+    relative: string,
+    fixed: string,
+    absolute: string
 }
 
 export default ThemePositionInterface;

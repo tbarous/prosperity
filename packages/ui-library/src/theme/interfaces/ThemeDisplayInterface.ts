@@ -1,6 +1,6 @@
 interface ThemeDisplayInterface {
-    flex: "flex",
-    block: "block"
+    flex: string,
+    block: string
 }
 
 export default ThemeDisplayInterface;

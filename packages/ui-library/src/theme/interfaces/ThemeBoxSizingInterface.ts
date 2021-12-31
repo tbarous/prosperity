@@ -1,6 +1,6 @@
 interface ThemeBoxSizingInterface {
-    borderBox: "border-box",
-    contentBox: "content-box"
+    borderBox: string,
+    contentBox: string
 }
 
 export default ThemeBoxSizingInterface;

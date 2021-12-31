@@ -1,5 +1,5 @@
 interface ThemeOverflowInterface {
-    auto: "auto"
+    auto: string
 }
 
 export default ThemeOverflowInterface;

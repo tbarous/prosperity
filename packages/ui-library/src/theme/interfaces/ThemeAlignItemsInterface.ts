@@ -1,5 +1,5 @@
 interface ThemeAlignItemsInterface {
-    center: "center"
+    center: string
 }
 
 export default ThemeAlignItemsInterface;

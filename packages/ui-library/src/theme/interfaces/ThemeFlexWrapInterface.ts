@@ -1,5 +1,5 @@
 interface ThemeFlexWrapInterface {
-    wrap: "wrap"
+    wrap: string
 }
 
 export default ThemeFlexWrapInterface
