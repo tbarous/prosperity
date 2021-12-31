@@ -1,8 +1,15 @@
-import styled from "styled-components";
-import {calculateCols, calculateGutter} from "@components/grid/utils/ColUtils";
+import styled, {css} from "styled-components";
 import {StyledProps} from "@typings";
+import Media from "@theme/utils/Media";
+import {
+    ColBoxSizing,
+    ColDisplay,
+    ColPaddingLeft,
+    ColPaddingRight,
+    ColPosition, GetWidth,
+} from "@components/grid/styled/ColStyledGetters";
 
-interface Props extends StyledProps {
+export interface ColStyledProps extends StyledProps {
     xs?: number,
     sm?: number,
     md?: number,
@@ -12,22 +19,38 @@ interface Props extends StyledProps {
     gutter?: number
 }
 
-const ColStyled = styled.div<Props>`
-  //flex: 0 0 auto;
-  //width: 100%;
-  //max-width: 100%;
-  position: relative;
-  display: block;
-  box-sizing: border-box;
+const ColStyled = styled.div<ColStyledProps>`
   flex-grow: 1;
+  position: ${ColPosition};
+  display: ${ColDisplay};
+  box-sizing: ${ColBoxSizing};
+  padding-left: ${ColPaddingLeft};
+  padding-right: ${ColPaddingRight};
 
-  ${(props: Props) => calculateGutter(props.gutter)};
-  ${(props: Props) => calculateCols(props.theme.breakpoint.xs, props.xs, props.gutter)};
-  ${(props: Props) => calculateCols(props.theme.breakpoint.sm, props.sm, props.gutter)};
-  ${(props: Props) => calculateCols(props.theme.breakpoint.md, props.md, props.gutter)};
-  ${(props: Props) => calculateCols(props.theme.breakpoint.lg, props.lg, props.gutter)};
-  ${(props: Props) => calculateCols(props.theme.breakpoint.xl, props.xl, props.gutter)};
-  ${(props: Props) => calculateCols(props.theme.breakpoint.xxl, props.xxl, props.gutter)};
+  ${props => Media.up(props.theme.breakpoint.xs, css`
+    width: ${GetWidth(props.xs)};
+    max-width: ${GetWidth(props.xs)};
+  `)};
+
+  ${props => Media.up(props.theme.breakpoint.sm, css`
+    width: ${GetWidth(props.sm)};
+    max-width: ${GetWidth(props.sm)};
+  `)};
+
+  ${props => Media.up(props.theme.breakpoint.md, css`
+    width: ${GetWidth(props.md)};
+    max-width: ${GetWidth(props.md)};
+  `)};
+
+  ${props => Media.up(props.theme.breakpoint.lg, css`
+    width: ${GetWidth(props.lg)};
+    max-width: ${GetWidth(props.lg)};
+  `)};
+
+  ${props => Media.up(props.theme.breakpoint.xl, css`
+    width: ${GetWidth(props.xl)};
+    max-width: ${GetWidth(props.xl)};
+  `)};
 `;
 
 export default ColStyled;

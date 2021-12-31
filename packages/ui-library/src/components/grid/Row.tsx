@@ -10,9 +10,17 @@ const Row: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull =
     const {children, gutter} = props;
 
     const childrenWithProps = React.Children.map(children, child => {
-        if (React.isValidElement(child) && gutter) return React.cloneElement(child, {gutter});
+        const shouldEnhanceProps = React.isValidElement(child) && gutter;
 
-        return child;
+        if (!shouldEnhanceProps) return child;
+
+        if (gutter % 2 !== 0) {
+            console.error("Gutter must be even.");
+
+            return child;
+        }
+
+        return React.cloneElement(child, {gutter});
     });
 
     return (

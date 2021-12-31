@@ -1,18 +1,25 @@
 import styled from "styled-components";
-import {calculateMargin} from "@components/grid/utils/RowUtils";
 import {StyledProps} from "@typings";
+import {
+    RowBoxSizing,
+    RowDisplay,
+    RowHeight,
+    RowMarginLeft,
+    RowMarginRight
+} from "@components/grid/styled/RowStyledGetters";
 
-interface Props extends StyledProps{
+export interface RowStyledProps extends StyledProps {
     fluid?: boolean,
     gutter?: number
 }
 
-const RowStyled = styled.div<Props>`
-  ${(props: Props) => calculateMargin(props.gutter)};
-  height: 100%;
-  display: flex;
+const RowStyled = styled.div<RowStyledProps>`
+  margin-left: ${RowMarginLeft};
+  margin-right: ${RowMarginRight};
+  height: ${RowHeight};
+  box-sizing: ${RowBoxSizing};
+  display: ${RowDisplay};
   flex-wrap: wrap;
-  box-sizing: border-box;
 `;
 
 export default RowStyled;

@@ -1,20 +1,24 @@
-function up(breakpoint: string, styles: string): string {
-    return `
-        @media screen and (min-width: ${breakpoint}){
-            ${styles}
-        }
+import {css, FlattenSimpleInterpolation} from "styled-components";
+
+function up(breakpoint: string, styles: FlattenSimpleInterpolation): FlattenSimpleInterpolation {
+    return css`
+      @media screen and (min-width: ${breakpoint}) {
+        ${styles}
+      }
     `;
 }
 
-function down(breakpoint: string, styles: string): string {
-    return `
-        @media screen and (max-width: ${breakpoint}){
-            ${styles}
-        }
+function down(breakpoint: string, styles: string): FlattenSimpleInterpolation {
+    return css`
+      @media screen and (max-width: ${breakpoint}) {
+        ${styles}
+      }
     `;
 }
 
-export {
+const Media = {
     up,
     down
 }
+
+export default Media;

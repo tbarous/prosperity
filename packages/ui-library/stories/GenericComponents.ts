@@ -15,7 +15,6 @@ export const StorybookColContent = styled(Text)<TextStyledProps>`
   padding: 1rem;
   text-align: center;
   color: white;
-  border-radius: 8px;
 `;
 
 export const StorybookButtonWrapper = styled.div`

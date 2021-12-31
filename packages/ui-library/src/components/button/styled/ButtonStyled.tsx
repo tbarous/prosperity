@@ -1,8 +1,26 @@
 import styled from "styled-components";
+import {StyledProps} from "@typings";
 import VariationEnum from "@components/button/enums/VariationEnum";
 import SizeEnum from "@components/button/enums/SizeEnum";
-import {ButtonBackgroundColor, ButtonPadding, ButtonColor} from "@components/button/styled/ButtonStyledUtils";
-import {StyledProps} from "@typings";
+import {
+    ButtonBackgroundColor,
+    ButtonPadding,
+    ButtonColor,
+    ButtonBorder,
+    ButtonBorderRadius,
+    ButtonFontFamily,
+    ButtonBoxShadow,
+    ButtonFontSize,
+    ButtonFontWeight,
+    ButtonWidth,
+    ButtonHeight,
+    ButtonLetterSpacing,
+    ButtonCursor,
+    ButtonHoveredShadow,
+    ButtonFocusedFocusFilter,
+    ButtonActiveFocusFilter,
+    ButtonVisitedFocusFilter
+} from "@components/button/styled/ButtonStyledGetters";
 
 export interface ButtonStyledProps extends StyledProps {
     variation?: VariationEnum,
@@ -13,31 +31,31 @@ const ButtonStyled = styled.button<ButtonStyledProps>`
   padding: ${ButtonPadding};
   background-color: ${ButtonBackgroundColor};
   color: ${ButtonColor};
-  border-radius: ${(props: ButtonStyledProps) => props.theme.border.radius.primary};
-  font-family: ${(props: ButtonStyledProps) => props.theme.font.family.primary};
-  box-shadow: ${(props: ButtonStyledProps) => props.theme.shadow.primary};
-  font-size: ${(props: ButtonStyledProps) => props.theme.font.size.md};
-  font-weight: ${(props: ButtonStyledProps) => props.theme.font.weight.bold};
-  width: ${(props: ButtonStyledProps) => props.theme.dimension.d100};
-  height: ${(props: ButtonStyledProps) => props.theme.dimension.d100};
-  letter-spacing: ${(props: ButtonStyledProps) => props.theme.font.letterSpacing.small};
-  cursor: pointer;
-  border: none;
+  border: ${ButtonBorder};
+  border-radius: ${ButtonBorderRadius};
+  font-family: ${ButtonFontFamily};
+  box-shadow: ${ButtonBoxShadow};
+  font-size: ${ButtonFontSize};
+  font-weight: ${ButtonFontWeight};
+  width: ${ButtonWidth};
+  height: ${ButtonHeight};
+  letter-spacing: ${ButtonLetterSpacing};
+  cursor: ${ButtonCursor};
 
   &:hover {
-    box-shadow: ${(props: ButtonStyledProps) => props.theme.shadow.secondary};
+    box-shadow: ${ButtonHoveredShadow};
   }
 
   &:focus {
-    filter: brightness(110%);
+    filter: ${ButtonFocusedFocusFilter};
   }
 
   &:active {
-    filter: brightness(85%);
+    filter: ${ButtonActiveFocusFilter};
   }
 
   &:visited {
-    filter: brightness(110%);
+    filter: ${ButtonVisitedFocusFilter};
   }
 `;
 

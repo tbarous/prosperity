@@ -15,7 +15,8 @@ const ThemeSpacing: ThemeSpacingInterface = {
     s10: `${base * 2}rem`,
     s11: `${base * 2.125}rem`,
     s12: `${base * 2.5}rem`,
-    s13: `${base * 2.75}rem`
+    s13: `${base * 2.75}rem`,
+    auto: "auto"
 }
 
 export default ThemeSpacing;

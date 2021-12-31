@@ -6,9 +6,9 @@ export interface TextStyledProps extends StyledProps {
 }
 
 const TextStyled = styled.div<TextStyledProps>`
-  font-size: ${(props: TextStyledProps) => props.theme.font.size.md};
+  font-size: ${(props: TextStyledProps) => props.theme.fontSize.md};
   color: ${(props: TextStyledProps) => props.theme.color.dark};
-  font-weight: ${(props: TextStyledProps) => props.bold ? props.theme.font.weight.bold : props.theme.font.weight.normal};
+  font-weight: ${(props: TextStyledProps) => props.bold ? props.theme.fontWeight.bold : props.theme.fontWeight.normal};
 `;
 
 export default TextStyled;

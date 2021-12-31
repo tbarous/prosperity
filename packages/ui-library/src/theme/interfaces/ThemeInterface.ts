@@ -2,18 +2,34 @@ import ThemeBorderInterface from "@theme/interfaces/ThemeBorderInterface";
 import ThemeBreakpointInterface from "@theme/interfaces/ThemeBreakpointInterface";
 import ThemeColorInterface from "@theme/interfaces/ThemeColorInterface";
 import ThemeShadowInterface from "@theme/interfaces/ThemeShadowInterface";
-import ThemeFontInterface from "@theme/interfaces/ThemeFontInterface";
 import ThemeSpacingInterface from "@theme/interfaces/ThemeSpacingInterface";
 import ThemeDimensionInterface from "@theme/interfaces/ThemeDimensionInterface";
+import ThemeFontSizeInterface from "@theme/interfaces/ThemeFontSizeInterface";
+import ThemeFontFamilyInterface from "@theme/interfaces/ThemeFontFamilyInterface";
+import ThemeFontWeightInterface from "@theme/interfaces/ThemeFontWeightInterface";
+import ThemeFontLetterSpacingInterface from "@theme/interfaces/ThemeFontLetterSpacingInterface";
+import ThemeBorderRadiusInterface from "@theme/interfaces/ThemeBorderRadiusInterface";
+import ThemeCursorInterface from "@theme/interfaces/ThemeCursorInterface";
+import ThemeBoxSizingInterface from "@theme/interfaces/ThemeBoxSizingInterface";
+import ThemeDisplayInterface from "@theme/interfaces/ThemeDisplayInterface";
+import ThemePositionInterface from "@theme/interfaces/ThemePositionInterface";
 
 interface ThemeInterface {
-    border: ThemeBorderInterface,
     breakpoint: ThemeBreakpointInterface,
     color: ThemeColorInterface,
     shadow: ThemeShadowInterface,
-    font: ThemeFontInterface,
     spacing: ThemeSpacingInterface,
-    dimension: ThemeDimensionInterface
+    dimension: ThemeDimensionInterface,
+    fontSize: ThemeFontSizeInterface,
+    fontFamily: ThemeFontFamilyInterface,
+    fontWeight: ThemeFontWeightInterface,
+    fontLetterSpacing: ThemeFontLetterSpacingInterface,
+    borderRadius: ThemeBorderRadiusInterface,
+    border: ThemeBorderInterface,
+    cursor: ThemeCursorInterface,
+    boxSizing: ThemeBoxSizingInterface,
+    display: ThemeDisplayInterface,
+    position: ThemePositionInterface
 }
 
 export default ThemeInterface;

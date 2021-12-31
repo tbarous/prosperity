@@ -18,11 +18,11 @@ export default {
 const GridTemplate = (args: any) => {
     const {container} = args;
 
-    const fluid = container === "fluid";
+    const isFluid = container === "fluid";
 
     return (
         <StorybookWrapperStyled>
-            <Container fluid={fluid}>
+            <Container fluid={isFluid}>
                 <Row>
                     <Col>
                         <StorybookColContent bold>
@@ -49,7 +49,7 @@ const GridTemplate = (args: any) => {
 
                 <br/>
 
-                <Row gutter={6}>
+                <Row gutter={20}>
                     <Col sm={12} lg={6}>
                         <StorybookColContent>
                             6/12
