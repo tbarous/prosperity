@@ -2,9 +2,7 @@ import styled from "styled-components";
 import {StyledProps} from "@typings";
 import InputStyledGetters from "@components/form/styled/InputStyledGetters";
 
-export interface InputStyledProps extends StyledProps {
-
-}
+export interface InputStyledProps extends StyledProps {}
 
 const InputStyled = styled.input<InputStyledProps>`
   border: ${InputStyledGetters.Border};
@@ -15,7 +13,7 @@ const InputStyled = styled.input<InputStyledProps>`
   font-size: ${InputStyledGetters.FontSize};
   border-radius: ${InputStyledGetters.BorderRadius};
   font-family: ${InputStyledGetters.FontFamily};
-  outline: none;
+  outline: ${InputStyledGetters.Outline};
 `;
 
 export default InputStyled;

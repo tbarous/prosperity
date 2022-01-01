@@ -8,7 +8,8 @@ const InputStyledGetters = {
     Margin: (props: InputStyledProps) => props.theme.spacing.s0,
     FontSize: (props: InputStyledProps) => props.theme.fontSize.md,
     BorderRadius: (props: InputStyledProps) => props.theme.borderRadius.medium,
-    FontFamily: (props: InputStyledProps) => props.theme.fontFamily.primary
+    FontFamily: (props: InputStyledProps) => props.theme.fontFamily.primary,
+    Outline: (props: InputStyledProps) => "none",
 }
 
 export default InputStyledGetters;

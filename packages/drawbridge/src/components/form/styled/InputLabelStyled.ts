@@ -12,9 +12,9 @@ const InputStyledLabel = styled.label<InputLabelStyledProps>`
   font-size: ${InputLabelStyledGetters.FontSize};
   color: ${InputLabelStyledGetters.Color};
   font-weight: ${InputLabelStyledGetters.FontWeight};
-  pointer-events: none;
-  transform: ${(props: InputLabelStyledProps) => props.focused || props.hasValue ? "translateY(-20px)" : ""};
-  transition: transform .2s linear;
+  pointer-events: ${InputLabelStyledGetters.PointerEvents};
+  transform: ${InputLabelStyledGetters.Transform};
+  transition: ${InputLabelStyledGetters.Transition};
 `;
 
 export default InputStyledLabel;
