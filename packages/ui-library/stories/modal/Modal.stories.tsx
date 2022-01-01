@@ -74,7 +74,47 @@ const ModalTemplate = (args: any) => {
     )
 };
 
+const AuthModalTemplate = (args: any) => {
+    const [modal, setModal] = useState(false);
+
+    return (
+        <StorybookWrapperStyled>
+            <StorybookButtonWrapper>
+                <Button onClick={() => setModal(true)}>
+                    Login/Register
+                </Button>
+            </StorybookButtonWrapper>
+
+            {modal ?
+                <Modal closeOnClickOutside onClose={() => setModal(false)}>
+                    <StyledModalHeader>
+                        Header
+                    </StyledModalHeader>
+
+                    <StyledModalBody>
+                        <Container>
+                            <Row gutter={12}>
+                                <Col xs={6}>
+                                    <StorybookColContent>1/12</StorybookColContent>
+                                </Col>
+                                <Col xs={6}>
+                                    <StorybookColContent>1/12</StorybookColContent>
+                                </Col>
+                            </Row>
+                        </Container>
+                    </StyledModalBody>
+
+                    <ModalFooter>
+                        Footer
+                    </ModalFooter>
+                </Modal>
+                : null}
+        </StorybookWrapperStyled>
+    )
+};
+
 export const Default: any = ModalTemplate.bind({});
+export const Auth: any = AuthModalTemplate.bind({});
 
 Default.args = {
     container: 'default'
