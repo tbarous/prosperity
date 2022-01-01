@@ -8,4 +8,8 @@ const InputStory = (args: any) => (
     </StorybookWrapperStyled>
 );
 
+InputStory.args = {
+    label: "Label"
+};
+
 export default InputStory;

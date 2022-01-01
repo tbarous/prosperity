@@ -14,8 +14,8 @@ export default {
     },
 };
 
-export const Basic: any = BasicModal.bind({});
-export const Auth: any = AuthModal.bind({});
+export const Basic = BasicModal.bind({});
+export const Auth = AuthModal.bind({});
 
 Basic.args = {};
 Auth.args = {};

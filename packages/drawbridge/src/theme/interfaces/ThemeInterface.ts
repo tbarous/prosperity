@@ -20,6 +20,9 @@ import ThemeFlexGrowInterface from "@theme/interfaces/ThemeFlexGrowInterface";
 import ThemeFlexWrapInterface from "@theme/interfaces/ThemeFlexWrapInterface";
 import ThemeAlignItemsInterface from "@theme/interfaces/ThemeAlignItemsInterface";
 import ThemeOverflowInterface from "@theme/interfaces/ThemeOverflowInterface";
+import ThemeTextAlignInterface from "@theme/interfaces/ThemeTextAlignInterface";
+import ThemeLineHeightInterface from "@theme/interfaces/ThemeLineHeightInterface";
+import ThemeJustifyContentInterface from "@theme/interfaces/ThemeJustifyContentInterface";
 
 interface ThemeInterface {
     breakpoint: ThemeBreakpointInterface,
@@ -42,7 +45,10 @@ interface ThemeInterface {
     flexGrow: ThemeFlexGrowInterface,
     flexWrap: ThemeFlexWrapInterface,
     alignItems: ThemeAlignItemsInterface,
-    overflow: ThemeOverflowInterface
+    overflow: ThemeOverflowInterface,
+    textAlign: ThemeTextAlignInterface,
+    lineHeight: ThemeLineHeightInterface,
+    justifyContent: ThemeJustifyContentInterface
 }
 
 export default ThemeInterface;

@@ -1,61 +1,45 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import VariationEnum from "@components/button/enums/VariationEnum";
-import SizeEnum from "@components/button/enums/SizeEnum";
-import {
-    ButtonBackgroundColor,
-    ButtonPadding,
-    ButtonColor,
-    ButtonBorder,
-    ButtonBorderRadius,
-    ButtonFontFamily,
-    ButtonBoxShadow,
-    ButtonFontSize,
-    ButtonFontWeight,
-    ButtonWidth,
-    ButtonHeight,
-    ButtonLetterSpacing,
-    ButtonCursor,
-    ButtonHoveredShadow,
-    ButtonFocusedFocusFilter,
-    ButtonActiveFocusFilter,
-    ButtonVisitedFocusFilter
-} from "@components/button/styled/ButtonStyledGetters";
+import ButtonVariationEnum from "@components/button/enums/ButtonVariationEnum";
+import ButtonSizeEnum from "@components/button/enums/ButtonSizeEnum";
+import ButtonStyledGetters from "@components/button/styled/ButtonStyledGetters";
+import ButtonTypeEnum from "@components/button/enums/ButtonTypeEnum";
 
 export interface ButtonStyledProps extends StyledProps {
-    variation?: VariationEnum,
-    size?: SizeEnum
+    variation?: ButtonVariationEnum,
+    size?: ButtonSizeEnum,
+    type?: ButtonTypeEnum
 }
 
 const ButtonStyled = styled.button<ButtonStyledProps>`
-  padding: ${ButtonPadding};
-  background-color: ${ButtonBackgroundColor};
-  color: ${ButtonColor};
-  border: ${ButtonBorder};
-  border-radius: ${ButtonBorderRadius};
-  font-family: ${ButtonFontFamily};
-  box-shadow: ${ButtonBoxShadow};
-  font-size: ${ButtonFontSize};
-  font-weight: ${ButtonFontWeight};
-  width: ${ButtonWidth};
-  height: ${ButtonHeight};
-  letter-spacing: ${ButtonLetterSpacing};
-  cursor: ${ButtonCursor};
+  padding: ${ButtonStyledGetters.Padding};
+  background-color: ${ButtonStyledGetters.BackgroundColor};
+  color: ${ButtonStyledGetters.Color};
+  border: ${ButtonStyledGetters.Border};
+  border-radius: ${ButtonStyledGetters.BorderRadius};
+  font-family: ${ButtonStyledGetters.FontFamily};
+  box-shadow: ${ButtonStyledGetters.BoxShadow};
+  font-size: ${ButtonStyledGetters.FontSize};
+  font-weight: ${ButtonStyledGetters.FontWeight};
+  width: ${ButtonStyledGetters.Width};
+  height: ${ButtonStyledGetters.Height};
+  letter-spacing: ${ButtonStyledGetters.LetterSpacing};
+  cursor: ${ButtonStyledGetters.Cursor};
 
   &:hover {
-    box-shadow: ${ButtonHoveredShadow};
+    box-shadow: ${ButtonStyledGetters.HoveredShadow};
   }
 
   &:focus {
-    filter: ${ButtonFocusedFocusFilter};
+    filter: ${ButtonStyledGetters.FocusedFocusFilter};
   }
 
   &:active {
-    filter: ${ButtonActiveFocusFilter};
+    filter: ${ButtonStyledGetters.ActiveFocusFilter};
   }
 
   &:visited {
-    filter: ${ButtonVisitedFocusFilter};
+    filter: ${ButtonStyledGetters.VisitedFocusFilter};
   }
 `;
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import {ImageWrapperHeight, ImageWrapperWidth} from "@components/image/styled/ImageWrapperStyledGetters";
+import ImageWrapperStyledGetters from "@components/image/styled/ImageWrapperStyledGetters";
 
 export interface ImageWrapperStyledProps extends StyledProps {
     width?: number,
@@ -8,8 +8,9 @@ export interface ImageWrapperStyledProps extends StyledProps {
 }
 
 const ImageWrapperStyled = styled.div<ImageWrapperStyledProps>`
-  width: ${ImageWrapperWidth};
-  height: ${ImageWrapperHeight};
+  width: ${ImageWrapperStyledGetters.Width};
+  height: ${ImageWrapperStyledGetters.Height};
+  display: ${ImageWrapperStyledGetters.Display};
 `;
 
 export default ImageWrapperStyled;

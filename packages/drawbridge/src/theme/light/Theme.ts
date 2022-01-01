@@ -20,6 +20,9 @@ import ThemeFlexGrow from "@theme/light/ThemeFlexGrow";
 import ThemeFlexWrap from "@theme/light/ThemeFlexWrap";
 import ThemeAlignItems from "@theme/light/ThemeAlignItems";
 import ThemeOverflow from "@theme/light/ThemeOverflow";
+import ThemeTextAlign from "@theme/light/ThemeTextAlign";
+import ThemeLineHeight from "@theme/light/ThemeLineHeight";
+import ThemeJustifyContent from "@theme/light/ThemeJustifyContent";
 
 const Light: ThemeInterface = {
     breakpoint: ThemeBreakpoint,
@@ -42,7 +45,10 @@ const Light: ThemeInterface = {
     flexGrow: ThemeFlexGrow,
     flexWrap: ThemeFlexWrap,
     alignItems: ThemeAlignItems,
-    overflow: ThemeOverflow
+    overflow: ThemeOverflow,
+    textAlign: ThemeTextAlign,
+    lineHeight: ThemeLineHeight,
+    justifyContent: ThemeJustifyContent
 }
 
 export default Light;

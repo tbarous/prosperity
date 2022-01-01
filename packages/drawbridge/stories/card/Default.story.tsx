@@ -1,0 +1,43 @@
+import React from 'react';
+import {BasicComponentProps} from "@typings";
+import Container from "@components/grid/Container";
+import Row from "@components/grid/Row";
+import Col from "@components/grid/Col";
+import Image from "@components/image/Image";
+import Text from "@components/text/Text";
+import {CardStyled, StorybookWrapperStyled} from "@stories/GenericStyledComponents";
+import styled from "styled-components";
+import {TextStyledProps} from "@components/text/styled/TextStyled";
+import {CardProps} from "@components/card/Card";
+
+const TextStyled = styled(Text)`
+  padding: ${(props: TextStyledProps) => props.theme.spacing.s8};
+  line-height: ${(props: TextStyledProps) => props.theme.lineHeight.large};
+`;
+
+const Default = (args: CardProps) => (
+    <StorybookWrapperStyled>
+        <Container fluid>
+            <Row gutter={14}>
+                <Col xs={4}>
+                    <CardStyled {...args}>
+                        <Image rounded-top={args.rounded} src="/img.jpg" alt="img"/>
+
+                        <TextStyled>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam dolore eaque
+                            error
+                            exercitationem ipsam, laborum nulla numquam placeat rem suscipit voluptatum. Alias error id
+                            iusto molestiae
+                        </TextStyled>
+                    </CardStyled>
+                </Col>
+            </Row>
+        </Container>
+    </StorybookWrapperStyled>
+);
+
+Default.args = {
+    rounded: true
+};
+
+export default Default;

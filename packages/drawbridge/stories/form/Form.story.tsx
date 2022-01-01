@@ -3,11 +3,11 @@ import Input from "@components/form/Input";
 import {StorybookWrapperStyled} from "@stories/GenericStyledComponents";
 import Form from "@components/form/Form";
 import Button from "@components/button/Button";
-import TypeEnum from "@components/button/enums/TypeEnum";
+import ButtonTypeEnum from "@components/button/enums/ButtonTypeEnum";
 
 const InputStory = (args: any) => {
     function onSubmit() {
-        alert("submitted")
+        console.log("Submitted")!
     }
 
     return (
@@ -21,7 +21,7 @@ const InputStory = (args: any) => {
 
                 <br/>
 
-                <Button type={TypeEnum.SUBMIT}>Submit</Button>
+                <Button type={ButtonTypeEnum.SUBMIT}>Submit</Button>
             </Form>
         </StorybookWrapperStyled>
     );

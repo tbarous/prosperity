@@ -1,6 +1,6 @@
-import VariationEnum from "@components/button/enums/VariationEnum";
+import ButtonVariationEnum from "@components/button/enums/ButtonVariationEnum";
 import {ButtonStyledProps} from "@components/button/styled/ButtonStyled";
-import SizeEnum from "@components/button/enums/SizeEnum";
+import ButtonSizeEnum from "@components/button/enums/ButtonSizeEnum";
 
 // Helpers
 export function ButtonBackgroundColor(props: ButtonStyledProps) {
@@ -8,8 +8,8 @@ export function ButtonBackgroundColor(props: ButtonStyledProps) {
     const variation = props.variation;
 
     const mapping = {
-        [VariationEnum.PRIMARY]: color.primary,
-        [VariationEnum.SECONDARY]: color.secondary
+        [ButtonVariationEnum.PRIMARY]: color.primary,
+        [ButtonVariationEnum.SECONDARY]: color.secondary
     }
 
     if (!variation || !mapping[variation]) return color.primary;
@@ -22,8 +22,8 @@ export function ButtonColor(props: ButtonStyledProps) {
     const variation = props.variation;
 
     const mapping = {
-        [VariationEnum.PRIMARY]: color.white,
-        [VariationEnum.SECONDARY]: color.dark
+        [ButtonVariationEnum.PRIMARY]: color.white,
+        [ButtonVariationEnum.SECONDARY]: color.dark
     }
 
     if (!variation || !mapping[variation]) return color.white;
@@ -36,9 +36,9 @@ export function ButtonPadding(props: ButtonStyledProps) {
     const size = props.size;
 
     const mapping = {
-        [SizeEnum.SMALL]: spacing.s4,
-        [SizeEnum.MEDIUM]: spacing.s6,
-        [SizeEnum.LARGE]: spacing.s8,
+        [ButtonSizeEnum.SMALL]: spacing.s4,
+        [ButtonSizeEnum.MEDIUM]: spacing.s5,
+        [ButtonSizeEnum.LARGE]: spacing.s6,
     }
 
     if (!size || !mapping[size]) return spacing.s4;
@@ -46,18 +46,24 @@ export function ButtonPadding(props: ButtonStyledProps) {
     return mapping[size];
 }
 
-// Styles
-export const ButtonLetterSpacing = (props: ButtonStyledProps) => props.theme.fontLetterSpacing.small;
-export const ButtonHeight = (props: ButtonStyledProps) => props.theme.dimension.d100;
-export const ButtonWidth = (props: ButtonStyledProps) => props.theme.dimension.d100;
-export const ButtonFontWeight = (props: ButtonStyledProps) => props.theme.fontWeight.bold;
-export const ButtonFontSize = (props: ButtonStyledProps) => props.theme.fontSize.md;
-export const ButtonBoxShadow = (props: ButtonStyledProps) => props.theme.shadow.primary;
-export const ButtonFontFamily = (props: ButtonStyledProps) => props.theme.fontFamily.primary;
-export const ButtonBorderRadius = (props: ButtonStyledProps) => props.theme.borderRadius.medium;
-export const ButtonBorder = (props: ButtonStyledProps) => props.theme.border.none;
-export const ButtonCursor = (props: ButtonStyledProps) => props.theme.cursor.pointer;
-export const ButtonHoveredShadow = (props: ButtonStyledProps) => props.theme.shadow.secondary;
-export const ButtonFocusedFocusFilter = (props: ButtonStyledProps) => "brightness(110%)";
-export const ButtonActiveFocusFilter = (props: ButtonStyledProps) => "brightness(110%)";
-export const ButtonVisitedFocusFilter = (props: ButtonStyledProps) => "brightness(110%)";
+const ButtonStyledGetters = {
+    Padding: ButtonPadding,
+    BackgroundColor: ButtonBackgroundColor,
+    Color: ButtonColor,
+    LetterSpacing : (props: ButtonStyledProps) => props.theme.fontLetterSpacing.small,
+    Height : (props: ButtonStyledProps) => props.theme.dimension.d100,
+    Width : (props: ButtonStyledProps) => props.theme.dimension.d100,
+    FontWeight : (props: ButtonStyledProps) => props.theme.fontWeight.bold,
+    FontSize : (props: ButtonStyledProps) => props.theme.fontSize.md,
+    BoxShadow : (props: ButtonStyledProps) => props.theme.shadow.primary,
+    FontFamily : (props: ButtonStyledProps) => props.theme.fontFamily.primary,
+    BorderRadius : (props: ButtonStyledProps) => props.theme.borderRadius.medium,
+    Border : (props: ButtonStyledProps) => props.theme.border.none,
+    Cursor : (props: ButtonStyledProps) => props.theme.cursor.pointer,
+    HoveredShadow : (props: ButtonStyledProps) => props.theme.shadow.secondary,
+    FocusedFocusFilter : (props: ButtonStyledProps) => "brightness(110%)",
+    ActiveFocusFilter : (props: ButtonStyledProps) => "brightness(110%)",
+    VisitedFocusFilter : (props: ButtonStyledProps) => "brightness(110%)",
+}
+
+export default ButtonStyledGetters;

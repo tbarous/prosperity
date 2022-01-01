@@ -1,8 +1,9 @@
 interface ThemeBorderRadiusInterface {
+    none: string,
     small: string
     medium: string,
     large: string,
-    rounded: string
+    circle: string
 }
 
 export default ThemeBorderRadiusInterface;

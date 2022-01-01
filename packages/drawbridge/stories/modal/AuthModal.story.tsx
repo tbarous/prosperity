@@ -15,7 +15,7 @@ import Card from "@components/card/Card";
 import ModalFooter from "@components/modal/ModalFooter";
 import Form from "@components/form/Form";
 import Input from "@components/form/Input";
-import TypeEnum from "@components/button/enums/TypeEnum";
+import ButtonTypeEnum from "@components/button/enums/ButtonTypeEnum";
 
 const AuthModalTemplate = (args: any) => {
     const [modal, setModal] = useState(false);
@@ -57,7 +57,7 @@ const AuthModalTemplate = (args: any) => {
 
                                 <br/>
 
-                                <Button type={TypeEnum.SUBMIT}>Submit</Button>
+                                <Button type={ButtonTypeEnum.SUBMIT}>Submit</Button>
                             </Form>
 
                             : null}

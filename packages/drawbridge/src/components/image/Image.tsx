@@ -7,19 +7,26 @@ export interface Props extends BasicComponentProps {
     width?: number,
     height?: number,
     src: string,
-    alt: string
+    alt: string,
+    rounded?: boolean,
+    "rounded-top"?: boolean,
+    "rounded-bottom"?: boolean
 }
 
 const Image: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {src, alt, width, height} = props;
+    const {src, alt, width, height, rounded} = props;
 
-    const wrapperProps = {width, height};
-
-    const imageProps = {src, alt}
+    console.log(props.rounded)
 
     return (
-        <ImageWrapperStyled {...wrapperProps}>
-            <ImageStyled {...imageProps}/>
+        <ImageWrapperStyled width={width} height={height}>
+            <ImageStyled
+                src={src}
+                alt={alt}
+                rounded={rounded}
+                roundedTop={props["rounded-top"]}
+                roundedBottom={props["rounded-bottom"]}
+            />
         </ImageWrapperStyled>
     )
 }

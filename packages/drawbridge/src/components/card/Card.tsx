@@ -2,15 +2,15 @@ import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import CardStyled from "@components/card/styled/CardStyled";
 
-interface Props extends BasicComponentProps {
+export interface CardProps extends BasicComponentProps {
     rounded?: boolean
 }
 
-const Card: React.FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElementOrNull => {
-    const {children} = props;
+const Card: React.FunctionComponent<CardProps> = (props: CardProps): ReactElementOrNull => {
+    const {children, rounded} = props;
 
     return (
-        <CardStyled {...props}>
+        <CardStyled rounded={rounded}>
             {children}
         </CardStyled>
     )
