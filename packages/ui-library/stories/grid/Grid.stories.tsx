@@ -1,5 +1,5 @@
 import React from 'react';
-import {StorybookColContent, StorybookWrapperStyled} from "@stories/GenericComponents";
+import {StorybookColContent, StorybookWrapperStyled} from "@stories/GenericStyledComponents";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";

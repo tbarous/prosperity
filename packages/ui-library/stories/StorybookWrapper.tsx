@@ -1,7 +1,7 @@
 import React from "react";
 import {ThemeProvider} from "styled-components";
 import Light from "@theme/light/Theme";
-import {Wrapper} from "@stories/GenericComponents";
+import {Wrapper} from "@stories/GenericStyledComponents";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import "../fonts/fonts.css";
 

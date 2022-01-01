@@ -6,7 +6,7 @@ import TypeEnum from "@components/button/enums/TypeEnum";
 import ButtonStyled from "./styled/ButtonStyled";
 
 export interface Props extends BasicComponentProps {
-    onClick: () => void,
+    onClick?: () => void,
     variation?: VariationEnum,
     size?: SizeEnum,
     type?: TypeEnum,

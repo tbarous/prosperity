@@ -1,5 +1,5 @@
 import React from 'react';
-import {StorybookWrapperStyled} from "@stories/GenericComponents";
+import {StorybookWrapperStyled} from "@stories/GenericStyledComponents";
 import {Props} from "@components/image/Image";
 import Badge from "@components/badge/Badge";
 import Text from "@components/text/Text";
@@ -13,7 +13,7 @@ const DefaultButtonTemplate = (args: Props) => (
     <StorybookWrapperStyled>
         <Text>
             Badge Text
-        <Badge {...args} />
+            <Badge {...args} />
         </Text>
     </StorybookWrapperStyled>
 );

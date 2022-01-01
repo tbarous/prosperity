@@ -1,14 +1,16 @@
-import React, {ReactNode} from "react";
+import React from "react";
 import TabStyled from "./styled/TabStyled";
-import {BasicComponentProps} from "@typings";
+import {BasicComponentProps, ReactElementOrNull} from "@typings";
 
-interface Props extends BasicComponentProps{
-    active?: boolean
+interface Props extends BasicComponentProps {
+    active?: boolean,
+    onClick?: any,
+    id?: string
 }
 
-const Tab: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
+const Tab: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
     const {children, className, active} = props;
-    
+
     return (
         <TabStyled {...props}>
             {children}

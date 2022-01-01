@@ -1,5 +1,5 @@
 import React from 'react';
-import {StorybookWrapperStyled} from "@stories/GenericComponents";
+import {StorybookWrapperStyled} from "@stories/GenericStyledComponents";
 import {Props} from "@components/image/Image";
 import Carousel from "@components/carousel/Carousel";
 

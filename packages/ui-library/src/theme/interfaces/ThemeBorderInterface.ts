@@ -1,5 +1,6 @@
 interface ThemeBorderInterface {
-    none: string
+    none: string,
+    light: string
 }
 
 export default ThemeBorderInterface;

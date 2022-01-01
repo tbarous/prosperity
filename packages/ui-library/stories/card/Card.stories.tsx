@@ -6,7 +6,7 @@ import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import Image from "@components/image/Image";
 import Text from "@components/text/Text";
-import {CardStyled, StorybookWrapperStyled} from "@stories/GenericComponents";
+import {CardStyled, StorybookWrapperStyled} from "@stories/GenericStyledComponents";
 
 export default {
     title: 'Card',

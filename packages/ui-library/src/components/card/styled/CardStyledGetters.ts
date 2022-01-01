@@ -1,8 +1,7 @@
-import {StyledProps} from "@typings";
+import {CardStyledProps} from "@components/card/styled/CardStyled";
 
-// Styles
-export const CardBoxShadow = (props: StyledProps) => props.theme.shadow.primary;
-export const CardBackgroundColor = (props: StyledProps) => props.theme.color.white;
-export const CardBorderRadius = (props: StyledProps) => props.theme.borderRadius.medium;
-export const CardWidth = (props: StyledProps) => props.theme.dimension.d100;
-export const CardBoxSizing = (props: StyledProps) => props.theme.boxSizing.borderBox;
+export const CardBoxShadow = (props: CardStyledProps) => props.theme.shadow.primary;
+export const CardBackgroundColor = (props: CardStyledProps) => props.theme.color.white;
+export const CardBorderRadius = (props: CardStyledProps) => props.rounded ? props.theme.borderRadius.medium : "";
+export const CardWidth = (props: CardStyledProps) => props.theme.dimension.d100;
+export const CardBoxSizing = (props: CardStyledProps) => props.theme.boxSizing.borderBox;

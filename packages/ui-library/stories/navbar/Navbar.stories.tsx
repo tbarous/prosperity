@@ -6,7 +6,7 @@ import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import {BasicComponentProps} from "@typings";
-import {Links, NavbarStyled} from '@stories/GenericComponents';
+import {Links, NavbarStyled} from '@stories/GenericStyledComponents';
 import LinkStyled from "@components/link/styled/LinkStyled";
 
 export default {
