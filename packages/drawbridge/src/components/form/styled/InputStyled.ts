@@ -7,14 +7,15 @@ export interface InputStyledProps extends StyledProps {
 }
 
 const InputStyled = styled.input<InputStyledProps>`
-  border: ${InputStyledGetters.border};
-  height: ${InputStyledGetters.height};
-  width: ${InputStyledGetters.width};
-  padding: ${InputStyledGetters.padding};
-  margin: ${InputStyledGetters.margin};
-  font-size: ${InputStyledGetters.fontSize};
+  border: ${InputStyledGetters.Border};
+  height: ${InputStyledGetters.Height};
+  width: ${InputStyledGetters.Width};
+  padding: ${InputStyledGetters.Padding};
+  margin: ${InputStyledGetters.Margin};
+  font-size: ${InputStyledGetters.FontSize};
+  border-radius: ${InputStyledGetters.BorderRadius};
+  font-family: ${InputStyledGetters.FontFamily};
   outline: none;
-  text-indent: 1rem;
 `;
 
 export default InputStyled;

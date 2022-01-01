@@ -5,7 +5,8 @@ interface ThemeColorInterface {
     dark: string,
     warning: string,
     success: string,
-    danger: string
+    danger: string,
+    light: string
 }
 
 export default ThemeColorInterface;

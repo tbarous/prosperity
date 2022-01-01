@@ -5,8 +5,7 @@ const ThemeDimension: ThemeDimensionInterface = {
     d20: "20%",
     d70: "70%",
     d80: "80%",
-    d100: "100%",
-    inputHeight: "4rem"
+    d100: "100%"
 }
 
 export default ThemeDimension

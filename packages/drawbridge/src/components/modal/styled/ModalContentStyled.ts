@@ -24,7 +24,7 @@ const ModalContentStyled = styled.div<ModalContentStyledProps>`
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 
-  ${props => Media.up(props.theme.breakpoint.md, css`
+  ${(props: any) => Media.up(props.theme.breakpoint.md, css`
     width: ${ModalContentWidthMd(props)};
   `)};
 `;

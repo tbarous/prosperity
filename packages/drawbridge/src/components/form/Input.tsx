@@ -1,9 +1,10 @@
-import React, {ReactNode, useEffect, useRef, useState} from "react";
+import React, {ChangeEvent, ReactNode, useEffect, useRef, useState} from "react";
 import InputStyled from "./styled/InputStyled";
 import {BasicComponentProps} from "@typings";
-import InputStyledWrapper from "./styled/InputStyledWrapper";
-import InputStyledLabel from "./styled/InputStyledLabel";
 import useOnClickOutside from "@hooks/useOnClickOutside";
+import InputStyledWrapper from "./styled/InputWrapperStyled";
+import InputStyledLabel from "./styled/InputLabelStyled";
+import InputLineStyled from "./styled/InputLineStyled";
 
 interface Props extends BasicComponentProps {
     label?: string,
@@ -12,7 +13,7 @@ interface Props extends BasicComponentProps {
 }
 
 const Input: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
-    const {children, className, label, focused, value} = props;
+    const {label, focused, value} = props;
 
     const [isFocused, setIsFocused] = useState(focused);
     const [val, setVal] = useState(value);
@@ -22,10 +23,16 @@ const Input: React.FunctionComponent<Props> = (props: Props): React.ReactElement
     useOnClickOutside(inputRef, () => setIsFocused(false));
 
     return (
-        <InputStyledWrapper ref={inputRef} onClick={() => setIsFocused(true)}>
-            {label ? <InputStyledLabel focused={Boolean(val) || isFocused}>{label}</InputStyledLabel> : null}
+        <InputStyledWrapper
+            focused={isFocused}
+            ref={inputRef}
+            onClick={() => setIsFocused(true)}
+        >
+            {label && <InputStyledLabel focused={isFocused} hasValue={!!val}>{label}</InputStyledLabel>}
 
-            <InputStyled onChange={(e) => setVal(e.target.value)}/>
+            <InputStyled onChange={(e: any) => setVal(e.target.value)}/>
+
+            <InputLineStyled focused={isFocused}/>
         </InputStyledWrapper>
     )
 }
