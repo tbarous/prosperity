@@ -24,8 +24,10 @@ const DefaultTabs = (args: TabsProps) => {
     }
 
     useEffect(() => {
-        onChange(args.initialActive);
-    }, [args.initialActive])
+        if (typeof args.activate === "number") {
+            onChange(args.activate);
+        }
+    }, [args.activate])
 
     const [tabs, setTabs] = useState<any>([
         "Tab 1",
@@ -79,7 +81,7 @@ const DefaultTabs = (args: TabsProps) => {
 };
 
 DefaultTabs.args = {
-    initialActive: 1
+    activate: 1
 };
 
 export default DefaultTabs;
