@@ -3,6 +3,8 @@ import {StyledProps} from "@typings";
 import TabActiveStyledGetters from "@components/tabs/styled/tab-active/TabActiveStyledGetters";
 
 export interface TabActiveStyledProps extends StyledProps {
+    width?: number,
+    left?: number
 }
 
 const TabActiveStyled = styled.div<TabActiveStyledProps>`
@@ -12,6 +14,8 @@ const TabActiveStyled = styled.div<TabActiveStyledProps>`
   bottom: ${TabActiveStyledGetters.Bottom};
   left: ${TabActiveStyledGetters.Left};
   width: ${TabActiveStyledGetters.Width};
+  transform: ${TabActiveStyledGetters.Transform};
+  transition: ${TabActiveStyledGetters.Transition};
 `;
 
 export default TabActiveStyled;

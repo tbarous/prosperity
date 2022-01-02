@@ -3,9 +3,7 @@ import {StyledProps} from "@typings";
 import TabStyledGetters from "@components/tabs/styled/tab/TabStyledGetters";
 
 export interface TabStyledProps extends StyledProps {
-    active?: boolean,
     onClick?: any,
-    id?: string
 }
 
 const TabStyled = styled.div<TabStyledProps>`

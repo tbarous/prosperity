@@ -8,37 +8,42 @@ import styled from "styled-components";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
+import CarouselItems from "@components/carousel/CarouselItems";
+import CarouselItem from "@components/carousel/CarouselItem";
+import Carousel from "@components/carousel/Carousel";
 
 const CardStyled = styled(Card)`
   padding: 2rem;
 `;
 
 const DefaultTabs = (args: TabsProps) => {
-    const [active, setActive] = useState("1");
+    const [active, setActive] = useState(args.initialActive);
 
-    function onClick(e: any) {
-        console.log(e.target.id)
-        setActive(e.target.id)
+    function onChange(index: number) {
+        setActive(index)
     }
 
-    const [tabs, setTabs] = useState<any>([]);
-    const [content, setContent] = useState<any>([]);
+    const [tabs, setTabs] = useState<any>([
+        "Tab 1",
+        "Tab 2",
+        "Tab 3",
+        "Tab 4"
+    ]);
 
-    useEffect(() => {
-        const t = [];
-        const c = [];
-        for (let i = 1; i < 5; i++) {
-            t.push({id: i, text: `Tab ${i}`});
-            c.push({
-                tabId: i, text: `Content of tab ${i}: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos in incidunt rerum soluta vel. Alias
-            architecto autem inventore iure laborum, maxime nesciunt placeat quae? Aut dolores esse explicabo odio
-            veritatis.`
-            })
-        }
-
-        setTabs(t);
-        setContent(c)
-    }, [])
+    const [content, setContent] = useState<any>([
+        `Content 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aut, cumque doloremque, excepturi
+        exercitationem explicabo facilis hic ipsum iure magni natus, pariatur quaerat quasi ratione reiciendis sed
+        veritatis voluptatem.`,
+        `Content 2: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aut, cumque doloremque, excepturi
+        exercitationem explicabo facilis hic ipsum iure magni natus, pariatur quaerat quasi ratione reiciendis sed
+        veritatis voluptatem.`,
+        `Content 3: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aut, cumque doloremque, excepturi
+        exercitationem explicabo facilis hic ipsum iure magni natus, pariatur quaerat quasi ratione reiciendis sed
+        veritatis voluptatem.`,
+        `Content 4: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquam aut, cumque doloremque, excepturi
+        exercitationem explicabo facilis hic ipsum iure magni natus, pariatur quaerat quasi ratione reiciendis sed
+        veritatis voluptatem.`,
+    ]);
 
     return (
         <StorybookWrapperStyled>
@@ -46,22 +51,20 @@ const DefaultTabs = (args: TabsProps) => {
                 <Row>
                     <Col xs={4}>
                         <div style={{height: "60px"}}>
-                            <Tabs {...args}>
-                                {tabs.map((tab: any) => (
-                                    <Tab
-                                        key={tab.id}
-                                        id={tab.id}
-                                        onClick={onClick}
-                                        active={tab.id.toString() === active}
-                                    >
-                                        {tab.text}
-                                    </Tab>
-                                ))}
+                            <Tabs {...args} onChange={onChange}>
+                                {tabs.map((tab: any, index: number) => <Tab key={index}>{tab}</Tab>)}
                             </Tabs>
 
-                            <CardStyled>
-                                {content.map((c: any) => c.tabId.toString() === active ? c.text : null)}
-                            </CardStyled>
+                            <div style={{height: "300px"}}>
+                            <Carousel {...args} change={active}>
+                                <CarouselItems>
+                                    {content.map((c: any, index: number) => (
+                                        <CarouselItem key={index}>
+                                               <div style={{padding: "2rem", border: "1px solid"}}> {c}</div>
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselItems>
+                            </Carousel></div>
                         </div>
                     </Col>
                 </Row>
@@ -71,7 +74,7 @@ const DefaultTabs = (args: TabsProps) => {
 };
 
 DefaultTabs.args = {
-    active: "1"
+    initialActive: 2
 };
 
 export default DefaultTabs;

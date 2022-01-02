@@ -7,7 +7,7 @@ import Text from "@components/text/Text";
 import {CardStyled, StorybookWrapperStyled} from "@stories/GenericStyledComponents";
 import styled from "styled-components";
 import {TextStyledProps} from "@components/text/styled/TextStyled";
-import {CardProps} from "@components/card/Card";
+import Card, {CardProps} from "@components/card/Card";
 
 const TextStyled = styled(Text)`
   padding: ${(props: TextStyledProps) => props.theme.spacing.s8};
@@ -19,7 +19,7 @@ const DefaultCard = (args: CardProps) => (
         <Container fluid>
             <Row gutter={14}>
                 <Col xs={12} sm={6} md={4} lg={4} xl={3}>
-                    <CardStyled {...args}>
+                    <Card {...args}>
                         <Image rounded-top={args.rounded} src="/img.jpg" alt="img"/>
 
                         <TextStyled>
@@ -28,7 +28,7 @@ const DefaultCard = (args: CardProps) => (
                             exercitationem ipsam, laborum nulla numquam placeat rem suscipit voluptatum. Alias error id
                             iusto molestiae
                         </TextStyled>
-                    </CardStyled>
+                    </Card>
                 </Col>
             </Row>
         </Container>

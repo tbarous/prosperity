@@ -4,30 +4,22 @@ import TabStyled from "./styled/tab/TabStyled";
 import TabActiveStyled from "./styled/tab-active/TabActiveStyled";
 
 interface Props extends BasicComponentProps {
-    active?: boolean,
-    id?: string,
-    onClick?: (e: MouseEvent) => void
+    onClickTab?: (e: MouseEvent) => void
 }
 
 const Tab: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
     const {
         children,
         className,
-        active,
-        id,
-        onClick = () => {
-        }
+        onClickTab = () => {}
     } = props;
 
     return (
         <TabStyled
             className={className}
-            onClick={onClick}
-            id={id}
+            onClick={onClickTab}
         >
             {children}
-
-            {active && <TabActiveStyled/>}
         </TabStyled>
     )
 }

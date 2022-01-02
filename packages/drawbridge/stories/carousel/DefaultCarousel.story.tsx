@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Carousel, {CarouselProps} from "@components/carousel/Carousel";
 import {StorybookWrapperStyled} from "@stories/GenericStyledComponents";
 import CarouselItem from "@components/carousel/CarouselItem";
@@ -15,43 +15,53 @@ const CarouselStyled = styled(Carousel)`
   height: 500px;
 `;
 
-const DefaultCarousel = (args: CarouselProps) => (
-    <StorybookWrapperStyled>
-        <CarouselStyled {...args}>
-            <CarouselControls>
-                <CarouselControl direction={CarouselDirectionEnum.LEFT}>
-                    <Icon color="white" icon={ArrowCircleLeftSolid} width={50} height={50}/>
-                </CarouselControl>
+const DefaultCarousel = (args: CarouselProps) => {
+    const [change, setChange] = useState<number | undefined>(undefined);
 
-                <CarouselControl direction={CarouselDirectionEnum.RIGHT}>
-                    <Icon color="white" icon={ArrowCircleRightSolid} width={50} height={50}/>
-                </CarouselControl>
-            </CarouselControls>
+    useEffect(() => {
+        setTimeout(() => {
+            setChange(2)
+        }, 2000)
+    }, [])
 
-            <CarouselItems>
-                <CarouselItem>
-                    <Image src="/img.jpg" alt="img"/>
-                </CarouselItem>
+    return (
+        <StorybookWrapperStyled>
+            <CarouselStyled {...args} change={change}>
+                <CarouselControls>
+                    <CarouselControl direction={CarouselDirectionEnum.LEFT}>
+                        <Icon color="white" icon={ArrowCircleLeftSolid} width={50} height={50}/>
+                    </CarouselControl>
 
-                <CarouselItem>
-                    <Image src="/img.jpg" alt="img"/>
-                </CarouselItem>
+                    <CarouselControl direction={CarouselDirectionEnum.RIGHT}>
+                        <Icon color="white" icon={ArrowCircleRightSolid} width={50} height={50}/>
+                    </CarouselControl>
+                </CarouselControls>
 
-                <CarouselItem>
-                    <Image src="/img2.jpg" alt="img"/>
-                </CarouselItem>
+                <CarouselItems>
+                    <CarouselItem>
+                        <Image src="/img.jpg" alt="img"/>
+                    </CarouselItem>
 
-                <CarouselItem>
-                    <Image src="/img2.jpg" alt="img"/>
-                </CarouselItem>
+                    <CarouselItem>
+                        <Image src="/img.jpg" alt="img"/>
+                    </CarouselItem>
 
-                <CarouselItem>
-                    <Image src="/img2.jpg" alt="img"/>
-                </CarouselItem>
-            </CarouselItems>
-        </CarouselStyled>
-    </StorybookWrapperStyled>
-);
+                    <CarouselItem>
+                        <Image src="/img2.jpg" alt="img"/>
+                    </CarouselItem>
+
+                    <CarouselItem>
+                        <Image src="/img2.jpg" alt="img"/>
+                    </CarouselItem>
+
+                    <CarouselItem>
+                        <Image src="/img2.jpg" alt="img"/>
+                    </CarouselItem>
+                </CarouselItems>
+            </CarouselStyled>
+        </StorybookWrapperStyled>
+    );
+}
 
 DefaultCarousel.args = {
     itemsPerSlide: 3,

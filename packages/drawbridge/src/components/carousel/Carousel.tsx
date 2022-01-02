@@ -1,4 +1,4 @@
-import React, {ReactNode, Children, useState} from "react";
+import React, {ReactNode, Children, useState, useEffect} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import CarouselStyled from "./styled/carousel/CarouselStyled";
 import CarouselDirectionEnum from "@components/carousel/enums/CarouselDirectionEnum";
@@ -6,16 +6,18 @@ import CarouselDirectionEnum from "@components/carousel/enums/CarouselDirectionE
 export interface CarouselProps extends BasicComponentProps {
     itemsPerSlide?: number,
     gutter?: number,
-    start?: number
+    start?: number,
+    change?: number
 }
 
 const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps): ReactElementOrNull => {
     const {
         children,
         className,
-        itemsPerSlide = 2,
+        itemsPerSlide = 1,
         gutter = 0,
-        start = 0
+        start = 0,
+        change
     } = props;
 
     /**
@@ -78,8 +80,14 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
         getLeftDistance
     }
 
+    useEffect(() => {
+        if (typeof change === "number" && change <= count && change >= 0) setPosition(change)
+    }, [change])
+
     return (
-        <CarouselStyled className={className}>
+        <CarouselStyled
+            className={className}
+        >
             {Children.map(children, (child: ReactNode) => React.isValidElement(child) && React.cloneElement(child, childProps))}
         </CarouselStyled>
     )
