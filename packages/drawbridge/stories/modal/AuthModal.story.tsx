@@ -17,7 +17,7 @@ import Form from "@components/form/Form";
 import Input from "@components/form/Input";
 import ButtonTypeEnum from "@components/button/enums/ButtonTypeEnum";
 
-const AuthModalTemplate = (args: any) => {
+const AuthModal = (args: any) => {
     const [modal, setModal] = useState(false);
     const [active, setActive] = useState("1");
 
@@ -73,4 +73,4 @@ const AuthModalTemplate = (args: any) => {
     )
 };
 
-export default AuthModalTemplate;
+export default AuthModal;

@@ -49,8 +49,13 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
      * If unmounting process starts, trigger the onClose
      * callback after performing the closing animation.
      */
+    const timeoutRef = useRef<any>(null);
     useEffect(() => {
-        if (unmounting) setTimeout(() => onClose && onClose(), 400);
+        if (unmounting) {
+            timeoutRef.current = setTimeout(() => onClose && onClose(), 400);
+        }
+
+        return () => clearTimeout(timeoutRef.current);
     }, [unmounting]);
 
     return (

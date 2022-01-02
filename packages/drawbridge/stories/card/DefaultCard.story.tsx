@@ -1,5 +1,4 @@
 import React from 'react';
-import {BasicComponentProps} from "@typings";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
@@ -15,7 +14,7 @@ const TextStyled = styled(Text)`
   line-height: ${(props: TextStyledProps) => props.theme.lineHeight.large};
 `;
 
-const Default = (args: CardProps) => (
+const DefaultCard = (args: CardProps) => (
     <StorybookWrapperStyled>
         <Container fluid>
             <Row gutter={14}>
@@ -36,8 +35,8 @@ const Default = (args: CardProps) => (
     </StorybookWrapperStyled>
 );
 
-Default.args = {
+DefaultCard.args = {
     rounded: true
 };
 
-export default Default;
+export default DefaultCard;

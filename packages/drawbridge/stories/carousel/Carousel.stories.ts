@@ -1,6 +1,5 @@
-import React from 'react';
 import Carousel from "@components/carousel/Carousel";
-import Default from "@stories/carousel/Default.story";
+import DefaultCarousel from "@stories/carousel/DefaultCarousel.story";
 
 export default {
     title: 'Carousel',
@@ -9,6 +8,6 @@ export default {
 };
 
 export {
-    Default
+    DefaultCarousel
 }
 

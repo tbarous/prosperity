@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import SnackbarVariationEnum from "@components/snackbar/enums/SnackbarVariationEnum";
 import SnackbarCloseStyled from "@components/snackbar/styled/snackbar-close/SnackbarCloseStyled";
@@ -25,12 +25,23 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
 
     const [unmounting, setUnmounting] = useState(false);
 
+    const timeoutCloseAnimationRef = useRef<any>(null);
+    const timeoutCloseRef = useRef<any>(null);
+
     useEffect(() => {
-        if (closeOnDelay) setTimeout(() => setUnmounting(true), closeOnDelay);
+        if (closeOnDelay) {
+            timeoutCloseRef.current = setTimeout(() => setUnmounting(true), closeOnDelay);
+        }
+
+        return () => clearTimeout(timeoutCloseRef.current);
     }, []);
 
     useEffect(() => {
-        if (unmounting) setTimeout(() => onClose(), closeOnDelay)
+        if (unmounting) {
+            timeoutCloseAnimationRef.current = setTimeout(() => onClose(), 500);
+        }
+
+        return () => clearTimeout(timeoutCloseAnimationRef.current);
     }, [unmounting])
 
     return (
@@ -42,7 +53,7 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
             {children}
 
             {dismissible && <SnackbarCloseStyled
-                onClick={onClose}
+                onClick={() => setUnmounting(true)}
                 icon={Times}
             />}
         </SnackbarStyled>

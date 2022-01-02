@@ -1,5 +1,4 @@
-import React from 'react';
-import Default from "@stories/image/Default.story";
+import DefaultImage from "@stories/image/DefaultImage.story";
 import Image from "@components/image/Image";
 
 export default {
@@ -9,5 +8,5 @@ export default {
 };
 
 export {
-    Default
+    DefaultImage
 }

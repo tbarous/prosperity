@@ -1,7 +1,6 @@
-import React from 'react';
 import Modal from "@components/modal/Modal";
-import Basic from "@stories/modal/BasicModal.story";
-import Auth from "@stories/modal/AuthModal.story";
+import BasicModal from "@stories/modal/BasicModal.story";
+import AuthModal from "@stories/modal/AuthModal.story";
 
 export default {
     title: 'Modal',
@@ -15,6 +14,6 @@ export default {
 };
 
 export {
-    Basic,
-    Auth
+    BasicModal,
+    AuthModal
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import StorybookWrapper from "@stories/StorybookWrapper";
-import Navbar from "@components/navbar/Navbar";
 import Image from "@components/image/Image";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
@@ -9,13 +8,7 @@ import {BasicComponentProps} from "@typings";
 import {Links, NavbarStyled} from '@stories/GenericStyledComponents';
 import LinkStyled from "@components/link/styled/LinkStyled";
 
-export default {
-    title: 'Navbar',
-    component: Navbar,
-    argTypes: {},
-};
-
-const DefaultButtonTemplate = (args: BasicComponentProps) => (
+const DefaultNavbar = (args: BasicComponentProps) => (
     <StorybookWrapper>
         <NavbarStyled>
             {args.children}
@@ -23,9 +16,7 @@ const DefaultButtonTemplate = (args: BasicComponentProps) => (
     </StorybookWrapper>
 );
 
-export const Default: any = DefaultButtonTemplate.bind({});
-
-Default.args = {
+DefaultNavbar.args = {
     children: (
         <Container>
             <Row>
@@ -44,3 +35,5 @@ Default.args = {
         </Container>
     )
 };
+
+export default DefaultNavbar;

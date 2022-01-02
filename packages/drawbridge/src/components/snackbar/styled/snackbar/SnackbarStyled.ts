@@ -22,7 +22,9 @@ const SnackbarStyled = styled.div`
   animation-fill-mode: ${SnackbarStyledGetters.AnimationFillMode};
   color: ${SnackbarStyledGetters.Color};
   padding: ${SnackbarStyledGetters.Padding};
-  box-sizing: border-box;
+  font-weight: ${SnackbarStyledGetters.FontWeight};
+  box-sizing: ${SnackbarStyledGetters.BoxSizing};
+  box-shadow: ${SnackbarStyledGetters.BoxShadow};
 `;
 
 export default SnackbarStyled;

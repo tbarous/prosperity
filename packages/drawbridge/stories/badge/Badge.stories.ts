@@ -1,5 +1,4 @@
-import React from 'react';
-import Default from "@stories/badge/Default.story";
+import DefaultBadge from "@stories/badge/DefaultBadge.story";
 import Badge from "@components/badge/Badge";
 
 export default {
@@ -9,5 +8,5 @@ export default {
 };
 
 export {
-    Default
+    DefaultBadge
 }

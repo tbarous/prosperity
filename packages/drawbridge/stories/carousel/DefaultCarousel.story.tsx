@@ -15,7 +15,7 @@ const CarouselStyled = styled(Carousel)`
   height: 500px;
 `;
 
-const Default = (args: CarouselProps) => (
+const DefaultCarousel = (args: CarouselProps) => (
     <StorybookWrapperStyled>
         <CarouselStyled {...args}>
             <CarouselControls>
@@ -53,9 +53,9 @@ const Default = (args: CarouselProps) => (
     </StorybookWrapperStyled>
 );
 
-Default.args = {
+DefaultCarousel.args = {
     itemsPerSlide: 3,
     gutter: 10
 };
 
-export default Default;
+export default DefaultCarousel;

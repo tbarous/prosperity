@@ -1,5 +1,5 @@
 import Snackbar from "@components/snackbar/Snackbar";
-import Default from '@stories/snackbar/Default.story';
+import DefaultSnackbar from '@stories/snackbar/DefaultSnackbar.story';
 import SnackbarVariationEnum from "@components/snackbar/enums/SnackbarVariationEnum";
 
 export default {
@@ -24,5 +24,5 @@ export default {
 };
 
 export {
-    Default
+    DefaultSnackbar
 }

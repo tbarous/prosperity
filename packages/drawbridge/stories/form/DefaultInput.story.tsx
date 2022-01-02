@@ -2,14 +2,14 @@ import React from "react";
 import Input from "@components/form/Input";
 import { StorybookWrapperStyled } from "@stories/GenericStyledComponents";
 
-const InputStory = (args: any) => (
+const DefaultInput = (args: any) => (
     <StorybookWrapperStyled>
         <Input {...args} />
     </StorybookWrapperStyled>
 );
 
-InputStory.args = {
+DefaultInput.args = {
     label: "Label"
 };
 
-export default InputStory;
+export default DefaultInput;

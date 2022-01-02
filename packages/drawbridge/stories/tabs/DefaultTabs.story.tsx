@@ -1,20 +1,14 @@
 import React, {useState} from 'react';
 import {StorybookWrapperStyled} from "@stories/GenericStyledComponents";
-import {Props} from "@components/image/Image";
 import Tabs from "@components/tabs/Tabs";
 import Tab from "@components/tabs/Tab";
 import Card from "@components/card/Card";
+import {TabsProps} from "@components/tabs/Tabs";
 
-export default {
-    title: 'Tabs',
-    component: Tabs,
-    argTypes: {},
-};
-
-const DefaultButtonTemplate = (args: Props) => {
+const DefaultTabs = (args: TabsProps) => {
     const [active, setActive] = useState("1");
 
-    function onClick(e: any){
+    function onClick(e: any) {
         setActive(e.target.id)
     }
 
@@ -35,6 +29,6 @@ const DefaultButtonTemplate = (args: Props) => {
     )
 };
 
-export const Default: any = DefaultButtonTemplate.bind({});
+DefaultTabs.args = {};
 
-Default.args = {};
+export default DefaultTabs;

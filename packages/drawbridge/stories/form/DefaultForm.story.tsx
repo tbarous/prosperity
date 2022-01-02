@@ -5,9 +5,9 @@ import Form from "@components/form/Form";
 import Button from "@components/button/Button";
 import ButtonTypeEnum from "@components/button/enums/ButtonTypeEnum";
 
-const InputStory = (args: any) => {
+const DefaultForm = (args: any) => {
     function onSubmit() {
-        console.log("Submitted")!
+        console.log("Submitted!")
     }
 
     return (
@@ -27,4 +27,4 @@ const InputStory = (args: any) => {
     );
 }
 
-export default InputStory;
+export default DefaultForm;

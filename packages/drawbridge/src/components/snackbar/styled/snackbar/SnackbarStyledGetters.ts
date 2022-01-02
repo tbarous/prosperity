@@ -23,8 +23,8 @@ const SnackbarColor = (props: SnackbarStyledProps) => {
 
     const mapping: any = {
         [SnackbarVariationEnum.DANGER]: color.white,
-        [SnackbarVariationEnum.WARNING]: color.white,
-        [SnackbarVariationEnum.WARNING]: color.white,
+        [SnackbarVariationEnum.WARNING]: color.dark,
+        [SnackbarVariationEnum.SUCCESS]: color.white,
     }
 
     if (!variation || !mapping[variation]) return color.white;
@@ -66,11 +66,14 @@ const SnackbarStyledGetters = {
     Height: (props: SnackbarStyledProps) => "60px",
     Display: (props: SnackbarStyledProps) => props.theme.display.flex,
     AlignItems: (props: SnackbarStyledProps) => props.theme.alignItems.center,
-    Animation: (props: SnackbarStyledProps) => props.unmounting ? css`${hide} .5s` : css`${show} .5s`,
+    Animation: (props: SnackbarStyledProps) => props.unmounting ? css`${hide} .3s` : css`${show} .3s`,
     AnimationTimingFunction: (props: SnackbarStyledProps) => "ease-in-out",
     AnimationFillMode: (props: SnackbarStyledProps) => "forwards",
     Color: SnackbarColor,
     Padding: (props: SnackbarStyledProps) => `${props.theme.spacing.s0} ${props.theme.spacing.s6}`,
+    FontWeight: (props: SnackbarStyledProps) => props.theme.fontWeight.bold,
+    BoxSizing: (props: SnackbarStyledProps) => props.theme.boxSizing.borderBox,
+    BoxShadow: (props: SnackbarStyledProps) => props.theme.shadow.secondary,
 }
 
 export default SnackbarStyledGetters;

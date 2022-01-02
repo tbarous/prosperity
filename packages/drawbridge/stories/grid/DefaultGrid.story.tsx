@@ -4,18 +4,7 @@ import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 
-export default {
-    title: 'Grid',
-    component: Container,
-    argTypes: {
-        container: {
-            options: ['default', 'fluid'],
-            control: {type: 'radio'},
-        },
-    },
-};
-
-const GridTemplate = (args: any) => {
+const DefaultGrid = (args: any) => {
     const {container} = args;
 
     const isFluid = container === "fluid";
@@ -89,8 +78,8 @@ const GridTemplate = (args: any) => {
     )
 };
 
-export const Default: any = GridTemplate.bind({});
-
-Default.args = {
+DefaultGrid.args = {
     container: 'default'
 };
+
+export default DefaultGrid;

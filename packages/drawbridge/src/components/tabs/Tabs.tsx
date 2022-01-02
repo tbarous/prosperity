@@ -2,7 +2,7 @@ import React, {ReactNode} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import TabsStyled from "./styled/tabs/TabsStyled";
 
-interface Props extends BasicComponentProps {
+export interface TabsProps extends BasicComponentProps {
 }
 
 const Tabs: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {

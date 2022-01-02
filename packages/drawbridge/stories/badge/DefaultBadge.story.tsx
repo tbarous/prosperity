@@ -1,18 +1,16 @@
 import React from 'react';
 import {StorybookWrapperStyled} from "@stories/GenericStyledComponents";
-import Image from "@components/image/Image";
 import {Props} from "@components/image/Image";
+import Badge from "@components/badge/Badge";
 
-const Default = (args: Props) => (
+const DefaultBadge = (args: Props) => (
     <StorybookWrapperStyled>
-        <Image {...args} />
+        <Badge {...args} />
     </StorybookWrapperStyled>
 );
 
-Default.args = {
-    src: "/img.jpg",
-    alt: "img",
-    width: "300"
+DefaultBadge.args = {
+    children: "Badge"
 };
 
-export default Default;
+export default DefaultBadge;
