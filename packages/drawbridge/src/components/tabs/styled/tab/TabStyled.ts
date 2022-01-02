@@ -4,7 +4,7 @@ import TabStyledGetters from "@components/tabs/styled/tab/TabStyledGetters";
 
 export interface TabStyledProps extends StyledProps {
     active?: boolean,
-    onClick?: (e: MouseEvent) => void,
+    onClick?: any,
     id?: string
 }
 

@@ -5,7 +5,7 @@ import TabsStyled from "./styled/tabs/TabsStyled";
 export interface TabsProps extends BasicComponentProps {
 }
 
-const Tabs: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElementOrNull => {
     const {
         children,
         className

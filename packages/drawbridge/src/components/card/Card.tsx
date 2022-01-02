@@ -9,11 +9,15 @@ export interface CardProps extends BasicComponentProps {
 const Card: React.FunctionComponent<CardProps> = (props: CardProps): ReactElementOrNull => {
     const {
         children,
+        className,
         rounded
     } = props;
 
     return (
-        <CardStyled rounded={rounded}>
+        <CardStyled
+            rounded={rounded}
+            className={className}
+        >
             {children}
         </CardStyled>
     )
