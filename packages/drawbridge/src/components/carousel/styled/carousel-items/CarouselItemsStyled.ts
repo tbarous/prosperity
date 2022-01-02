@@ -12,6 +12,10 @@ const CarouselItemsStyled = styled.div<CarouselItemsStyledProps>`
   height: ${CarouselItemsStyledGetters.Height};
   transform: ${CarouselItemsStyledGetters.Transform};
   transition: ${CarouselItemsStyledGetters.Transition};
+  padding-left: ${CarouselItemsStyledGetters.PaddingLeft};
+  padding-right: ${CarouselItemsStyledGetters.PaddingRight};
+  margin-left: ${CarouselItemsStyledGetters.MarginLeft};
+  margin-right: ${CarouselItemsStyledGetters.MarginRight};
 `;
 
 export default CarouselItemsStyled;

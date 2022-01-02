@@ -3,12 +3,12 @@ import {CarouselItemsStyledProps} from "@components/carousel/styled/carousel-ite
 const CarouselItemsStyledGetters = {
     Width: (props: CarouselItemsStyledProps) => props.theme.dimension.d100,
     Height: (props: CarouselItemsStyledProps) => props.theme.dimension.d100,
-    Transform: (props: CarouselItemsStyledProps) => {
-        console.log(props.moveDistance);
-
-        return         `translateX(-${props.moveDistance}%)`
-    },
-    Transition: (props: CarouselItemsStyledProps) => "transform 1s",
+    Transform: (props: CarouselItemsStyledProps) => `translateX(-${props.moveDistance}%)`,
+    Transition: (props: CarouselItemsStyledProps) => "transform 1s ease-out",
+    MarginLeft: (props: CarouselItemsStyledProps) => props.gutter && `-${props.gutter}px`,
+    MarginRight: (props: CarouselItemsStyledProps) => props.gutter && `-${props.gutter}px`,
+    PaddingLeft: (props: CarouselItemsStyledProps) => props.gutter && `${props.gutter}px`,
+    PaddingRight: (props: CarouselItemsStyledProps) => props.gutter && `${props.gutter}px`,
 }
 
 export default CarouselItemsStyledGetters;
