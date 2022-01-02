@@ -12,7 +12,9 @@ const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElemen
     } = props;
 
     return (
-        <TabsStyled className={className}>
+        <TabsStyled
+            className={className}
+        >
             {children}
         </TabsStyled>
     )

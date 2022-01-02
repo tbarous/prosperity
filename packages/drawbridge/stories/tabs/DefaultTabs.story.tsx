@@ -21,8 +21,8 @@ const DefaultTabs = (args: TabsProps) => {
         setActive(e.target.id)
     }
 
-    const [tabs, setTabs] = useState([]);
-    const [content, setContent] = useState([]);
+    const [tabs, setTabs] = useState<any>([]);
+    const [content, setContent] = useState<any>([]);
 
     useEffect(() => {
         const t = [];
