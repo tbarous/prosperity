@@ -7,7 +7,8 @@ export interface CarouselProps extends BasicComponentProps {
     itemsPerSlide?: number,
     gutter?: number,
     start?: number,
-    change?: number
+    change?: number,
+    speed?: number
 }
 
 const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps): ReactElementOrNull => {
@@ -17,7 +18,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
         itemsPerSlide = 1,
         gutter = 0,
         start = 0,
-        change
+        change,
+        speed
     } = props;
 
     /**
@@ -77,7 +79,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
         getCount,
         itemWidth,
         moveDistance,
-        getLeftDistance
+        getLeftDistance,
+        speed
     }
 
     useEffect(() => {

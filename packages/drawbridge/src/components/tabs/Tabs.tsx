@@ -5,7 +5,8 @@ import TabActiveStyled from "./styled/tab-active/TabActiveStyled";
 
 export interface TabsProps extends BasicComponentProps {
     onChange: (index: number) => void,
-    activate?: number
+    activate?: number,
+    speed?: number
 }
 
 const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElementOrNull => {
@@ -13,6 +14,7 @@ const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElemen
         children,
         className,
         activate,
+        speed,
         onChange = () => {
         }
     } = props;
@@ -44,6 +46,7 @@ const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElemen
             <TabActiveStyled
                 width={width}
                 left={active * 100}
+                speed={speed}
             />
         </TabsStyled>
     )

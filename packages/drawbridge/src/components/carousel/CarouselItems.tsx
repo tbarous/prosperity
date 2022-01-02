@@ -8,6 +8,7 @@ export interface CarouselItemsProps extends BasicComponentProps {
     moveDistance?: number,
     getCount?: (count: number) => void,
     getLeftDistance?: (index: number) => number,
+    speed?: number
 }
 
 const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: CarouselItemsProps): ReactElementOrNull => {
@@ -17,6 +18,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
         gutter,
         itemWidth,
         moveDistance,
+        speed,
         getCount = () => { },
         getLeftDistance = () => 1
     } = props;
@@ -28,6 +30,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
             className={className}
             moveDistance={moveDistance}
             gutter={gutter}
+            speed={speed}
         >
             {Children.map(children, (child: ReactNode, index) => {
                 return React.isValidElement(child) && React.cloneElement(child, {

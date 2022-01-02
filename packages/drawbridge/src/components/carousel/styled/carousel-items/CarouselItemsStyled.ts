@@ -4,7 +4,8 @@ import CarouselItemsStyledGetters from "@components/carousel/styled/carousel-ite
 
 export interface CarouselItemsStyledProps extends StyledProps {
     moveDistance?: number,
-    gutter?: number
+    gutter?: number,
+    speed?: number
 }
 
 const CarouselItemsStyled = styled.div<CarouselItemsStyledProps>`

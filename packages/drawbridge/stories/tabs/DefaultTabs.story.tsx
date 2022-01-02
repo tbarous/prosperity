@@ -14,6 +14,7 @@ import Carousel from "@components/carousel/Carousel";
 
 const CardStyled = styled(Card)`
   padding: 2rem;
+  height: 200px;
 `;
 
 const DefaultTabs = (args: TabsProps) => {
@@ -25,7 +26,7 @@ const DefaultTabs = (args: TabsProps) => {
 
     useEffect(() => {
         if (typeof args.activate === "number") {
-            onChange(args.activate);
+            onChange(args.activate -1);
         }
     }, [args.activate])
 
@@ -57,21 +58,21 @@ const DefaultTabs = (args: TabsProps) => {
                 <Row>
                     <Col xs={4}>
                         <div style={{height: "60px"}}>
-                            <Tabs {...args} onChange={onChange} activate={active}>
+                            <Tabs {...args} onChange={onChange} activate={active} speed={.4}>
                                 {tabs.map((tab: any, index: number) => <Tab key={index}>{tab}</Tab>)}
                             </Tabs>
 
-                            <div style={{height: "300px"}}>
-                                <Carousel {...args} change={active}>
+                            <CardStyled>
+                                <Carousel {...args} change={active} speed={.4}>
                                     <CarouselItems>
                                         {content.map((c: any, index: number) => (
                                             <CarouselItem key={index}>
-                                                <div style={{padding: "2rem", border: "1px solid"}}> {c}</div>
+                                                 {c}
                                             </CarouselItem>
                                         ))}
                                     </CarouselItems>
                                 </Carousel>
-                            </div>
+                            </CardStyled>
                         </div>
                     </Col>
                 </Row>

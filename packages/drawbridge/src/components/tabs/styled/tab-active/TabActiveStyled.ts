@@ -4,7 +4,8 @@ import TabActiveStyledGetters from "@components/tabs/styled/tab-active/TabActive
 
 export interface TabActiveStyledProps extends StyledProps {
     width?: number,
-    left?: number
+    left?: number,
+    speed?: number
 }
 
 const TabActiveStyled = styled.div<TabActiveStyledProps>`
@@ -12,7 +13,6 @@ const TabActiveStyled = styled.div<TabActiveStyledProps>`
   background-color: ${TabActiveStyledGetters.BackgroundColor};
   position: ${TabActiveStyledGetters.Position};
   bottom: ${TabActiveStyledGetters.Bottom};
-  left: ${TabActiveStyledGetters.Left};
   width: ${TabActiveStyledGetters.Width};
   transform: ${TabActiveStyledGetters.Transform};
   transition: ${TabActiveStyledGetters.Transition};
