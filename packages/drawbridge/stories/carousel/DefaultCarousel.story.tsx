@@ -16,17 +16,15 @@ const CarouselStyled = styled(Carousel)`
 `;
 
 const DefaultCarousel = (args: CarouselProps) => {
-    const [change, setChange] = useState<number | undefined>(undefined);
+    const [changeToSlide, setChangeToSlide] = useState<number | undefined>(undefined);
 
     useEffect(() => {
-        setTimeout(() => {
-            setChange(2)
-        }, 2000)
-    }, [])
+        setChangeToSlide(args.change)
+    }, [args.change])
 
     return (
         <StorybookWrapperStyled>
-            <CarouselStyled {...args} change={change}>
+            <CarouselStyled {...args} change={changeToSlide}>
                 <CarouselControls>
                     <CarouselControl direction={CarouselDirectionEnum.LEFT}>
                         <Icon color="white" icon={ArrowCircleLeftSolid} width={50} height={50}/>
@@ -65,7 +63,8 @@ const DefaultCarousel = (args: CarouselProps) => {
 
 DefaultCarousel.args = {
     itemsPerSlide: 3,
-    gutter: 10
+    gutter: 10,
+    change: -1
 };
 
 export default DefaultCarousel;

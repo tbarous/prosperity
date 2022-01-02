@@ -1,23 +1,29 @@
-import React, {Children, ReactNode, useState} from "react";
+import React, {Children, ReactNode, useEffect, useState} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import TabsStyled from "./styled/tabs/TabsStyled";
 import TabActiveStyled from "./styled/tab-active/TabActiveStyled";
 
 export interface TabsProps extends BasicComponentProps {
     onChange: (index: number) => void,
-    initialActive?: number
+    activate?: number
 }
 
 const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElementOrNull => {
     const {
         children,
         className,
-        initialActive = 0,
+        activate,
         onChange = () => {
         }
     } = props;
 
-    const [active, setActive] = useState(initialActive);
+    const [active, setActive] = useState(0);
+
+    useEffect(() => {
+        if (typeof activate === "number") {
+            setActive(activate);
+        }
+    }, [activate])
 
     function onClickTab(index: number) {
         setActive(index);

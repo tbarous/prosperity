@@ -17,11 +17,15 @@ const CardStyled = styled(Card)`
 `;
 
 const DefaultTabs = (args: TabsProps) => {
-    const [active, setActive] = useState(args.initialActive);
+    const [active, setActive] = useState<any>(0);
 
     function onChange(index: number) {
         setActive(index)
     }
+
+    useEffect(() => {
+        onChange(args.initialActive);
+    }, [args.initialActive])
 
     const [tabs, setTabs] = useState<any>([
         "Tab 1",
@@ -51,20 +55,21 @@ const DefaultTabs = (args: TabsProps) => {
                 <Row>
                     <Col xs={4}>
                         <div style={{height: "60px"}}>
-                            <Tabs {...args} onChange={onChange}>
+                            <Tabs {...args} onChange={onChange} activate={active}>
                                 {tabs.map((tab: any, index: number) => <Tab key={index}>{tab}</Tab>)}
                             </Tabs>
 
                             <div style={{height: "300px"}}>
-                            <Carousel {...args} change={active}>
-                                <CarouselItems>
-                                    {content.map((c: any, index: number) => (
-                                        <CarouselItem key={index}>
-                                               <div style={{padding: "2rem", border: "1px solid"}}> {c}</div>
-                                        </CarouselItem>
-                                    ))}
-                                </CarouselItems>
-                            </Carousel></div>
+                                <Carousel {...args} change={active}>
+                                    <CarouselItems>
+                                        {content.map((c: any, index: number) => (
+                                            <CarouselItem key={index}>
+                                                <div style={{padding: "2rem", border: "1px solid"}}> {c}</div>
+                                            </CarouselItem>
+                                        ))}
+                                    </CarouselItems>
+                                </Carousel>
+                            </div>
                         </div>
                     </Col>
                 </Row>
@@ -74,7 +79,7 @@ const DefaultTabs = (args: TabsProps) => {
 };
 
 DefaultTabs.args = {
-    initialActive: 2
+    initialActive: 1
 };
 
 export default DefaultTabs;

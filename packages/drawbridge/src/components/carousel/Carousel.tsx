@@ -81,7 +81,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
     }
 
     useEffect(() => {
-        if (typeof change === "number" && change <= count && change >= 0) setPosition(change)
+        if (typeof change === "number" && change <= count- itemsPerSlide && change >= 0) setPosition(change)
     }, [change])
 
     return (
