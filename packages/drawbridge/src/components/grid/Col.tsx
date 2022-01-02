@@ -1,6 +1,6 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import ColStyled from "@components/grid/styled/ColStyled";
+import ColStyled from "./styled/col/ColStyled";
 
 interface Props extends BasicComponentProps {
     xs?: number,

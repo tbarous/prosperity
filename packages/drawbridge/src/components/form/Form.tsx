@@ -1,6 +1,6 @@
 import React, {FormEvent, ReactElement, ReactNode} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import FormStyled from "./styled/FormStyled";
+import FormStyled from "@components/form/styled/form/FormStyled";
 
 interface Props extends BasicComponentProps {
     onSubmit?: () => void

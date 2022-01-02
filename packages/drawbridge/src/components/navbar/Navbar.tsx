@@ -4,10 +4,13 @@ import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import NavbarStyled from "./styled/NavbarStyled";
 
 const Navbar: FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElementOrNull => {
-    const {children, className} = props;
+    const {
+        children,
+        className
+    } = props;
 
     return (
-        <NavbarStyled {...props}>
+        <NavbarStyled className={className}>
             {children}
         </NavbarStyled>
     )

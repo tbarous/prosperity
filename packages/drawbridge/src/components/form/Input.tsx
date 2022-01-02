@@ -1,10 +1,10 @@
-import React, {ChangeEvent, ReactNode, useEffect, useRef, useState} from "react";
-import InputStyled from "./styled/InputStyled";
-import {BasicComponentProps} from "@typings";
+import React, {useRef, useState} from "react";
+import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import useOnClickOutside from "@hooks/useOnClickOutside";
-import InputStyledWrapper from "./styled/InputWrapperStyled";
-import InputStyledLabel from "./styled/InputLabelStyled";
-import InputLineStyled from "./styled/InputLineStyled";
+import InputStyled from "@components/form/styled/input/InputStyled";
+import InputLineStyled from "@components/form/styled/input-line/InputLineStyled";
+import InputStyledLabel from "./styled/input-label/InputLabelStyled";
+import InputStyledWrapper from "./styled/input-wrapper/InputWrapperStyled";
 
 interface Props extends BasicComponentProps {
     label?: string,
@@ -12,7 +12,7 @@ interface Props extends BasicComponentProps {
     value?: string
 }
 
-const Input: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
+const Input: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
     const {label, focused, value} = props;
 
     const [isFocused, setIsFocused] = useState(focused);

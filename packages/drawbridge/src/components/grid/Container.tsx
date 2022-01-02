@@ -1,6 +1,6 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import ContainerStyled from "@components/grid/styled/ContainerStyled";
+import ContainerStyled from "./styled/container/ContainerStyled";
 
 interface Props extends BasicComponentProps {
     fluid?: boolean

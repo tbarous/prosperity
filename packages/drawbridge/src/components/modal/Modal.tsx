@@ -1,10 +1,10 @@
 import React, {useEffect, useRef, useState} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import useOnClickOutside from "@hooks/useOnClickOutside";
-import ModalOverlayStyled from "@components/modal/styled/ModalOverlayStyled";
-import ModalCloseStyled from "@components/modal/styled/ModalCloseStyled";
-import ModalContentStyled from "@components/modal/styled/ModalContentStyled";
 import {Times} from "@components/icon/Icons";
+import ModalCloseStyled from "./styled/modal-close/ModalCloseStyled";
+import ModalOverlayStyled from "./styled/modal-overlay/ModalOverlayStyled";
+import ModalContentStyled from "./styled/modal-content/ModalContentStyled";
 
 interface Props extends BasicComponentProps {
     onClose?: () => void,
@@ -30,8 +30,16 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
 
     return (
         <ModalOverlayStyled>
-            <ModalContentStyled ref={modalWrapperRef} unmounting={unmounting}>
-                <ModalCloseStyled onClick={close} width={14} height={14} icon={Times}/>
+            <ModalContentStyled
+                ref={modalWrapperRef}
+                unmounting={unmounting}
+            >
+                <ModalCloseStyled
+                    onClick={close}
+                    width={14}
+                    height={14}
+                    icon={Times}
+                />
 
                 {children}
             </ModalContentStyled>
