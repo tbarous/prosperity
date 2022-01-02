@@ -19,7 +19,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
         gutter = 0,
         start = 0,
         change,
-        speed
+        speed = 1
     } = props;
 
     /**

@@ -14,7 +14,7 @@ const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElemen
         children,
         className,
         activate,
-        speed,
+        speed = 1,
         onChange = () => {
         }
     } = props;
