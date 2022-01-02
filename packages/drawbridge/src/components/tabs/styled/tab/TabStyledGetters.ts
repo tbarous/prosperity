@@ -1,4 +1,4 @@
-import {TabStyledProps} from "@components/tabs/styled/TabStyled";
+import {TabStyledProps} from "@components/tabs/styled/tab/TabStyled";
 
 const TabStyledGetters = {
     BackgroundColor: (props: TabStyledProps) => props.theme.color.primary,
@@ -10,6 +10,8 @@ const TabStyledGetters = {
     FontFamily: (props: TabStyledProps) => props.theme.fontFamily.primary,
     FontSize: (props: TabStyledProps) => props.theme.fontSize.md,
     Position: (props: TabStyledProps) => props.theme.position.relative,
+    JustifyContent: (props: TabStyledProps) => props.theme.justifyContent.center,
+    Flex: (props: TabStyledProps) => 1
 }
 
 export default TabStyledGetters;

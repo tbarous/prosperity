@@ -2,7 +2,7 @@ import ButtonVariationEnum from "@components/button/enums/ButtonVariationEnum";
 import {ButtonStyledProps} from "@components/button/styled/ButtonStyled";
 import ButtonSizeEnum from "@components/button/enums/ButtonSizeEnum";
 
-function ButtonBackgroundColor(props: ButtonStyledProps) {
+const ButtonBackgroundColor = (props: ButtonStyledProps) => {
     const color = props.theme.color;
     const variation = props.variation;
 
@@ -16,7 +16,7 @@ function ButtonBackgroundColor(props: ButtonStyledProps) {
     return mapping[variation];
 }
 
-function ButtonColor(props: ButtonStyledProps) {
+const ButtonColor = (props: ButtonStyledProps) => {
     const color = props.theme.color;
     const variation = props.variation;
 
@@ -30,7 +30,7 @@ function ButtonColor(props: ButtonStyledProps) {
     return mapping[variation];
 }
 
-function ButtonPadding(props: ButtonStyledProps) {
+const ButtonPadding = (props: ButtonStyledProps) => {
     const spacing = props.theme.spacing;
     const size = props.size;
 
@@ -49,20 +49,20 @@ const ButtonStyledGetters = {
     Padding: ButtonPadding,
     BackgroundColor: ButtonBackgroundColor,
     Color: ButtonColor,
-    LetterSpacing : (props: ButtonStyledProps) => props.theme.fontLetterSpacing.small,
-    Height : (props: ButtonStyledProps) => props.theme.dimension.d100,
-    Width : (props: ButtonStyledProps) => props.theme.dimension.d100,
-    FontWeight : (props: ButtonStyledProps) => props.theme.fontWeight.bold,
-    FontSize : (props: ButtonStyledProps) => props.theme.fontSize.md,
-    BoxShadow : (props: ButtonStyledProps) => props.theme.shadow.primary,
-    FontFamily : (props: ButtonStyledProps) => props.theme.fontFamily.primary,
-    BorderRadius : (props: ButtonStyledProps) => props.theme.borderRadius.medium,
-    Border : (props: ButtonStyledProps) => props.theme.border.none,
-    Cursor : (props: ButtonStyledProps) => props.theme.cursor.pointer,
-    HoveredShadow : (props: ButtonStyledProps) => props.theme.shadow.secondary,
-    FocusedFocusFilter : (props: ButtonStyledProps) => "brightness(110%)",
-    ActiveFocusFilter : (props: ButtonStyledProps) => "brightness(110%)",
-    VisitedFocusFilter : (props: ButtonStyledProps) => "brightness(110%)",
+    LetterSpacing: (props: ButtonStyledProps) => props.theme.fontLetterSpacing.small,
+    Height: (props: ButtonStyledProps) => props.theme.dimension.d100,
+    Width: (props: ButtonStyledProps) => props.theme.dimension.d100,
+    FontWeight: (props: ButtonStyledProps) => props.theme.fontWeight.bold,
+    FontSize: (props: ButtonStyledProps) => props.theme.fontSize.md,
+    BoxShadow: (props: ButtonStyledProps) => props.theme.shadow.primary,
+    FontFamily: (props: ButtonStyledProps) => props.theme.fontFamily.primary,
+    BorderRadius: (props: ButtonStyledProps) => props.theme.borderRadius.medium,
+    Border: (props: ButtonStyledProps) => props.theme.border.none,
+    Cursor: (props: ButtonStyledProps) => props.theme.cursor.pointer,
+    HoveredShadow: (props: ButtonStyledProps) => props.theme.shadow.secondary,
+    FocusedFocusFilter: (props: ButtonStyledProps) => "brightness(110%)",
+    ActiveFocusFilter: (props: ButtonStyledProps) => "brightness(110%)",
+    VisitedFocusFilter: (props: ButtonStyledProps) => "brightness(110%)",
 }
 
 export default ButtonStyledGetters;

@@ -11,25 +11,52 @@ interface Props extends BasicComponentProps {
     closeOnClickOutside?: boolean
 }
 
+/**
+ * Modal Component.
+ * @param props
+ * @constructor
+ */
 const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {onClose, children, closeOnClickOutside} = props;
+    const {
+        children,
+        className,
+        closeOnClickOutside,
+        onClose,
+    } = props;
 
+    /**
+     * Watching if the modal starts to unmount.
+     */
     const [unmounting, setUnmounting] = useState(false);
 
+    /**
+     * References modal wrapper element.
+     */
     const modalWrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
 
+    /**
+     * Starts the unmount process.
+     */
+    const close = () => setUnmounting(true);
+
+    /**
+     * Enables closing modal upon clicking
+     * outside the modal wrapper element.
+     */
     if (closeOnClickOutside) useOnClickOutside(modalWrapperRef, close);
 
-    function close() {
-        setUnmounting(true);
-    }
-
+    /**
+     * If unmounting process starts, trigger the onClose
+     * callback after performing the closing animation.
+     */
     useEffect(() => {
         if (unmounting) setTimeout(() => onClose && onClose(), 400);
     }, [unmounting]);
 
     return (
-        <ModalOverlayStyled>
+        <ModalOverlayStyled
+            className={className}
+        >
             <ModalContentStyled
                 ref={modalWrapperRef}
                 unmounting={unmounting}

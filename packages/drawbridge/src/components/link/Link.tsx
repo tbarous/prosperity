@@ -8,10 +8,19 @@ interface Props extends BasicComponentProps {
 }
 
 const Link: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {children} = props;
+    const {
+        children,
+        className,
+        href,
+        blank
+    } = props;
 
     return (
-        <LinkStyled {...props}>
+        <LinkStyled
+            className={className}
+            href={href}
+            target={blank ? "blank" : ""}
+        >
             {children}
         </LinkStyled>
     )

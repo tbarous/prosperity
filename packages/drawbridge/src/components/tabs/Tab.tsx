@@ -1,7 +1,7 @@
 import React from "react";
-import TabStyled from "./styled/TabStyled";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import TabActiveStyled from "./styled/TabActiveStyled";
+import TabStyled from "./styled/tab/TabStyled";
+import TabActiveStyled from "./styled/tab-active/TabActiveStyled";
 
 interface Props extends BasicComponentProps {
     active?: boolean,
@@ -10,13 +10,19 @@ interface Props extends BasicComponentProps {
 }
 
 const Tab: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {children, className, active} = props;
+    const {
+        children,
+        className,
+        active
+    } = props;
 
     return (
-        <TabStyled {...props}>
+        <TabStyled
+            className={className}
+        >
             {children}
 
-            {active ? <TabActiveStyled/> : null}
+            {active && <TabActiveStyled/>}
         </TabStyled>
     )
 }

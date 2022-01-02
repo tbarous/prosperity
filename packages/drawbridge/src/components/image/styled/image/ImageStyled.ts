@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import ImageStyledGetters from "@components/image/styled/ImageStyledGetters";
+import ImageStyledGetters from "@components/image/styled/image/ImageStyledGetters";
 
 export interface ImageStyledProps extends StyledProps {
     rounded?: boolean,

@@ -1,4 +1,4 @@
-import {TabActiveStyledProps} from "@components/tabs/styled/TabActiveStyled";
+import {TabActiveStyledProps} from "@components/tabs/styled/tab-active/TabActiveStyled";
 
 const TabActiveStyledGetters = {
     Height: (props: TabActiveStyledProps) => props.theme.dimension.d10,

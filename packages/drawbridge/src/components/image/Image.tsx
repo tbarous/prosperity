@@ -1,7 +1,7 @@
 import React from "react";
-import ImageStyled from "./styled/ImageStyled";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import ImageWrapperStyled from "./styled/ImageWrapperStyled";
+import ImageWrapperStyled from "./styled/image-wrapper/ImageWrapperStyled";
+import ImageStyled from "./styled/image/ImageStyled";
 
 export interface Props extends BasicComponentProps {
     width?: number,
@@ -23,7 +23,10 @@ const Image: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
     } = props;
 
     return (
-        <ImageWrapperStyled width={width} height={height}>
+        <ImageWrapperStyled
+            width={width}
+            height={height}
+        >
             <ImageStyled
                 src={src}
                 alt={alt}

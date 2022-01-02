@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import TabStyledGetters from "@components/tabs/styled/TabStyledGetters";
+import TabStyledGetters from "@components/tabs/styled/tab/TabStyledGetters";
 
 export interface TabStyledProps extends StyledProps {
     active?: boolean,
@@ -18,8 +18,8 @@ const TabStyled = styled.div<TabStyledProps>`
   font-family: ${TabStyledGetters.FontFamily};
   font-size: ${TabStyledGetters.FontSize};
   position: ${TabStyledGetters.Position};
-  justify-content: center;
-  flex: 1;
+  justify-content: ${TabStyledGetters.JustifyContent};
+  flex: ${TabStyledGetters.Flex};
 `;
 
 export default TabStyled;

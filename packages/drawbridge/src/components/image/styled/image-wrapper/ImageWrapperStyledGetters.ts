@@ -1,4 +1,4 @@
-import {ImageWrapperStyledProps} from "@components/image/styled/ImageWrapperStyled";
+import {ImageWrapperStyledProps} from "@components/image/styled/image-wrapper/ImageWrapperStyled";
 
 const ImageWrapperStyledGetters = {
     Width: (props: ImageWrapperStyledProps) => props.width ? `${props.width}px` : `100%`,

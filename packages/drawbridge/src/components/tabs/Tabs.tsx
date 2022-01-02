@@ -1,16 +1,18 @@
 import React, {ReactNode} from "react";
-import TabsStyled from "./styled/TabsStyled";
+import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import TabsStyled from "./styled/tabs/TabsStyled";
 
-interface Props {
-    children?: ReactNode,
-    className?: string
+interface Props extends BasicComponentProps {
 }
 
-const Tabs: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
-    const {children, className} = props;
+const Tabs: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+    const {
+        children,
+        className
+    } = props;
 
     return (
-        <TabsStyled {...props}>
+        <TabsStyled className={className}>
             {children}
         </TabsStyled>
     )

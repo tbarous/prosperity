@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import TabActiveStyledGetters from "@components/tabs/styled/TabActiveStyledGetters";
+import TabActiveStyledGetters from "@components/tabs/styled/tab-active/TabActiveStyledGetters";
 
 export interface TabActiveStyledProps extends StyledProps {
 }

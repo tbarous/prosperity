@@ -1,4 +1,4 @@
-import {TabsStyledProps} from "@components/tabs/styled/TabsStyled";
+import {TabsStyledProps} from "@components/tabs/styled/tabs/TabsStyled";
 
 const TabsStyledGetters = {
     Display: (props: TabsStyledProps) => props.theme.display.flex,

@@ -1,4 +1,4 @@
-import {ImageStyledProps} from "@components/image/styled/ImageStyled";
+import {ImageStyledProps} from "@components/image/styled/image/ImageStyled";
 
 const ImageStyledGetters = {
     Width: (props: ImageStyledProps) => props.theme.dimension.d100,

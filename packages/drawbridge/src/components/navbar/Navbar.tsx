@@ -10,7 +10,9 @@ const Navbar: FunctionComponent<BasicComponentProps> = (props: BasicComponentPro
     } = props;
 
     return (
-        <NavbarStyled className={className}>
+        <NavbarStyled
+            className={className}
+        >
             {children}
         </NavbarStyled>
     )

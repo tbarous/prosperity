@@ -1,16 +1,23 @@
-import React, {ReactNode} from "react";
+import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import TextStyled from "@components/text/styled/TextStyled";
 
-interface Props {
+interface TextProps extends BasicComponentProps{
     bold?: boolean
 }
 
-const Text: React.FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElementOrNull => {
-    const {children, className} = props;
+const Text: React.FunctionComponent<TextProps> = (props: TextProps): ReactElementOrNull => {
+    const {
+        children,
+        className,
+        bold
+    } = props;
 
     return (
-        <TextStyled {...props}>
+        <TextStyled
+            className={className}
+            bold={bold}
+        >
             {children}
         </TextStyled>
     )

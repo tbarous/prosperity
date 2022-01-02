@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import ImageWrapperStyledGetters from "@components/image/styled/ImageWrapperStyledGetters";
+import ImageWrapperStyledGetters from "@components/image/styled/image-wrapper/ImageWrapperStyledGetters";
 
 export interface ImageWrapperStyledProps extends StyledProps {
     width?: number,
