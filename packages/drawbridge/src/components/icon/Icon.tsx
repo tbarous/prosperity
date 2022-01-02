@@ -7,7 +7,8 @@ interface Props extends BasicComponentProps {
     icon: IconInterface,
     width?: number,
     height?: number,
-    onClick?: () => void
+    onClick?: () => void,
+    color?: string
 }
 
 const Icon: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
@@ -15,8 +16,10 @@ const Icon: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull 
         icon,
         width = 14,
         height = 14,
-        onClick = () => console.log('clicked'),
-        className
+        className,
+        color,
+        onClick = () => {
+        },
     } = props;
 
     return (
@@ -25,6 +28,7 @@ const Icon: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull 
             className={className}
             width={width}
             height={height}
+            color={color}
         >
             <svg
                 aria-hidden="true"

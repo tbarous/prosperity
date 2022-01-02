@@ -1,20 +1,29 @@
-import React, {ReactNode} from "react";
-import styled from "styled-components";
+import React from "react";
+import CarouselItemStyled from "@components/carousel/styled/carousel-item/CarouselItemStyled";
+import {BasicComponentProps, ReactElementOrNull} from "@typings";
 
-const CarouselItemStyled = styled.div`
-    
-`;
-
-interface Props {
-    children?: ReactNode,
-    className?: string
+interface Props extends BasicComponentProps {
+    itemWidth?: number,
+    leftDistance?: number,
+    gutter?: number
 }
 
-const CarouselItem: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
-    const {children, className} = props;
-    
+const CarouselItem: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+    const {
+        children,
+        className,
+        itemWidth,
+        leftDistance,
+        gutter
+    } = props;
+
     return (
-        <CarouselItemStyled className={className}>
+        <CarouselItemStyled
+            className={className}
+            width={itemWidth}
+            leftDistance={leftDistance}
+            gutter={gutter}
+        >
             {children}
         </CarouselItemStyled>
     )

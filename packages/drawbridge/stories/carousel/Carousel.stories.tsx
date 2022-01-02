@@ -1,7 +1,6 @@
 import React from 'react';
-import {StorybookWrapperStyled} from "@stories/GenericStyledComponents";
-import {Props} from "@components/image/Image";
 import Carousel from "@components/carousel/Carousel";
+import Default from "@stories/carousel/Default.story";
 
 export default {
     title: 'Carousel',
@@ -9,14 +8,7 @@ export default {
     argTypes: {},
 };
 
-const DefaultButtonTemplate = (args: Props) => (
-    <StorybookWrapperStyled>
-        <Carousel {...args} />
-    </StorybookWrapperStyled>
-);
+export {
+    Default
+}
 
-export const Default: any = DefaultButtonTemplate.bind({});
-
-Default.args = {
-
-};

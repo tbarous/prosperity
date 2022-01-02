@@ -1,5 +1,6 @@
 interface ThemeObjectFitInterface {
-    contain: string
+    contain: string,
+    cover: string
 }
 
 export default ThemeObjectFitInterface;
