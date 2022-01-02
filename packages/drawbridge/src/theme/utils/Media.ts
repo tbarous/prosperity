@@ -8,7 +8,7 @@ function up(breakpoint: string, styles: FlattenSimpleInterpolation): FlattenSimp
     `;
 }
 
-function down(breakpoint: string, styles: string): FlattenSimpleInterpolation {
+function down(breakpoint: string, styles: FlattenSimpleInterpolation): FlattenSimpleInterpolation {
     return css`
       @media screen and (max-width: ${breakpoint}) {
         ${styles}

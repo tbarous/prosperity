@@ -19,7 +19,7 @@ const Default = (args: CardProps) => (
     <StorybookWrapperStyled>
         <Container fluid>
             <Row gutter={14}>
-                <Col xs={4}>
+                <Col xs={12} sm={6} md={4} lg={4} xl={3}>
                     <CardStyled {...args}>
                         <Image rounded-top={args.rounded} src="/img.jpg" alt="img"/>
 
