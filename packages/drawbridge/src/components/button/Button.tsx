@@ -12,8 +12,14 @@ export interface ButtonProps extends BasicComponentProps {
     type?: ButtonTypeEnum,
 }
 
-const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElement => {
-    const {children, onClick, variation, size, type} = props;
+const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElementOrNull => {
+    const {
+        children,
+        variation,
+        size,
+        type,
+        onClick
+    } = props;
 
     return (
         <ButtonStyled

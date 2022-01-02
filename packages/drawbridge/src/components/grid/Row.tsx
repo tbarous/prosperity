@@ -7,7 +7,7 @@ interface Props extends BasicComponentProps {
 }
 
 const Row: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {children, gutter} = props;
+    const {children, gutter, className} = props;
 
     const childrenWithProps = React.Children.map(children, (child) => {
         if (!React.isValidElement(child) || !gutter) return child;
@@ -16,7 +16,7 @@ const Row: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull =
     });
 
     return (
-        <RowStyled {...props}>
+        <RowStyled className={className} gutter={gutter}>
             {childrenWithProps}
         </RowStyled>
     )

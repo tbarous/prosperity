@@ -7,7 +7,11 @@ interface Props extends BasicComponentProps {
 }
 
 const Form: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {children, className, onSubmit} = props;
+    const {
+        children,
+        className,
+        onSubmit
+    } = props;
 
     function onSubmitHandler(e: FormEvent) {
         e.preventDefault();
@@ -16,7 +20,7 @@ const Form: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull 
     }
 
     return (
-        <FormStyled onSubmit={onSubmitHandler}>
+        <FormStyled onSubmit={onSubmitHandler} className={className}>
             {children}
         </FormStyled>
     )

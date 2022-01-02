@@ -13,10 +13,29 @@ interface Props extends BasicComponentProps {
 }
 
 const Col: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {children} = props;
+    const {
+        children,
+        className,
+        xs,
+        sm,
+        md,
+        lg,
+        xl,
+        xxl,
+        gutter
+    } = props;
 
     return (
-        <ColStyled {...props}>
+        <ColStyled
+            className={className}
+            xs={xs}
+            sm={sm}
+            md={md}
+            lg={lg}
+            xl={xl}
+            xxl={xxl}
+            gutter={gutter}
+        >
             {children}
         </ColStyled>
     )

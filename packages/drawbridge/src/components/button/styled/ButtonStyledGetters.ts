@@ -2,8 +2,7 @@ import ButtonVariationEnum from "@components/button/enums/ButtonVariationEnum";
 import {ButtonStyledProps} from "@components/button/styled/ButtonStyled";
 import ButtonSizeEnum from "@components/button/enums/ButtonSizeEnum";
 
-// Helpers
-export function ButtonBackgroundColor(props: ButtonStyledProps) {
+function ButtonBackgroundColor(props: ButtonStyledProps) {
     const color = props.theme.color;
     const variation = props.variation;
 
@@ -17,7 +16,7 @@ export function ButtonBackgroundColor(props: ButtonStyledProps) {
     return mapping[variation];
 }
 
-export function ButtonColor(props: ButtonStyledProps) {
+function ButtonColor(props: ButtonStyledProps) {
     const color = props.theme.color;
     const variation = props.variation;
 
@@ -31,7 +30,7 @@ export function ButtonColor(props: ButtonStyledProps) {
     return mapping[variation];
 }
 
-export function ButtonPadding(props: ButtonStyledProps) {
+function ButtonPadding(props: ButtonStyledProps) {
     const spacing = props.theme.spacing;
     const size = props.size;
 

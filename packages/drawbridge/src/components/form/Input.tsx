@@ -13,7 +13,12 @@ interface Props extends BasicComponentProps {
 }
 
 const Input: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {label, focused, value} = props;
+    const {
+        className,
+        label,
+        focused,
+        value
+    } = props;
 
     const [isFocused, setIsFocused] = useState(focused);
     const [val, setVal] = useState(value);
@@ -27,6 +32,7 @@ const Input: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
             focused={isFocused}
             ref={inputRef}
             onClick={() => setIsFocused(true)}
+            className={className}
         >
             {label && <InputStyledLabel focused={isFocused} hasValue={!!val}>{label}</InputStyledLabel>}
 

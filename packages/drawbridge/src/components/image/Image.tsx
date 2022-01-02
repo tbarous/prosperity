@@ -14,7 +14,13 @@ export interface Props extends BasicComponentProps {
 }
 
 const Image: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {src, alt, width, height, rounded} = props;
+    const {
+        src,
+        alt,
+        width,
+        height,
+        rounded
+    } = props;
 
     return (
         <ImageWrapperStyled width={width} height={height}>

@@ -4,11 +4,12 @@ import ButtonVariationEnum from "@components/button/enums/ButtonVariationEnum";
 import ButtonSizeEnum from "@components/button/enums/ButtonSizeEnum";
 import ButtonStyledGetters from "@components/button/styled/ButtonStyledGetters";
 import ButtonTypeEnum from "@components/button/enums/ButtonTypeEnum";
+import {HTMLAttributes} from "react";
 
 export interface ButtonStyledProps extends StyledProps {
     variation?: ButtonVariationEnum,
     size?: ButtonSizeEnum,
-    type?: ButtonTypeEnum
+    type?: HTMLAttributes<string>
 }
 
 const ButtonStyled = styled.button<ButtonStyledProps>`

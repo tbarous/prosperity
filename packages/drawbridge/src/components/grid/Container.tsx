@@ -7,10 +7,10 @@ interface Props extends BasicComponentProps {
 }
 
 const Container: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {children} = props;
+    const {children, className, fluid} = props;
 
     return (
-        <ContainerStyled {...props}>
+        <ContainerStyled className={className} fluid={fluid}>
             {children}
         </ContainerStyled>
     )

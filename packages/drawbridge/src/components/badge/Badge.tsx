@@ -3,11 +3,13 @@ import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import BadgeStyled from "./styled/BadgeStyled";
 
 interface Props extends BasicComponentProps{
-
 }
 
 const Badge: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {children, className} = props;
+    const {
+        children,
+        className
+    } = props;
 
     return (
         <BadgeStyled className={className}>

@@ -1,6 +1,7 @@
 enum ButtonTypeEnum {
     BUTTON = "button",
-    SUBMIT = "submit"
+    SUBMIT = "submit",
+    RESET = "reset"
 }
 
 export default ButtonTypeEnum;
