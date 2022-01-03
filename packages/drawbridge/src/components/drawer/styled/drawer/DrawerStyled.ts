@@ -13,6 +13,7 @@ const DrawerStyled = styled.div<DrawerStyledProps>`
   background-color: ${DrawerStyledGetters.BackgroundColor};
   width: ${DrawerStyledGetters.Width};
   animation: ${DrawerStyledGetters.Animation};
+  display: ${DrawerStyledGetters.Display};
 `;
 
 export default DrawerStyled;
