@@ -4,14 +4,22 @@ import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import Image from "@components/image/Image";
 import Text from "@components/text/Text";
-import {CardStyled, StorybookWrapperStyled} from "@stories/GenericStyledComponents";
 import styled from "styled-components";
 import {TextStyledProps} from "@components/text/styled/TextStyled";
 import Card, {CardProps} from "@components/card/Card";
+import StorybookWrapper from "@stories/StorybookWrapper";
 
 const TextStyled = styled(Text)`
   padding: ${(props: TextStyledProps) => props.theme.spacing.s8};
   line-height: ${(props: TextStyledProps) => props.theme.lineHeight.large};
+`;
+
+const CardStyled = styled(Card)`
+  padding: 1rem;
+`;
+
+const StorybookWrapperStyled = styled(StorybookWrapper)`
+  margin: 1rem;
 `;
 
 const DefaultCard = (args: CardProps) => (

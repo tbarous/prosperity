@@ -23,10 +23,6 @@ export const StorybookButtonWrapper = styled.div`
   width: 150px;
 `;
 
-export const StorybookWrapperStyled = styled(StorybookWrapper)`
-  margin: 1rem;
-`;
-
 export const CardStyled = styled(Card)`
   padding: 1rem;
 `;

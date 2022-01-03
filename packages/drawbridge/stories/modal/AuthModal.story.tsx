@@ -1,12 +1,5 @@
 import React from "react";
 import {useState} from "react";
-import {
-    StorybookButtonWrapper,
-    StorybookWrapperStyled,
-    StyledModalBody,
-    StyledModalHeader,
-    StyledModalHeaderNoPadding
-} from "@stories/GenericStyledComponents";
 import Button from "@components/button/Button";
 import Modal from "@components/modal/Modal";
 import Tabs from "@components/tabs/Tabs";
@@ -16,6 +9,26 @@ import ModalFooter from "@components/modal/ModalFooter";
 import Form from "@components/form/Form";
 import Input from "@components/form/Input";
 import ButtonTypeEnum from "@components/button/enums/ButtonTypeEnum";
+import styled from "styled-components";
+import StorybookWrapper from "@stories/StorybookWrapper";
+import ModalBody from "@components/modal/ModalBody";
+import ModalHeader from "@components/modal/ModalHeader";
+
+export const StyledModalHeaderNoPadding = styled(ModalHeader)`
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledModalBody = styled(ModalBody)`
+  padding: 2rem 1rem;
+`;
+const StorybookButtonWrapper = styled.div`
+  width: 150px;
+`;
+
+const StorybookWrapperStyled = styled(StorybookWrapper)`
+  margin: 1rem;
+`;
 
 const AuthModal = (args: any) => {
     const [modal, setModal] = useState(false);

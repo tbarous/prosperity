@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import Carousel, {CarouselProps} from "@components/carousel/Carousel";
-import {StorybookWrapperStyled} from "@stories/GenericStyledComponents";
 import CarouselItem from "@components/carousel/CarouselItem";
 import Image from "@components/image/Image";
 import CarouselControls from "@components/carousel/CarouselControls";
@@ -10,9 +9,14 @@ import Icon from "@components/icon/Icon";
 import CarouselItems from "@components/carousel/CarouselItems";
 import styled from "styled-components";
 import CarouselDirectionEnum from "@components/carousel/enums/CarouselDirectionEnum";
+import StorybookWrapper from "@stories/StorybookWrapper";
 
 const CarouselStyled = styled(Carousel)`
   height: 500px;
+`;
+
+const StorybookWrapperStyled = styled(StorybookWrapper)`
+  margin: 1rem;
 `;
 
 const DefaultCarousel = (args: CarouselProps) => {

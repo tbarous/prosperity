@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {StorybookWrapperStyled} from "@stories/GenericStyledComponents";
 import Tabs from "@components/tabs/Tabs";
 import Tab from "@components/tabs/Tab";
 import Card from "@components/card/Card";
@@ -11,6 +10,11 @@ import Col from "@components/grid/Col";
 import CarouselItems from "@components/carousel/CarouselItems";
 import CarouselItem from "@components/carousel/CarouselItem";
 import Carousel from "@components/carousel/Carousel";
+import StorybookWrapper from "@stories/StorybookWrapper";
+
+const StorybookWrapperStyled = styled(StorybookWrapper)`
+  margin: 1rem;
+`;
 
 const CardStyled = styled(Card)`
   padding: 2rem;

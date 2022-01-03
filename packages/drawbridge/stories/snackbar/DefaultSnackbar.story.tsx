@@ -6,9 +6,13 @@ import ButtonVariationEnum from "@components/button/enums/ButtonVariationEnum";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
-import {StorybookWrapperStyled} from '@stories/GenericStyledComponents';
 import styled from "styled-components";
 import useMountChild from "@hooks/useMountChild";
+import StorybookWrapper from "@stories/StorybookWrapper";
+
+const StorybookWrapperStyled = styled(StorybookWrapper)`
+  margin: 1rem;
+`;
 
 const Content = styled.div`
   text-align: center;
