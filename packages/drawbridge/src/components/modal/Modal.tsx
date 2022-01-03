@@ -6,13 +6,16 @@ import ModalCloseStyled from "./styled/modal-close/ModalCloseStyled";
 import ModalOverlayStyled from "./styled/modal-overlay/ModalOverlayStyled";
 import ModalContentStyled from "./styled/modal-content/ModalContentStyled";
 
+/**
+ * Modal Component Props
+ */
 interface Props extends BasicComponentProps {
     onClose?: () => void,
     closeOnClickOutside?: boolean
 }
 
 /**
- * Modal Component.
+ * Modal Component
  * @param props
  * @constructor
  */
@@ -21,7 +24,8 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
         children,
         className,
         closeOnClickOutside,
-        onClose,
+        onClose = () => {
+        },
     } = props;
 
     /**
@@ -50,10 +54,13 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
      * callback after performing the closing animation.
      */
     const timeoutRef = useRef<any>(null);
+
+    /**
+     * When unmounting gets true, trigger the onClose after 4ms
+     * to display to closing animation
+     */
     useEffect(() => {
-        if (unmounting) {
-            timeoutRef.current = setTimeout(() => onClose && onClose(), 400);
-        }
+        if (unmounting) timeoutRef.current = setTimeout(() => onClose(), 400);
 
         return () => clearTimeout(timeoutRef.current);
     }, [unmounting]);

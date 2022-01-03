@@ -41,8 +41,8 @@ const AuthModal = (args: any) => {
                 <Modal closeOnClickOutside onClose={() => setModal(false)}>
                     <StyledModalHeaderNoPadding>
                         <Tabs {...args}>
-                            <Tab id="1" onClick={onClick} active={active === "1"}>Login</Tab>
-                            <Tab id="2" onClick={onClick} active={active === "2"}>Register</Tab>
+                            <Tab >Login</Tab>
+                            <Tab>Register</Tab>
                         </Tabs>
                     </StyledModalHeaderNoPadding>
 

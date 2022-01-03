@@ -17,6 +17,10 @@ const CardStyled = styled(Card)`
   height: 200px;
 `;
 
+const TabStyled = styled(Tab)`
+  border: 1px solid;
+`;
+
 const DefaultTabs = (args: TabsProps) => {
     const [active, setActive] = useState<any>(0);
 
@@ -59,7 +63,7 @@ const DefaultTabs = (args: TabsProps) => {
                     <Col xs={4}>
                         <div style={{height: "60px"}}>
                             <Tabs {...args} onChange={onChange} activate={active} speed={.4}>
-                                {tabs.map((tab: any, index: number) => <Tab key={index}>{tab}</Tab>)}
+                                {tabs.map((tab: any, index: number) => <TabStyled key={index}>{tab}</TabStyled>)}
                             </Tabs>
 
                             <CardStyled>

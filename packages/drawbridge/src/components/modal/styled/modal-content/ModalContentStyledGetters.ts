@@ -2,6 +2,7 @@ import {ModalContentStyledProps} from "@components/modal/styled/modal-content/Mo
 import {css, keyframes} from "styled-components";
 
 const animationDuration: string = ".4s";
+
 const openModalAnimation = keyframes`
   from {
     transform: translateY(-100%);

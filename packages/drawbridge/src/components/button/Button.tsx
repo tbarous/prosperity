@@ -15,6 +15,7 @@ export interface ButtonProps extends BasicComponentProps {
 const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElementOrNull => {
     const {
         children,
+        className,
         variation,
         size,
         type,
@@ -27,6 +28,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): React
             variation={variation}
             size={size}
             type={type}
+            className={className}
         >
             {children}
         </ButtonStyled>
