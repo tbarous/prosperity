@@ -51,7 +51,7 @@ const AuthModal = (args: any) => {
             </StorybookButtonWrapper>
 
             {modal ?
-                <Modal closeOnClickOutside onClose={() => setModal(false)}>
+                <Modal closeOnClickOutside>
                     <StyledModalHeaderNoPadding>
                         <Tabs {...args}>
                             <Tab >Login</Tab>
