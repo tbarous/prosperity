@@ -49,7 +49,7 @@ const DefaultDrawer = (args: DefaultDrawerProps) => {
                 onMounted={onMounted}
                 onUnmounted={onUnmounted}
                 mount={mount}
-                delay={3000}
+                delay={1000}
             />}
         </StorybookWrapperStyled>
     );

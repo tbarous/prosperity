@@ -30,7 +30,6 @@ function useUnmount(props: useMountProps) {
     }
 
     useEffect(() => mountComponent(), []);
-
     useEffect(() => handle(mount ? onMounted : onUnmounted), [mount]);
 }
 

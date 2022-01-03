@@ -6,7 +6,9 @@ const DrawerStyledGetters = {
     Height: (props: DrawerStyledProps) => props.theme.dimension.d100,
     BackgroundColor: (props: DrawerStyledProps) => props.theme.color.dark,
     Width: (props: DrawerStyledProps) => "15%",
-    Display: (props: DrawerStyledProps) => props.theme.display.flex
+    Display: (props: DrawerStyledProps) => props.theme.display.flex,
+    Transform: (props: DrawerStyledProps) => props.mount ? `translateX(0)` : `translateX(-100%)`,
+    Transition: (props: DrawerStyledProps) => `transform ${(props.delay || 1000) / 1000}s`,
 }
 
 export default DrawerStyledGetters;

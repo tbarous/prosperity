@@ -14,8 +14,8 @@ const DrawerStyled = styled.div<DrawerStyledProps>`
   background-color: ${DrawerStyledGetters.BackgroundColor};
   width: ${DrawerStyledGetters.Width};
   display: ${DrawerStyledGetters.Display};
-  transform: ${props => props.mount ? `translateX(0)` : `translateX(-100%)`};
-  transition: transform ${props => props.delay/1000}s;
+  transform: ${DrawerStyledGetters.Transform};
+  transition: ${DrawerStyledGetters.Transition};
 `;
 
 export default DrawerStyled;

@@ -12,7 +12,21 @@ function useMountChild(): [boolean, boolean, () => void, () => void, () => void,
 
     useEffect(() => setMount(true), [])
 
-    const toggleChildMount = () => setMount(!mount);
+    const toggleChildMount = () => {
+        if (mount) {
+            setMount(false);
+
+            return;
+        }
+
+        if (!mount) {
+            setRender(true);
+        }
+    }
+
+    useEffect(() => {
+        if (render) setMount(true);
+    }, [render])
 
     return [
         render,
