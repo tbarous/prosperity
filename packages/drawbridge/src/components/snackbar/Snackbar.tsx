@@ -4,12 +4,15 @@ import SnackbarVariationEnum from "@components/snackbar/enums/SnackbarVariationE
 import SnackbarCloseStyled from "@components/snackbar/styled/snackbar-close/SnackbarCloseStyled";
 import SnackbarStyled from "@components/snackbar/styled/snackbar/SnackbarStyled";
 import {Times} from "@components/icon/Icons";
+import useDelayedUnmounting from "@hooks/useDelayedUnmounting";
 
 export interface SnackbarProps extends BasicComponentProps {
     variation: SnackbarVariationEnum,
     dismissible?: boolean,
     closeOnDelay?: number,
-    onClose?: () => void
+    unmounting?: boolean,
+    onEndUnmount?: () => void,
+    onStartUnmount: () => void
 }
 
 const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps): ReactElementOrNull => {
@@ -19,30 +22,22 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
         variation,
         dismissible,
         closeOnDelay,
-        onClose = () => {
+        unmounting,
+        onEndUnmount = () => {
+        },
+        onStartUnmount = () => {
         }
     } = props;
 
-    const [unmounting, setUnmounting] = useState(false);
+    useDelayedUnmounting(unmounting, onEndUnmount);
 
-    const timeoutCloseAnimationRef = useRef<any>(null);
     const timeoutCloseRef = useRef<any>(null);
 
     useEffect(() => {
-        if (closeOnDelay) {
-            timeoutCloseRef.current = setTimeout(() => setUnmounting(true), closeOnDelay);
-        }
+        if (closeOnDelay) timeoutCloseRef.current = setTimeout(onStartUnmount, closeOnDelay)
 
         return () => clearTimeout(timeoutCloseRef.current);
     }, []);
-
-    useEffect(() => {
-        if (unmounting) {
-            timeoutCloseAnimationRef.current = setTimeout(() => onClose(), 500);
-        }
-
-        return () => clearTimeout(timeoutCloseAnimationRef.current);
-    }, [unmounting])
 
     return (
         <SnackbarStyled
@@ -53,7 +48,7 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
             {children}
 
             {dismissible && <SnackbarCloseStyled
-                onClick={() => setUnmounting(true)}
+                onClick={onStartUnmount}
                 icon={Times}
             />}
         </SnackbarStyled>

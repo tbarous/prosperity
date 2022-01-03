@@ -8,6 +8,8 @@ import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import {StorybookWrapperStyled} from '@stories/GenericStyledComponents';
 import styled from "styled-components";
+import useDelayedUnmounting from "@hooks/useDelayedUnmounting";
+import useDelayUnmountChild from "@hooks/useDelayUnmountChild";
 
 const Content = styled.div`
   text-align: center;
@@ -15,7 +17,7 @@ const Content = styled.div`
 `;
 
 const DefaultSnackbar = (args: SnackbarProps) => {
-    const [show, setShow] = useState(false);
+    const [show, unmounting, onStartUnmount, onEndUnmount, onToggle] = useDelayUnmountChild();
 
     return (
         <StorybookWrapperStyled>
@@ -24,7 +26,7 @@ const DefaultSnackbar = (args: SnackbarProps) => {
                     <Col xs={1}>
                         <Button
                             variation={ButtonVariationEnum.PRIMARY}
-                            onClick={() => setShow(true)}
+                            onClick={onToggle}
                         >
                             Open Snackbar
                         </Button>
@@ -33,8 +35,12 @@ const DefaultSnackbar = (args: SnackbarProps) => {
             </Container>
 
             {show && <Snackbar
-                onClose={() => setShow(false)}
-                {...args}
+                unmounting={unmounting}
+                onStartUnmount={onStartUnmount}
+                onEndUnmount={onEndUnmount}
+                variation={args.variation}
+                dismissible={args.dismissible}
+                closeOnDelay={args.closeOnDelay}
             >
                 <Content>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque consequuntur
