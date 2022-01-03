@@ -17,6 +17,7 @@ const ModalFooterStyled = styled.div`
   height: ${ModalFooterStyledGetters.Height};
   bottom: ${ModalFooterStyledGetters.Bottom};
   overflow-y: ${ModalFooterStyledGetters.OverflowY};
+  background-color: white;
 `;
 
 export default ModalFooterStyled;

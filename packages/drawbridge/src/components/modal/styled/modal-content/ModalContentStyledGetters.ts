@@ -1,29 +1,4 @@
 import {ModalContentStyledProps} from "@components/modal/styled/modal-content/ModalContentStyled";
-import {css, keyframes} from "styled-components";
-
-const openModalAnimation = keyframes`
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`;
-
-const closeModalAnimation = keyframes`
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  to {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-`;
 
 const ModalContentStyledGetters = {
     BackgroundColor: (props: ModalContentStyledProps) => props.theme.color.white,
@@ -32,9 +7,8 @@ const ModalContentStyledGetters = {
     Width: (props: ModalContentStyledProps) => props.theme.dimension.d100,
     Height: (props: ModalContentStyledProps) => props.theme.dimension.d80,
     WidthMd: (props: ModalContentStyledProps) => `500px`,
-    Animation: (props: ModalContentStyledProps) => !props.unmounting ? css`${openModalAnimation} ${props.delay}s` : css`${closeModalAnimation} ${props.delay}s`,
-    AnimationTimingFunction: (props: ModalContentStyledProps) => "ease-in-out",
-    AnimationFillMode: (props: ModalContentStyledProps) => "forwards"
+    Transform: (props: ModalContentStyledProps) => props.mount ? `translateY(0)` : `translateY(-130%)`,
+    Transition: (props: ModalContentStyledProps) => `transform ${(props.delay || 1000) / 1000}s`,
 }
 
 export default ModalContentStyledGetters;

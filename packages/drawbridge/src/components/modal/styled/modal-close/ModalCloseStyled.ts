@@ -13,10 +13,10 @@ const ModalCloseStyled = styled(Icon)<ModalCloseStyledProps>`
   position: ${ModalCloseStyledGetters.Position};
   cursor: ${ModalCloseStyledGetters.Cursor};
   border-radius: ${ModalCloseStyledGetters.BorderRadius};
-  background-color: ${ModalCloseStyledGetters.BackgroundColor};
   color: ${ModalCloseStyledGetters.Color};
   padding: ${ModalCloseStyledGetters.Padding};
   display: ${ModalCloseStyledGetters.Display};
+  border: 2px solid;
 `;
 
 export default ModalCloseStyled;

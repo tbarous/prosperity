@@ -16,7 +16,10 @@ const Row: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull =
     });
 
     return (
-        <RowStyled className={className} gutter={gutter}>
+        <RowStyled
+            className={className}
+            gutter={gutter}
+        >
             {childrenWithProps}
         </RowStyled>
     )

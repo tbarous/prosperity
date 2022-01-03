@@ -5,10 +5,12 @@ import {Times} from "@components/icon/Icons";
 import ModalCloseStyled from "./styled/modal-close/ModalCloseStyled";
 import ModalOverlayStyled from "./styled/modal-overlay/ModalOverlayStyled";
 import ModalContentStyled from "./styled/modal-content/ModalContentStyled";
-import useUnmount, {useUnmountProps} from "@hooks/useUnmount";
+import useMount, {useMountProps} from "@hooks/useMount";
+import {emptyFunction} from "../../helpers/Helpers";
 
-interface Props extends BasicComponentProps, useUnmountProps {
+interface Props extends BasicComponentProps, useMountProps {
     closeOnClickOutside?: boolean,
+    dismissible?: boolean
 }
 
 const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
@@ -16,38 +18,56 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
         children,
         className,
         closeOnClickOutside,
-        unmounting,
+        mount,
+        dismissible,
         delay,
-        onEndUnmount = () => {},
-        onStartUnmount = () => {}
+        unmountComponent = emptyFunction,
+        onMounted = emptyFunction,
+        onUnmounted = emptyFunction
     } = props;
 
     const modalWrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
 
-    if (closeOnClickOutside) useOnClickOutside(modalWrapperRef, close);
+    if (closeOnClickOutside) useOnClickOutside(modalWrapperRef, unmountComponent);
 
-    useUnmount({delay, unmounting, onEndUnmount, onStartUnmount});
+    useMount({delay, mount, onMounted, onUnmounted});
 
     return (
-        <ModalOverlayStyled
-            className={className}
-            unmounting={unmounting}
-        >
-            <ModalContentStyled
-                ref={modalWrapperRef}
-                unmounting={unmounting}
+        <>
+            <ModalOverlayStyled
+                className={className}
+                mount={mount}
                 delay={delay}
-            >
-                <ModalCloseStyled
-                    onClick={onStartUnmount}
-                    width={14}
-                    height={14}
-                    icon={Times}
-                />
+            />
 
-                {children}
-            </ModalContentStyled>
-        </ModalOverlayStyled>
+            <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                width: "100%",
+                height: "100%",
+                position: "fixed",
+                top: "0",
+                left: "0"
+            }}>
+                <ModalContentStyled
+                    ref={modalWrapperRef}
+                    mount={mount}
+                    delay={delay}
+                >
+                    {dismissible && <ModalCloseStyled
+                        onClick={unmountComponent}
+                        width={24}
+                        height={24}
+                        icon={Times}
+                    />}
+
+                    {children}
+                </ModalContentStyled>
+            </div>
+        </>
+
+
     );
 }
 

@@ -10,7 +10,10 @@ const Container: React.FunctionComponent<Props> = (props: Props): ReactElementOr
     const {children, className, fluid} = props;
 
     return (
-        <ContainerStyled className={className} fluid={fluid}>
+        <ContainerStyled
+            className={className}
+            fluid={fluid}
+        >
             {children}
         </ContainerStyled>
     )

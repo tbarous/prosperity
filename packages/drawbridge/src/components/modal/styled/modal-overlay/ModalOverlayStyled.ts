@@ -3,7 +3,8 @@ import {StyledProps} from "@typings";
 import ModalOverlayStyledGetters from "@components/modal/styled/modal-overlay/ModalOverlayStyledGetters";
 
 export interface ModalOverlayStyledProps extends StyledProps {
-    unmounting: any
+    mount: any,
+    delay?: number
 }
 
 const ModalOverlayStyled = styled.div`
@@ -17,7 +18,7 @@ const ModalOverlayStyled = styled.div`
   top: ${ModalOverlayStyledGetters.Top};
   justify-content: ${ModalOverlayStyledGetters.JustifyContent};
   opacity: ${ModalOverlayStyledGetters.Opacity};
-  transition: opacity 5s;
+  transition: ${ModalOverlayStyledGetters.Transition};
 `;
 
 export default ModalOverlayStyled;
