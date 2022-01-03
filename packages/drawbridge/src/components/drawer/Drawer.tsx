@@ -17,7 +17,6 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
         overlay,
         mount,
         delay,
-        mountComponent = emptyFunction,
         unmountComponent = emptyFunction,
         onMounted = emptyFunction,
         onUnmounted = emptyFunction

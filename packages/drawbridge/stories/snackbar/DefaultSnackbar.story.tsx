@@ -8,7 +8,7 @@ import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import {StorybookWrapperStyled} from '@stories/GenericStyledComponents';
 import styled from "styled-components";
-import useUnmountChild from "@hooks/useUnmountChild";
+import useMountChild from "@hooks/useMountChild";
 
 const Content = styled.div`
   text-align: center;
@@ -16,7 +16,15 @@ const Content = styled.div`
 `;
 
 const DefaultSnackbar = (args: SnackbarProps) => {
-    const [show, unmounting, onStartUnmount, onEndUnmount, onToggle] = useUnmountChild();
+    const [
+        render,
+        mount,
+        mountComponent,
+        unmountComponent,
+        onMounted,
+        onUnmounted,
+        toggleChildMount
+    ] = useMountChild();
 
     return (
         <StorybookWrapperStyled>
@@ -25,18 +33,21 @@ const DefaultSnackbar = (args: SnackbarProps) => {
                     <Col xs={1}>
                         <Button
                             variation={ButtonVariationEnum.PRIMARY}
-                            onClick={onToggle}
+                            onClick={toggleChildMount}
                         >
-                            Open Snackbar
+                            Toggle Snackbar
                         </Button>
                     </Col>
                 </Row>
             </Container>
 
-            {show && <Snackbar
-                unmounting={unmounting}
-                onStartUnmount={onStartUnmount}
-                onEndUnmount={onEndUnmount}
+            {render && <Snackbar
+                mountComponent={mountComponent}
+                unmountComponent={unmountComponent}
+                onMounted={onMounted}
+                onUnmounted={onUnmounted}
+                mount={mount}
+                delay={1000}
                 variation={args.variation}
                 dismissible={args.dismissible}
                 closeOnDelay={args.closeOnDelay}

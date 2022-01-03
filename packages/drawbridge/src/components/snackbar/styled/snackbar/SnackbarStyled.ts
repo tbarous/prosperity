@@ -5,7 +5,8 @@ import SnackbarStyledGetters from "@components/snackbar/styled/snackbar/Snackbar
 
 export interface SnackbarStyledProps extends StyledProps {
     variation: SnackbarVariationEnum,
-    unmounting?: boolean
+    mount?: boolean,
+    delay?: number
 }
 
 const SnackbarStyled = styled.div`
@@ -17,14 +18,13 @@ const SnackbarStyled = styled.div`
   height: ${SnackbarStyledGetters.Height};
   display: ${SnackbarStyledGetters.Display};
   align-items: ${SnackbarStyledGetters.AlignItems};
-  animation: ${SnackbarStyledGetters.Animation};
-  animation-timing-function: ${SnackbarStyledGetters.AnimationTimingFunction};
-  animation-fill-mode: ${SnackbarStyledGetters.AnimationFillMode};
   color: ${SnackbarStyledGetters.Color};
   padding: ${SnackbarStyledGetters.Padding};
   font-weight: ${SnackbarStyledGetters.FontWeight};
   box-sizing: ${SnackbarStyledGetters.BoxSizing};
   box-shadow: ${SnackbarStyledGetters.BoxShadow};
+  transform: ${SnackbarStyledGetters.Transform};
+  transition: ${SnackbarStyledGetters.Transition};
 `;
 
 export default SnackbarStyled;

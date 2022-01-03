@@ -4,9 +4,11 @@ import SnackbarVariationEnum from "@components/snackbar/enums/SnackbarVariationE
 import SnackbarCloseStyled from "@components/snackbar/styled/snackbar-close/SnackbarCloseStyled";
 import SnackbarStyled from "@components/snackbar/styled/snackbar/SnackbarStyled";
 import {Times} from "@components/icon/Icons";
-import useUnmount, {useUnmountProps} from "@hooks/useUnmount";
+import useMount, {useMountProps} from "@hooks/useMount";
+import {emptyFunction} from "../../helpers/Helpers";
+import useUnmountOnTimeout from "@hooks/useUnmountOnTimeout";
 
-export interface SnackbarProps extends BasicComponentProps, useUnmountProps {
+export interface SnackbarProps extends BasicComponentProps, useMountProps {
     variation: SnackbarVariationEnum,
     dismissible?: boolean,
     closeOnDelay?: number
@@ -19,33 +21,28 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
         variation,
         dismissible,
         closeOnDelay,
-        unmounting,
-        onEndUnmount = () => {
-        },
-        onStartUnmount = () => {
-        }
+        mount,
+        delay,
+        unmountComponent = emptyFunction,
+        onMounted = emptyFunction,
+        onUnmounted = emptyFunction
     } = props;
 
-    useUnmount({delay: 800, unmounting, onEndUnmount});
+    useMount({delay, mount, onMounted, onUnmounted});
 
-    const timeoutCloseRef = useRef<any>(null);
-
-    useEffect(() => {
-        if (closeOnDelay) timeoutCloseRef.current = setTimeout(onStartUnmount, closeOnDelay)
-
-        return () => clearTimeout(timeoutCloseRef.current);
-    }, []);
+    if (closeOnDelay) useUnmountOnTimeout(closeOnDelay, unmountComponent);
 
     return (
         <SnackbarStyled
             className={className}
             variation={variation}
-            unmounting={unmounting}
+            mount={mount}
+            delay={delay}
         >
             {children}
 
             {dismissible && <SnackbarCloseStyled
-                onClick={onStartUnmount}
+                onClick={unmountComponent}
                 icon={Times}
             />}
         </SnackbarStyled>

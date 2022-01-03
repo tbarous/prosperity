@@ -32,33 +32,9 @@ const SnackbarColor = (props: SnackbarStyledProps) => {
     return mapping[variation];
 }
 
-const show = keyframes`
-  from {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-`;
-
-
-const hide = keyframes`
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  to {
-    transform: translateY(100px);
-    opacity: 0;
-  }
-`;
-
 const SnackbarStyledGetters = {
     BackgroundColor: SnackbarBackgroundColor,
+    Color: SnackbarColor,
     Position: (props: SnackbarStyledProps) => props.theme.position.fixed,
     Bottom: (props: SnackbarStyledProps) => props.theme.spacing.s0,
     Left: (props: SnackbarStyledProps) => props.theme.spacing.s0,
@@ -66,14 +42,12 @@ const SnackbarStyledGetters = {
     Height: (props: SnackbarStyledProps) => "60px",
     Display: (props: SnackbarStyledProps) => props.theme.display.flex,
     AlignItems: (props: SnackbarStyledProps) => props.theme.alignItems.center,
-    Animation: (props: SnackbarStyledProps) => props.unmounting ? css`${hide} .3s` : css`${show} .3s`,
-    AnimationTimingFunction: (props: SnackbarStyledProps) => "ease-in-out",
-    AnimationFillMode: (props: SnackbarStyledProps) => "forwards",
-    Color: SnackbarColor,
     Padding: (props: SnackbarStyledProps) => `${props.theme.spacing.s0} ${props.theme.spacing.s6}`,
     FontWeight: (props: SnackbarStyledProps) => props.theme.fontWeight.bold,
     BoxSizing: (props: SnackbarStyledProps) => props.theme.boxSizing.borderBox,
     BoxShadow: (props: SnackbarStyledProps) => props.theme.shadow.secondary,
+    Transform: (props: SnackbarStyledProps) => props.mount ? `translateX(0)` : `translateY(150%)`,
+    Transition: (props: SnackbarStyledProps) => `transform ${(props.delay || 1000) / 1000}s`,
 }
 
 export default SnackbarStyledGetters;
