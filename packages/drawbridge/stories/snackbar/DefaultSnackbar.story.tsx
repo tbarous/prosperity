@@ -8,8 +8,7 @@ import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import {StorybookWrapperStyled} from '@stories/GenericStyledComponents';
 import styled from "styled-components";
-import useDelayedUnmounting from "@hooks/useDelayedUnmounting";
-import useDelayUnmountChild from "@hooks/useDelayUnmountChild";
+import useUnmountChild from "@hooks/useUnmountChild";
 
 const Content = styled.div`
   text-align: center;
@@ -17,7 +16,7 @@ const Content = styled.div`
 `;
 
 const DefaultSnackbar = (args: SnackbarProps) => {
-    const [show, unmounting, onStartUnmount, onEndUnmount, onToggle] = useDelayUnmountChild();
+    const [show, unmounting, onStartUnmount, onEndUnmount, onToggle] = useUnmountChild();
 
     return (
         <StorybookWrapperStyled>

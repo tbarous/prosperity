@@ -9,7 +9,11 @@ const ModalOverlayStyledGetters = {
     Left: (props: ModalOverlayStyledProps) => props.theme.spacing.s0,
     Top: (props: ModalOverlayStyledProps) => props.theme.spacing.s0,
     AlignItems: (props: ModalOverlayStyledProps) => props.theme.alignItems.center,
-    JustifyContent: (props: ModalOverlayStyledProps) => "center"
+    JustifyContent: (props: ModalOverlayStyledProps) => "center",
+
+
+    Opacity : (props: ModalOverlayStyledProps) => props.unmounting ? 0 : 1,
+
 }
 
 export default ModalOverlayStyledGetters;

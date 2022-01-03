@@ -1,8 +1,6 @@
 import {ModalContentStyledProps} from "@components/modal/styled/modal-content/ModalContentStyled";
 import {css, keyframes} from "styled-components";
 
-const animationDuration: string = ".4s";
-
 const openModalAnimation = keyframes`
   from {
     transform: translateY(-100%);
@@ -34,7 +32,7 @@ const ModalContentStyledGetters = {
     Width: (props: ModalContentStyledProps) => props.theme.dimension.d100,
     Height: (props: ModalContentStyledProps) => props.theme.dimension.d80,
     WidthMd: (props: ModalContentStyledProps) => `500px`,
-    Animation: (props: ModalContentStyledProps) => !props.unmounting ? css`${openModalAnimation} ${animationDuration}` : css`${closeModalAnimation} ${animationDuration}`,
+    Animation: (props: ModalContentStyledProps) => !props.unmounting ? css`${openModalAnimation} ${props.delay}s` : css`${closeModalAnimation} ${props.delay}s`,
     AnimationTimingFunction: (props: ModalContentStyledProps) => "ease-in-out",
     AnimationFillMode: (props: ModalContentStyledProps) => "forwards"
 }

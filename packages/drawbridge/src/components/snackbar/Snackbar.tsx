@@ -4,15 +4,12 @@ import SnackbarVariationEnum from "@components/snackbar/enums/SnackbarVariationE
 import SnackbarCloseStyled from "@components/snackbar/styled/snackbar-close/SnackbarCloseStyled";
 import SnackbarStyled from "@components/snackbar/styled/snackbar/SnackbarStyled";
 import {Times} from "@components/icon/Icons";
-import useDelayedUnmounting from "@hooks/useDelayedUnmounting";
+import useUnmount, {useUnmountProps} from "@hooks/useUnmount";
 
-export interface SnackbarProps extends BasicComponentProps {
+export interface SnackbarProps extends BasicComponentProps, useUnmountProps {
     variation: SnackbarVariationEnum,
     dismissible?: boolean,
-    closeOnDelay?: number,
-    unmounting?: boolean,
-    onEndUnmount?: () => void,
-    onStartUnmount: () => void
+    closeOnDelay?: number
 }
 
 const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps): ReactElementOrNull => {
@@ -29,7 +26,7 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
         }
     } = props;
 
-    useDelayedUnmounting(unmounting, onEndUnmount);
+    useUnmount({delay: 800, unmounting, onEndUnmount});
 
     const timeoutCloseRef = useRef<any>(null);
 

@@ -1,10 +1,11 @@
-import styled, {css, keyframes} from "styled-components";
+import styled, {css} from "styled-components";
 import {StyledProps} from "@typings";
 import Media from "@theme/utils/Media";
 import ModalContentStyledGetters from "@components/modal/styled/modal-content/ModalContentStyledGetters";
 
 export interface ModalContentStyledProps extends StyledProps {
-    unmounting: boolean,
+    unmounting?: boolean,
+    delay?: number
 }
 
 const ModalContentStyled = styled.div<ModalContentStyledProps>`

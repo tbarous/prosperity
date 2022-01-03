@@ -13,20 +13,27 @@ import ModalFooter from "@components/modal/ModalFooter";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
+import useUnmountChild from "@hooks/useUnmountChild";
 
 const BasicModal = (args: any) => {
-    const [modal, setModal] = useState(false);
+    const [show, unmounting, onStartUnmount, onEndUnmount, onToggle] = useUnmountChild();
 
     return (
         <StorybookWrapperStyled>
             <StorybookButtonWrapper>
-                <Button onClick={() => setModal(true)}>
+                <Button onClick={onToggle}>
                     Toggle Modal
                 </Button>
             </StorybookButtonWrapper>
 
-            {modal ?
-                <Modal closeOnClickOutside onClose={() => setModal(false)}>
+            {show ?
+                <Modal
+                    closeOnClickOutside
+                    unmounting={unmounting}
+                    onEndUnmount={onEndUnmount}
+                    onStartUnmount={onStartUnmount}
+                    delay={5}
+                >
                     <StyledModalHeader>
                         Header
                     </StyledModalHeader>
@@ -37,6 +44,7 @@ const BasicModal = (args: any) => {
                                 <Col xs={6}>
                                     <StorybookColContent>1/12</StorybookColContent>
                                 </Col>
+
                                 <Col xs={6}>
                                     <StorybookColContent>1/12</StorybookColContent>
                                 </Col>

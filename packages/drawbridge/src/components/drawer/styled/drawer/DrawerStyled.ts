@@ -3,8 +3,9 @@ import {StyledProps} from "@typings";
 import DrawerStyledGetters from "@components/drawer/styled/drawer/DrawerStyledGetters";
 
 export interface DrawerStyledProps extends StyledProps {
-    unmounting?: boolean,
-    overlay?: boolean
+    mount?: boolean,
+    overlay?: boolean,
+    delay?: number
 }
 
 const DrawerStyled = styled.div<DrawerStyledProps>`
@@ -12,8 +13,9 @@ const DrawerStyled = styled.div<DrawerStyledProps>`
   height: ${DrawerStyledGetters.Height};
   background-color: ${DrawerStyledGetters.BackgroundColor};
   width: ${DrawerStyledGetters.Width};
-  animation: ${DrawerStyledGetters.Animation};
   display: ${DrawerStyledGetters.Display};
+  transform: ${props => props.mount ? `translateX(0)` : `translateX(-100%)`};
+  transition: transform ${props => props.delay/1000}s;
 `;
 
 export default DrawerStyled;

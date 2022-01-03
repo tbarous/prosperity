@@ -4,8 +4,7 @@ import StorybookWrapper from "@stories/StorybookWrapper";
 import Button from "@components/button/Button";
 import ButtonVariationEnum from "@components/button/enums/ButtonVariationEnum";
 import styled from "styled-components";
-import useDelayedUnmounting from "@hooks/useDelayedUnmounting";
-import useDelayUnmountChild from "@hooks/useDelayUnmountChild";
+import useMountChild from "@hooks/useMountChild";
 
 interface DefaultDrawerProps extends DrawerProps {
     open?: boolean
@@ -25,18 +24,32 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 `;
 
 const DefaultDrawer = (args: DefaultDrawerProps) => {
-    const [show, unmounting, onStartUnmount, onEndUnmount, onToggle] = useDelayUnmountChild();
+    const [
+        render,
+        mount,
+        mountComponent,
+        unmountComponent,
+        onMounted,
+        onUnmounted,
+        toggleChildMount
+    ] = useMountChild();
 
     return (
         <StorybookWrapperStyled>
-            <ButtonStyled variation={ButtonVariationEnum.PRIMARY} onClick={onToggle}>
+            <ButtonStyled
+                variation={ButtonVariationEnum.PRIMARY}
+                onClick={toggleChildMount}
+            >
                 Toggle Drawer
             </ButtonStyled>
 
-            {show && <Drawer
-                onStartUnmount={onStartUnmount}
-                onEndUnmount={onEndUnmount}
-                unmounting={unmounting}
+            {render && <Drawer
+                mountComponent={mountComponent}
+                unmountComponent={unmountComponent}
+                onMounted={onMounted}
+                onUnmounted={onUnmounted}
+                mount={mount}
+                delay={3000}
             />}
         </StorybookWrapperStyled>
     );

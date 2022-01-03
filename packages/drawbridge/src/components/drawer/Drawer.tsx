@@ -1,15 +1,12 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import Icon from "@components/icon/Icon";
 import {Times} from "@components/icon/Icons";
 import DrawerStyled from "./styled/drawer/DrawerStyled";
 import DrawerCloseStyled from "./styled/drawer-close/DrawerCloseStyled";
-import useDelayedUnmounting from "@hooks/useDelayedUnmounting";
+import useMount, {useMountProps} from "@hooks/useMount";
+import {emptyFunction} from "../../helpers/Helpers";
 
-export interface DrawerProps extends BasicComponentProps {
-    onStartUnmount?: () => void,
-    onEndUnmount?: () => void,
-    unmounting?: boolean,
+export interface DrawerProps extends BasicComponentProps, useMountProps {
     overlay?: boolean
 }
 
@@ -18,25 +15,29 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
         children,
         className,
         overlay,
-        unmounting,
-        onStartUnmount = () => {},
-        onEndUnmount = () => {}
+        mount,
+        delay,
+        mountComponent = emptyFunction,
+        unmountComponent = emptyFunction,
+        onMounted = emptyFunction,
+        onUnmounted = emptyFunction
     } = props;
 
-    useDelayedUnmounting(unmounting, onEndUnmount);
+    useMount({delay, mount, onMounted, onUnmounted});
 
     return (
         <DrawerStyled
             className={className}
-            unmounting={unmounting}
+            mount={mount}
             overlay={overlay}
+            delay={delay}
         >
             {children}
 
             <DrawerCloseStyled
                 icon={Times}
                 color="white"
-                onClick={onStartUnmount}
+                onClick={unmountComponent}
                 width={20}
                 height={20}
             />
