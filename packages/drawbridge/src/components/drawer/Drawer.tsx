@@ -8,7 +8,8 @@ import DrawerCloseStyled from "./styled/drawer-close/DrawerCloseStyled";
 export interface DrawerProps extends BasicComponentProps {
     onStartUnmount?: () => void,
     onEndUnmount?: () => void,
-    unmounting?: boolean
+    unmounting?: boolean,
+    overlay?: boolean
 }
 
 const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React.ReactElement | null => {
@@ -16,6 +17,7 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
         children,
         className,
         unmounting,
+        overlay,
         onStartUnmount = () => {},
         onEndUnmount = () => {}
     } = props;
@@ -32,6 +34,7 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
         <DrawerStyled
             className={className}
             unmounting={unmounting}
+            overlay={overlay}
         >
             {children}
 

@@ -3,7 +3,8 @@ import {StyledProps} from "@typings";
 import DrawerStyledGetters from "@components/drawer/styled/drawer/DrawerStyledGetters";
 
 export interface DrawerStyledProps extends StyledProps {
-    unmounting?: boolean
+    unmounting?: boolean,
+    overlay?: boolean
 }
 
 const DrawerStyled = styled.div<DrawerStyledProps>`

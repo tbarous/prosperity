@@ -22,11 +22,12 @@ const closeDrawerAnimation = keyframes`
 `;
 
 const DrawerStyledGetters = {
-    Position:  (props: DrawerStyledProps) => props.theme.position.fixed,
+    Position: (props: DrawerStyledProps) => props.overlay ? props.theme.position.fixed : props.theme.position.relative,
     Animation: (props: DrawerStyledProps) => props.unmounting ? css`${closeDrawerAnimation} .8s` : css`${openDrawerAnimation} .8s`,
     Height: (props: DrawerStyledProps) => props.theme.dimension.d100,
     BackgroundColor: (props: DrawerStyledProps) => props.theme.color.dark,
-    Width: (props: DrawerStyledProps) => "15%"
+    Width: (props: DrawerStyledProps) => "15%",
+    Display: (props: DrawerStyledProps) => props.theme.display.flex
 }
 
 export default DrawerStyledGetters;

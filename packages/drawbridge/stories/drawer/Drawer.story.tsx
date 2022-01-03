@@ -18,29 +18,34 @@ const ButtonStyled = styled(Button)`
   height: 50px;
 `;
 
+const StorybookWrapperStyled = styled(StorybookWrapper)`
+  height: 100%;
+`;
+
 const DefaultDrawer = (args: DefaultDrawerProps) => {
     const [open, setOpen] = useState(false);
     const [unmounting, setUnmounting] = useState(false);
 
-    function onEndUnmount(){
+    function onEndUnmount() {
         setOpen(false);
     }
 
-    function onStartUnmount(){
-       setUnmounting(true)
+    function onStartUnmount() {
+        setUnmounting(true);
     }
 
-    function onClick(){
-        if(open){
+    function onClick() {
+        if (open) {
             setUnmounting(true);
-        } else {
-            setOpen(true)
-            setUnmounting(false)
+            return
         }
+
+        setOpen(true);
+        setUnmounting(false);
     }
 
     return (
-        <StorybookWrapper>
+        <StorybookWrapperStyled>
             <ButtonStyled variation={ButtonVariationEnum.PRIMARY} onClick={onClick}>
                 Toggle Drawer
             </ButtonStyled>
@@ -50,7 +55,7 @@ const DefaultDrawer = (args: DefaultDrawerProps) => {
                 onEndUnmount={onEndUnmount}
                 unmounting={unmounting}
             />}
-        </StorybookWrapper>
+        </StorybookWrapperStyled>
     );
 }
 
