@@ -1,7 +1,7 @@
 {
   "version": "0.0.36",
-  "name": "@tbarous/ui-library",
-  "description": "description",
+  "name": "@tbarous/drawbridge",
+  "description": "A React ui library",
   "author": {
     "name": "Tasos Barous",
     "email": "tasosbarous@gmail.com"

@@ -29,6 +29,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): React
             size={size}
             type={type}
             className={className}
+            role="button"
         >
             {children}
         </ButtonStyled>
