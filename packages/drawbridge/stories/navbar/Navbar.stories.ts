@@ -1,9 +1,8 @@
-import Navbar from "@components/navbar/Navbar";
 import DefaultNavbar from './DefaultNavbar.story';
 
 export default {
     title: 'Navbar',
-    component: Navbar,
+    component: () => {},
     argTypes: {},
 };
 

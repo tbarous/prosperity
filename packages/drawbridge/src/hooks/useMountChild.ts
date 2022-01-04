@@ -1,16 +1,31 @@
 import {useEffect, useState} from "react";
+import {FunctionVoid} from "@typings";
 
-function useMountChild(): [boolean, boolean, () => void, () => void, () => void, () => void, () => void] {
-    const [render, setRender] = useState(true);
-    const [mount, setMount] = useState(false);
+function useMountChild(
+    renderImmediately: boolean = true,
+    mountImmediately: boolean = false
+): {
+    render: boolean,
+    mount: boolean,
+    mountComponent: FunctionVoid,
+    unmountComponent: FunctionVoid,
+    onMounted: FunctionVoid,
+    onUnmounted: FunctionVoid,
+    toggleChildMount: FunctionVoid,
+    renderComponent: FunctionVoid,
+    unRenderComponent: FunctionVoid
+} {
+    const [render, setRender] = useState(renderImmediately);
+    const [mount, setMount] = useState(mountImmediately);
 
     const mountComponent = () => setMount(true);
     const unmountComponent = () => setMount(false);
 
+    const renderComponent = () => setRender(true);
+    const unRenderComponent = () => setRender(false);
+
     const onMounted = () => setRender(true);
     const onUnmounted = () => setRender(false);
-
-    useEffect(() => setMount(true), [])
 
     const toggleChildMount = () => {
         if (mount) {
@@ -19,24 +34,28 @@ function useMountChild(): [boolean, boolean, () => void, () => void, () => void,
             return;
         }
 
-        if (!mount) {
-            setRender(true);
-        }
+        if (!mount) setRender(true);
     }
 
     useEffect(() => {
         if (render) setMount(true);
     }, [render])
 
-    return [
+    useEffect(() => {
+        if (!mount) setRender(false);
+    }, [mount])
+
+    return {
         render,
         mount,
         mountComponent,
         unmountComponent,
         onMounted,
         onUnmounted,
-        toggleChildMount
-    ];
+        toggleChildMount,
+        renderComponent,
+        unRenderComponent
+    };
 }
 
 export default useMountChild;
