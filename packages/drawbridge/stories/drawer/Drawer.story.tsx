@@ -24,18 +24,15 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 `;
 
 const DefaultDrawer = (args: DefaultDrawerProps) => {
-    const modal = useMountChild(1000, 1000);
+    const drawer = useMountChild(1000, 1000);
+
+    useEffect(() => {
+        drawer.toggle();
+    }, [args.open]);
 
     return (
         <StorybookWrapperStyled>
-            <ButtonStyled
-                variation={ButtonVariationEnum.PRIMARY}
-                onClick={modal.toggle}
-            >
-                Toggle Drawer
-            </ButtonStyled>
-
-            {modal.render && <Drawer {...modal} />}
+            {drawer.render && <Drawer {...drawer} />}
         </StorybookWrapperStyled>
     );
 }

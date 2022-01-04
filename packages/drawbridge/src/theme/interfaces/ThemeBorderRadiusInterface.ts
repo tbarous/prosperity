@@ -3,6 +3,7 @@ interface ThemeBorderRadiusInterface {
     small: string
     medium: string,
     large: string,
+    xlarge: string,
     circle: string
 }
 

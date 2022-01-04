@@ -9,31 +9,30 @@ import {TextStyledProps} from "@components/text/styled/TextStyled";
 import Card, {CardProps} from "@components/card/Card";
 import StorybookWrapper from "@stories/StorybookWrapper";
 
-const TextStyled = styled(Text)`
-  padding: ${(props: TextStyledProps) => props.theme.spacing.s8};
-  line-height: ${(props: TextStyledProps) => props.theme.lineHeight.large};
-`;
-
-const CardStyled = styled(Card)`
-  padding: 1rem;
-`;
-
 const StorybookWrapperStyled = styled(StorybookWrapper)`
   margin: 1rem;
+`;
+
+const TextStyled = styled(Text)`
+  padding: ${(props: TextStyledProps) => props.theme.spacing.s6} ${(props: TextStyledProps) => props.theme.spacing.s8};
+  line-height: ${(props: TextStyledProps) => props.theme.lineHeight.large};
 `;
 
 const DefaultCard = (args: CardProps) => (
     <StorybookWrapperStyled>
         <Container fluid>
             <Row gutter={14}>
-                <Col xs={12} sm={6} md={4} lg={4} xl={3}>
+                <Col lg={3}>
                     <Card {...args}>
-                        <Image rounded-top={args.rounded} src="/img.jpg" alt="img"/>
+                        <Image
+                            rounded-top={args.rounded}
+                            src="/img.jpg"
+                            alt="img"
+                        />
 
                         <TextStyled>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, aperiam dolore eaque
-                            error
-                            exercitationem ipsam, laborum nulla numquam placeat rem suscipit voluptatum. Alias error id
+                            error exercitationem ipsam, laborum nulla numquam placeat rem suscipit voluptatum. Alias error id
                             iusto molestiae
                         </TextStyled>
                     </Card>

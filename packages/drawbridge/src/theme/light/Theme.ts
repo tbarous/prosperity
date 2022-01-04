@@ -23,6 +23,7 @@ import ThemeOverflow from "@theme/light/ThemeOverflow";
 import ThemeTextAlign from "@theme/light/ThemeTextAlign";
 import ThemeLineHeight from "@theme/light/ThemeLineHeight";
 import ThemeJustifyContent from "@theme/light/ThemeJustifyContent";
+import ThemeTransition from "@theme/light/ThemeTransition";
 
 const Light: ThemeInterface = {
     breakpoint: ThemeBreakpoint,
@@ -48,7 +49,8 @@ const Light: ThemeInterface = {
     overflow: ThemeOverflow,
     textAlign: ThemeTextAlign,
     lineHeight: ThemeLineHeight,
-    justifyContent: ThemeJustifyContent
+    justifyContent: ThemeJustifyContent,
+    transition: ThemeTransition
 }
 
 export default Light;

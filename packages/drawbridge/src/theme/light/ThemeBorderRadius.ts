@@ -5,6 +5,7 @@ const ThemeBorderRadius: ThemeBorderRadiusInterface = {
     small: ".25rem",
     medium: ".5rem",
     large: "1rem",
+    xlarge: "2rem",
     circle: "50%"
 }
 

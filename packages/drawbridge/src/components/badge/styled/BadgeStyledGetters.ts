@@ -10,7 +10,10 @@ const BadgeStyledGetters = {
     FontSize: (props: BadgeStyledProps) => props.theme.fontSize.sm,
     BorderRadius: (props: BadgeStyledProps) => props.theme.borderRadius.large,
     Padding: (props: BadgeStyledProps) => `${props.theme.spacing.s2} ${props.theme.spacing.s4}`,
-    JustifyContent: (props: BadgeStyledProps) => props.theme.justifyContent.center
+    JustifyContent: (props: BadgeStyledProps) => props.theme.justifyContent.center,
+    BoxShadow: (props: BadgeStyledProps) => props.theme.shadow.light,
+    Transition: (props: BadgeStyledProps) => props.theme.transition.elevation,
+    HoveredShadow: (props: BadgeStyledProps) => props.theme.shadow.elevate,
 }
 
 export default BadgeStyledGetters;

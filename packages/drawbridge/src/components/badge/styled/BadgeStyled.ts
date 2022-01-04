@@ -15,6 +15,12 @@ const BadgeStyled = styled.span<BadgeStyledProps>`
   padding: ${BadgeStyledGetters.Padding};
   border-radius: ${BadgeStyledGetters.BorderRadius};
   font-size: ${BadgeStyledGetters.FontSize};
+  box-shadow: ${BadgeStyledGetters.BoxShadow};
+  transition: ${BadgeStyledGetters.Transition};
+
+  &:hover {
+    box-shadow: ${BadgeStyledGetters.HoveredShadow};
+  }
 `;
 
 export default BadgeStyled;

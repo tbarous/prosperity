@@ -54,15 +54,16 @@ const ButtonStyledGetters = {
     Width: (props: ButtonStyledProps) => props.theme.dimension.d100,
     FontWeight: (props: ButtonStyledProps) => props.theme.fontWeight.bold,
     FontSize: (props: ButtonStyledProps) => props.theme.fontSize.md,
-    BoxShadow: (props: ButtonStyledProps) => props.theme.shadow.primary,
+    BoxShadow: (props: ButtonStyledProps) => props.theme.shadow.light,
     FontFamily: (props: ButtonStyledProps) => props.theme.fontFamily.primary,
-    BorderRadius: (props: ButtonStyledProps) => props.theme.borderRadius.medium,
+    BorderRadius: (props: ButtonStyledProps) => props.theme.borderRadius.xlarge,
     Border: (props: ButtonStyledProps) => props.theme.border.none,
     Cursor: (props: ButtonStyledProps) => props.theme.cursor.pointer,
-    HoveredShadow: (props: ButtonStyledProps) => props.theme.shadow.secondary,
+    HoveredShadow: (props: ButtonStyledProps) => props.theme.shadow.elevate,
     FocusedFocusFilter: (props: ButtonStyledProps) => "brightness(110%)",
     ActiveFocusFilter: (props: ButtonStyledProps) => "brightness(110%)",
     VisitedFocusFilter: (props: ButtonStyledProps) => "brightness(110%)",
+    Transition: (props: ButtonStyledProps) => props.theme.transition.elevation
 }
 
 export default ButtonStyledGetters;

@@ -23,6 +23,7 @@ import ThemeOverflowInterface from "@theme/interfaces/ThemeOverflowInterface";
 import ThemeTextAlignInterface from "@theme/interfaces/ThemeTextAlignInterface";
 import ThemeLineHeightInterface from "@theme/interfaces/ThemeLineHeightInterface";
 import ThemeJustifyContentInterface from "@theme/interfaces/ThemeJustifyContentInterface";
+import ThemeTransitionInterface from "@theme/interfaces/ThemeTransitionInterface";
 
 interface ThemeInterface {
     breakpoint: ThemeBreakpointInterface,
@@ -48,7 +49,8 @@ interface ThemeInterface {
     overflow: ThemeOverflowInterface,
     textAlign: ThemeTextAlignInterface,
     lineHeight: ThemeLineHeightInterface,
-    justifyContent: ThemeJustifyContentInterface
+    justifyContent: ThemeJustifyContentInterface,
+    transition: ThemeTransitionInterface
 }
 
 export default ThemeInterface;

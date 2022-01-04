@@ -12,6 +12,11 @@ const CardStyled = styled.div<CardStyledProps>`
   border-radius: ${CardStyledGetters.BorderRadius};
   width: ${CardStyledGetters.Width};
   box-sizing: ${CardStyledGetters.BoxSizing};
+  transition: ${CardStyledGetters.Transition};
+
+  &:hover {
+    box-shadow: ${CardStyledGetters.BoxShadowHovered}
+  }
 `;
 
 export default CardStyled;

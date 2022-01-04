@@ -1,6 +1,10 @@
 interface ThemeShadowInterface {
-    primary: string,
-    secondary: string
+    lighter: string,
+    light: string,
+    medium: string,
+    strong: string,
+    stronger: string,
+    elevate: string
 }
 
 export default ThemeShadowInterface;
