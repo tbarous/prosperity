@@ -5,7 +5,6 @@ import {Times} from "@components/icon/Icons";
 import ModalCloseStyled from "./styled/modal-close/ModalCloseStyled";
 import ModalOverlayStyled from "./styled/modal-overlay/ModalOverlayStyled";
 import ModalContentStyled from "./styled/modal-content/ModalContentStyled";
-import useMount from "@hooks/useMount";
 import {useMountChildProps} from "@hooks/useMountChild";
 import ModalWrapperStyled from "./styled/modal-wrapper/ModalWrapperStyled";
 
@@ -19,12 +18,14 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
         children,
         className,
         closeOnClickOutside,
-        dismissible
+        dismissible,
+        unmountComponent,
+        mount,
+        entryDelay,
+        exitDelay
     } = props;
 
     const modalWrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
-
-    const {unmountComponent, mount, entryDelay, exitDelay} = useMount(props);
 
     if (closeOnClickOutside) useOnClickOutside(modalWrapperRef, unmountComponent);
 

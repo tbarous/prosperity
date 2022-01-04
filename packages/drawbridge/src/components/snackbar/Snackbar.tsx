@@ -4,7 +4,6 @@ import SnackbarVariationEnum from "@components/snackbar/enums/SnackbarVariationE
 import SnackbarCloseStyled from "@components/snackbar/styled/snackbar-close/SnackbarCloseStyled";
 import SnackbarStyled from "@components/snackbar/styled/snackbar/SnackbarStyled";
 import {Times} from "@components/icon/Icons";
-import useMount from "@hooks/useMount";
 import {useMountChildProps} from "@hooks/useMountChild";
 import useCallbackOnTimeout from "@hooks/useCallbackOnTimeout";
 
@@ -21,9 +20,11 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
         variation,
         dismissible,
         closeOnDelay,
+        unmountComponent,
+        mount,
+        entryDelay,
+        exitDelay
     } = props;
-
-    const {unmountComponent, mount, entryDelay, exitDelay} = useMount(props);
 
     if (closeOnDelay) useCallbackOnTimeout(closeOnDelay, unmountComponent);
 

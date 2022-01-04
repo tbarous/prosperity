@@ -24,14 +24,20 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 `;
 
 const DefaultDrawer = (args: DefaultDrawerProps) => {
-    const drawer = useMountChild(1000, 1000);
+    const drawer = useMountChild(500, 500);
 
     useEffect(() => {
-        drawer.toggle();
+        if(args.open){
+            drawer.renderComponent()
+        } else {
+            drawer.unmountComponent();
+        }
     }, [args.open]);
 
     return (
         <StorybookWrapperStyled>
+            render: {drawer.render ? "true" : "false"} |
+            mount: {drawer.mount ? "true" : "false"}
             {drawer.render && <Drawer {...drawer} />}
         </StorybookWrapperStyled>
     );

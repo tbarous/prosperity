@@ -3,8 +3,6 @@ import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import {Times} from "@components/icon/Icons";
 import DrawerStyled from "./styled/drawer/DrawerStyled";
 import DrawerCloseStyled from "./styled/drawer-close/DrawerCloseStyled";
-import useMount from "@hooks/useMount";
-import {emptyFunction} from "../../helpers/Helpers";
 import {useMountChildProps} from "@hooks/useMountChild";
 
 export interface DrawerProps extends BasicComponentProps, useMountChildProps {
@@ -15,10 +13,12 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
     const {
         children,
         className,
-        overlay
+        overlay,
+        unmountComponent,
+        mount,
+        entryDelay,
+        exitDelay
     } = props;
-
-    const {unmountComponent, mount, entryDelay, exitDelay} = useMount(props);
 
     return (
         <DrawerStyled

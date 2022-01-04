@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {FunctionVoid} from "@typings";
 import {emptyFunction} from "../helpers/Helpers";
 
@@ -7,14 +7,8 @@ export interface useMountChildProps {
     mount: boolean,
     entryDelay: number,
     exitDelay: number,
-    mountComponent: FunctionVoid,
     unmountComponent: FunctionVoid,
     renderComponent: FunctionVoid,
-    unRenderComponent: FunctionVoid,
-    onRendered: FunctionVoid,
-    onUnRendered: FunctionVoid,
-    onUnmounted: FunctionVoid,
-    onMounted: FunctionVoid,
     toggle: FunctionVoid,
 }
 
@@ -44,89 +38,53 @@ function useMountChild(
     const [mount, setMount] = useState<boolean>(false);
 
     /**
-     * Upon rendering a child component, it must be mounted after.
-     * onRendered mounts the child component after the rendering happens.
+     * This state variable manages the appearance of the child component
+     * on the page. It is used mostly to add a delay behavior.
      */
-    useEffect(() => {
-        if (!render) return;
-
-        onRendered();
-    }, [render])
-
-    /**
-     * Perform inner mount on the child component.
-     */
-    const mountComponent = () => setMount(true);
-
-    /**
-     * Perform inner unmount on child component.
-     */
-    const unmountComponent = () => setMount(false);
+    const timeoutRef = useRef<any>(null);
 
     /**
      * Render a child component.
      */
-    const renderComponent = () => setRender(true);
+    const renderComponent = () => {
+        if (!render) setRender(true);
+
+        if (render && !mount) setMount(true);
+    }
 
     /**
-     * Un-render a child component.
+     * Perform inner unmount on child component.
      */
-    const unRenderComponent = () => setRender(false);
-
-    /**
-     * After a child component has been rendered, it must be mounted.
-     */
-    const onRendered = () => setMount(true);
-
-    /**
-     * After a child component has been un-rendered no action
-     * has to happen yet as the assumption is this un-rendered action
-     * was triggered by an unMount.
-     */
-    const onUnRendered = emptyFunction;
-
-    /**
-     * After a child component has been mounted no action
-     * has to happen yet.
-     */
-    const onMounted = emptyFunction;
-
-    /**
-     * After a child component has been unmounted, it must be
-     * un-rendered.
-     */
-    const onUnmounted = () => setRender(false);
+    const unmountComponent = () => {
+        if (mount) setMount(false);
+    }
 
     /**
      * Toggles the appearance of a child component.
      */
-    const toggle = () => {
-        if (!render) {
-            renderComponent();
+    const toggle = () => {}
 
-            return;
-        }
+    useEffect(() => {
+        if (!mount) {
+            if (!exitDelay) setRender(false);
 
-        if (render) {
-            if (mount) {
-                unmountComponent()
-            } else {
-                mountComponent();
-            }
+            timeoutRef.current = setTimeout(() => setRender(false), exitDelay);
+
+            return () => clearTimeout(timeoutRef.current);
         }
-    }
+    }, [mount]);
+
+    useEffect(() => {
+        if (render && !mount) {
+            setMount(true);
+        }
+    }, [render]);
 
     return {
         render,
         mount,
-        mountComponent,
         unmountComponent,
         renderComponent,
-        unRenderComponent,
-        onRendered,
-        onUnRendered,
-        onMounted,
-        onUnmounted,
         toggle,
         entryDelay,
         exitDelay
