@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react";
 import Drawer, {DrawerProps} from "@components/drawer/Drawer";
 import StorybookWrapper from "@stories/StorybookWrapper";
 import Button from "@components/button/Button";
-import ButtonVariationEnum from "@components/button/enums/ButtonVariationEnum";
 import styled from "styled-components";
 import useMountChild from "@hooks/useMountChild";
 
@@ -26,18 +25,10 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 const DefaultDrawer = (args: DefaultDrawerProps) => {
     const drawer = useMountChild(500, 500);
 
-    useEffect(() => {
-        if(args.open){
-            drawer.renderComponent()
-        } else {
-            drawer.unmountComponent();
-        }
-    }, [args.open]);
+    useEffect(() => args.open ? drawer.renderComponent() : drawer.unmountComponent(), [args.open]);
 
     return (
         <StorybookWrapperStyled>
-            render: {drawer.render ? "true" : "false"} |
-            mount: {drawer.mount ? "true" : "false"}
             {drawer.render && <Drawer {...drawer} />}
         </StorybookWrapperStyled>
     );

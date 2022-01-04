@@ -42,6 +42,7 @@ function useMountChild(
      * on the page. It is used mostly to add a delay behavior.
      */
     const timeoutRef = useRef<any>(null);
+    const timeoutRef2 = useRef<any>(null);
 
     /**
      * Render a child component.
@@ -76,7 +77,9 @@ function useMountChild(
 
     useEffect(() => {
         if (render && !mount) {
-            setMount(true);
+            timeoutRef2.current = setTimeout(() => setMount(true), 100);
+
+            return () => clearTimeout(timeoutRef2.current);
         }
     }, [render]);
 
