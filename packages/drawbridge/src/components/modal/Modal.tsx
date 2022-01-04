@@ -25,9 +25,9 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
         exitDelay
     } = props;
 
-    const modalWrapperRef: React.RefObject<HTMLDivElement> = useRef(null);
+    const ref = useRef(null);
 
-    if (closeOnClickOutside) useOnClickOutside(modalWrapperRef, unmountComponent);
+    if (closeOnClickOutside) useOnClickOutside(ref, () => unmountComponent(true));
 
     return (
         <>
@@ -40,7 +40,7 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
 
             <ModalWrapperStyled>
                 <ModalContentStyled
-                    ref={modalWrapperRef}
+                    ref={ref}
                     mount={mount}
                     entryDelay={entryDelay}
                     exitDelay={exitDelay}

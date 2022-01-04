@@ -56,8 +56,8 @@ function useMountChild(
     /**
      * Perform inner unmount on child component.
      */
-    const unmountComponent = () => {
-        if (mount) setMount(false);
+    const unmountComponent = (override = false) => {
+        if (mount || override) setMount(false);
     }
 
     /**

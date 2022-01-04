@@ -9,7 +9,8 @@ import styled from "styled-components";
 
 interface Props extends BasicComponentProps {
     onChange?: FunctionVoid,
-    label?: string
+    label?: string,
+    checked?: boolean
 }
 
 const TextStyled = styled(Text)`
@@ -22,14 +23,9 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElementOrN
         children,
         className,
         onChange = emptyFunction,
-        label
+        label,
+        checked
     } = props;
-
-    const [checked, setChecked] = useState(false);
-
-    function handleChange() {
-        setChecked(!checked)
-    }
 
     return (
         <CheckboxStyled
@@ -37,11 +33,11 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElementOrN
         >
             <CheckboxInputStyled
                 type="checkbox"
-                onChange={handleChange}
+                onChange={onChange}
                 checked={checked}
             />
 
-            <TextStyled >{label}</TextStyled>
+            <TextStyled>{label}</TextStyled>
 
             <CheckboxCheckmarkStyled
                 checked={checked}

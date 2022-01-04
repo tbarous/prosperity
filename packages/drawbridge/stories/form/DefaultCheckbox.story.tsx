@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Input from "@components/form/Input";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
@@ -11,20 +11,33 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
   margin: 1rem;
 `;
 
-const DefaultCheckbox = (args: any) => (
-    <StorybookWrapperStyled>
-        <Container fluid>
-            <Row>
-                <Col xs={4}>
-                    <Checkbox {...args} />
-                </Col>
-            </Row>
-        </Container>
-    </StorybookWrapperStyled>
-);
+const DefaultCheckbox = (args: any) => {
+    const [checked, setChecked] = useState(false);
+
+    useEffect(() => {
+        setChecked(args.checked)
+    }, [args.checked])
+
+    return (
+        <StorybookWrapperStyled>
+            <Container fluid>
+                <Row>
+                    <Col xs={4}>
+                        <Checkbox
+                            onChange={() => setChecked(!checked)}
+                            checked={checked}
+                            label={args.label}
+                        />
+                    </Col>
+                </Row>
+            </Container>
+        </StorybookWrapperStyled>
+    )
+}
 
 DefaultCheckbox.args = {
-    label: "Label"
+    label: "Label",
+    checked: false
 };
 
 export default DefaultCheckbox;

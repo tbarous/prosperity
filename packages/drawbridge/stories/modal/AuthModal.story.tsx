@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useState} from "react";
 import Button from "@components/button/Button";
 import Modal from "@components/modal/Modal";
@@ -34,6 +34,8 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 const AuthModal = (args: any) => {
     const modal = useMountChild(1000, 1000);
 
+    useEffect(() => args.open ? modal.renderComponent() : modal.unmountComponent(), [args.open]);
+
     const [active, setActive] = useState("1");
 
     function onClick(e: any) {
@@ -46,12 +48,6 @@ const AuthModal = (args: any) => {
 
     return (
         <StorybookWrapperStyled>
-            <StorybookButtonWrapper>
-                <Button onClick={modal.renderComponent}>
-                    Login/Register
-                </Button>
-            </StorybookButtonWrapper>
-
             {modal.render ?
                 <Modal
                     closeOnClickOutside
@@ -89,6 +85,10 @@ const AuthModal = (args: any) => {
                 : null}
         </StorybookWrapperStyled>
     )
+};
+
+AuthModal.args = {
+    open: false
 };
 
 export default AuthModal;

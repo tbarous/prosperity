@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useState} from "react";
 import Button from "@components/button/Button";
 import Modal from "@components/modal/Modal";
@@ -47,17 +47,14 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 const BasicModal = (args: any) => {
     const modal = useMountChild(1000, 1000);
 
+    useEffect(() => args.open ? modal.renderComponent() : modal.unmountComponent(), [args.open]);
+
     return (
         <StorybookWrapperStyled>
-            <StorybookButtonWrapper>
-                <Button onClick={modal.toggle}>
-                    Toggle Modal
-                </Button>
-            </StorybookButtonWrapper>
-
             {modal.render ?
                 <Modal
                     closeOnClickOutside
+                    dismissible={true}
                     {...modal}
                 >
                     <StyledModalHeader>
@@ -66,18 +63,6 @@ const BasicModal = (args: any) => {
 
                     <StyledModalBody>
                         <Container>
-                            <Row gutter={12}>
-                                <Col xs={6}>
-                                    <StorybookColContent>1/12</StorybookColContent>
-                                </Col>
-
-                                <Col xs={6}>
-                                    <StorybookColContent>1/12</StorybookColContent>
-                                </Col>
-                            </Row>
-
-                            <br/>
-
                             <Row gutter={12}>
                                 <Col xs={6}>
                                     <StorybookColContent>1/12</StorybookColContent>
@@ -97,6 +82,10 @@ const BasicModal = (args: any) => {
                 : null}
         </StorybookWrapperStyled>
     )
+};
+
+BasicModal.args = {
+    open: false
 };
 
 export default BasicModal;

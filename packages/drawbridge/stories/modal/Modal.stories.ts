@@ -5,12 +5,6 @@ import AuthModal from "@stories/modal/AuthModal.story";
 export default {
     title: 'Modal',
     component: Modal,
-    argTypes: {
-        container: {
-            options: ['default', 'fluid'],
-            control: {type: 'radio'},
-        },
-    },
 };
 
 export {
