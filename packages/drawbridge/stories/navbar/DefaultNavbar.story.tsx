@@ -40,11 +40,7 @@ const DefaultNavbar = (args: BasicComponentProps) => {
 
     const scrollFromTop = useOnScroll();
 
-    useEffect(() => {
-        if (scrollFromTop >= 120) navbarFixed.renderComponent();
-
-        if (scrollFromTop < 120) navbarFixed.unmountComponent();
-    }, [scrollFromTop])
+    useEffect(() => scrollFromTop >= 120 ? navbarFixed.renderComponent() : navbarFixed.unmountComponent(), [scrollFromTop])
 
     return (
         <StorybookWrapperStyled>

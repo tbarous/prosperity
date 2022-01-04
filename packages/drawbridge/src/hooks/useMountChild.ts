@@ -18,10 +18,20 @@ export interface useMountChildProps {
     toggle: FunctionVoid,
 }
 
-function useMountChild(entryDelay: number = 0, exitDelay = 0): useMountChildProps {
+function useMountChild(
+    entryDelay: number = 0,
+    exitDelay = 0
+): useMountChildProps {
     const [render, setRender] = useState<boolean>(false);
     const [mount, setMount] = useState<boolean>(false);
 
+    useEffect(() => {
+        render && onRendered();
+    }, [render])
+
+    /**
+     * Handles Mounting
+     */
     const mountComponent = () => setMount(true);
     const unmountComponent = () => setMount(false);
 
@@ -34,18 +44,7 @@ function useMountChild(entryDelay: number = 0, exitDelay = 0): useMountChildProp
     const onMounted = emptyFunction;
     const onUnmounted = () => setRender(false);
 
-    useEffect(() => {
-        if (render) onRendered();
-    }, [render])
-
-    const toggle = () => {
-        if (mount) {
-            unmountComponent();
-            return;
-        }
-
-        if (!render) renderComponent();
-    }
+    const toggle = () => mount ? unmountComponent() : mountComponent();
 
     return {
         render,

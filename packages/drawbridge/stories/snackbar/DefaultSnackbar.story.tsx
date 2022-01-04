@@ -20,7 +20,7 @@ const Content = styled.div`
 `;
 
 const DefaultSnackbar = (args: SnackbarProps) => {
-    const snackbar = useMountChild(1000);
+    const snackbar = useMountChild(1000, 1000);
 
     useEffect(() => snackbar.renderComponent(), []);
 
