@@ -26,7 +26,7 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
         exitDelay
     } = props;
 
-    if (closeOnDelay) useCallbackOnTimeout(closeOnDelay, unmountComponent);
+    if (closeOnDelay) useCallbackOnTimeout(closeOnDelay, () => unmountComponent(true));
 
     return (
         <SnackbarStyled

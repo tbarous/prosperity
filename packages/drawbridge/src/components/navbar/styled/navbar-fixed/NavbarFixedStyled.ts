@@ -14,9 +14,9 @@ const NavbarFixedStyled = styled.div<NavbarFixedStyledProps>`
   height: ${NavbarFixedStyledGetters.Height};
   z-index: ${NavbarFixedStyledGetters.ZIndex};
   position: ${NavbarFixedStyledGetters.Position};
-  transform: ${props => props.mount ? `translateY(0)` : `translateY(-100%)`};
-  transition: transform ${props => props.mount ? `${props.entryDelay / 1000}s` : `${props.exitDelay / 1000}s`};
-  top: 0;
+  transform: ${NavbarFixedStyledGetters.Transform};
+  transition: ${NavbarFixedStyledGetters.Transition};
+  top: ${NavbarFixedStyledGetters.Top};
 `;
 
 export default NavbarFixedStyled;

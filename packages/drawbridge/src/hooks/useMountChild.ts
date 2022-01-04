@@ -7,7 +7,7 @@ export interface useMountChildProps {
     mount: boolean,
     entryDelay: number,
     exitDelay: number,
-    unmountComponent: FunctionVoid,
+    unmountComponent: (override?: boolean) => void,
     renderComponent: FunctionVoid,
     toggle: FunctionVoid,
 }
