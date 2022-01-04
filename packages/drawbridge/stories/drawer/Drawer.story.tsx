@@ -24,15 +24,17 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 `;
 
 const DefaultDrawer = (args: DefaultDrawerProps) => {
-    const [
+    const {
         render,
         mount,
         mountComponent,
         unmountComponent,
-        onMounted,
+        onRendered,
         onUnmounted,
+        renderComponent,
+        unRenderComponent,
         toggleChildMount
-    ] = useMountChild();
+    } = useMountChild();
 
     return (
         <StorybookWrapperStyled>
@@ -46,7 +48,7 @@ const DefaultDrawer = (args: DefaultDrawerProps) => {
             {render && <Drawer
                 mountComponent={mountComponent}
                 unmountComponent={unmountComponent}
-                onMounted={onMounted}
+                onRendered={onRendered}
                 onUnmounted={onUnmounted}
                 mount={mount}
                 delay={1000}

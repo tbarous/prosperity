@@ -36,23 +36,14 @@ const ContainerStyled = styled(Container)`
 `;
 
 const DefaultNavbar = (args: BasicComponentProps) => {
-    const {
-        render,
-        mount,
-        mountComponent,
-        unmountComponent,
-        onMounted,
-        onUnmounted,
-        renderComponent,
-        unRenderComponent,
-    } = useMountChild(false);
+    const navbarFixed = useMountChild(1000);
 
     const scrollFromTop = useOnScroll();
 
     useEffect(() => {
-        if (scrollFromTop >= 120) renderComponent();
+        if (scrollFromTop >= 120) navbarFixed.renderComponent();
 
-        if (scrollFromTop < 120) unmountComponent();
+        if (scrollFromTop < 120) navbarFixed.unmountComponent();
     }, [scrollFromTop])
 
     return (
@@ -75,14 +66,7 @@ const DefaultNavbar = (args: BasicComponentProps) => {
                 </Container>
             </NavbarStaticStyled>
 
-            {render && <NavbarFixedStyled
-                mountComponent={mountComponent}
-                unmountComponent={unmountComponent}
-                onMounted={onMounted}
-                onUnmounted={onUnmounted}
-                mount={mount}
-                delay={1000}
-            >
+            {navbarFixed.render && <NavbarFixedStyled {...navbarFixed}>
                 <Container>
                     <Row>
                         <Col xs={1}>

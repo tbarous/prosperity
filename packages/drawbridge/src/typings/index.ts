@@ -5,4 +5,5 @@ export type ReactElementOrNull = ReactElement | null
 export type BasicComponentProps = { children?: ReactNode, className?: string }
 export type StyledProps = { theme: ThemeInterface };
 export type StyledRule = <T extends ThemeInterface>(props: T) => string
-export type FunctionVoid = () => void
+export type FunctionVoid = () => void;
+export type useMountChildStyledProps = { mount?: boolean, entryDelay: number, exitDelay: number };

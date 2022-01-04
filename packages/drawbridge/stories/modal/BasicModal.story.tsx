@@ -45,15 +45,17 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 `;
 
 const BasicModal = (args: any) => {
-    const [
+    const {
         render,
         mount,
         mountComponent,
         unmountComponent,
-        onMounted,
+        onRendered,
         onUnmounted,
+        renderComponent,
+        unRenderComponent,
         toggleChildMount
-    ] = useMountChild();
+    } = useMountChild();
 
     return (
         <StorybookWrapperStyled>
@@ -68,7 +70,7 @@ const BasicModal = (args: any) => {
                     closeOnClickOutside
                     mountComponent={mountComponent}
                     unmountComponent={unmountComponent}
-                    onMounted={onMounted}
+                    onRendered={onRendered}
                     onUnmounted={onUnmounted}
                     mount={mount}
                     delay={1000}

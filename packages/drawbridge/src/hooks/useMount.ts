@@ -1,36 +1,59 @@
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
+import {emptyFunction} from "../helpers/Helpers";
+import {useMountChildProps} from "@hooks/useMountChild";
 
-export interface useMountProps {
-    delay?: number,
-    mount?: boolean,
-    mountComponent?: () => void,
-    unmountComponent?: () => void,
-    onMounted?: () => void,
-    onUnmounted?: () => void,
-}
-
-function useUnmount(props: useMountProps) {
+function useUnmount(props: useMountChildProps) {
     const {
-        delay = 0,
+        entryDelay,
+        exitDelay,
         mount,
-        mountComponent = () => {},
-        unmountComponent = () => {},
-        onMounted = () => {},
-        onUnmounted = () => {},
+        render,
+        mountComponent = emptyFunction,
+        unmountComponent = emptyFunction,
+        renderComponent = emptyFunction,
+        unRenderComponent = emptyFunction,
+        onRendered = emptyFunction,
+        onUnRendered = emptyFunction,
+        onMounted = emptyFunction,
+        onUnmounted = emptyFunction,
+        toggle = emptyFunction,
     } = props;
 
     const timeoutRef = useRef<any>(null);
 
-    function handle(callback: () => void) {
-        if (!delay) callback();
+    const [initial, setInitial] = useState(false);
 
-        timeoutRef.current = setTimeout(callback, delay);
+    useEffect(() => {
+        if (!initial) {
+            setInitial(true);
 
-        return () => clearTimeout(timeoutRef.current);
+            return;
+        }
+
+        if (!mount) {
+            if (!exitDelay) onUnmounted();
+
+            timeoutRef.current = setTimeout(onUnmounted, exitDelay);
+
+            return () => clearTimeout(timeoutRef.current);
+        }
+    }, [mount]);
+
+    return {
+        mount,
+        render,
+        mountComponent,
+        unmountComponent,
+        renderComponent,
+        unRenderComponent,
+        onRendered,
+        onUnRendered,
+        onMounted,
+        onUnmounted,
+        toggle,
+        entryDelay,
+        exitDelay
     }
-
-    useEffect(() => mountComponent(), []);
-    useEffect(() => handle(mount ? onMounted : onUnmounted), [mount]);
 }
 
 export default useUnmount;

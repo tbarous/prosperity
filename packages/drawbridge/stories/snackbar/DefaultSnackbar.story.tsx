@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Snackbar, {SnackbarProps} from "@components/snackbar/Snackbar";
 import SnackbarVariationEnum from "@components/snackbar/enums/SnackbarVariationEnum";
 import Button from "@components/button/Button";
@@ -20,15 +20,9 @@ const Content = styled.div`
 `;
 
 const DefaultSnackbar = (args: SnackbarProps) => {
-    const [
-        render,
-        mount,
-        mountComponent,
-        unmountComponent,
-        onMounted,
-        onUnmounted,
-        toggleChildMount
-    ] = useMountChild();
+    const snackbar = useMountChild(1000);
+
+    useEffect(() => snackbar.renderComponent(), []);
 
     return (
         <StorybookWrapperStyled>
@@ -37,7 +31,7 @@ const DefaultSnackbar = (args: SnackbarProps) => {
                     <Col xs={1}>
                         <Button
                             variation={ButtonVariationEnum.PRIMARY}
-                            onClick={toggleChildMount}
+                            onClick={snackbar.toggle}
                         >
                             Toggle Snackbar
                         </Button>
@@ -45,13 +39,8 @@ const DefaultSnackbar = (args: SnackbarProps) => {
                 </Row>
             </Container>
 
-            {render && <Snackbar
-                mountComponent={mountComponent}
-                unmountComponent={unmountComponent}
-                onMounted={onMounted}
-                onUnmounted={onUnmounted}
-                mount={mount}
-                delay={1000}
+            {snackbar.render && <Snackbar
+                {...snackbar}
                 variation={args.variation}
                 dismissible={args.dismissible}
                 closeOnDelay={args.closeOnDelay}

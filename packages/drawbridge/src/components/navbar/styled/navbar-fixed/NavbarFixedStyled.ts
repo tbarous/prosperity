@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
+import {StyledProps, useMountChildStyledProps} from "@typings";
 import NavbarFixedStyledGetters from "@components/navbar/styled/navbar-fixed/NavbarFixedStyledGetters";
 
-export interface NavbarFixedStyledProps extends StyledProps {
-    mount?: boolean
+export interface NavbarFixedStyledProps extends StyledProps, useMountChildStyledProps {
 }
 
 const NavbarFixedStyled = styled.div<NavbarFixedStyledProps>`
@@ -16,7 +15,7 @@ const NavbarFixedStyled = styled.div<NavbarFixedStyledProps>`
   z-index: ${NavbarFixedStyledGetters.ZIndex};
   position: ${NavbarFixedStyledGetters.Position};
   transform: ${props => props.mount ? `translateY(0)` : `translateY(-100%)`};
-  transition: transform .5s;
+  transition: transform ${props => props.mount ? `${props.entryDelay / 1000}s` : `${props.exitDelay / 1000}s`};
   top: 0;
 `;
 

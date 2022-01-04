@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
+import {StyledProps, useMountChildStyledProps} from "@typings";
 import SnackbarVariationEnum from "@components/snackbar/enums/SnackbarVariationEnum";
 import SnackbarStyledGetters from "@components/snackbar/styled/snackbar/SnackbarStyledGetters";
 
-export interface SnackbarStyledProps extends StyledProps {
+export interface SnackbarStyledProps extends StyledProps, useMountChildStyledProps {
     variation: SnackbarVariationEnum,
     mount?: boolean,
     delay?: number

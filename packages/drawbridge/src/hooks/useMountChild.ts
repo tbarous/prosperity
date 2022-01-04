@@ -1,22 +1,26 @@
 import {useEffect, useState} from "react";
 import {FunctionVoid} from "@typings";
+import {emptyFunction} from "../helpers/Helpers";
 
-function useMountChild(
-    renderImmediately: boolean = true,
-    mountImmediately: boolean = false
-): {
+export interface useMountChildProps {
     render: boolean,
     mount: boolean,
+    entryDelay: number,
+    exitDelay: number,
     mountComponent: FunctionVoid,
     unmountComponent: FunctionVoid,
-    onMounted: FunctionVoid,
-    onUnmounted: FunctionVoid,
-    toggleChildMount: FunctionVoid,
     renderComponent: FunctionVoid,
-    unRenderComponent: FunctionVoid
-} {
-    const [render, setRender] = useState(renderImmediately);
-    const [mount, setMount] = useState(mountImmediately);
+    unRenderComponent: FunctionVoid,
+    onRendered: FunctionVoid,
+    onUnRendered: FunctionVoid,
+    onUnmounted: FunctionVoid,
+    onMounted: FunctionVoid,
+    toggle: FunctionVoid,
+}
+
+function useMountChild(entryDelay: number = 0, exitDelay = 0): useMountChildProps {
+    const [render, setRender] = useState<boolean>(false);
+    const [mount, setMount] = useState<boolean>(false);
 
     const mountComponent = () => setMount(true);
     const unmountComponent = () => setMount(false);
@@ -24,37 +28,39 @@ function useMountChild(
     const renderComponent = () => setRender(true);
     const unRenderComponent = () => setRender(false);
 
-    const onMounted = () => setRender(true);
+    const onRendered = () => setMount(true);
+    const onUnRendered = emptyFunction;
+
+    const onMounted = emptyFunction;
     const onUnmounted = () => setRender(false);
 
-    const toggleChildMount = () => {
-        if (mount) {
-            setMount(false);
+    useEffect(() => {
+        if (render) onRendered();
+    }, [render])
 
+    const toggle = () => {
+        if (mount) {
+            unmountComponent();
             return;
         }
 
-        if (!mount) setRender(true);
+        if (!render) renderComponent();
     }
-
-    useEffect(() => {
-        if (render) setMount(true);
-    }, [render])
-
-    useEffect(() => {
-        if (!mount) setRender(false);
-    }, [mount])
 
     return {
         render,
         mount,
         mountComponent,
         unmountComponent,
+        renderComponent,
+        unRenderComponent,
+        onRendered,
+        onUnRendered,
         onMounted,
         onUnmounted,
-        toggleChildMount,
-        renderComponent,
-        unRenderComponent
+        toggle,
+        entryDelay,
+        exitDelay
     };
 }
 
