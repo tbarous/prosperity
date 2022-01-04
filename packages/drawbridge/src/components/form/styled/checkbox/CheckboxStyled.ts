@@ -6,20 +6,14 @@ export interface CheckboxStyledProps extends StyledProps {
 }
 
 const CheckboxStyled = styled.label<CheckboxStyledProps>`
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  //&:hover input ~ span {
-  //  background-color: #ccc;
-  //}
+  display: ${CheckboxStyledGetters.Display};
+  position: ${CheckboxStyledGetters.Position};
+  padding-left: ${CheckboxStyledGetters.PaddingLeft};
+  margin-bottom: ${CheckboxStyledGetters.MarginBottom};
+  cursor: ${CheckboxStyledGetters.Cursor};
+  font-size: ${CheckboxStyledGetters.FontSize};
+  user-select: ${CheckboxStyledGetters.UserSelect};
+  border-radius: ${CheckboxStyledGetters.BorderRadius};
 `;
 
 export default CheckboxStyled;

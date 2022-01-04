@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
+import CheckboxInputStyledGetters from "@components/form/styled/checkbox-input/CheckboxInputStyledGetters";
 
 export interface CheckboxInputStyledProps extends StyledProps {
 }
 
 const CheckboxInputStyled = styled.input<CheckboxInputStyledProps>`
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+  position: ${CheckboxInputStyledGetters.Position};
+  opacity: ${CheckboxInputStyledGetters.Opacity};
+  cursor: ${CheckboxInputStyledGetters.Cursor};
+  height: ${CheckboxInputStyledGetters.Height};
+  width: ${CheckboxInputStyledGetters.Width};
 `;
 
 export default CheckboxInputStyled;

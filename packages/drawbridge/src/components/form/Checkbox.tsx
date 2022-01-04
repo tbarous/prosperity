@@ -4,16 +4,25 @@ import CheckboxInputStyled from "./styled/checkbox-input/CheckboxInputStyled";
 import CheckboxStyled from "./styled/checkbox/CheckboxStyled";
 import {BasicComponentProps, FunctionVoid, ReactElementOrNull} from "@typings";
 import {emptyFunction} from "../../helpers/Helpers";
+import Text from "@components/text/Text"
+import styled from "styled-components";
 
 interface Props extends BasicComponentProps {
-    onChange?: FunctionVoid
+    onChange?: FunctionVoid,
+    label?: string
 }
+
+const TextStyled = styled(Text)`
+  position: relative;
+  top: 3px;
+`;
 
 const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
     const {
         children,
         className,
-        onChange = emptyFunction
+        onChange = emptyFunction,
+        label
     } = props;
 
     const [checked, setChecked] = useState(false);
@@ -26,8 +35,17 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElementOrN
         <CheckboxStyled
             className={className}
         >
-            <CheckboxInputStyled type="checkbox" onChange={handleChange} checked={checked}/>
-            <CheckboxCheckmarkStyled checked={checked}/>
+            <CheckboxInputStyled
+                type="checkbox"
+                onChange={handleChange}
+                checked={checked}
+            />
+
+            <TextStyled >{label}</TextStyled>
+
+            <CheckboxCheckmarkStyled
+                checked={checked}
+            />
         </CheckboxStyled>
     )
 }

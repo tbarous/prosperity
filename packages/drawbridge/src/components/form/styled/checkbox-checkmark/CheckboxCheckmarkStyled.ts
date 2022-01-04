@@ -1,39 +1,33 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
+import CheckboxCheckmarkStyledGetters from "@components/form/styled/checkbox-checkmark/CheckboxCheckmarkStyledGetters";
 
-export interface CheckboxCheckmarkProps extends StyledProps {
+export interface CheckboxCheckmarkStyledProps extends StyledProps {
     checked?: boolean
 }
 
-const CheckboxCheckmarkStyled = styled.span<CheckboxCheckmarkProps>`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
+const CheckboxCheckmarkStyled = styled.span<CheckboxCheckmarkStyledProps>`
+  background-color: ${CheckboxCheckmarkStyledGetters.BackgroundColor};
+  position: ${CheckboxCheckmarkStyledGetters.Position};
+  top: ${CheckboxCheckmarkStyledGetters.Top};
+  left: ${CheckboxCheckmarkStyledGetters.Left};
+  height: ${CheckboxCheckmarkStyledGetters.Height};
+  width: ${CheckboxCheckmarkStyledGetters.Width};
+  border-radius: ${CheckboxCheckmarkStyledGetters.BorderRadius};
+  box-sizing: content-box;
+  box-shadow: ${props => props.theme.shadow.light};
 
   &:after {
     content: "";
-    position: absolute;
-    display: none;
-  }
-
-  &:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-
-  background-color: ${props => props.checked ? `#2196F3` : "#eee"};
-
-  &:after {
-    display: ${props => props.checked ? "block" : ""};
+    position: ${CheckboxCheckmarkStyledGetters.After.Position};
+    left: ${CheckboxCheckmarkStyledGetters.After.Left};
+    top: ${CheckboxCheckmarkStyledGetters.After.Top};
+    width: ${CheckboxCheckmarkStyledGetters.After.Width};
+    height: ${CheckboxCheckmarkStyledGetters.After.Height};
+    border: ${CheckboxCheckmarkStyledGetters.After.Border};
+    border-width: ${CheckboxCheckmarkStyledGetters.After.BorderWidth};
+    transform: ${CheckboxCheckmarkStyledGetters.After.Transform};
+    display: ${CheckboxCheckmarkStyledGetters.After.Display};
   }
 `;
 

@@ -1,4 +1,5 @@
 interface ThemeDimensionInterface {
+    d0: string,
     d10: string,
     d20: string,
     d70: string,
