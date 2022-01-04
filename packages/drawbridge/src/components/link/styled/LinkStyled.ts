@@ -1,26 +1,19 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import {
-    LinkColor,
-    LinkDisplay,
-    LinkFontSize,
-    LinkFontWeight,
-    LinkHoveredColor,
-    LinkTextDecoration
-} from "@components/link/styled/LInkStyledGetters";
+import LinkStyledGetters from "@components/link/styled/LInkStyledGetters";
 
 export interface LinkStyledProps extends StyledProps {
 }
 
 const LinkStyled = styled.a<LinkStyledProps>`
-  display: ${LinkDisplay};
-  text-decoration: ${LinkTextDecoration};
-  color: ${LinkColor};
-  font-weight: ${LinkFontWeight};
-  font-size: ${LinkFontSize};
+  display: ${LinkStyledGetters.Display};
+  text-decoration: ${LinkStyledGetters.TextDecoration};
+  color: ${LinkStyledGetters.Color};
+  font-weight: ${LinkStyledGetters.FontWeight};
+  font-size: ${LinkStyledGetters.FontSize};
 
   &:hover {
-    color: ${LinkHoveredColor};
+    color: ${LinkStyledGetters.Color};
   }
 `;
 

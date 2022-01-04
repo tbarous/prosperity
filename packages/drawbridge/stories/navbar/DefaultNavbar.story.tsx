@@ -5,12 +5,12 @@ import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import {BasicComponentProps} from "@typings";
-import LinkStyled from "@components/link/styled/LinkStyled";
 import styled from "styled-components";
 import useMountChild from "@hooks/useMountChild";
 import NavbarStatic from "@components/navbar/NavbarStatic";
 import NavbarFixed from "@components/navbar/NavbarFixed";
 import useOnScroll from "@hooks/UseOnScroll";
+import Link from "@components/link/Link";
 
 const NavbarStaticStyled = styled(NavbarStatic)`
   height: 100px;
@@ -35,100 +35,40 @@ const ContainerStyled = styled(Container)`
   margin-top: 4rem;
 `;
 
+const LinkStyled = styled(Link)`
+  padding: 0 1rem;
+`;
+
+const Content = () => <Container>
+    <Row>
+        <Col xs={1}>
+            <Image src="/logo.png" alt="img"/>
+        </Col>
+
+        <Col xs={11}>
+            <Links>
+                <LinkStyled href="/">Link 1</LinkStyled>
+                <LinkStyled href="/about">Link 2</LinkStyled>
+                <LinkStyled href="/about">Link 3</LinkStyled>
+            </Links>
+        </Col>
+    </Row>
+</Container>
+
 const DefaultNavbar = (args: BasicComponentProps) => {
     const navbarFixed = useMountChild(1000);
 
     const scrollFromTop = useOnScroll();
 
-    useEffect(() => scrollFromTop >= 120 ? navbarFixed.renderComponent() : navbarFixed.unmountComponent(), [scrollFromTop])
+    useEffect(() => scrollFromTop >= 100 ? navbarFixed.renderComponent() : navbarFixed.unmountComponent(), [scrollFromTop])
 
     return (
         <StorybookWrapperStyled>
             <NavbarStaticStyled>
-                <Container>
-                    <Row>
-                        <Col xs={1}>
-                            <Image src="/logo.png" alt="img"/>
-                        </Col>
-
-                        <Col xs={11}>
-                            <Links>
-                                <LinkStyled href="/">Link 1</LinkStyled>
-                                <LinkStyled href="/about">Link 2</LinkStyled>
-                                <LinkStyled href="/about">Link 3</LinkStyled>
-                            </Links>
-                        </Col>
-                    </Row>
-                </Container>
+                <Content/>
             </NavbarStaticStyled>
 
-            {navbarFixed.render && <NavbarFixedStyled {...navbarFixed}>
-                <Container>
-                    <Row>
-                        <Col xs={1}>
-                            <Image src="/logo.png" alt="img"/>
-                        </Col>
-
-                        <Col xs={11}>
-                            <Links>
-                                <LinkStyled href="/">Link 1</LinkStyled>
-                                <LinkStyled href="/about">Link 2</LinkStyled>
-                                <LinkStyled href="/about">Link 3</LinkStyled>
-                            </Links>
-                        </Col>
-                    </Row>
-                </Container>
-            </NavbarFixedStyled>}
-
-            <ContainerStyled>
-                {[1, 2, 3].map(item => {
-                    return (
-                        <Row key={item}>
-                            <Col xs={6}>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequuntur
-                                    dignissimos
-                                    dolorum
-                                    eaque eos
-                                    expedita inventore ipsam iste iure, laudantium libero natus nesciunt nulla omnis
-                                    optio
-                                    porro
-                                    quibusdam
-                                    ratione. Excepturi.
-                                </div>
-                                <div>Amet consequuntur cum eum iure nihil obcaecati officia, quo reiciendis tenetur
-                                    unde.
-                                    Consectetur, dolor
-                                    earum facilis necessitatibus officia pariatur quae rerum tempora? Ab assumenda
-                                    blanditiis,
-                                    incidunt itaque
-                                    minus officia recusandae!
-                                </div>
-                            </Col>
-
-                            <Col xs={6}>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequuntur
-                                    dignissimos
-                                    dolorum
-                                    eaque eos
-                                    expedita inventore ipsam iste iure, laudantium libero natus nesciunt nulla omnis
-                                    optio
-                                    porro
-                                    quibusdam
-                                    ratione. Excepturi.
-                                </div>
-                                <div>Amet consequuntur cum eum iure nihil obcaecati officia, quo reiciendis tenetur
-                                    unde.
-                                    Consectetur, dolor
-                                    earum facilis necessitatibus officia pariatur quae rerum tempora? Ab assumenda
-                                    blanditiis,
-                                    incidunt itaque
-                                    minus officia recusandae!
-                                </div>
-                            </Col>
-                        </Row>
-                    )
-                })}
-            </ContainerStyled>
+            {navbarFixed.render && <NavbarFixedStyled {...navbarFixed}><Content/></NavbarFixedStyled>}
         </StorybookWrapperStyled>
     );
 }

@@ -2,7 +2,7 @@ import ThemeColorInterface from "@theme/interfaces/ThemeColorInterface";
 
 const ThemeColor: ThemeColorInterface = {
     primary: "#74226C",
-    secondary: "#97EAD2",
+    secondary: "#A1E887",
     white: "#fff",
     dark: "#333",
     warning: "yellow",

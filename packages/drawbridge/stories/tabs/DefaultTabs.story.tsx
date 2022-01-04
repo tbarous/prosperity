@@ -18,11 +18,10 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 
 const CardStyled = styled(Card)`
   padding: 2rem;
-  height: 200px;
+  height: 120px;
 `;
 
 const TabStyled = styled(Tab)`
-  border: 1px solid;
 `;
 
 const DefaultTabs = (args: TabsProps) => {
@@ -64,7 +63,7 @@ const DefaultTabs = (args: TabsProps) => {
         <StorybookWrapperStyled>
             <Container fluid>
                 <Row>
-                    <Col xs={4}>
+                    <Col xs={8}>
                         <div style={{height: "60px"}}>
                             <Tabs {...args} onChange={onChange} activate={active} speed={.4}>
                                 {tabs.map((tab: any, index: number) => <TabStyled key={index}>{tab}</TabStyled>)}
