@@ -8,7 +8,7 @@ const ModalContentStyledGetters = {
     Height: (props: ModalContentStyledProps) => props.theme.dimension.d80,
     WidthMd: (props: ModalContentStyledProps) => `500px`,
     Transform: (props: ModalContentStyledProps) => props.mount ? `translateY(0)` : `translateY(-130%)`,
-    Transition: (props: ModalContentStyledProps) => `transform ${(props.delay || 1000) / 1000}s`,
+    Transition: (props: ModalContentStyledProps) => props.mount ? `transform ${props.entryDelay / 1000}s` : `transform ${props.exitDelay / 1000}s`,
 }
 
 export default ModalContentStyledGetters;

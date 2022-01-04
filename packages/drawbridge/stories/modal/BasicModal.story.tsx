@@ -45,35 +45,20 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 `;
 
 const BasicModal = (args: any) => {
-    const {
-        render,
-        mount,
-        mountComponent,
-        unmountComponent,
-        onRendered,
-        onUnmounted,
-        renderComponent,
-        unRenderComponent,
-        toggleChildMount
-    } = useMountChild();
+    const modal = useMountChild(1000, 1000);
 
     return (
         <StorybookWrapperStyled>
             <StorybookButtonWrapper>
-                <Button onClick={toggleChildMount}>
+                <Button onClick={modal.toggle}>
                     Toggle Modal
                 </Button>
             </StorybookButtonWrapper>
 
-            {render ?
+            {modal.render ?
                 <Modal
                     closeOnClickOutside
-                    mountComponent={mountComponent}
-                    unmountComponent={unmountComponent}
-                    onRendered={onRendered}
-                    onUnmounted={onUnmounted}
-                    mount={mount}
-                    delay={1000}
+                    {...modal}
                 >
                     <StyledModalHeader>
                         Header

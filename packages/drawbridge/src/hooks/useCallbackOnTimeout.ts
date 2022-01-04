@@ -1,7 +1,12 @@
 import {useEffect, useRef} from "react";
 import {FunctionVoid} from "@typings";
 
-function useUnmountOnTimeout(delay: number, callback: FunctionVoid) {
+/**
+ * Handle the appearance of a React Node in the DOM.
+ * Mostly useful for a HOC parent to manage the appearance
+ * of a child Node in the DOM.
+ */
+function useCallbackOnTimeout(delay: number, callback: FunctionVoid) {
     const timeoutCloseRef = useRef<any>(null);
 
     useEffect(() => {
@@ -13,4 +18,4 @@ function useUnmountOnTimeout(delay: number, callback: FunctionVoid) {
     }, []);
 }
 
-export default useUnmountOnTimeout;
+export default useCallbackOnTimeout;

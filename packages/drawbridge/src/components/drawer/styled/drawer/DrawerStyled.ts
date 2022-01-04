@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
+import {StyledProps, useMountChildStyledProps} from "@typings";
 import DrawerStyledGetters from "@components/drawer/styled/drawer/DrawerStyledGetters";
 
-export interface DrawerStyledProps extends StyledProps {
-    mount?: boolean,
+export interface DrawerStyledProps extends StyledProps, useMountChildStyledProps {
     overlay?: boolean,
-    delay?: number
 }
 
 const DrawerStyled = styled.div<DrawerStyledProps>`

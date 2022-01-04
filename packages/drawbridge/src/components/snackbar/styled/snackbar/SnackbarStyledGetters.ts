@@ -47,7 +47,7 @@ const SnackbarStyledGetters = {
     BoxSizing: (props: SnackbarStyledProps) => props.theme.boxSizing.borderBox,
     BoxShadow: (props: SnackbarStyledProps) => props.theme.shadow.secondary,
     Transform: (props: SnackbarStyledProps) => props.mount ? `translateX(0)` : `translateY(150%)`,
-    Transition: (props: SnackbarStyledProps) => props.mount ? `transform ${(props.entryDelay || 1000) / 1000}s` : `transform ${(props.exitDelay || 1000) / 1000}s`,
+    Transition: (props: SnackbarStyledProps) => props.mount ? `transform ${props.entryDelay / 1000}s` : `transform ${props.exitDelay / 1000}s`,
 }
 
 export default SnackbarStyledGetters;

@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
+import {StyledProps, useMountChildStyledProps} from "@typings";
 import ModalOverlayStyledGetters from "@components/modal/styled/modal-overlay/ModalOverlayStyledGetters";
 
-export interface ModalOverlayStyledProps extends StyledProps {
-    mount: any,
-    delay?: number
+export interface ModalOverlayStyledProps extends StyledProps, useMountChildStyledProps {
 }
 
 const ModalOverlayStyled = styled.div`

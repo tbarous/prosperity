@@ -1,4 +1,3 @@
-import {css, keyframes} from "styled-components";
 import {DrawerStyledProps} from "@components/drawer/styled/drawer/DrawerStyled";
 
 const DrawerStyledGetters = {
@@ -8,7 +7,7 @@ const DrawerStyledGetters = {
     Width: (props: DrawerStyledProps) => "15%",
     Display: (props: DrawerStyledProps) => props.theme.display.flex,
     Transform: (props: DrawerStyledProps) => props.mount ? `translateX(0)` : `translateX(-100%)`,
-    Transition: (props: DrawerStyledProps) => `transform ${(props.delay || 1000) / 1000}s`,
+    Transition: (props: DrawerStyledProps) => props.mount ? `transform ${props.entryDelay / 1000}s` : `transform ${props.exitDelay / 1000}s`,
 }
 
 export default DrawerStyledGetters;

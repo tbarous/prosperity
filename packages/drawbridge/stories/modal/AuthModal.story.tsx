@@ -13,6 +13,7 @@ import styled from "styled-components";
 import StorybookWrapper from "@stories/StorybookWrapper";
 import ModalBody from "@components/modal/ModalBody";
 import ModalHeader from "@components/modal/ModalHeader";
+import useMountChild from "@hooks/useMountChild";
 
 export const StyledModalHeaderNoPadding = styled(ModalHeader)`
   display: flex;
@@ -31,30 +32,34 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 `;
 
 const AuthModal = (args: any) => {
-    const [modal, setModal] = useState(false);
+    const modal = useMountChild(1000, 1000);
+
     const [active, setActive] = useState("1");
 
     function onClick(e: any) {
         setActive(e.target.id)
     }
 
-    function onSubmitLogin(){
+    function onSubmitLogin() {
         console.log("login")
     }
 
     return (
         <StorybookWrapperStyled>
             <StorybookButtonWrapper>
-                <Button onClick={() => setModal(true)}>
+                <Button onClick={modal.renderComponent}>
                     Login/Register
                 </Button>
             </StorybookButtonWrapper>
 
-            {modal ?
-                <Modal closeOnClickOutside>
+            {modal.render ?
+                <Modal
+                    closeOnClickOutside
+                    {...modal}
+                >
                     <StyledModalHeaderNoPadding>
                         <Tabs {...args}>
-                            <Tab >Login</Tab>
+                            <Tab>Login</Tab>
                             <Tab>Register</Tab>
                         </Tabs>
                     </StyledModalHeaderNoPadding>

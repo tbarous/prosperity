@@ -4,9 +4,7 @@ import SnackbarVariationEnum from "@components/snackbar/enums/SnackbarVariationE
 import SnackbarStyledGetters from "@components/snackbar/styled/snackbar/SnackbarStyledGetters";
 
 export interface SnackbarStyledProps extends StyledProps, useMountChildStyledProps {
-    variation: SnackbarVariationEnum,
-    mount?: boolean,
-    delay?: number
+    variation: SnackbarVariationEnum
 }
 
 const SnackbarStyled = styled.div`

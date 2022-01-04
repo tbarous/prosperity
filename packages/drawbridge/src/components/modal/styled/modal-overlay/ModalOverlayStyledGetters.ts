@@ -11,7 +11,7 @@ const ModalOverlayStyledGetters = {
     AlignItems: (props: ModalOverlayStyledProps) => props.theme.alignItems.center,
     JustifyContent: (props: ModalOverlayStyledProps) => "center",
     Opacity: (props: ModalOverlayStyledProps) => props.mount ? 0.8 : 0,
-    Transition: (props: ModalOverlayStyledProps) => `opacity ${(props.delay || 1000) / 1000}s`
+    Transition: (props: ModalOverlayStyledProps) => props.mount ? `opacity ${props.entryDelay / 1000}s` : `opacity ${props.exitDelay / 1000}s`,
 }
 
 export default ModalOverlayStyledGetters;

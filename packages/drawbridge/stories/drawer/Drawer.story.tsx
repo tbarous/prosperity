@@ -24,35 +24,18 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 `;
 
 const DefaultDrawer = (args: DefaultDrawerProps) => {
-    const {
-        render,
-        mount,
-        mountComponent,
-        unmountComponent,
-        onRendered,
-        onUnmounted,
-        renderComponent,
-        unRenderComponent,
-        toggleChildMount
-    } = useMountChild();
+    const modal = useMountChild(1000, 1000);
 
     return (
         <StorybookWrapperStyled>
             <ButtonStyled
                 variation={ButtonVariationEnum.PRIMARY}
-                onClick={toggleChildMount}
+                onClick={modal.toggle}
             >
                 Toggle Drawer
             </ButtonStyled>
 
-            {render && <Drawer
-                mountComponent={mountComponent}
-                unmountComponent={unmountComponent}
-                onRendered={onRendered}
-                onUnmounted={onUnmounted}
-                mount={mount}
-                delay={1000}
-            />}
+            {modal.render && <Drawer {...modal} />}
         </StorybookWrapperStyled>
     );
 }
