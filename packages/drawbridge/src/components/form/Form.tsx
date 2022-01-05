@@ -1,12 +1,12 @@
-import React, {FormEvent, ReactElement, ReactNode} from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import FormStyled from "@components/form/styled/form/FormStyled";
+import React, {FormEvent, ReactElement} from "react";
+import {BasicComponentProps} from "@typings";
+import FormStyled from "@components/form/styled/FormStyled";
 
 interface Props extends BasicComponentProps {
     onSubmit?: () => void
 }
 
-const Form: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+const Form: React.FunctionComponent<Props> = (props: Props): ReactElement => {
     const {
         children,
         className,

@@ -1,18 +1,15 @@
-import React, {ReactNode, useState} from "react";
-import CheckboxCheckmarkStyled from "./styled/checkbox-checkmark/CheckboxCheckmarkStyled";
-import CheckboxInputStyled from "./styled/checkbox-input/CheckboxInputStyled";
-import CheckboxStyled from "./styled/checkbox/CheckboxStyled";
-import {BasicComponentProps, FunctionVoid, ReactElementOrNull} from "@typings";
+import React, {ReactElement, useState} from "react";
+import {BasicComponentProps, FunctionVoid} from "@typings";
 import {emptyFunction} from "../../helpers/Helpers";
-import RadioStyled from "./styled/radio/RadioStyled";
-import RadioInputStyled from "./styled/radio-input/RadioInputStyled";
-import RadioCheckmarkStyled from "./styled/radio-checkmark/RadioCheckmarkStyled";
+import RadioStyled from "@components/form/styled/RadioStyled";
+import RadioInputStyled from "@components/form/styled/RadioInputStyled";
+import RadioCheckmarkStyled from "@components/form/styled/RadioCheckmarkStyled";
 
 interface Props extends BasicComponentProps {
     onChange?: FunctionVoid
 }
 
-const Radio: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+const Radio: React.FunctionComponent<Props> = (props: Props): ReactElement => {
     const {
         children,
         className,

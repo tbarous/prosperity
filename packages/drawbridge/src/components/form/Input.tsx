@@ -1,10 +1,10 @@
-import React, {useRef, useState} from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import React, {ReactElement, useRef, useState} from "react";
+import {BasicComponentProps} from "@typings";
 import useOnClickOutside from "@hooks/useOnClickOutside";
-import InputStyled from "@components/form/styled/input/InputStyled";
-import InputLineStyled from "@components/form/styled/input-line/InputLineStyled";
-import InputStyledLabel from "./styled/input-label/InputLabelStyled";
-import InputStyledWrapper from "./styled/input-wrapper/InputWrapperStyled";
+import InputStyled from "@components/form/styled/InputStyled";
+import InputLineStyled from "@components/form/styled/InputLineStyled";
+import InputStyledLabel from "@components/form/styled/InputLabelStyled";
+import InputStyledWrapper from "@components/form/styled/InputWrapperStyled";
 
 interface Props extends BasicComponentProps {
     label?: string,
@@ -12,7 +12,7 @@ interface Props extends BasicComponentProps {
     value?: string
 }
 
-const Input: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+const Input: React.FunctionComponent<Props> = (props: Props): ReactElement => {
     const {
         className,
         label,

@@ -1,11 +1,11 @@
-import React, {ReactNode, useState} from "react";
-import CheckboxCheckmarkStyled from "./styled/checkbox-checkmark/CheckboxCheckmarkStyled";
-import CheckboxInputStyled from "./styled/checkbox-input/CheckboxInputStyled";
-import CheckboxStyled from "./styled/checkbox/CheckboxStyled";
-import {BasicComponentProps, FunctionVoid, ReactElementOrNull} from "@typings";
+import React, {ReactElement} from "react";
+import styled from "styled-components";
+import {BasicComponentProps, FunctionVoid} from "@typings";
 import {emptyFunction} from "../../helpers/Helpers";
 import Text from "@components/text/Text"
-import styled from "styled-components";
+import CheckboxCheckmarkStyled from "@components/form/styled/CheckboxCheckmarkStyled";
+import CheckboxInputStyled from "@components/form/styled/CheckboxInputStyled";
+import CheckboxStyled from "@components/form/styled/CheckboxStyled";
 
 interface Props extends BasicComponentProps {
     onChange?: FunctionVoid,
@@ -18,7 +18,7 @@ const TextStyled = styled(Text)`
   top: 3px;
 `;
 
-const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement => {
     const {
         children,
         className,
