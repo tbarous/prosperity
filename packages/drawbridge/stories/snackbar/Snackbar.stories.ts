@@ -1,6 +1,5 @@
-import Snackbar from "@components/snackbar/Snackbar";
+import Snackbar, {SnackbarVariationEnum} from "@components/snackbar/Snackbar";
 import DefaultSnackbar from '@stories/snackbar/DefaultSnackbar.story';
-import SnackbarVariationEnum from "@components/snackbar/enums/SnackbarVariationEnum";
 
 export default {
     title: 'Snackbar',

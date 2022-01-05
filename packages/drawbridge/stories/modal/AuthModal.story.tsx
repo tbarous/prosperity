@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import {useState} from "react";
-import Button from "@components/button/Button";
+import Button, {ButtonTypeEnum} from "@components/button/Button";
 import Modal from "@components/modal/Modal";
 import Tabs from "@components/tabs/Tabs";
 import Tab from "@components/tabs/Tab";
@@ -8,7 +8,6 @@ import Card from "@components/card/Card";
 import ModalFooter from "@components/modal/ModalFooter";
 import Form from "@components/form/Form";
 import Input from "@components/form/Input";
-import ButtonTypeEnum from "@components/button/enums/ButtonTypeEnum";
 import styled from "styled-components";
 import StorybookWrapper from "@stories/StorybookWrapper";
 import ModalBody from "@components/modal/ModalBody";

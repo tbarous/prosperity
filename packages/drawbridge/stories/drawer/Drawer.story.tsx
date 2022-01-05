@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import Drawer, {DrawerProps} from "@components/drawer/Drawer";
 import StorybookWrapper from "@stories/StorybookWrapper";
 import Button from "@components/button/Button";

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import CheckboxStyledGetters from "@components/form/styled/checkbox/CheckboxStyledGetters";
 
 export interface RadioStyledProps extends StyledProps {
 }
@@ -16,10 +15,6 @@ const RadioStyled = styled.label<RadioStyledProps>`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
-  //&:hover input ~ span {
-  //  background-color: #ccc;
-  //}
 `;
 
 export default RadioStyled;

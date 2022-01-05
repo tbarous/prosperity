@@ -1,8 +1,7 @@
 import React from "react";
 import Input from "@components/form/Input";
 import Form from "@components/form/Form";
-import Button from "@components/button/Button";
-import ButtonTypeEnum from "@components/button/enums/ButtonTypeEnum";
+import Button, {ButtonTypeEnum} from "@components/button/Button";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
