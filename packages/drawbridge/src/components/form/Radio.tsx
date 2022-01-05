@@ -1,6 +1,6 @@
 import React, {ReactElement, useState} from "react";
 import {BasicComponentProps, FunctionVoid} from "@typings";
-import {emptyFunction} from "../../helpers/Helpers";
+import {emptyFunction} from "@helpers";
 import RadioStyled from "@components/form/styled/RadioStyled";
 import RadioInputStyled from "@components/form/styled/RadioInputStyled";
 import RadioCheckmarkStyled from "@components/form/styled/RadioCheckmarkStyled";

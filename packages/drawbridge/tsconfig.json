@@ -40,6 +40,9 @@
       ],
       "@icons": [
         "src/icons/index"
+      ],
+      "@helpers": [
+        "src/helpers/index"
       ]
     }
   },

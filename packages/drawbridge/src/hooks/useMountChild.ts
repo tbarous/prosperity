@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 import {FunctionVoid} from "@typings";
-import {emptyFunction} from "../helpers/Helpers";
+import {emptyFunction} from "@helpers";
 
 export interface useMountChildProps {
     render: boolean,

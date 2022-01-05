@@ -1,7 +1,7 @@
 import React, {ReactElement} from "react";
 import styled from "styled-components";
 import {BasicComponentProps, FunctionVoid} from "@typings";
-import {emptyFunction} from "../../helpers/Helpers";
+import {emptyFunction} from "@helpers";
 import Text from "@components/text/Text"
 import CheckboxCheckmarkStyled from "@components/form/styled/CheckboxCheckmarkStyled";
 import CheckboxInputStyled from "@components/form/styled/CheckboxInputStyled";
