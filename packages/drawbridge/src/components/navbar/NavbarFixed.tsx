@@ -1,7 +1,7 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {FunctionComponent} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import NavbarFixedStyled from "./styled/navbar-fixed/NavbarFixedStyled";
+import NavbarFixedStyled from "@components/navbar/styled/NavbarFixedStyled";
 import {useMountChildProps} from "@hooks/useMountChild";
 
 interface NavbarFixedProps extends BasicComponentProps, useMountChildProps {

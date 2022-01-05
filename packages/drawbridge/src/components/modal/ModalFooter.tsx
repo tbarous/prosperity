@@ -1,6 +1,6 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import ModalFooterStyled from "./styled/modal-footer/ModalFooterStyled";
+import ModalFooterStyled from "@components/modal/styled/ModalFooterStyled";
 
 /**
  * Modal Footer Component.

@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
 import {StyledProps} from "@typings";
-import MediaUtils from "@theme/utils/MediaUtils";
+import MediaUtils from "@utils/MediaUtils";
 import rules from "@rules";
 
 export interface ColStyledProps extends StyledProps {

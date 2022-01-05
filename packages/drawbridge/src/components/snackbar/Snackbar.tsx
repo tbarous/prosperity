@@ -1,14 +1,22 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import SnackbarVariationEnum from "@components/snackbar/enums/SnackbarVariationEnum";
-import SnackbarCloseStyled from "@components/snackbar/styled/snackbar-close/SnackbarCloseStyled";
-import SnackbarStyled from "@components/snackbar/styled/snackbar/SnackbarStyled";
 import {Times} from "@components/icon/Icons";
 import {useMountChildProps} from "@hooks/useMountChild";
 import useCallbackOnTimeout from "@hooks/useCallbackOnTimeout";
 
-export interface SnackbarProps extends BasicComponentProps, useMountChildProps {
-    variation: SnackbarVariationEnum,
+export enum SnackbarVariationEnum {
+    SUCCESS = "success",
+    WARNING = "warning",
+    DANGER = "danger"
+}
+
+export interface SnackbarMapping {
+    danger?: boolean,
+    warning?: boolean,
+    success?: boolean
+}
+
+export interface SnackbarProps extends BasicComponentProps, useMountChildProps, SnackbarMapping {
     dismissible?: boolean,
     closeOnDelay?: number
 }
@@ -17,7 +25,9 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
     const {
         children,
         className,
-        variation,
+        success,
+        warning,
+        danger,
         dismissible,
         closeOnDelay,
         unmountComponent,
@@ -31,7 +41,9 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
     return (
         <SnackbarStyled
             className={className}
-            variation={variation}
+            success={success}
+            warning={warning}
+            danger={danger}
             mount={mount}
             entryDelay={entryDelay}
             exitDelay={exitDelay}

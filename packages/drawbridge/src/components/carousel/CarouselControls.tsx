@@ -1,8 +1,8 @@
 import React, {isValidElement, ReactElement, ReactNode, Children} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import CarouselControlsStyled from "@components/carousel/styled/CarouselControlsStyled";
-import CarouselDirectionEnum from "@components/carousel/enums/CarouselDirectionEnum";
 import {CarouselControlProps} from "@components/carousel/CarouselControl";
+import {CarouselDirectionEnum} from "@components/carousel/Carousel";
 
 interface Props extends BasicComponentProps {
     onMove?: (direction: CarouselDirectionEnum) => void,

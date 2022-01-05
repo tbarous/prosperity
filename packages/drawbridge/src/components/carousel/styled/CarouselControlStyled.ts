@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import CarouselDirectionEnum from "@components/carousel/enums/CarouselDirectionEnum";
 import rules from "@rules";
+import {CarouselDirectionEnum} from "@components/carousel/Carousel";
 
 export interface CarouselControlStyledProps extends StyledProps {
     direction?: CarouselDirectionEnum

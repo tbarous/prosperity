@@ -1,7 +1,5 @@
 import React from 'react';
-import Button from "@components/button/Button";
-import ButtonVariationEnum from "@components/button/enums/ButtonVariationEnum";
-import ButtonSizeEnum from "@components/button/enums/ButtonSizeEnum";
+import Button, {ButtonSizeEnum, ButtonVariationEnum} from "@components/button/Button";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";

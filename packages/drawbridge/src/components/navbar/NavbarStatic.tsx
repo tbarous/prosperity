@@ -1,7 +1,7 @@
 import React from "react";
 import {FunctionComponent} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import NavbarStaticStyled from "./styled/navbar-static/NavbarStaticStyled";
+import NavbarStaticStyled from "@components/navbar/styled/NavbarStaticStyled";
 
 interface NavbarProps extends BasicComponentProps {
 }

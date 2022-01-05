@@ -1,6 +1,4 @@
-import Button from "@components/button/Button";
-import ButtonVariationEnum from "@components/button/enums/ButtonVariationEnum";
-import ButtonSizeEnum from "@components/button/enums/ButtonSizeEnum";
+import Button, {ButtonSizeEnum, ButtonVariationEnum} from "@components/button/Button";
 import DefaultButton from "@stories/button/DefaultButton.story";
 
 export default {

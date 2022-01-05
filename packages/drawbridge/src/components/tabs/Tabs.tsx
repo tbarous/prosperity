@@ -1,7 +1,7 @@
 import React, {Children, ReactNode, useEffect, useState} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import TabsStyled from "./styled/tabs/TabsStyled";
-import TabActiveStyled from "./styled/tab-active/TabActiveStyled";
+import TabsStyled from "@components/tabs/styled/TabsStyled";
+import TabActiveStyled from "@components/tabs/styled/TabActiveStyled";
 
 export interface TabsProps extends BasicComponentProps {
     onChange: (index: number) => void,

@@ -1,7 +1,7 @@
 import styled, {css} from "styled-components";
 import {StyledProps} from "@typings";
-import MediaUtils from "@theme/utils/MediaUtils";
 import rules from "@rules";
+import MediaUtils from "@utils/MediaUtils";
 
 export interface ContainerStyledProps extends StyledProps {
     fluid?: boolean

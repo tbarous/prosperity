@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Carousel, {CarouselProps} from "@components/carousel/Carousel";
+import Carousel, {CarouselDirectionEnum, CarouselProps} from "@components/carousel/Carousel";
 import CarouselItem from "@components/carousel/CarouselItem";
 import Image from "@components/image/Image";
 import CarouselControls from "@components/carousel/CarouselControls";
@@ -8,7 +8,6 @@ import {ArrowCircleLeftSolid, ArrowCircleRightSolid} from "@components/icon/Icon
 import Icon from "@components/icon/Icon";
 import CarouselItems from "@components/carousel/CarouselItems";
 import styled from "styled-components";
-import CarouselDirectionEnum from "@components/carousel/enums/CarouselDirectionEnum";
 import StorybookWrapper from "@stories/StorybookWrapper";
 
 const CarouselStyled = styled(Carousel)`

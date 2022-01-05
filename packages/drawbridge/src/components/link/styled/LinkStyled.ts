@@ -1,19 +1,20 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import LinkStyledGetters from "@components/link/styled/LInkStyledGetters";
+import rules from "@rules";
 
 export interface LinkStyledProps extends StyledProps {
 }
 
 const LinkStyled = styled.a<LinkStyledProps>`
-  display: ${LinkStyledGetters.Display};
-  text-decoration: ${LinkStyledGetters.TextDecoration};
-  color: ${LinkStyledGetters.Color};
-  font-weight: ${LinkStyledGetters.FontWeight};
-  font-size: ${LinkStyledGetters.FontSize};
+  display: ${rules.display.block};
+  text-decoration: ${rules.textDecoration.none};
+  color: ${(props: LinkStyledProps) => props.theme.color.dark};
+  font-weight: ${(props: LinkStyledProps) => props.theme.fontWeight.bold};
+  font-size: ${(props: LinkStyledProps) => props.theme.fontSize.md};
+  font-family: ${(props: LinkStyledProps) => props.theme.fontFamily.primary};
 
   &:hover {
-    color: ${LinkStyledGetters.Color};
+    color: ${(props: LinkStyledProps) => props.theme.color.secondary};
   }
 `;
 

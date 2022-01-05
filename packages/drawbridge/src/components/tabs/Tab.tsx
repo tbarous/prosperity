@@ -1,7 +1,6 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import TabStyled from "./styled/tab/TabStyled";
-import TabActiveStyled from "./styled/tab-active/TabActiveStyled";
+import TabStyled from "@components/tabs/styled/TabStyled";
 
 interface Props extends BasicComponentProps {
     onClickTab?: (e: MouseEvent) => void

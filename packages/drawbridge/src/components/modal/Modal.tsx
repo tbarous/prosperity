@@ -2,11 +2,11 @@ import React, {useRef} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 import {Times} from "@components/icon/Icons";
-import ModalCloseStyled from "./styled/modal-close/ModalCloseStyled";
-import ModalOverlayStyled from "./styled/modal-overlay/ModalOverlayStyled";
-import ModalContentStyled from "./styled/modal-content/ModalContentStyled";
+import ModalCloseStyled from "@components/modal/styled/ModalCloseStyled";
+import ModalOverlayStyled from "@components/modal/styled/ModalOverlayStyled";
+import ModalContentStyled from "@components/modal/styled/ModalContentStyled";
+import ModalWrapperStyled from "@components/modal/styled/ModalWrapperStyled";
 import {useMountChildProps} from "@hooks/useMountChild";
-import ModalWrapperStyled from "./styled/modal-wrapper/ModalWrapperStyled";
 
 interface Props extends BasicComponentProps, useMountChildProps {
     closeOnClickOutside?: boolean,

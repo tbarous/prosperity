@@ -1,14 +1,14 @@
-import React from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import CarouselDirectionEnum from "@components/carousel/enums/CarouselDirectionEnum";
+import React, {ReactElement} from "react";
+import {BasicComponentProps} from "@typings";
 import CarouselControlStyled from "@components/carousel/styled/CarouselControlStyled";
+import {CarouselDirectionEnum} from "@components/carousel/Carousel";
 
 export interface CarouselControlProps extends BasicComponentProps {
     onMove?: (direction: CarouselDirectionEnum) => void,
     direction?: CarouselDirectionEnum,
 }
 
-const CarouselControl: React.FunctionComponent<CarouselControlProps> = (props: CarouselControlProps): ReactElementOrNull => {
+const CarouselControl: React.FunctionComponent<CarouselControlProps> = (props: CarouselControlProps): ReactElement => {
     const {
         children,
         className,

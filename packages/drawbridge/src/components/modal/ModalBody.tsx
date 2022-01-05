@@ -1,6 +1,6 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import ModalBodyStyled from "./styled/modal-body/ModalBodyStyled";
+import ModalBodyStyled from "@components/modal/styled/ModalBodyStyled";
 
 /**
  * Modal Body Component.

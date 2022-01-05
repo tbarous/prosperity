@@ -1,7 +1,23 @@
 import React, {ReactElement} from "react";
 import {BasicComponentProps} from "@typings";
-import ButtonTypeEnum from "@components/button/enums/ButtonTypeEnum";
 import ButtonStyled from "./styled/ButtonStyled";
+
+export enum ButtonSizeEnum {
+    SMALL = "Small",
+    MEDIUM = "Medium",
+    LARGE = "Large"
+}
+
+export enum ButtonTypeEnum {
+    BUTTON = "button",
+    SUBMIT = "submit",
+    RESET = "reset"
+}
+
+export enum ButtonVariationEnum {
+    PRIMARY = "Primary",
+    SECONDARY = "Secondary"
+}
 
 export interface ButtonMapping {
     primary?: boolean,
