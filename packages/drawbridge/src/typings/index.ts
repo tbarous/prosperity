@@ -1,4 +1,4 @@
-import React, {ReactElement, ReactNode} from "react";
+import {ReactElement, ReactNode} from "react";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 export type ReactElementOrNull = ReactElement | null
