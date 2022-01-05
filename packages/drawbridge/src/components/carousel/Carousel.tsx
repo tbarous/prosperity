@@ -1,6 +1,6 @@
 import React, {ReactNode, Children, useState, useEffect} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import CarouselStyled from "./styled/carousel/CarouselStyled";
+import CarouselStyled from "@components/carousel/styled/CarouselStyled";
 import CarouselDirectionEnum from "@components/carousel/enums/CarouselDirectionEnum";
 
 export interface CarouselProps extends BasicComponentProps {

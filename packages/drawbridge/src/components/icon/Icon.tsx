@@ -1,7 +1,7 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import IconStyled from "./styled/IconStyled";
 import {IconInterface} from "@components/icon/Icons";
+import IconStyled from "@components/icon/styled/IconStyled";
 
 interface Props extends BasicComponentProps {
     icon: IconInterface,

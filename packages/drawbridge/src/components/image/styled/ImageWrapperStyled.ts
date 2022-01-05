@@ -7,10 +7,13 @@ export interface ImageWrapperStyledProps extends StyledProps {
     height?: number
 }
 
+const width = (props: ImageWrapperStyledProps) => props.width ? `${props.width}px` : props.theme.dimension.d100;
+const height = (props: ImageWrapperStyledProps) => props.height ? `${props.height}px` : props.theme.dimension.d100;
+
 const ImageWrapperStyled = styled.div<ImageWrapperStyledProps>`
-  width: ${(props: ImageWrapperStyledProps) => props.width ? `${props.width}px` : `100%`};
-  height: ${(props: ImageWrapperStyledProps) => props.height ? `${props.height}px` : `100%`};
-  display: ${rules.display.flex}
+  display: ${rules.display.flex};
+  width: ${width};
+  height: ${height};
 `;
 
 export default ImageWrapperStyled;

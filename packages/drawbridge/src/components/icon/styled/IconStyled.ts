@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import IconStyledGetters from "@components/icon/styled/IconStyledGetters";
 
 export interface IconStyledProps extends StyledProps {
     width: number,
@@ -9,13 +8,13 @@ export interface IconStyledProps extends StyledProps {
 }
 
 const IconStyled = styled.div<IconStyledProps>`
-  width: ${IconStyledGetters.Width};
-  height: ${IconStyledGetters.Height};
-  color: ${IconStyledGetters.Color};
+  width: ${(props: IconStyledProps) => `${props.width}px`};
+  height: ${(props: IconStyledProps) => `${props.height}px`};
+  color: ${(props: IconStyledProps) => props.color || props.theme.color.dark};
 
   svg {
-    width: ${IconStyledGetters.SvgWidth};
-    height: ${IconStyledGetters.SvgHeight};
+    width: ${(props: IconStyledProps) => props.theme.dimension.d100};
+    height: ${(props: IconStyledProps) => props.theme.dimension.d100};
   }
 `;
 

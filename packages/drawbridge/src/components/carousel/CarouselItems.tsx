@@ -1,6 +1,6 @@
-import React, {Children, ReactElement, ReactNode, useEffect, useState} from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import CarouselItemsStyled from "@components/carousel/styled/carousel-items/CarouselItemsStyled";
+import React, {Children, ReactElement, ReactNode, useEffect} from "react";
+import {BasicComponentProps} from "@typings";
+import CarouselItemsStyled from "@components/carousel/styled/CarouselItemsStyled";
 
 export interface CarouselItemsProps extends BasicComponentProps {
     gutter?: number,
@@ -11,7 +11,7 @@ export interface CarouselItemsProps extends BasicComponentProps {
     speed?: number
 }
 
-const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: CarouselItemsProps): ReactElementOrNull => {
+const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: CarouselItemsProps): ReactElement => {
     const {
         children,
         className,
@@ -19,7 +19,8 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
         itemWidth,
         moveDistance,
         speed,
-        getCount = () => { },
+        getCount = () => {
+        },
         getLeftDistance = () => 1
     } = props;
 

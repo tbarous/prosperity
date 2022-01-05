@@ -1,5 +1,5 @@
 import React from "react";
-import CarouselItemStyled from "@components/carousel/styled/carousel-item/CarouselItemStyled";
+import CarouselItemStyled from "@components/carousel/styled/CarouselItemStyled";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 
 interface Props extends BasicComponentProps {

@@ -1,7 +1,7 @@
 import React from "react";
-import CarouselControlStyled from "@components//carousel/styled/carousel-control/CarouselControlStyled";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import CarouselDirectionEnum from "@components/carousel/enums/CarouselDirectionEnum";
+import CarouselControlStyled from "@components/carousel/styled/CarouselControlStyled";
 
 export interface CarouselControlProps extends BasicComponentProps {
     onMove?: (direction: CarouselDirectionEnum) => void,
