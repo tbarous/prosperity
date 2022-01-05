@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
-import rules from "@rules";
 
 export interface NavbarFixedStyledProps extends StyledProps, useMountChildStyledProps {
 }

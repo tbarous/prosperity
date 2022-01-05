@@ -1,23 +1,20 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface TabStyledProps extends StyledProps {
-    onClick?: any,
-}
+type T = StyledProps & { onClick?: any };
 
-const TabStyled = styled.div<TabStyledProps>`
-  flex: 1;
-  text-align: ${rules.textAlign.center};
-  cursor: ${rules.cursor.pointer};
-  display: ${rules.display.flex};
-  align-items: ${rules.alignItems.center};
-  position: ${rules.position.relative};
-  justify-content: ${rules.justifyContent.center};
-  background-color: ${(props: TabStyledProps) => props.theme.color.primary};
-  color: ${(props: TabStyledProps) => props.theme.color.white};
-  font-family: ${(props: TabStyledProps) => props.theme.fontFamily.primary};
-  font-size: ${(props: TabStyledProps) => props.theme.fontSize.md};
+const TabStyled = styled.div<T>`
+  flex: ${(p: T) => 1};
+  text-align: ${(p: T) => p.theme.textAlign.center};
+  cursor: ${(p: T) => p.theme.cursor.pointer};
+  display: ${(p: T) => p.theme.display.flex};
+  align-items: ${(p: T) => p.theme.alignItems.center};
+  position: ${(p: T) => p.theme.position.relative};
+  justify-content: ${(p: T) => p.theme.justifyContent.center};
+  background-color: ${(p: T) => p.theme.color.primary};
+  color: ${(p: T) => p.theme.color.white};
+  font-family: ${(p: T) => p.theme.fontFamily.primary};
+  font-size: ${(p: T) => p.theme.fontSize.md};
 `;
 
 export default TabStyled;

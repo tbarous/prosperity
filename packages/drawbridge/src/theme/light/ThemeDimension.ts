@@ -11,7 +11,8 @@ const ThemeDimension: ThemeDimensionInterface = {
     d70: "70%",
     d90: "20%",
     d80: "80%",
-    d100: "100%"
+    d100: "100%",
+    auto: "auto"
 }
 
 export default ThemeDimension

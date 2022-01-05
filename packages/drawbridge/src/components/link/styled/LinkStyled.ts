@@ -1,20 +1,18 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface LinkStyledProps extends StyledProps {
-}
+type T = StyledProps & { bold?: boolean };
 
-const LinkStyled = styled.a<LinkStyledProps>`
-  display: ${rules.display.block};
-  text-decoration: ${rules.textDecoration.none};
-  color: ${(props: LinkStyledProps) => props.theme.color.dark};
-  font-weight: ${(props: LinkStyledProps) => props.theme.fontWeight.bold};
-  font-size: ${(props: LinkStyledProps) => props.theme.fontSize.md};
-  font-family: ${(props: LinkStyledProps) => props.theme.fontFamily.primary};
+const LinkStyled = styled.a<T>`
+  display: ${(p: T) => p.theme.display.block};
+  text-decoration: ${(p: T) => p.theme.textDecoration.none};
+  color: ${(p: T) => p.theme.color.dark};
+  font-weight: ${(p: T) => p.theme.fontWeight.bold};
+  font-size: ${(p: T) => p.theme.fontSize.md};
+  font-family: ${(p: T) => p.theme.fontFamily.primary};
 
   &:hover {
-    color: ${(props: LinkStyledProps) => props.theme.color.secondary};
+    color: ${(p: T) => p.theme.color.secondary};
   }
 `;
 

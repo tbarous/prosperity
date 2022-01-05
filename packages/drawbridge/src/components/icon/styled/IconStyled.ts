@@ -1,20 +1,16 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-export interface IconStyledProps extends StyledProps {
-    width: number,
-    height: number,
-    color?: string
-}
+type T = StyledProps & { width?: number, height?: number, color?: number };
 
-const IconStyled = styled.div<IconStyledProps>`
-  width: ${(props: IconStyledProps) => `${props.width}px`};
-  height: ${(props: IconStyledProps) => `${props.height}px`};
-  color: ${(props: IconStyledProps) => props.color || props.theme.color.dark};
+const IconStyled = styled.div<T>`
+  width: ${(p: T) => `${p.width}px`};
+  height: ${(p: T) => `${p.height}px`};
+  color: ${(p: T) => p.color || p.theme.color.dark};
 
   svg {
-    width: ${(props: IconStyledProps) => props.theme.dimension.d100};
-    height: ${(props: IconStyledProps) => props.theme.dimension.d100};
+    width: ${(p: T) => p.theme.dimension.d100};
+    height: ${(p: T) => p.theme.dimension.d100};
   }
 `;
 

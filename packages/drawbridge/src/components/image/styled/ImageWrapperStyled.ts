@@ -1,19 +1,12 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface ImageWrapperStyledProps extends StyledProps {
-    width?: number,
-    height?: number
-}
+type T = StyledProps & { width?: number, height?: number };
 
-const width = (props: ImageWrapperStyledProps) => props.width ? `${props.width}px` : props.theme.dimension.d100;
-const height = (props: ImageWrapperStyledProps) => props.height ? `${props.height}px` : props.theme.dimension.d100;
-
-const ImageWrapperStyled = styled.div<ImageWrapperStyledProps>`
-  display: ${rules.display.flex};
-  width: ${width};
-  height: ${height};
+const ImageWrapperStyled = styled.div<T>`
+  display: ${(p: T) => p.theme.display.flex};
+  width: ${(p: T) => p.width ? `${p.width}px` : p.theme.dimension.d100};
+  height: ${(p: T) => p.height ? `${p.height}px` : p.theme.dimension.d100};
 `;
 
 export default ImageWrapperStyled;

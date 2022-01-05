@@ -1,51 +1,42 @@
 import styled, {css} from "styled-components";
 import {StyledProps} from "@typings";
 import MediaUtils from "@utils/MediaUtils";
-import rules from "@rules";
 
-export interface ColStyledProps extends StyledProps {
-    xs?: number,
-    sm?: number,
-    md?: number,
-    lg?: number,
-    xl?: number,
-    xxl?: number,
-    gutter?: number
-}
+type T = { xs?: number, sm?: number, md?: number, lg?: number, xl?: number, xxl?: number, gutter?: number } & StyledProps;
 
 const width = (columns?: number) => columns ? `${(100 / 12) * columns}%` : "";
 
-const ColStyled = styled.div<ColStyledProps>`
-  flex-grow: ${(props: ColStyledProps) => rules.flexGrow.fg1};
-  position: ${(props: ColStyledProps) => rules.position.relative};
-  display: ${(props: ColStyledProps) => rules.display.block};
-  box-sizing: ${(props: ColStyledProps) => rules.boxSizing.borderBox};
-  padding-left: ${(props: ColStyledProps) => props.gutter ? `${props.gutter / 2}px` : ""};
-  padding-right: ${(props: ColStyledProps) => props.gutter ? `${props.gutter / 2}px` : ""};
+const ColStyled = styled.div<T>`
+  flex-grow: ${(p: T) => p.theme.flexGrow.fg1};
+  position: ${(p: T) => p.theme.position.relative};
+  display: ${(p: T) => p.theme.display.block};
+  box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
+  padding-left: ${(p: T) => p.gutter ? `${p.gutter / 2}px` : ""};
+  padding-right: ${(p: T) => p.gutter ? `${p.gutter / 2}px` : ""};
 
-  ${(props: ColStyledProps) => MediaUtils.up(props.theme.breakpoint.xs, css`
-    width: ${width(props.xs)};
-    max-width: ${width(props.xs)};
+  ${(p: T) => MediaUtils.up(p.theme.breakpoint.xs, css`
+    width: ${width(p.xs)};
+    max-width: ${width(p.xs)};
   `)};
 
-  ${(props: ColStyledProps) => MediaUtils.up(props.theme.breakpoint.sm, css`
-    width: ${width(props.sm)};
-    max-width: ${width(props.sm)};
+  ${(p: T) => MediaUtils.up(p.theme.breakpoint.sm, css`
+    width: ${width(p.sm)};
+    max-width: ${width(p.sm)};
   `)};
 
-  ${(props: ColStyledProps) => MediaUtils.up(props.theme.breakpoint.md, css`
-    width: ${width(props.md)};
-    max-width: ${width(props.md)};
+  ${(p: T) => MediaUtils.up(p.theme.breakpoint.md, css`
+    width: ${width(p.md)};
+    max-width: ${width(p.md)};
   `)};
 
-  ${(props: ColStyledProps) => MediaUtils.up(props.theme.breakpoint.lg, css`
-    width: ${width(props.lg)};
-    max-width: ${width(props.lg)};
+  ${(p: T) => MediaUtils.up(p.theme.breakpoint.lg, css`
+    width: ${width(p.lg)};
+    max-width: ${width(p.lg)};
   `)};
 
-  ${(props: ColStyledProps) => MediaUtils.up(props.theme.breakpoint.xl, css`
-    width: ${width(props.xl)};
-    max-width: ${width(props.xl)};
+  ${(p: T) => MediaUtils.up(p.theme.breakpoint.xl, css`
+    width: ${width(p.xl)};
+    max-width: ${width(p.xl)};
   `)};
 `;
 

@@ -8,13 +8,13 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
   margin: 1rem;
 `;
 
-interface DefaultBadgeArgs extends BasicComponentProps{
+interface Props extends BasicComponentProps {
     info?: boolean,
     danger?: boolean,
     success?: boolean,
 }
 
-const DefaultBadge = (args: DefaultBadgeArgs) => (
+const DefaultBadge = (args: Props) => (
     <StorybookWrapperStyled>
         <Badge>
             {args.children}

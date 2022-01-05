@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface TabsStyledProps extends StyledProps {
-}
+type T = StyledProps;
 
-const TabsStyled = styled.div<TabsStyledProps>`
-  display: ${rules.display.flex};
-  width: ${(props: TabsStyledProps) => props.theme.dimension.d100};
-  height: ${(props: TabsStyledProps) => props.theme.dimension.d100};
+const TabsStyled = styled.div<T>`
+  display: ${(p: T) => p.theme.display.flex};
+  width: ${(p: T) => p.theme.dimension.d100};
+  height: ${(p: T) => p.theme.dimension.d100};
 `;
 
 export default TabsStyled;

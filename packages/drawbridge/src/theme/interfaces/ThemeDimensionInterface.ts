@@ -9,7 +9,8 @@ interface ThemeDimensionInterface {
     d70: string,
     d80: string,
     d90: string,
-    d100: string
+    d100: string,
+    auto: string
 }
 
 export default ThemeDimensionInterface;

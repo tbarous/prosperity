@@ -1,11 +1,6 @@
 import styled, {css} from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 import MediaUtils from "@utils/MediaUtils";
-
-export interface ContainerStyledProps extends StyledProps {
-    fluid?: boolean
-}
 
 enum ContainerMaxWidthEnum {
     Medium = "750px",
@@ -13,32 +8,31 @@ enum ContainerMaxWidthEnum {
     XLarge = "1170px"
 }
 
-const maxWidth = (props: ContainerStyledProps, width: string) => !props.fluid ? width : "";
-const margin = (props: ContainerStyledProps) => !props.fluid ? props.theme.spacing.auto : "";
+type T = { fluid?: boolean } & StyledProps;
 
-const ContainerStyled = styled.div<ContainerStyledProps>`
-  height: auto;
-  padding-right: 15px;
-  padding-left: 15px;
-  box-sizing: ${(props: ContainerStyledProps) => rules.boxSizing.borderBox};
-  width: ${(props: ContainerStyledProps) => props.theme.dimension.d100};
+const ContainerStyled = styled.div<T>`
+  height: ${(p: T) => p.theme.dimension.auto};
+  padding-right: ${(p: T) => p.theme.spacing.s9};
+  padding-left: ${(p: T) => p.theme.spacing.s9};
+  box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
+  width: ${(p: T) => p.theme.dimension.d100};
 
-  ${props => MediaUtils.up(props.theme.breakpoint.md, css`
-    max-width: ${maxWidth(props, ContainerMaxWidthEnum.Medium)};
-    margin-right: ${margin(props)};
-    margin-left: ${margin(props)};
+  ${p => MediaUtils.up(p.theme.breakpoint.md, css`
+    max-width: ${!p.fluid ? ContainerMaxWidthEnum.Medium : ""};
+    margin-right: ${!p.fluid ? p.theme.spacing.auto : ""};
+    margin-left: ${!p.fluid ? p.theme.spacing.auto : ""};
   `)};
 
-  ${props => MediaUtils.up(props.theme.breakpoint.lg, css`
-    max-width: ${maxWidth(props, ContainerMaxWidthEnum.Large)};
-    margin-right: ${margin(props)};
-    margin-left: ${margin(props)};
+  ${p => MediaUtils.up(p.theme.breakpoint.lg, css`
+    max-width: ${!p.fluid ? ContainerMaxWidthEnum.Large : ""};
+    margin-right: ${!p.fluid ? p.theme.spacing.auto : ""};
+    margin-left: ${!p.fluid ? p.theme.spacing.auto : ""};
   `)};
 
-  ${props => MediaUtils.up(props.theme.breakpoint.xl, css`
-    max-width: ${maxWidth(props, ContainerMaxWidthEnum.XLarge)};
-    margin-right: ${margin(props)};
-    margin-left: ${margin(props)};
+  ${p => MediaUtils.up(p.theme.breakpoint.xl, css`
+    max-width: ${!p.fluid ? ContainerMaxWidthEnum.XLarge : ""};
+    margin-right: ${!p.fluid ? p.theme.spacing.auto : ""};
+    margin-left: ${!p.fluid ? p.theme.spacing.auto : ""};
   `)};
 `;
 

@@ -1,19 +1,19 @@
 import React from "react";
 import ReactDOM, {unmountComponentAtNode} from "react-dom";
 import {ThemeProvider} from "styled-components";
-import Theme from "@theme/interfaces";
-import Light from "@theme/light";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import Light from "@theme/light/Theme";
 
 class ModalQueue {
     private readonly items: any[];
     private lock: boolean = false;
-    private theme: Theme = Light;
+    private theme: ThemeInterface = Light;
 
     constructor() {
         this.items = [];
     }
 
-    setTheme(theme: Theme) {
+    setTheme(theme: ThemeInterface) {
         this.theme = theme;
     }
 

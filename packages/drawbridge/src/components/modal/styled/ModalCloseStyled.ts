@@ -1,23 +1,21 @@
 import styled from "styled-components";
 import Icon from "@components/icon/Icon";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface ModalCloseStyledProps extends StyledProps {
-}
+type T = StyledProps;
 
-const ModalCloseStyled = styled(Icon)<ModalCloseStyledProps>`
-  align-items: ${rules.alignItems.center};
-  top: ${(props: ModalCloseStyledProps) => props.theme.spacing.s2};
-  right: ${(props: ModalCloseStyledProps) => props.theme.spacing.s2};
-  position: ${rules.position.fixed};
-  cursor: ${rules.cursor.pointer};
-  border-radius: ${(props: ModalCloseStyledProps) => props.theme.borderRadius.circle};
-  color: ${(props: ModalCloseStyledProps) => props.theme.color.dark};
-  padding: ${(props: ModalCloseStyledProps) => props.theme.spacing.s2};
-  display: ${rules.display.flex};
-  background-color: ${(props: ModalCloseStyledProps) => props.theme.color.white};
-  border: 2px solid;
+const ModalCloseStyled = styled(Icon)<T>`
+  align-items: ${(p: T) => p.theme.alignItems.center};
+  top: ${(p: T) => p.theme.spacing.s2};
+  right: ${(p: T) => p.theme.spacing.s2};
+  position: ${(p: T) => p.theme.position.fixed};
+  cursor: ${(p: T) => p.theme.cursor.pointer};
+  border-radius: ${(p: T) => p.theme.borderRadius.circle};
+  color: ${(p: T) => p.theme.color.dark};
+  padding: ${(p: T) => p.theme.spacing.s2};
+  display: ${(p: T) => p.theme.display.flex};
+  background-color: ${(p: T) => p.theme.color.white};
+  border: ${(p: T) => p.theme.border.medium};
 `;
 
 export default ModalCloseStyled;

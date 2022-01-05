@@ -1,16 +1,14 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface ModalBodyStyledProps extends StyledProps {
-}
+type T = StyledProps;
 
-const ModalBodyStyled = styled.div<ModalBodyStyledProps>`
-  font-size: ${(props: ModalBodyStyledProps) => props.theme.fontSize.md};
-  width: ${(props: ModalBodyStyledProps) => props.theme.dimension.d100};
-  height: ${(props: ModalBodyStyledProps) => props.theme.dimension.d70};
-  box-sizing: ${rules.boxSizing.borderBox};
-  overflow-y: ${rules.overflow.auto};
+const ModalBodyStyled = styled.div<T>`
+  font-size: ${(p: T) => p.theme.fontSize.md};
+  width: ${(p: T) => p.theme.dimension.d100};
+  height: ${(p: T) => p.theme.dimension.d70};
+  box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
+  overflow-y: ${(p: T) => p.theme.overflow.auto};
 `;
 
 export default ModalBodyStyled;
