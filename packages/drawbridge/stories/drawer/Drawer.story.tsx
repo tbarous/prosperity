@@ -35,7 +35,7 @@ const DefaultDrawer = (args: DefaultDrawerProps) => {
 }
 
 DefaultDrawer.args = {
-    open: false
+    open: true
 };
 
 export default DefaultDrawer;

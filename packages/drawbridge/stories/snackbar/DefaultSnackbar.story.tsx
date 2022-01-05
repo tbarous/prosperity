@@ -46,10 +46,10 @@ const DefaultSnackbar = (args: Props) => {
 }
 
 DefaultSnackbar.args = {
-    open: false,
+    open: true,
     dismissible: false,
     closeOnDelay: 3000,
-    variation: SnackbarVariationEnum.WARNING
+    variation: SnackbarVariationEnum.SUCCESS
 };
 
 export default DefaultSnackbar;

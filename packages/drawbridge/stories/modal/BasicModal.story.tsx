@@ -85,7 +85,7 @@ const BasicModal = (args: any) => {
 };
 
 BasicModal.args = {
-    open: false
+    open: true
 };
 
 export default BasicModal;

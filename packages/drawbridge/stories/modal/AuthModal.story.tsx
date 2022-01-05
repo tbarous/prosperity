@@ -87,7 +87,7 @@ const AuthModal = (args: any) => {
 };
 
 AuthModal.args = {
-    open: false
+    open: true
 };
 
 export default AuthModal;
