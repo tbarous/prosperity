@@ -3,6 +3,8 @@ import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import {Times} from "@components/icon/Icons";
 import {useMountChildProps} from "@hooks/useMountChild";
 import useCallbackOnTimeout from "@hooks/useCallbackOnTimeout";
+import SnackbarStyled from "@components/snackbar/styled/SnackbarStyled";
+import SnackbarCloseStyled from "@components/snackbar/styled/SnackbarCloseStyled";
 
 export enum SnackbarVariationEnum {
     SUCCESS = "success",

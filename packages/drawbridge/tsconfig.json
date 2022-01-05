@@ -38,7 +38,7 @@
       "@rules": [
         "src/css/rules/Rules"
       ],
-      "@utils": [
+      "@utils/*": [
         "src/utils/*"
       ]
     }
