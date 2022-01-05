@@ -3,7 +3,7 @@ import styled, {css, ThemeProvider} from "styled-components";
 import Light from "@theme/light/Theme";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import "../fonts/fonts.css";
-import GlobalStyledUtils from "@theme/utils/GlobalStyleUtils";
+import GlobalStyledUtils from "@utils/GlobalStyleUtils";
 
 const GlobalStorybookStyle = GlobalStyledUtils.extendGlobalStyle(css`#root {
   height: 100%;

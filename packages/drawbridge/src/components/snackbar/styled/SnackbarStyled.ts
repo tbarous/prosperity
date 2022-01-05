@@ -29,6 +29,7 @@ const SnackbarStyled = styled.div`
   height: 60px;
   display: ${rules.display.flex};
   align-items: ${rules.alignItems.center};
+  font-family: ${(props: SnackbarStyledProps) => props.theme.fontFamily.primary};
   position: ${rules.position.fixed};
   box-sizing: ${rules.boxSizing.borderBox};
   bottom: ${(props: SnackbarStyledProps) => props.theme.spacing.s0};
