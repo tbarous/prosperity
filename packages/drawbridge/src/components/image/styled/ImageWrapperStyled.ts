@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import ImageWrapperStyledGetters from "@components/image/styled/image-wrapper/ImageWrapperStyledGetters";
+import rules from "@rules";
 
 export interface ImageWrapperStyledProps extends StyledProps {
     width?: number,
@@ -8,9 +8,9 @@ export interface ImageWrapperStyledProps extends StyledProps {
 }
 
 const ImageWrapperStyled = styled.div<ImageWrapperStyledProps>`
-  width: ${ImageWrapperStyledGetters.Width};
-  height: ${ImageWrapperStyledGetters.Height};
-  display: ${ImageWrapperStyledGetters.Display};
+  width: ${(props: ImageWrapperStyledProps) => props.width ? `${props.width}px` : `100%`};
+  height: ${(props: ImageWrapperStyledProps) => props.height ? `${props.height}px` : `100%`};
+  display: ${rules.display.flex}
 `;
 
 export default ImageWrapperStyled;

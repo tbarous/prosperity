@@ -1,15 +1,14 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import TextStyledGetters from "@components/text/styled/TextStyledGetters";
 
 export interface TextStyledProps extends StyledProps {
     bold?: boolean
 }
 
 const TextStyled = styled.div<TextStyledProps>`
-  font-size: ${TextStyledGetters.FontSize};
-  color: ${TextStyledGetters.Color};
-  font-weight: ${TextStyledGetters.FontWeight};
+  font-size: ${(props: TextStyledProps) => props.theme.fontSize.md};
+  color: ${(props: TextStyledProps) => props.theme.color.dark};
+  font-weight: ${(props: TextStyledProps) => props.theme.fontWeight.normal};
 `;
 
 export default TextStyled;

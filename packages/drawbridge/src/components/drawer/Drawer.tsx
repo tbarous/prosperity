@@ -1,9 +1,9 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import {Times} from "@components/icon/Icons";
-import DrawerStyled from "./styled/drawer/DrawerStyled";
-import DrawerCloseStyled from "./styled/drawer-close/DrawerCloseStyled";
 import {useMountChildProps} from "@hooks/useMountChild";
+import DrawerStyled from "@components/drawer/styled/DrawerStyled";
+import DrawerCloseStyled from "@components/drawer/styled/DrawerCloseStyled";
 
 export interface DrawerProps extends BasicComponentProps, useMountChildProps {
     overlay?: boolean

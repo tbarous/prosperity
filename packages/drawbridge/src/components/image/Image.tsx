@@ -1,7 +1,7 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import ImageWrapperStyled from "./styled/image-wrapper/ImageWrapperStyled";
-import ImageStyled from "./styled/image/ImageStyled";
+import ImageStyled from "@components/image/styled/ImageStyled";
+import ImageWrapperStyled from "./styled/ImageWrapperStyled";
 
 export interface Props extends BasicComponentProps {
     width?: number,
