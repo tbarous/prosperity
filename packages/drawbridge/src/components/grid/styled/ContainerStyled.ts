@@ -13,8 +13,8 @@ type T = { fluid?: boolean } & StyledProps;
 
 const ContainerStyled = styled.div<T>`
   height: ${(p: T) => p.theme.dimension.auto};
-  padding-right: ${(p: T) => px(p.theme.spacing.s9)};
-  padding-left: ${(p: T) => px(p.theme.spacing.s9)};
+  padding-right: ${(p: T) => px(p.theme.spacing.s5)};
+  padding-left: ${(p: T) => px(p.theme.spacing.s5)};
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
   width: ${(p: T) => p.theme.dimension.d100};
 

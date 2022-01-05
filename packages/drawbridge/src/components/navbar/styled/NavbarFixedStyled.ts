@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
+import {px} from "@utils/ThemeUtils";
 
 type T = StyledProps & useMountChildStyledProps;
 
 const NavbarFixedStyled = styled.div<T>`
   height: ${(p: T) => p.theme.dimension.d10};
   z-index: ${(p: T) => p.theme.zIndex.navbar};
-  top: ${(p: T) => p.theme.spacing.s0};
+  top: ${(p: T) => px(p.theme.spacing.s0)};
   position: ${(p: T) => p.theme.position.fixed};
   display: ${(p: T) => p.theme.display.flex};
   align-items: ${(p: T) => p.theme.alignItems.center};
