@@ -1,26 +1,17 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface InputLabelStyledProps extends StyledProps {
-    focused?: boolean,
-    hasValue?: boolean
-}
+type T = StyledProps & { focused?: boolean, hasValue?: boolean };
 
-const fontSize = (props: InputLabelStyledProps) => props.focused || props.hasValue ? props.theme.fontSize.xs : props.theme.fontSize.md;
-const color = (props: InputLabelStyledProps) => props.focused ? props.theme.color.primary : props.theme.color.light;
-const transform = (props: InputLabelStyledProps) => props.focused || props.hasValue ? "translateY(-20px)" : "";
-const transition = (props: InputLabelStyledProps) => "transform .2s linear";
-
-const InputStyledLabel = styled.label<InputLabelStyledProps>`
-  position: ${rules.position.absolute};
-  font-size: ${fontSize};
-  color: ${color};
-  font-weight: ${(props: InputLabelStyledProps) => props.theme.fontWeight.bold};
+const InputStyledLabel = styled.label<T>`
+  position: ${(p: T) => p.theme.position.absolute};
+  font-size: ${(p: T) => p.focused || p.hasValue ? p.theme.fontSize.xs : p.theme.fontSize.md};
+  color: ${(p: T) => p.focused ? p.theme.color.primary : p.theme.color.light};
+  font-weight: ${(p: T) => p.theme.fontWeight.bold};
   pointer-events: none;
-  transform: ${transform};
-  transition: ${transition};
-  font-family: ${(props: InputLabelStyledProps) => props.theme.fontFamily.primary};
+  transform: ${(p: T) => p.focused || p.hasValue ? "translateY(-20px)" : ""};
+  transition: ${(p: T) => "transform .2s linear"};
+  font-family: ${(p: T) => p.theme.fontFamily.primary};
 `;
 
 export default InputStyledLabel;

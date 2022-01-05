@@ -12,6 +12,21 @@ import ThemeBorderRadiusInterface from "@theme/interfaces/ThemeBorderRadiusInter
 import ThemeLineHeightInterface from "@theme/interfaces/ThemeLineHeightInterface";
 import ThemeTransitionInterface from "@theme/interfaces/ThemeTransitionInterface";
 import ThemeBrightnessInterface from "@theme/interfaces/ThemeBrightnessInterface";
+import ThemeZIndexInterface from "@theme/interfaces/ThemeZIndexInterface";
+import ThemeTransformInterface from "@theme/interfaces/ThemeTransformInterface";
+import ThemeOpacityInterface from "@theme/interfaces/ThemeOpacityInterface";
+import ThemeCursorInterface from "@theme/interfaces/ThemeCursorInterface";
+import ThemeBoxSizingInterface from "@theme/interfaces/ThemeBoxSizingInterface";
+import ThemeDisplayInterface from "@theme/interfaces/ThemeDisplayInterface";
+import ThemePositionInterface from "@theme/interfaces/ThemePositionInterface";
+import ThemeObjectFitInterface from "@theme/interfaces/ThemeObjectFitInterface";
+import ThemeTextDecorationInterface from "@theme/interfaces/ThemeTextDecorationInterface";
+import ThemeFlexGrowInterface from "@theme/interfaces/ThemeFlexGrowInterface";
+import ThemeFlexWrapInterface from "@theme/interfaces/ThemeFlexWrapInterface";
+import ThemeAlignItemsInterface from "@theme/interfaces/ThemeAlignItemsInterface";
+import ThemeOverflowInterface from "@theme/interfaces/ThemeOverflowInterface";
+import ThemeTextAlignInterface from "@theme/interfaces/ThemeTextAlignInterface";
+import ThemeJustifyContentInterface from "@theme/interfaces/ThemeJustifyContentInterface";
 
 interface ThemeInterface {
     breakpoint: ThemeBreakpointInterface,
@@ -27,7 +42,25 @@ interface ThemeInterface {
     border: ThemeBorderInterface,
     lineHeight: ThemeLineHeightInterface,
     transition: ThemeTransitionInterface,
-    brightness: ThemeBrightnessInterface
+    brightness: ThemeBrightnessInterface,
+    zIndex: ThemeZIndexInterface,
+    transform: ThemeTransformInterface,
+    opacity: ThemeOpacityInterface,
+
+
+
+    cursor: ThemeCursorInterface,
+    boxSizing: ThemeBoxSizingInterface,
+    display: ThemeDisplayInterface,
+    position: ThemePositionInterface,
+    objectFit: ThemeObjectFitInterface,
+    textDecoration: ThemeTextDecorationInterface,
+    flexGrow: ThemeFlexGrowInterface,
+    flexWrap: ThemeFlexWrapInterface,
+    alignItems: ThemeAlignItemsInterface,
+    overflow: ThemeOverflowInterface,
+    textAlign: ThemeTextAlignInterface,
+    justifyContent: ThemeJustifyContentInterface,
 }
 
 export default ThemeInterface;

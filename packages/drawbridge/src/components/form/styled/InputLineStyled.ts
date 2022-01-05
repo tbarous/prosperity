@@ -1,22 +1,17 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface InputLineStyledProps extends StyledProps {
-    focused?: boolean
-}
+type T = StyledProps & { focused?: boolean };
 
-const transform = (props: InputLineStyledProps) => props.focused ? "scale(1)" : "scale(0)";
-
-const InputLineStyled = styled.div<InputLineStyledProps>`
-  position: ${rules.position.absolute};
-  background-color: ${ (props: InputLineStyledProps) => props.theme.color.primary};
-  bottom: -1px;
-  left: ${(props: InputLineStyledProps) => props.theme.spacing.s0};
-  width: ${(props: InputLineStyledProps) => props.theme.dimension.d100};
-  height: 2px;
-  transform: ${transform};
-  transition: transform .5s;
+const InputLineStyled = styled.div<T>`
+  position: ${(p: T) => p.theme.position.absolute};
+  background-color: ${(p: T) => p.theme.color.primary};
+  left: ${(p: T) => p.theme.spacing.s0};
+  width: ${(p: T) => p.theme.dimension.d100};
+  height: ${(p: T) => p.theme.spacing.s1};
+  transform: ${(p: T) => p.focused ? "scale(1)" : "scale(0)"};
+  transition: ${(p: T) => `transform .5s`};
+  bottom: ${(p: T) => `-1px`};
 `;
 
 export default InputLineStyled;

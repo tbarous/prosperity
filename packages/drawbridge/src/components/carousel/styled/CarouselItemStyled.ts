@@ -1,24 +1,15 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface CarouselItemStyledProps extends StyledProps {
-    width?: number,
-    leftDistance?: number,
-    gutter?: number
-}
+type T = StyledProps & {width?: number, gutter?: number, leftDistance?: number};
 
-const padding = (props: CarouselItemStyledProps) => `0 ${props.gutter && props.gutter / 2}px`;
-const left = (props: CarouselItemStyledProps) => `${props.leftDistance}%`;
-const width = (props: CarouselItemStyledProps) => `${props.width}%`;
-
-const CarouselItemStyled = styled.div<CarouselItemStyledProps>`
-  position: ${rules.position.absolute};
-  box-sizing: ${rules.boxSizing.borderBox};
-  height: ${(props: CarouselItemStyledProps) => props.theme.dimension.d100};
-  padding: ${padding};
-  width: ${width};
-  left: ${left};
+const CarouselItemStyled = styled.div<T>`
+  position: ${(p: T) => p.theme.position.absolute};
+  box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
+  height: ${(p: T) => p.theme.dimension.d100};
+  padding: ${(p: T) => `0 ${p.gutter && p.gutter / 2}px`};
+  width: ${(p: T) => `${p.width}%`};
+  left: ${(p: T) => `${p.leftDistance}%`};
 `;
 
 export default CarouselItemStyled;

@@ -1,16 +1,14 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface CheckboxInputStyledProps extends StyledProps {
-}
+type T = StyledProps;
 
-const CheckboxInputStyled = styled.input<CheckboxInputStyledProps>`
-  position: ${rules.position.absolute};
-  opacity: 0;
-  cursor: ${rules.cursor.pointer};
-  height: ${(props: CheckboxInputStyledProps) => props.theme.dimension.d0};
-  width: ${(props: CheckboxInputStyledProps) => props.theme.dimension.d0};
+const CheckboxInputStyled = styled.input<T>`
+  position: ${(p: T) => p.theme.position.absolute};
+  cursor: ${(p: T) => p.theme.cursor.pointer};
+  opacity: ${(p: T) => p.theme.opacity.hidden};
+  height: ${(p: T) => p.theme.dimension.d0};
+  width: ${(p: T) => p.theme.dimension.d0};
 `;
 
 export default CheckboxInputStyled;

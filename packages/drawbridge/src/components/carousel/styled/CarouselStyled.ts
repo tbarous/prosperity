@@ -1,16 +1,14 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface CarouselStyledProps extends StyledProps {
-}
+type T = StyledProps;
 
-const CarouselStyled = styled.div<CarouselStyledProps>`
-  display: ${rules.display.flex};
-  position: ${rules.position.relative};
-  overflow: hidden;
-  width: ${(props: CarouselStyledProps) => props.theme.dimension.d100};
-  height: ${(props: CarouselStyledProps) => props.theme.dimension.d100};
+const CarouselStyled = styled.div<T>`
+  display: ${(p: T) => p.theme.display.flex};
+  position: ${(p: T) => p.theme.position.relative};
+  overflow: ${(p: T) => p.theme.overflow.hidden};
+  width: ${(p: T) => p.theme.dimension.d100};
+  height: ${(p: T) => p.theme.dimension.d100};
 `;
 
 export default CarouselStyled;

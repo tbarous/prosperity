@@ -1,23 +1,16 @@
 import styled from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
-import rules from "@rules";
 
-export interface DrawerStyledProps extends StyledProps, useMountChildStyledProps {
-    overlay?: boolean,
-}
+type T = { overlay?: boolean } & StyledProps & useMountChildStyledProps;
 
-const position = (props: DrawerStyledProps) => props.overlay ? rules.position.fixed : rules.position.relative;
-const transform = (props: DrawerStyledProps) => props.mount ? `translateX(0)` : `translateX(-120%)`;
-const transition = (props: DrawerStyledProps) => props.mount ? `transform ${props.entryDelay / 1000}s` : `transform ${props.exitDelay / 1000}s`;
-
-const DrawerStyled = styled.div<DrawerStyledProps>`
-  display: ${rules.display.flex};
-  height: ${(props: DrawerStyledProps) => props.theme.dimension.d100};
-  background-color: ${(props: DrawerStyledProps) => props.theme.color.dark};
-  width: ${(props: DrawerStyledProps) => props.theme.dimension.d20};
-  position: ${position};
-  transform: ${transform};
-  transition: ${transition};
+const DrawerStyled = styled.div<T>`
+  display: ${(p: T) => p.theme.display.flex};
+  height: ${(p: T) => p.theme.dimension.d100};
+  background-color: ${(p: T) => p.theme.color.dark};
+  width: ${(p: T) => p.theme.dimension.d20};
+  position: ${(p: T) => p.overlay ? p.theme.position.fixed : p.theme.position.relative};
+  transform: ${(p: T) => p.mount ? `translateX(0)` : `translateX(-120%)`};
+  transition: ${(p: T) => p.mount ? `transform ${p.entryDelay / 1000}s` : `transform ${p.exitDelay / 1000}s`};
 `;
 
 export default DrawerStyled;

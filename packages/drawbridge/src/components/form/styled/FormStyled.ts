@@ -1,7 +1,9 @@
 import styled from "styled-components";
+import {StyledProps} from "@typings";
 
-const FormStyled = styled.form`
-  
+type T = StyledProps;
+
+const FormStyled = styled.form<T>`
 `;
 
 export default FormStyled;

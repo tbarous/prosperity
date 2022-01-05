@@ -35,9 +35,6 @@
       "@stories/*": [
         "stories/*"
       ],
-      "@rules": [
-        "src/css/rules/Rules"
-      ],
       "@utils/*": [
         "src/utils/*"
       ]

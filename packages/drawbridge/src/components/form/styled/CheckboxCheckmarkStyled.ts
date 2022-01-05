@@ -1,33 +1,30 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface CheckboxCheckmarkStyledProps extends StyledProps {
-    checked?: boolean
-}
+type T = StyledProps & { checked?: boolean };
 
-const CheckboxCheckmarkStyled = styled.span<CheckboxCheckmarkStyledProps>`
-  background-color: ${(props: CheckboxCheckmarkStyledProps) => props.checked ? props.theme.color.primary : "none"};
-  position: ${rules.position.absolute};
-  top: ${(props: CheckboxCheckmarkStyledProps) => props.theme.spacing.s0};
-  left: ${(props: CheckboxCheckmarkStyledProps) => props.theme.spacing.s0};
-  height: 25px;
-  width: 25px;
-  border-radius: ${(props: CheckboxCheckmarkStyledProps) => props.theme.borderRadius.medium};
-  box-sizing: content-box;
-  box-shadow: ${props => props.theme.shadow.light};
+const CheckboxCheckmarkStyled = styled.span<T>`
+  background-color: ${(p: T) => p.checked ? p.theme.color.primary : "none"};
+  position: ${(p: T) => p.theme.position.absolute};
+  top: ${(p: T) => p.theme.spacing.s0};
+  left: ${(p: T) => p.theme.spacing.s0};
+  height: ${(p: T) => p.theme.spacing.s8};
+  width: ${(p: T) => p.theme.spacing.s8};
+  border-radius: ${(p: T) => p.theme.borderRadius.medium};
+  box-sizing: ${(p: T) => p.theme.boxSizing.contentBox};
+  box-shadow: ${(p: T) => p.theme.shadow.light};
 
   &:after {
     content: "";
-    position: ${rules.position.absolute};
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
-    display: ${(props: CheckboxCheckmarkStyledProps) => props.checked ? "block" : "none"};
+    position: ${(p: T) => p.theme.position.absolute};
+    left: ${(p: T) => p.theme.spacing.s3};
+    top: ${(p: T) => p.theme.spacing.s2};
+    width: ${(p: T) => p.theme.spacing.s2};
+    height: ${(p: T) => p.theme.spacing.s4};
+    border: solid ${(p: T) => p.theme.color.white};
+    border-width: ${(p: T) => `${p.theme.spacing.s0} ${p.theme.spacing.s2} ${p.theme.spacing.s2} ${p.theme.spacing.s0}`};
+    transform: ${(p: T) => p.theme.transform.rotate45};
+    display: ${(p: T) => p.checked ? p.theme.display.block : p.theme.display.none};
   }
 `;
 

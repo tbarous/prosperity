@@ -1,18 +1,15 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import rules from "@rules";
 
-export interface InputWrapperStyledProps extends StyledProps {
-    focused?: boolean
-}
+type T = StyledProps & { focused?: boolean };
 
-const InputStyledWrapper = styled.div<InputWrapperStyledProps>`
-  height: ${(props: InputWrapperStyledProps) => props.theme.spacing.s10};
-  display: ${rules.display.flex};
-  align-items: ${rules.alignItems.center};
-  position: ${rules.position.relative};
-  border-bottom: ${(props: InputWrapperStyledProps) => props.theme.border.light};
-  border-color: ${(props: InputWrapperStyledProps) => props.theme.color.light};
+const InputStyledWrapper = styled.div<T>`
+  height: ${(p: T) => p.theme.spacing.s10};
+  display: ${(p: T) => p.theme.display.flex};
+  align-items: ${(p: T) => p.theme.alignItems.center};
+  position: ${(p: T) => p.theme.position.relative};
+  border-bottom: ${(p: T) => p.theme.border.light};
+  border-color: ${(p: T) => p.theme.color.light};
 `;
 
 export default InputStyledWrapper;
