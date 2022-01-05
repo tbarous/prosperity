@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
-import Media from "@theme/utils/Media";
+import MediaUtils from "@theme/utils/MediaUtils";
 import ModalContentStyledGetters from "@components/modal/styled/modal-content/ModalContentStyledGetters";
 
 export interface ModalContentStyledProps extends StyledProps, useMountChildStyledProps {
@@ -15,7 +15,7 @@ const ModalContentStyled = styled.div<ModalContentStyledProps>`
   transform: ${ModalContentStyledGetters.Transform};
   transition: ${ModalContentStyledGetters.Transition};
 
-  ${(props: ModalContentStyledProps) => Media.up(props.theme.breakpoint.md, css`
+  ${(props: ModalContentStyledProps) => MediaUtils.up(props.theme.breakpoint.md, css`
     width: ${ModalContentStyledGetters.WidthMd(props)};
   `)};
 `;

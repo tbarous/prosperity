@@ -3,15 +3,13 @@ import styled, {css, ThemeProvider} from "styled-components";
 import Light from "@theme/light/Theme";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import "../fonts/fonts.css";
-import extendGlobalStyle from "@theme/utils/GlobalStyle";
+import GlobalStyledUtils from "@theme/utils/GlobalStyleUtils";
 
-const GlobalStorybookStyle = extendGlobalStyle(css`#root {
+const GlobalStorybookStyle = GlobalStyledUtils.extendGlobalStyle(css`#root {
   height: 100%;
 }`);
 
-export const Wrapper = styled.div`
-  font-family: OpenSans, serif;
-`;
+export const Wrapper = styled.div``;
 
 const StorybookWrapper: React.FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElementOrNull => {
     const {children} = props;

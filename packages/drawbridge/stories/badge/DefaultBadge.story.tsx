@@ -1,16 +1,24 @@
 import React from 'react';
-import {Props} from "@components/image/Image";
 import Badge from "@components/badge/Badge";
 import styled from "styled-components";
 import StorybookWrapper from "@stories/StorybookWrapper";
+import {BasicComponentProps} from "@typings";
 
 const StorybookWrapperStyled = styled(StorybookWrapper)`
   margin: 1rem;
 `;
 
-const DefaultBadge = (args: Props) => (
+interface DefaultBadgeArgs extends BasicComponentProps{
+    info?: boolean,
+    danger?: boolean,
+    success?: boolean,
+}
+
+const DefaultBadge = (args: DefaultBadgeArgs) => (
     <StorybookWrapperStyled>
-        <Badge {...args} />
+        <Badge>
+            {args.children}
+        </Badge>
     </StorybookWrapperStyled>
 );
 

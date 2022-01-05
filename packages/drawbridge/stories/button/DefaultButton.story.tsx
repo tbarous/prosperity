@@ -1,5 +1,5 @@
 import React from 'react';
-import Button, {ButtonProps} from "@components/button/Button";
+import Button from "@components/button/Button";
 import ButtonVariationEnum from "@components/button/enums/ButtonVariationEnum";
 import ButtonSizeEnum from "@components/button/enums/ButtonSizeEnum";
 import Container from "@components/grid/Container";
@@ -12,12 +12,24 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
   margin: 1rem;
 `;
 
-const DefaultButton = (args: ButtonProps) => (
+interface DefaultButtonArgsInterface {
+    variation?: ButtonVariationEnum,
+    size?: ButtonSizeEnum,
+    children?: string
+}
+
+const DefaultButton = (args: DefaultButtonArgsInterface) => (
     <StorybookWrapperStyled>
         <Container fluid>
             <Row>
                 <Col xs={1}>
-                    <Button {...args}>
+                    <Button
+                        primary={ButtonVariationEnum.PRIMARY === args.variation}
+                        secondary={ButtonVariationEnum.SECONDARY === args.variation}
+                        small={ButtonSizeEnum.SMALL === args.size}
+                        medium={ButtonSizeEnum.MEDIUM === args.size}
+                        large={ButtonSizeEnum.LARGE === args.size}
+                    >
                         {args.children}
                     </Button>
                 </Col>

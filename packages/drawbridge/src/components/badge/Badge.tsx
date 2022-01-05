@@ -1,18 +1,20 @@
-import React, {ReactNode} from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import React, {ReactElement} from "react";
+import {BasicComponentProps} from "@typings";
 import BadgeStyled from "./styled/BadgeStyled";
 
-interface Props extends BasicComponentProps{
+interface Props extends BasicComponentProps {
 }
 
-const Badge: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+const Badge: React.FunctionComponent<Props> = (props: Props): ReactElement => {
     const {
         children,
         className
     } = props;
 
     return (
-        <BadgeStyled className={className}>
+        <BadgeStyled
+            className={className}
+        >
             {children}
         </BadgeStyled>
     )
