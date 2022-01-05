@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import T from "@components/card/styled/CardStyledProps";
+import {StyledProps} from "@typings";
+
+export type T = { rounded?: boolean } & StyledProps;
 
 const CardStyled = styled.div<T>`
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};

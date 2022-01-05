@@ -1,8 +1,12 @@
-import React, {ReactElement} from "react";
+import React from "react";
+import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import CardStyled from "@components/card/styled/CardStyled";
-import T from "@components/card/CardProps";
 
-const Card: React.FunctionComponent<T> = (props: T): ReactElement => {
+export interface CardProps extends BasicComponentProps {
+    rounded?: boolean
+}
+
+const Card: React.FunctionComponent<CardProps> = (props: CardProps): ReactElementOrNull => {
     const {
         children,
         className,

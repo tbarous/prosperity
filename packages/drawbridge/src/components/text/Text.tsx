@@ -1,8 +1,12 @@
 import React, {ReactElement} from "react";
+import {BasicComponentProps} from "@typings";
 import TextStyled from "@components/text/styled/TextStyled";
-import T from "@components/text/TextProps";
 
-const Text: React.FunctionComponent<T> = (props: T): ReactElement => {
+export interface TextProps extends BasicComponentProps {
+    bold?: boolean
+}
+
+const Text: React.FunctionComponent<TextProps> = (props: TextProps): ReactElement => {
     const {
         children,
         className,
