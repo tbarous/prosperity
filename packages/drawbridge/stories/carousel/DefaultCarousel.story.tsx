@@ -4,7 +4,7 @@ import CarouselItem from "@components/carousel/CarouselItem";
 import Image from "@components/image/Image";
 import CarouselControls from "@components/carousel/CarouselControls";
 import CarouselControl from "@components/carousel/CarouselControl";
-import {ArrowCircleLeftSolid, ArrowCircleRightSolid} from "@components/icon/Icons";
+import {ArrowCircleLeftSolid, ArrowCircleRightSolid} from "@icons";
 import Icon from "@components/icon/Icon";
 import CarouselItems from "@components/carousel/CarouselItems";
 import styled from "styled-components";

@@ -1,6 +1,6 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import {Times} from "@components/icon/Icons";
+import {Times} from "@icons";
 import {useMountChildProps} from "@hooks/useMountChild";
 import useCallbackOnTimeout from "@hooks/useCallbackOnTimeout";
 import SnackbarStyled from "@components/snackbar/styled/SnackbarStyled";

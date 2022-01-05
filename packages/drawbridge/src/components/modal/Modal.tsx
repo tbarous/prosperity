@@ -1,7 +1,7 @@
 import React, {useRef} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import useOnClickOutside from "@hooks/useOnClickOutside";
-import {Times} from "@components/icon/Icons";
+import {Times} from "@icons";
 import ModalCloseStyled from "@components/modal/styled/ModalCloseStyled";
 import ModalOverlayStyled from "@components/modal/styled/ModalOverlayStyled";
 import ModalContentStyled from "@components/modal/styled/ModalContentStyled";

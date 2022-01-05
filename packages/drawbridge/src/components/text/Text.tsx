@@ -1,12 +1,8 @@
 import React, {ReactElement} from "react";
-import {BasicComponentProps} from "@typings";
 import TextStyled from "@components/text/styled/TextStyled";
+import T from "@components/text/TextProps";
 
-interface TextProps extends BasicComponentProps {
-    bold?: boolean
-}
-
-const Text: React.FunctionComponent<TextProps> = (props: TextProps): ReactElement => {
+const Text: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,

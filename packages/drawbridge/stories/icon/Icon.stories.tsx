@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "@components/icon/Icon";
-import {Times as TimesIcon} from "@components/icon/Icons";
+import {Times as TimesIcon} from "@icons";
 import StorybookWrapper from "@stories/StorybookWrapper";
 import styled from "styled-components";
 

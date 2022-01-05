@@ -1,7 +1,5 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
-
-type T = StyledProps & { bold?: boolean };
+import T from "@components/text/styled/TextStyledProps";
 
 const TextStyled = styled.div<T>`
   font-size: ${(p: T) => p.theme.fontSize.md};
