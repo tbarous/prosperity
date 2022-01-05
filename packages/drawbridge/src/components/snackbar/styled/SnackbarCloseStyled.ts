@@ -1,16 +1,14 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 import Icon from "@components/icon/Icon";
-import rules from "@rules";
 
-export interface SnackbarCloseStyledProps extends StyledProps {
-}
+type T = StyledProps;
 
-const SnackbarCloseStyled = styled(Icon)<SnackbarCloseStyledProps>`
-  position: ${rules.position.absolute};
-  cursor: ${rules.cursor.pointer};
-  right: ${(props: SnackbarCloseStyledProps) => props.theme.spacing.s5};
-  top: ${(props: SnackbarCloseStyledProps) => props.theme.spacing.s5};
+const SnackbarCloseStyled = styled(Icon)<T>`
+  position: ${(props: T) => props.theme.position.absolute};
+  cursor: ${(props: T) => props.theme.cursor.pointer};
+  right: ${(props: T) => props.theme.spacing.s5};
+  top: ${(props: T) => props.theme.spacing.s5};
 `;
 
 export default SnackbarCloseStyled;

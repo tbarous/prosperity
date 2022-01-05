@@ -1,47 +1,26 @@
 import styled from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
-import rules from "@rules";
 import {SnackbarMapping} from "@components/snackbar/Snackbar";
 
-export interface SnackbarStyledProps extends StyledProps, useMountChildStyledProps, SnackbarMapping {
-}
-
-const backgroundColor = (props: SnackbarStyledProps) => {
-    if (props.danger) return props.theme.color.danger;
-    if (props.warning) return props.theme.color.warning;
-    if (props.success) return props.theme.color.success;
-
-    return props.theme.color.success;
-}
-
-const color = (props: SnackbarStyledProps) => {
-    if (props.danger) return props.theme.color.white;
-    if (props.warning) return props.theme.color.dark;
-    if (props.success) return props.theme.color.white;
-
-    return props.theme.color.white;
-}
-
-const transform = (props: SnackbarStyledProps) => props.mount ? `translateX(0)` : `translateY(150%)`;
-const transition = (props: SnackbarStyledProps) => props.mount ? `transform ${props.entryDelay / 1000}s` : `transform ${props.exitDelay / 1000}s`;
+type T = StyledProps & useMountChildStyledProps & SnackbarMapping;
 
 const SnackbarStyled = styled.div`
-  height: 60px;
-  display: ${rules.display.flex};
-  align-items: ${rules.alignItems.center};
-  font-family: ${(props: SnackbarStyledProps) => props.theme.fontFamily.primary};
-  position: ${rules.position.fixed};
-  box-sizing: ${rules.boxSizing.borderBox};
-  bottom: ${(props: SnackbarStyledProps) => props.theme.spacing.s0};
-  left: ${(props: SnackbarStyledProps) => props.theme.spacing.s0};
-  width: ${(props: SnackbarStyledProps) => props.theme.dimension.d100};
-  padding: ${(props: SnackbarStyledProps) => `${props.theme.spacing.s0} ${props.theme.spacing.s6}`};
-  font-weight: ${(props: SnackbarStyledProps) => props.theme.fontWeight.bold};
-  box-shadow: ${(props: SnackbarStyledProps) => props.theme.shadow.medium};
-  color: ${color};
-  background-color: ${backgroundColor};
-  transform: ${transform};
-  transition: ${transition};
+  height: ${(p: T) => p.theme.dimension.d10};
+  display: ${(props: T) => props.theme.display.flex};
+  align-items: ${(props: T) => props.theme.alignItems.center};
+  font-family: ${(props: T) => props.theme.fontFamily.primary};
+  position: ${(props: T) => props.theme.position.fixed};
+  box-sizing: ${(props: T) => props.theme.boxSizing.borderBox};
+  bottom: ${(props: T) => props.theme.spacing.s0};
+  left: ${(props: T) => props.theme.spacing.s0};
+  width: ${(props: T) => props.theme.dimension.d100};
+  padding: ${(props: T) => `${props.theme.spacing.s0} ${props.theme.spacing.s6}`};
+  font-weight: ${(props: T) => props.theme.fontWeight.bold};
+  box-shadow: ${(props: T) => props.theme.shadow.medium};
+  color: ${(props: T) => (p: T) => p.danger ? p.theme.color.white : (p.warning ? p.theme.color.dark : (p.success ? p.theme.color.white : p.theme.color.white))};
+  background-color: ${(p: T) => p.danger ? p.theme.color.danger : (p.warning ? p.theme.color.warning : (p.success ? p.theme.color.success : p.theme.color.danger))};
+  transform: ${(props: T) => props.mount ? `translateX(0)` : `translateY(150%)`};
+  transition: ${(props: T) => props.mount ? `transform ${props.entryDelay / 1000}s` : `transform ${props.exitDelay / 1000}s`};
 `;
 
 export default SnackbarStyled;

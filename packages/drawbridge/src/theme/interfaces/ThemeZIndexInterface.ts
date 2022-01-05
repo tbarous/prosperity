@@ -1,6 +1,7 @@
 interface ThemeZIndexInterface {
     modal: number,
-    carouselControl: number
+    carouselControl: number,
+    navbar: number
 }
 
 export default ThemeZIndexInterface;
