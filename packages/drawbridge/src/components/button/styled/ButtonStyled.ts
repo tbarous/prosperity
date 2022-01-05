@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {ButtonMapping} from "@components/button/Button";
 import {StyledProps} from "@typings";
+import {px} from "@utils/ThemeUtils";
 
 type T = StyledProps & ButtonMapping;
 
@@ -16,7 +17,7 @@ const ButtonStyled = styled.button<T>`
   height: ${(p: T) => p.theme.dimension.d100};
   letter-spacing: ${(p: T) => p.theme.letterSpacing.small};
   transition: ${(p: T) => p.theme.transition.elevation};
-  padding: ${(p: T) => p.small ? p.theme.spacing.s4 : (p.medium ? p.theme.spacing.s5 : (p.large ? p.theme.spacing.s6 : p.theme.spacing.s5))};
+  padding: ${(p: T) => p.small ? px(p.theme.spacing.s4) : (p.medium ? px(p.theme.spacing.s5) : (p.large ? px(p.theme.spacing.s6) : px(p.theme.spacing.s5)))};
   background-color: ${(p: T) => p.primary ? p.theme.color.primary : (p.secondary ? p.theme.color.secondary : p.theme.color.primary)};
   color: ${(p: T) => p.primary ? p.theme.color.white : (p.secondary ? p.theme.color.dark : p.theme.color.white)};
 

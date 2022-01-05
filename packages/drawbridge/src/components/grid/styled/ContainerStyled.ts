@@ -1,6 +1,7 @@
 import styled, {css} from "styled-components";
 import {StyledProps} from "@typings";
 import MediaUtils from "@utils/MediaUtils";
+import {px} from "@utils/ThemeUtils";
 
 enum ContainerMaxWidthEnum {
     Medium = "750px",
@@ -12,8 +13,8 @@ type T = { fluid?: boolean } & StyledProps;
 
 const ContainerStyled = styled.div<T>`
   height: ${(p: T) => p.theme.dimension.auto};
-  padding-right: ${(p: T) => p.theme.spacing.s9};
-  padding-left: ${(p: T) => p.theme.spacing.s9};
+  padding-right: ${(p: T) => px(p.theme.spacing.s9)};
+  padding-left: ${(p: T) => px(p.theme.spacing.s9)};
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
   width: ${(p: T) => p.theme.dimension.d100};
 

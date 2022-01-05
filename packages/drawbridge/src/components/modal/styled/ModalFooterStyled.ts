@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
+import {px} from "@utils/ThemeUtils";
 
 type T = StyledProps;
 
@@ -11,10 +12,10 @@ const ModalFooterStyled = styled.div`
   border-bottom-left-radius: ${(p: T) => p.theme.borderRadius.medium};
   border-bottom-right-radius: ${(p: T) => p.theme.borderRadius.medium};
   font-size: ${(p: T) => p.theme.fontSize.md};
-  padding: ${(p: T) => `${p.theme.spacing.s3} ${p.theme.spacing.s5}`};
+  padding: ${(p: T) => `${px(p.theme.spacing.s3)} ${px(p.theme.spacing.s5)}`};
   width: ${(p: T) => p.theme.dimension.d100};
   height: ${(p: T) => p.theme.dimension.d20};
-  bottom: ${(p: T) => p.theme.spacing.s0};
+  bottom: ${(p: T) => px(p.theme.spacing.s0)};
   background-color: ${(p: T) => p.theme.color.white};
 `;
 

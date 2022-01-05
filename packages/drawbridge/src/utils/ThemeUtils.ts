@@ -5,8 +5,10 @@ function propsMapper<T extends {theme: ThemeInterface}>(props: T) {
 
 }
 
-const ThemeUtils = {
-    propsMapper
+function px(s: string | number){
+    return `${s}px`;
 }
 
-export default ThemeUtils;
+export {
+    px
+}

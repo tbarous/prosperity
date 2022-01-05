@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
+import {px} from "@utils/ThemeUtils";
 
 type T = StyledProps;
 
@@ -10,7 +11,7 @@ const BadgeStyled = styled.span<T>`
   justify-content: ${(p: T) => p.theme.justifyContent.center};
   background-color: ${(p: T) => p.theme.color.primary};
   color: ${(p: T) => p.theme.color.white};
-  padding: ${(p: T) => `${p.theme.spacing.s2} ${p.theme.spacing.s4}`};
+  padding: ${(p: T) => `${px(p.theme.spacing.s2)} ${px(p.theme.spacing.s4)}`};
   border-radius: ${(p: T) => p.theme.borderRadius.large};
   font-size: ${(p: T) => p.theme.fontSize.sm};
   box-shadow: ${(p: T) => p.theme.shadow.light};
