@@ -1,17 +1,17 @@
 import React, {useEffect} from "react";
 import {useState} from "react";
-import Button, {ButtonTypeEnum} from "@components/button/Button";
-import Modal from "@components/modal/Modal";
-import Tabs from "@components/tabs/Tabs";
-import Tab from "@components/tabs/Tab";
-import Card from "@components/card/Card";
-import ModalFooter from "@components/modal/ModalFooter";
-import Form from "@components/form/Form";
-import Input from "@components/form/Input";
+import Button, {ButtonTypeEnum} from "@tbarous/drawbridge/components/button/Button";
+import Modal from "@tbarous/drawbridge/components/modal/Modal";
+import Tabs from "@tbarous/drawbridge/components/tabs/Tabs";
+import Tab from "@tbarous/drawbridge/components/tabs/Tab";
+import Card from "@tbarous/drawbridge/components/card/Card";
+import ModalFooter from "@tbarous/drawbridge/components/modal/ModalFooter";
+import Form from "@tbarous/drawbridge/components/form/Form";
+import Input from "@tbarous/drawbridge/components/form/Input";
 import styled from "styled-components";
-import ModalBody from "@components/modal/ModalBody";
-import ModalHeader from "@components/modal/ModalHeader";
-import useMountChild from "@hooks/useMountChild";
+import ModalBody from "@tbarous/drawbridge/components/modal/ModalBody";
+import ModalHeader from "@tbarous/drawbridge/components/modal/ModalHeader";
+import useMountChild from "@tbarous/drawbridge/hooks/useMountChild";
 
 export const StyledModalHeaderNoPadding = styled(ModalHeader)`
   display: flex;

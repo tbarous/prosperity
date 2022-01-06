@@ -1,12 +1,12 @@
-import ImageCard from './ImageCard.story';
+import Auth from "./Auth.story";
 
 export default {
-    title: 'Card',
+    title: 'Modal',
     component: () => {
     },
     argTypes: {},
 };
 
 export {
-    ImageCard
+    Auth
 }
