@@ -4,7 +4,6 @@
     "lerna": "^4.0.0"
   },
   "scripts": {
-    "prepublish": "cd ./packages/drawbridge && cp package.json ./dist/package.json",
     "pl": "lerna publish --registry=https://npm.pkg.github.com --contents dist"
   },
   "publishConfig": {
