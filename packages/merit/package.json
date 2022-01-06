@@ -1,6 +1,6 @@
 {
   "name": "@tbarous/merit",
-  "version": "0.0.45",
+  "version": "2.0.0",
   "main": "index.js",
   "author": {
     "name": "Tasos Barous",
@@ -23,5 +23,5 @@
   "scripts": {
     "build": "tsc"
   },
-  "gitHead": "6f350bbc781e45d2fb244c70f327d1f37a9bdf3f"
+  "gitHead": "a3b984313fb91675e57451c7fba82b4724d585f2"
 }
