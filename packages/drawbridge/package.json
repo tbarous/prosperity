@@ -12,18 +12,19 @@
     "url": "https://github.com/tbarous/prosperity"
   },
   "private": true,
-  "files": [
-    "dist"
-  ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/",
-    "directory": "dist"
+    "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
     "build": "tsc --declaration && tsc-alias && cp package.json dist/package.json",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "styled-components": "5.3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",

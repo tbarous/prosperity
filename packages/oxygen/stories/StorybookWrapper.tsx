@@ -13,6 +13,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Wrapper2 = styled.div`
+    ${p=>console.log(p)}
 `;
 const StorybookWrapper: React.FunctionComponent<any> = (props: any): ReactElement => {
     const {children, className} = props;

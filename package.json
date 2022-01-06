@@ -16,7 +16,8 @@
   },
   "scripts": {
     "prepublish": "node ./bin/prepublish.js",
-    "pl": "lerna publish --registry=https://npm.pkg.github.com --contents dist --force-publish"
+    "pl": "lerna publish --registry=https://npm.pkg.github.com --contents dist --force-publish",
+    "start": "cd ./packages/drawbridge && yarn storybook && cd ../oxygen && yarn storybook"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
