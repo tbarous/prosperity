@@ -19,5 +19,9 @@
   },
   "dependencies": {
     "crypto-js": "^4.1.1"
-  }
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "gitHead": "42437e346abf1a953d3c88179ab094ed18328f54"
 }
