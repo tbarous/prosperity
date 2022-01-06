@@ -1,4 +1,4 @@
-import ThemeDisplayInterface from "../interfaces/DisplayInterface";
+import ThemeDisplayInterface from "@theme/interfaces/ThemeDisplayInterface";
 
 const ThemeDisplay: ThemeDisplayInterface = {
     flex: "flex",

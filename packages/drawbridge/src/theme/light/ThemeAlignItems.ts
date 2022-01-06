@@ -1,4 +1,4 @@
-import ThemeAlignItemsInterface from "../interfaces/AlignItemsInterface";
+import ThemeAlignItemsInterface from "@theme/interfaces/ThemeAlignItemsInterface";
 
 const ThemeAlignItems: ThemeAlignItemsInterface = {
     center: "center"

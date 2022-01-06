@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-type T = StyledProps & { bold?: boolean };
+type T = StyledProps & { bold?: boolean, active?: boolean };
 
 const LinkStyled = styled.a<T>`
   display: ${(p: T) => p.theme.display.block};
@@ -10,10 +10,7 @@ const LinkStyled = styled.a<T>`
   font-weight: ${(p: T) => p.theme.fontWeight.bold};
   font-size: ${(p: T) => p.theme.fontSize.md};
   font-family: ${(p: T) => p.theme.fontFamily.primary};
-
-  &:hover {
-    color: ${(p: T) => p.theme.color.secondary};
-  }
+  position: ${(p: T) => p.theme.position.relative};
 `;
 
 export default LinkStyled;

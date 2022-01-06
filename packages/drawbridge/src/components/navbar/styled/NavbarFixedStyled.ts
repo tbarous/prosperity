@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
-type T = StyledProps & useMountChildStyledProps;
+export type T = StyledProps & useMountChildStyledProps;
 
 const NavbarFixedStyled = styled.div<T>`
   height: ${(p: T) => "100px"};

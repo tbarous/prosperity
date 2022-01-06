@@ -7,3 +7,4 @@ export type StyledProps = { theme: ThemeInterface };
 export type StyledRule = <T extends ThemeInterface>(props: T) => string
 export type FunctionVoid = () => void;
 export type useMountChildStyledProps = { mount?: boolean, entryDelay: number, exitDelay: number };
+export type TooltipTrigger = {tooltip?: any}

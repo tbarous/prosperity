@@ -4,7 +4,7 @@ import Image from "@components/image/Image";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
-import {BasicComponentProps} from "@typings";
+import {BasicComponentProps, StyledProps} from "@typings";
 import styled from "styled-components";
 import useMountChild from "@hooks/useMountChild";
 import NavbarStatic from "@components/navbar/NavbarStatic";
@@ -12,28 +12,22 @@ import NavbarFixed from "@components/navbar/NavbarFixed";
 import useOnScroll from "@hooks/UseOnScroll";
 import Link from "@components/link/Link";
 import Button from "@components/button/Button";
+import {T as ColT} from "@components/grid/styled/ColStyled";
+import {px} from "@utils/ThemeUtils";
+import Tooltip from "@components/tooltip/Tooltip";
 
-const Links = styled.div`
+const NavbarCol = styled(Col)`
   display: flex;
   align-items: center;
-  height: 100%;
-  justify-content: end;
+  justify-content: center;
 `;
 
 const StorybookWrapperStyled = styled(StorybookWrapper)`
   height: 200%;
 `;
 
-const ContainerStyled = styled(Container)`
-  margin-top: 4rem;
-`;
-
-const LinkStyled = styled(Link)`
-  padding: 0 1rem;
-`;
-
 const ButtonCol = styled(Col)`
-  padding: 1rem;
+  padding: ${(p: ColT) => px(p.theme.spacing.s8)};
 `;
 
 const Content = () => (
@@ -43,13 +37,29 @@ const Content = () => (
                 <Image src="/logo.png" alt="img"/>
             </Col>
 
-            <Col xs={9}>
-                <Links>
-                    <LinkStyled href="/">home</LinkStyled>
-                    <LinkStyled href="/about">about</LinkStyled>
-                    <LinkStyled href="/about">projects</LinkStyled>
-                </Links>
-            </Col>
+            <Col xs={4}></Col>
+
+            <NavbarCol xs={1}>
+                <Link active href="/">home</Link>
+            </NavbarCol>
+
+            <NavbarCol xs={1}>
+                <Link href="/">about</Link>
+            </NavbarCol>
+
+            <NavbarCol xs={1}>
+                <Link href="/">projects</Link>
+            </NavbarCol>
+
+            <NavbarCol xs={2}>
+                <Tooltip
+                    Trigger={<Button secondary>Language</Button>}
+                    Content={<ul>
+                        <li>Greek</li>
+                        <li>English</li>
+                    </ul>}
+                />
+            </NavbarCol>
 
             <ButtonCol xs={2}>
                 <Button primary>Login/Register</Button>
@@ -59,7 +69,7 @@ const Content = () => (
 )
 
 const DefaultNavbar = (args: BasicComponentProps) => {
-    const navbarFixed = useMountChild(1000);
+    const navbarFixed = useMountChild(300);
 
     const scrollFromTop = useOnScroll();
 

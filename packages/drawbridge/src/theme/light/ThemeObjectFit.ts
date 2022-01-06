@@ -1,4 +1,4 @@
-import ThemeObjectFitInterface from "../interfaces/ObjectFitInterface";
+import ThemeObjectFitInterface from "@theme/interfaces/ThemeObjectFitInterface";
 
 const ThemeObjectFit: ThemeObjectFitInterface = {
     contain: "contain",

@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 import {StyledProps} from "@typings";
 import MediaUtils from "@utils/MediaUtils";
 
-type T =
+export type T =
     { xs?: number, sm?: number, md?: number, lg?: number, xl?: number, xxl?: number, gutter?: number }
     & StyledProps;
 

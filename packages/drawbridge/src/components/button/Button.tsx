@@ -42,14 +42,14 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): React
         small,
         medium,
         large,
-        onClick,
+        onClick
     } = props;
 
     return (
         <ButtonStyled
+            className={className}
             onClick={onClick}
             type={type}
-            className={className}
             role="button"
             primary={primary}
             secondary={secondary}

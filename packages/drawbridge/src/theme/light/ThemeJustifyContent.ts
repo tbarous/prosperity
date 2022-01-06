@@ -1,7 +1,8 @@
-import ThemeJustifyContentInterface from "../interfaces/JustifyContentInterface";
+import ThemeJustifyContentInterface from "@theme/interfaces/ThemeJustifyContentInterface";
 
 const ThemeJustifyContent: ThemeJustifyContentInterface = {
-    center: "center"
+    center: "center",
+    end: "end"
 }
 
 export default ThemeJustifyContent;

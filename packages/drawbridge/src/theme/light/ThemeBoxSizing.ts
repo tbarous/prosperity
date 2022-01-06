@@ -1,4 +1,4 @@
-import ThemeBoxSizingInterface from "../interfaces/BoxSizingInterface";
+import ThemeBoxSizingInterface from "@theme/interfaces/ThemeBoxSizingInterface";
 
 const ThemeBoxSizing: ThemeBoxSizingInterface = {
     borderBox: "border-box",

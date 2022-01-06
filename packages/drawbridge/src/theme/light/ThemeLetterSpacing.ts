@@ -1,4 +1,4 @@
-import ThemeLetterSpacingInterface from "@theme/interfaces/ThemeFontLetterSpacingInterface";
+import ThemeLetterSpacingInterface from "@theme/interfaces/ThemeLetterSpacingInterface";
 
 const ThemeLetterSpacing: ThemeLetterSpacingInterface = {
     none: "0px",

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-type T = StyledProps;
+export type T = StyledProps;
 
 const NavbarStaticStyled = styled.div<T>`
   height: ${(p: T) => "100px"};

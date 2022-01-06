@@ -1,5 +1,6 @@
 interface ThemeJustifyContentInterface {
-    center: string
+    center: string,
+    end: string
 }
 
 export default ThemeJustifyContentInterface;

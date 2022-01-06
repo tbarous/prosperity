@@ -1,4 +1,4 @@
-import ThemeFlexWrapInterface from "../interfaces/FlexWrapInterface";
+import ThemeFlexWrapInterface from "@theme/interfaces/ThemeFlexWrapInterface";
 
 const ThemeFlexWrap: ThemeFlexWrapInterface = {
     wrap: "wrap"

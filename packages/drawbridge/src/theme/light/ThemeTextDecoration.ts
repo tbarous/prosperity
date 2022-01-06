@@ -1,4 +1,4 @@
-import ThemeTextDecorationInterface from "../interfaces/TextDecorationInterface";
+import ThemeTextDecorationInterface from "@theme/interfaces/ThemeTextDecorationInterface";
 
 const ThemeTextDecoration: ThemeTextDecorationInterface = {
     none: "none"

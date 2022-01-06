@@ -1,4 +1,4 @@
-import ThemeTextAlignInterface from "../interfaces/TextAlignInterface";
+import ThemeTextAlignInterface from "@theme/interfaces/ThemeTextAlignInterface";
 
 const ThemeTextAlign: ThemeTextAlignInterface = {
     center: "center"

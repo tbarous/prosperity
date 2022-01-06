@@ -1,4 +1,4 @@
-import ThemeOverflowInterface from "../interfaces/OverflowInterface";
+import ThemeOverflowInterface from "@theme/interfaces/ThemeOverflowInterface";
 
 const ThemeOverflow: ThemeOverflowInterface = {
     auto: "auto",

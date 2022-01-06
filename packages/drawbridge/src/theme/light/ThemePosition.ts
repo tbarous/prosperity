@@ -1,4 +1,4 @@
-import ThemePositionInterface from "../interfaces/PositionInterface";
+import ThemePositionInterface from "@theme/interfaces/ThemePositionInterface";
 
 const ThemePosition: ThemePositionInterface = {
     relative: "relative",
