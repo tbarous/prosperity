@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react";
+import React from "react";
 import styled, {css, } from "styled-components";
 import GlobalStyledUtils from "@tbarous/drawbridge/utils/GlobalStyleUtils";
 import Light from "@tbarous/drawbridge/theme/light/Theme";
