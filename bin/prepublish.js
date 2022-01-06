@@ -8,16 +8,12 @@ function copyPackageJSON(path, to) {
 
         let package = JSON.parse(data);
 
-        console.log(package);
-
         delete package.private;
 
         let write = JSON.stringify(package, null, 2);
 
         fs.writeFile(to, write, (err) => {
             if (err) throw err;
-
-            console.log('Data written to file');
         });
     });
 }

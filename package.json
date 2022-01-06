@@ -16,7 +16,7 @@
   },
   "scripts": {
     "prepublish": "node ./bin/prepublish.js",
-    "pl": "lerna publish --registry=https://npm.pkg.github.com --contents dist"
+    "pl": "lerna publish --registry=https://npm.pkg.github.com --contents ./dist"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

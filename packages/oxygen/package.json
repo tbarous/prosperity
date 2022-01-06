@@ -22,7 +22,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@tbarous/drawbridge": "^0.0.53",
+    "@tbarous/drawbridge": "^0.0.54",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
