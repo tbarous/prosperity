@@ -1,18 +1,24 @@
+const fs = require('fs');
+
 const rootDir = `${__dirname}/..`;
 
-console.log(rootDir)
-const {exec} = require("child_process");
-
 function copyPackageJSON(path, to) {
-    dir = exec(`cp ${path} ${to}`, function(err, stdout, stderr) {
-      if (err) {
-        // should have err.code here?
-      }
-      console.log(stdout);
-    });
+    fs.readFile(path, (err, data) => {
+        if (err) throw err;
 
-    dir.on('exit', function (code) {
-      // exit code is code
+        let package = JSON.parse(data);
+
+        console.log(package);
+
+        delete package.private;
+
+        let write = JSON.stringify(package, null, 2);
+
+        fs.writeFile(to, write, (err) => {
+            if (err) throw err;
+
+            console.log('Data written to file');
+        });
     });
 }
 

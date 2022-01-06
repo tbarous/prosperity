@@ -10,6 +10,7 @@
     "type": "git",
     "url": "https://github.com/tbarous/prosperity"
   },
+  "private": true,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
