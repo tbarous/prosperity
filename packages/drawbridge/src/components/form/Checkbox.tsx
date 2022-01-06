@@ -1,30 +1,54 @@
 import React, {ReactElement} from "react";
-import styled from "styled-components";
 import {BasicComponentProps, FunctionVoid} from "@typings";
 import {emptyFunction} from "@helpers";
-import Text from "@components/text/Text"
-import CheckboxCheckmarkStyled from "@components/form/styled/CheckboxCheckmarkStyled";
 import CheckboxInputStyled from "@components/form/styled/CheckboxInputStyled";
 import CheckboxStyled from "@components/form/styled/CheckboxStyled";
+import {Checkmark} from "@icons";
+import Icon from "@components/icon/Icon";
+import Text from "@components/text/Text";
+import styled from "styled-components";
 
 interface Props extends BasicComponentProps {
     onChange?: FunctionVoid,
-    label?: string,
-    checked?: boolean
+    checked?: boolean,
+    label?: string
 }
 
 const TextStyled = styled(Text)`
+  margin-left: .5rem;
+`
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const IconWrapper = styled.div<{checked?: boolean}>`
+  border-radius: 4px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  background-color: ${p=> p.theme.color.secondary};
   position: relative;
-  top: 3px;
-`;
+`
+
+const IconStyled = styled(Icon)`
+
+position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: 6px;
+`
 
 const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement => {
     const {
         children,
         className,
         onChange = emptyFunction,
-        label,
-        checked
+        checked,
+        label
     } = props;
 
     return (
@@ -37,11 +61,13 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement =>
                 checked={checked}
             />
 
-            <TextStyled>{label}</TextStyled>
+            <Wrapper>
+                <IconWrapper checked={checked}>
+                    {checked && <IconStyled icon={Checkmark} color="black" width={12} height={12}/>}
+                </IconWrapper>
 
-            <CheckboxCheckmarkStyled
-                checked={checked}
-            />
+                {label && <TextStyled>{label}</TextStyled>}
+            </Wrapper>
         </CheckboxStyled>
     )
 }

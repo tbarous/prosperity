@@ -39,6 +39,7 @@ const ButtonCol = styled(Col)`
 const ListStyled = styled(List)`
   background: white;
 `;
+
 const ListItemStyled = styled(ListItem)`
   border-bottom: none;
 `;
@@ -79,12 +80,19 @@ const Content = () => {
                         <TooltipContentStyled>
                             <ListStyled>
                                 <ListItem>
-                                    <Checkbox onChange={() => setLang(lang === "gr" ? "en" : "gr")}
-                                              checked={lang === "gr"} label="Greek"/>
+                                    <Checkbox
+                                        onChange={() => setLang(lang === "gr" ? "en" : "gr")}
+                                        checked={lang === "gr"}
+                                        label="Greek"
+                                    />
                                 </ListItem>
+
                                 <ListItemStyled>
-                                    <Checkbox onChange={() => setLang(lang === "en" ? "gr" : "en")}
-                                              checked={lang === "en"} label="English"/>
+                                    <Checkbox
+                                        onChange={() => setLang(lang === "en" ? "gr" : "en")}
+                                        checked={lang === "en"}
+                                        label="English"
+                                    />
                                 </ListItemStyled>
                             </ListStyled>
                         </TooltipContentStyled>

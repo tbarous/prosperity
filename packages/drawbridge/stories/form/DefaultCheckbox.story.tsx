@@ -11,6 +11,11 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
   margin: 1rem;
 `;
 
+const CheckboxWrapper = styled(Col)`
+  display: flex;
+  align-items: center;
+`
+
 const DefaultCheckbox = (args: any) => {
     const [checked, setChecked] = useState(false);
 
@@ -22,13 +27,13 @@ const DefaultCheckbox = (args: any) => {
         <StorybookWrapperStyled>
             <Container fluid>
                 <Row>
-                    <Col xs={4}>
+                    <CheckboxWrapper xs={4}>
                         <Checkbox
                             onChange={() => setChecked(!checked)}
                             checked={checked}
                             label={args.label}
                         />
-                    </Col>
+                    </CheckboxWrapper>
                 </Row>
             </Container>
         </StorybookWrapperStyled>
