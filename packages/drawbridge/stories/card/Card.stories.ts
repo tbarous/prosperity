@@ -1,5 +1,5 @@
 import Card from "@components/card/Card";
-import CardImageText from '@stories/card/CardImageText.story';
+import DefaultCard from '@stories/card/DefaultCard.story';
 
 export default {
     title: 'Card',
@@ -8,5 +8,5 @@ export default {
 };
 
 export {
-    CardImageText
+    DefaultCard
 }
