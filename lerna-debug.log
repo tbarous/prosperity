@@ -8,7 +8,7 @@
 0 silly argv }
 1 notice cli v4.0.0
 2 verbose rootPath /home/node1/Desktop/DEVELOPMENT/prosperity
-3 verbose session c229ba2945bae030
+3 verbose session 6d256b069331d0b6
 4 verbose user-agent lerna/4.0.0/node@v14.18.2+x64 (linux)
 5 silly argv {
 5 silly argv   _: [ 'publish' ],
@@ -18,7 +18,7 @@
 5 silly argv   lernaVersion: '4.0.0'
 5 silly argv }
 6 verbose rootPath /home/node1/Desktop/DEVELOPMENT/prosperity
-7 info current version 0.0.37
+7 info current version 0.0.38
 8 silly isAnythingCommitted
 9 verbose isAnythingCommitted 1
 10 silly getCurrentBranch
@@ -28,24 +28,22 @@
 14 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 0
 15 silly hasTags
 16 verbose hasTags true
-17 silly git-describe.sync "v0.0.37-2-g3860ff4" => {"lastTagName":"v0.0.37","lastVersion":"v0.0.37","refCount":"2","sha":"3860ff4","isDirty":false}
-18 info Looking for changed packages since v0.0.37
+17 silly git-describe.sync "v0.0.38-1-g98d86d8" => {"lastTagName":"v0.0.38","lastVersion":"v0.0.38","refCount":"1","sha":"98d86d8","isDirty":false}
+18 info Looking for changed packages since v0.0.38
 19 silly checking diff packages/drawbridge
 20 silly found diff in packages/drawbridge/package.json
 21 verbose filtered diff [ 'packages/drawbridge/package.json' ]
 22 silly checking diff packages/merit
 23 silly found diff in packages/merit/package.json
-23 silly found diff in packages/merit/tsconfig.json
-24 verbose filtered diff [ 'packages/merit/package.json', 'packages/merit/tsconfig.json' ]
+24 verbose filtered diff [ 'packages/merit/package.json' ]
 25 silly checking diff packages/oxygen
 26 silly found diff in packages/oxygen/package.json
-26 silly found diff in packages/oxygen/tsconfig.json
-27 verbose filtered diff [ 'packages/oxygen/package.json', 'packages/oxygen/tsconfig.json' ]
+27 verbose filtered diff [ 'packages/oxygen/package.json' ]
 28 verbose updated @tbarous/drawbridge
 29 verbose updated @tbarous/merit
 30 verbose updated @tbarous/oxygen
-31 verbose git-describe undefined => "v0.0.37-2-g3860ff4"
-32 silly git-describe parsed => {"lastTagName":"v0.0.37","lastVersion":"v0.0.37","refCount":"2","sha":"3860ff4","isDirty":false}
+31 verbose git-describe undefined => "v0.0.38-1-g98d86d8"
+32 silly git-describe parsed => {"lastTagName":"v0.0.38","lastVersion":"v0.0.38","refCount":"1","sha":"98d86d8","isDirty":false}
 33 info execute Skipping releases
 34 silly lifecycle No script for "preversion" in "root", continuing
 35 silly lifecycle No script for "preversion" in "@tbarous/drawbridge", continuing
@@ -61,10 +59,10 @@
 42 silly gitAdd   'packages/oxygen/package.json',
 42 silly gitAdd   'lerna.json'
 42 silly gitAdd ]
-43 silly gitCommit v0.0.38
-44 verbose git [ 'commit', '-m', 'v0.0.38' ]
-45 silly gitTag v0.0.38
-46 verbose git [ 'tag', 'v0.0.38', '-m', 'v0.0.38' ]
+43 silly gitCommit v0.0.39
+44 verbose git [ 'commit', '-m', 'v0.0.39' ]
+45 silly gitTag v0.0.39
+46 verbose git [ 'tag', 'v0.0.39', '-m', 'v0.0.39' ]
 47 silly lifecycle No script for "postversion" in "@tbarous/drawbridge", continuing
 48 silly lifecycle No script for "postversion" in "@tbarous/merit", continuing
 49 silly lifecycle No script for "postversion" in "@tbarous/oxygen", continuing
@@ -78,7 +76,7 @@
 56 warn ENOLICENSE One way to fix this is to add a LICENSE.md file to the root of this repository.
 56 warn ENOLICENSE See https://choosealicense.com for additional guidance.
 57 silly getCurrentSHA
-58 verbose getCurrentSHA 89f16069c4c696068b3d6fbdc2813a23e203d938
+58 verbose getCurrentSHA 29b1df26085311fae07e8612a82ad85b8787f333
 59 silly lifecycle No script for "prepublish" in "root", continuing
 60 silly lifecycle No script for "prepare" in "root", continuing
 61 silly lifecycle No script for "prepublishOnly" in "root", continuing
@@ -93,4 +91,13 @@
 70 silly lifecycle No script for "prepublishOnly" in "@tbarous/merit", continuing
 71 silly lifecycle No script for "prepack" in "@tbarous/drawbridge", continuing
 72 silly lifecycle No script for "prepack" in "@tbarous/merit", continuing
-73 error
+73 silly lifecycle No script for "postpack" in "@tbarous/merit", continuing
+74 verbose packed packages/merit/dist
+75 silly lifecycle No script for "postpack" in "@tbarous/drawbridge", continuing
+76 verbose packed packages/drawbridge/dist
+77 verbose pack-directory packages/oxygen/dist
+78 silly lifecycle No script for "prepublish" in "@tbarous/oxygen", continuing
+79 silly lifecycle No script for "prepare" in "@tbarous/oxygen", continuing
+80 silly lifecycle No script for "prepublishOnly" in "@tbarous/oxygen", continuing
+81 silly lifecycle No script for "prepack" in "@tbarous/oxygen", continuing
+82 error
