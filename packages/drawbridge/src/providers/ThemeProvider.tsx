@@ -1,4 +1,4 @@
-import {ThemeProvider as DefaultThemeProvider} from "styled-components";
+import {ThemeProvider as StyledComponentsThemeProvider} from "styled-components";
 import React, {ReactElement} from "react";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 import {BasicComponentProps} from "@typings";
@@ -11,9 +11,9 @@ const ThemeProvider: React.FunctionComponent<Props> = (props: Props): ReactEleme
     const {children, className, theme} = props;
 
     return (
-        <DefaultThemeProvider theme={theme}>
+        <StyledComponentsThemeProvider theme={theme}>
             {children}
-        </DefaultThemeProvider>
+        </StyledComponentsThemeProvider>
     )
 }
 

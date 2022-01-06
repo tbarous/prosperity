@@ -3,7 +3,7 @@ import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import IconStyled from "@components/icon/styled/IconStyled";
 import {IconInterface} from "@icons";
 
-interface Props extends BasicComponentProps {
+export interface Props extends BasicComponentProps {
     icon: IconInterface,
     width?: number,
     height?: number,

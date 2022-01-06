@@ -9,8 +9,12 @@ const GlobalStorybookStyle = GlobalStyledUtils.extendGlobalStyle(css`#root {
   height: 100%;
 }`);
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+`;
 
+export const Wrapper2 = styled.div`
+color: ${p => console.log(p)};
+`;
 const StorybookWrapper: React.FunctionComponent<any> = (props: any): ReactElement => {
     const {children, className} = props;
 
@@ -21,6 +25,7 @@ const StorybookWrapper: React.FunctionComponent<any> = (props: any): ReactElemen
             <GlobalStorybookStyle/>
 
             <ThemeProvider theme={Light}>
+                <Wrapper2></Wrapper2>
                 {children}
             </ThemeProvider>
         </Wrapper>

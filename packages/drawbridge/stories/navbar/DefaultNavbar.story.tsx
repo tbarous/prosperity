@@ -116,7 +116,7 @@ const DefaultNavbar = (args: BasicComponentProps) => {
 
     return (
         <StorybookWrapperStyled>
-            <NavbarStatic>
+            <NavbarStatic transparent>
                 <Content/>
             </NavbarStatic>
 

@@ -1,107 +1,128 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import StorybookWrapper from "@stories/StorybookWrapper";
-import Image from "@components/image/Image";
-import Container from "@components/grid/Container";
-import Row from "@components/grid/Row";
-import Col from "@components/grid/Col";
-import {BasicComponentProps} from "@typings";
+import Image from "@tbarous/drawbridge/components/image/Image";
+import Container from "@tbarous/drawbridge/components/grid/Container";
+import Row from "@tbarous/drawbridge/components/grid/Row";
+import Col from "@tbarous/drawbridge/components/grid/Col";
+import {BasicComponentProps, StyledProps} from "@tbarous/drawbridge/typings";
 import styled from "styled-components";
-import useMountChild from "@hooks/useMountChild";
-import NavbarStatic from "@components/navbar/NavbarStatic";
-import NavbarFixed from "@components/navbar/NavbarFixed";
-import useOnScroll from "@hooks/UseOnScroll";
-import Link from "@components/link/Link";
+import useMountChild from "@tbarous/drawbridge/hooks/useMountChild";
+import NavbarStatic from "@tbarous/drawbridge/components/navbar/NavbarStatic";
+import NavbarFixed from "@tbarous/drawbridge/components/navbar/NavbarFixed";
+import useOnScroll from "@tbarous/drawbridge/hooks/UseOnScroll";
+import Link from "@tbarous/drawbridge/components/link/Link";
+import Button from "@tbarous/drawbridge/components/button/Button";
+import {T as ColT} from "@tbarous/drawbridge/components/grid/styled/ColStyled";
+import {px} from "@tbarous/drawbridge/utils/ThemeUtils";
+import Tooltip from "@tbarous/drawbridge/components/tooltip/Tooltip";
+import TooltipContentStyled from '@tbarous/drawbridge/components/tooltip/styled/TooltipContentStyled';
+import ListItem from "@tbarous/drawbridge/components/list/ListItem";
+import List from "@tbarous/drawbridge/components/list/List";
+import Checkbox from "@tbarous/drawbridge/components/form/Checkbox";
+import {ChevronDown} from "@tbarous/drawbridge/icons";
+import Icon from "@tbarous/drawbridge/components/icon/Icon";
 
-const NavbarStaticStyled = styled(NavbarStatic)`
-  height: 100px;
-`;
-
-const NavbarFixedStyled = styled(NavbarFixed)`
-  height: 100px;
-`;
-
-const Links = styled.div`
+const NavbarCol = styled(Col)`
   display: flex;
   align-items: center;
-  height: 100%;
-  justify-content: end;
+  justify-content: center;
 `;
 
 const StorybookWrapperStyled = styled(StorybookWrapper)`
   height: 200%;
 `;
 
-const ContainerStyled = styled(Container)`
-  margin-top: 4rem;
+const ButtonCol = styled(Col)`
+  padding: ${(p: ColT) => px(p.theme.spacing.s8)};
 `;
 
-const LinkStyled = styled(Link)`
-  padding: 0 1rem;
+const ListStyled = styled(List)`
+  background: white;
 `;
 
-interface Props {
-    links: { name: string, href: string }[],
-    logo?: string
+const ListItemStyled = styled(ListItem)`
+  border-bottom: none;
+`;
+
+const ButtonStyled = styled(Button)`
+  display: flex;
+  align-items: center;
+`
+
+const Content = () => {
+    const [lang, setLang] = useState("gr");
+
+    return (
+        <Container>
+            <Row>
+                <Col xs={1}>
+                    <Image src="/logo.png" alt="img"/>
+                </Col>
+
+                <Col xs={4}/>
+
+                <NavbarCol xs={1}>
+                    <Link active href="/">home</Link>
+                </NavbarCol>
+
+                <NavbarCol xs={1}>
+                    <Link href="/">about</Link>
+                </NavbarCol>
+
+                <NavbarCol xs={1}>
+                    <Link href="/">projects</Link>
+                </NavbarCol>
+
+                <NavbarCol xs={2}>
+                    <Tooltip clickable>
+                        <ButtonStyled secondary>{lang==="gr"? "GR" : "EN"} <Icon icon={ChevronDown}/></ButtonStyled>
+
+                        <TooltipContentStyled>
+                            <ListStyled>
+                                <ListItem>
+                                    <Checkbox
+                                        onChange={() => setLang(lang === "gr" ? "en" : "gr")}
+                                        checked={lang === "gr"}
+                                        label="GR"
+                                    />
+                                </ListItem>
+
+                                <ListItemStyled>
+                                    <Checkbox
+                                        onChange={() => setLang(lang === "en" ? "gr" : "en")}
+                                        checked={lang === "en"}
+                                        label="EN"
+                                    />
+                                </ListItemStyled>
+                            </ListStyled>
+                        </TooltipContentStyled>
+                    </Tooltip>
+                </NavbarCol>
+
+                <ButtonCol xs={2}>
+                    <Button primary>Login/Register</Button>
+                </ButtonCol>
+            </Row>
+        </Container>
+    )
 }
 
-const SampleNavbar = (props: Props) => {
-    const {links, logo} = props;
-
-    const navbarFixed = useMountChild(1000);
+const DefaultNavbar = (args: BasicComponentProps) => {
+    const navbarFixed = useMountChild(300);
 
     const scrollFromTop = useOnScroll();
 
     useEffect(() => scrollFromTop >= 100 ? navbarFixed.renderComponent() : navbarFixed.unmountComponent(), [scrollFromTop])
 
     return (
-        <StorybookWrapperStyled>
-            <NavbarStaticStyled>
-                <Container>
-                    <Row>
-                        {logo && <Col xs={1}>
-                            <Image src={logo} alt="img"/>
-                        </Col>}
+        <>
+            <NavbarStatic>
+                <Content/>
+            </NavbarStatic>
 
-                        <Col xs={11}>
-                            <Links>
-                                {links.map((link, index: number) => (
-                                    <LinkStyled
-                                        key={index}
-                                        href={link.href}
-                                    >
-                                        {link.name}
-                                    </LinkStyled>
-                                ))}
-                            </Links>
-                        </Col>
-                    </Row>
-                </Container>
-            </NavbarStaticStyled>
-
-            {navbarFixed.render && <NavbarFixedStyled {...navbarFixed}>
-                <Container>
-                    <Row>
-                        <Col xs={1}>
-                            <Image src="/logo.png" alt="img"/>
-                        </Col>
-
-                        <Col xs={11}>
-                            <Links>
-                                {links.map((link, index: number) => (
-                                    <LinkStyled
-                                        key={index}
-                                        href={link.href}
-                                    >
-                                        {link.name}
-                                    </LinkStyled>
-                                ))}
-                            </Links>
-                        </Col>
-                    </Row>
-                </Container>
-            </NavbarFixedStyled>}
-        </StorybookWrapperStyled>
+            {navbarFixed.render && <NavbarFixed{...navbarFixed}><Content/></NavbarFixed>}
+        </>
     );
 }
 
-export default SampleNavbar;
+export default DefaultNavbar;
