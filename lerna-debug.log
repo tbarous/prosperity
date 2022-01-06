@@ -8,7 +8,7 @@
 0 silly argv }
 1 notice cli v4.0.0
 2 verbose rootPath /home/node1/Desktop/DEVELOPMENT/prosperity
-3 verbose session 6d256b069331d0b6
+3 verbose session 9abe08052ff7b23c
 4 verbose user-agent lerna/4.0.0/node@v14.18.2+x64 (linux)
 5 silly argv {
 5 silly argv   _: [ 'publish' ],
@@ -18,7 +18,7 @@
 5 silly argv   lernaVersion: '4.0.0'
 5 silly argv }
 6 verbose rootPath /home/node1/Desktop/DEVELOPMENT/prosperity
-7 info current version 0.0.38
+7 info current version 0.0.39
 8 silly isAnythingCommitted
 9 verbose isAnythingCommitted 1
 10 silly getCurrentBranch
@@ -28,8 +28,8 @@
 14 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 0
 15 silly hasTags
 16 verbose hasTags true
-17 silly git-describe.sync "v0.0.38-1-g98d86d8" => {"lastTagName":"v0.0.38","lastVersion":"v0.0.38","refCount":"1","sha":"98d86d8","isDirty":false}
-18 info Looking for changed packages since v0.0.38
+17 silly git-describe.sync "v0.0.39-1-g28b124d" => {"lastTagName":"v0.0.39","lastVersion":"v0.0.39","refCount":"1","sha":"28b124d","isDirty":false}
+18 info Looking for changed packages since v0.0.39
 19 silly checking diff packages/drawbridge
 20 silly found diff in packages/drawbridge/package.json
 21 verbose filtered diff [ 'packages/drawbridge/package.json' ]
@@ -38,12 +38,42 @@
 24 verbose filtered diff [ 'packages/merit/package.json' ]
 25 silly checking diff packages/oxygen
 26 silly found diff in packages/oxygen/package.json
-27 verbose filtered diff [ 'packages/oxygen/package.json' ]
+26 silly found diff in packages/oxygen/src/components/buttons/GoogleButton.tsx
+26 silly found diff in packages/oxygen/src/components/cards/CardImageText.tsx
+26 silly found diff in packages/oxygen/src/components/modals/AuthModal.tsx
+26 silly found diff in packages/oxygen/src/components/navbars/Navbar.tsx
+26 silly found diff in packages/oxygen/src/helpers/index.ts
+26 silly found diff in packages/oxygen/src/typings/index.ts
+26 silly found diff in packages/oxygen/stories/StorybookWrapper.tsx
+26 silly found diff in packages/oxygen/stories/card/Card.stories.ts
+26 silly found diff in packages/oxygen/stories/card/ImageCard.story.tsx
+26 silly found diff in packages/oxygen/stories/modal/Auth.story.tsx
+26 silly found diff in packages/oxygen/stories/modal/Modal.stories.ts
+26 silly found diff in packages/oxygen/stories/navbar/Navbar.stories.ts
+26 silly found diff in packages/oxygen/stories/navbar/Navbar.story.tsx
+26 silly found diff in packages/oxygen/tsconfig.json
+27 verbose filtered diff [
+27 verbose filtered diff   'packages/oxygen/package.json',
+27 verbose filtered diff   'packages/oxygen/src/components/buttons/GoogleButton.tsx',
+27 verbose filtered diff   'packages/oxygen/src/components/cards/CardImageText.tsx',
+27 verbose filtered diff   'packages/oxygen/src/components/modals/AuthModal.tsx',
+27 verbose filtered diff   'packages/oxygen/src/components/navbars/Navbar.tsx',
+27 verbose filtered diff   'packages/oxygen/src/helpers/index.ts',
+27 verbose filtered diff   'packages/oxygen/src/typings/index.ts',
+27 verbose filtered diff   'packages/oxygen/stories/StorybookWrapper.tsx',
+27 verbose filtered diff   'packages/oxygen/stories/card/Card.stories.ts',
+27 verbose filtered diff   'packages/oxygen/stories/card/ImageCard.story.tsx',
+27 verbose filtered diff   'packages/oxygen/stories/modal/Auth.story.tsx',
+27 verbose filtered diff   'packages/oxygen/stories/modal/Modal.stories.ts',
+27 verbose filtered diff   'packages/oxygen/stories/navbar/Navbar.stories.ts',
+27 verbose filtered diff   'packages/oxygen/stories/navbar/Navbar.story.tsx',
+27 verbose filtered diff   'packages/oxygen/tsconfig.json'
+27 verbose filtered diff ]
 28 verbose updated @tbarous/drawbridge
 29 verbose updated @tbarous/merit
 30 verbose updated @tbarous/oxygen
-31 verbose git-describe undefined => "v0.0.38-1-g98d86d8"
-32 silly git-describe parsed => {"lastTagName":"v0.0.38","lastVersion":"v0.0.38","refCount":"1","sha":"98d86d8","isDirty":false}
+31 verbose git-describe undefined => "v0.0.39-1-g28b124d"
+32 silly git-describe parsed => {"lastTagName":"v0.0.39","lastVersion":"v0.0.39","refCount":"1","sha":"28b124d","isDirty":false}
 33 info execute Skipping releases
 34 silly lifecycle No script for "preversion" in "root", continuing
 35 silly lifecycle No script for "preversion" in "@tbarous/drawbridge", continuing
@@ -59,10 +89,10 @@
 42 silly gitAdd   'packages/oxygen/package.json',
 42 silly gitAdd   'lerna.json'
 42 silly gitAdd ]
-43 silly gitCommit v0.0.39
-44 verbose git [ 'commit', '-m', 'v0.0.39' ]
-45 silly gitTag v0.0.39
-46 verbose git [ 'tag', 'v0.0.39', '-m', 'v0.0.39' ]
+43 silly gitCommit v0.0.40
+44 verbose git [ 'commit', '-m', 'v0.0.40' ]
+45 silly gitTag v0.0.40
+46 verbose git [ 'tag', 'v0.0.40', '-m', 'v0.0.40' ]
 47 silly lifecycle No script for "postversion" in "@tbarous/drawbridge", continuing
 48 silly lifecycle No script for "postversion" in "@tbarous/merit", continuing
 49 silly lifecycle No script for "postversion" in "@tbarous/oxygen", continuing
@@ -76,7 +106,7 @@
 56 warn ENOLICENSE One way to fix this is to add a LICENSE.md file to the root of this repository.
 56 warn ENOLICENSE See https://choosealicense.com for additional guidance.
 57 silly getCurrentSHA
-58 verbose getCurrentSHA 29b1df26085311fae07e8612a82ad85b8787f333
+58 verbose getCurrentSHA 944cc23d01bcd1ad22c294ea752628a9df2787e0
 59 silly lifecycle No script for "prepublish" in "root", continuing
 60 silly lifecycle No script for "prepare" in "root", continuing
 61 silly lifecycle No script for "prepublishOnly" in "root", continuing
@@ -100,4 +130,9 @@
 79 silly lifecycle No script for "prepare" in "@tbarous/oxygen", continuing
 80 silly lifecycle No script for "prepublishOnly" in "@tbarous/oxygen", continuing
 81 silly lifecycle No script for "prepack" in "@tbarous/oxygen", continuing
-82 error
+82 silly lifecycle No script for "postpack" in "@tbarous/oxygen", continuing
+83 verbose packed packages/oxygen/dist
+84 silly lifecycle No script for "postpack" in "root", continuing
+85 verbose publish @tbarous/drawbridge
+86 verbose publish @tbarous/merit
+87 error

@@ -61,5 +61,5 @@
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "4.5.4"
   },
-  "gitHead": "29b1df26085311fae07e8612a82ad85b8787f333"
+  "gitHead": "944cc23d01bcd1ad22c294ea752628a9df2787e0"
 }
