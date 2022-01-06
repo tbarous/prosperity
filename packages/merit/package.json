@@ -1,8 +1,18 @@
 {
-  "name": "merit",
+  "name": "@tbarous/merit",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
+  "author": {
+    "name": "Tasos Barous",
+    "email": "tasosbarous@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tbarous/prosperity"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "devDependencies": {
     "@types/node": "^17.0.6",
     "typescript": "^4.5.4"
