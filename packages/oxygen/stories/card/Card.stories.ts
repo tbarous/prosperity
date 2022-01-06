@@ -1,12 +1,12 @@
-import Card from "@components/card/Card";
-import DefaultCard from '@stories/card/DefaultCard.story';
+import ImageCard from './ImageCard';
 
 export default {
     title: 'Card',
-    component: Card,
+    component: () => {
+    },
     argTypes: {},
 };
 
 export {
-    DefaultCard
+    ImageCard
 }

@@ -1,9 +1,9 @@
 import React, {ReactElement} from "react";
-import styled, {css, ThemeProvider} from "styled-components";
-import GlobalStyledUtils from "@utils/GlobalStyleUtils";
-import Light from "@theme/light/Theme";
-import {BasicComponentProps} from "@typings";
+import styled, {css, } from "styled-components";
+import GlobalStyledUtils from "@tbarous/drawbridge/utils/GlobalStyleUtils";
+import Light from "@tbarous/drawbridge/theme/light/Theme";
 import "../.storybook/assets/font/font.css";
+import ThemeProvider from "@tbarous/drawbridge/providers/ThemeProvider"
 
 const GlobalStorybookStyle = GlobalStyledUtils.extendGlobalStyle(css`#root {
   height: 100%;
@@ -11,7 +11,7 @@ const GlobalStorybookStyle = GlobalStyledUtils.extendGlobalStyle(css`#root {
 
 export const Wrapper = styled.div``;
 
-const StorybookWrapper: React.FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElement => {
+const StorybookWrapper: React.FunctionComponent<any> = (props: any): ReactElement => {
     const {children, className} = props;
 
     return (
