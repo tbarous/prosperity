@@ -1,5 +1,5 @@
 const SHA256 = require("crypto-js/sha256");
-
+//dwqd
 function randomString(length = 12) {
     const chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
