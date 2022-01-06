@@ -1,0 +1,96 @@
+0 silly argv {
+0 silly argv   _: [ 'publish' ],
+0 silly argv   registry: 'https://npm.pkg.github.com',
+0 silly argv   contents: 'dist',
+0 silly argv   composed: 'publish',
+0 silly argv   lernaVersion: '4.0.0',
+0 silly argv   '$0': 'node_modules/.bin/lerna'
+0 silly argv }
+1 notice cli v4.0.0
+2 verbose rootPath /home/node1/Desktop/DEVELOPMENT/prosperity
+3 verbose session c229ba2945bae030
+4 verbose user-agent lerna/4.0.0/node@v14.18.2+x64 (linux)
+5 silly argv {
+5 silly argv   _: [ 'publish' ],
+5 silly argv   registry: 'https://npm.pkg.github.com',
+5 silly argv   contents: 'dist',
+5 silly argv   composed: 'publish',
+5 silly argv   lernaVersion: '4.0.0'
+5 silly argv }
+6 verbose rootPath /home/node1/Desktop/DEVELOPMENT/prosperity
+7 info current version 0.0.37
+8 silly isAnythingCommitted
+9 verbose isAnythingCommitted 1
+10 silly getCurrentBranch
+11 verbose currentBranch master
+12 silly remoteBranchExists
+13 silly isBehindUpstream
+14 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 0
+15 silly hasTags
+16 verbose hasTags true
+17 silly git-describe.sync "v0.0.37-2-g3860ff4" => {"lastTagName":"v0.0.37","lastVersion":"v0.0.37","refCount":"2","sha":"3860ff4","isDirty":false}
+18 info Looking for changed packages since v0.0.37
+19 silly checking diff packages/drawbridge
+20 silly found diff in packages/drawbridge/package.json
+21 verbose filtered diff [ 'packages/drawbridge/package.json' ]
+22 silly checking diff packages/merit
+23 silly found diff in packages/merit/package.json
+23 silly found diff in packages/merit/tsconfig.json
+24 verbose filtered diff [ 'packages/merit/package.json', 'packages/merit/tsconfig.json' ]
+25 silly checking diff packages/oxygen
+26 silly found diff in packages/oxygen/package.json
+26 silly found diff in packages/oxygen/tsconfig.json
+27 verbose filtered diff [ 'packages/oxygen/package.json', 'packages/oxygen/tsconfig.json' ]
+28 verbose updated @tbarous/drawbridge
+29 verbose updated @tbarous/merit
+30 verbose updated @tbarous/oxygen
+31 verbose git-describe undefined => "v0.0.37-2-g3860ff4"
+32 silly git-describe parsed => {"lastTagName":"v0.0.37","lastVersion":"v0.0.37","refCount":"2","sha":"3860ff4","isDirty":false}
+33 info execute Skipping releases
+34 silly lifecycle No script for "preversion" in "root", continuing
+35 silly lifecycle No script for "preversion" in "@tbarous/drawbridge", continuing
+36 silly lifecycle No script for "preversion" in "@tbarous/merit", continuing
+37 silly lifecycle No script for "version" in "@tbarous/merit", continuing
+38 silly lifecycle No script for "version" in "@tbarous/drawbridge", continuing
+39 silly lifecycle No script for "preversion" in "@tbarous/oxygen", continuing
+40 silly lifecycle No script for "version" in "@tbarous/oxygen", continuing
+41 silly lifecycle No script for "version" in "root", continuing
+42 silly gitAdd [
+42 silly gitAdd   'packages/merit/package.json',
+42 silly gitAdd   'packages/drawbridge/package.json',
+42 silly gitAdd   'packages/oxygen/package.json',
+42 silly gitAdd   'lerna.json'
+42 silly gitAdd ]
+43 silly gitCommit v0.0.38
+44 verbose git [ 'commit', '-m', 'v0.0.38' ]
+45 silly gitTag v0.0.38
+46 verbose git [ 'tag', 'v0.0.38', '-m', 'v0.0.38' ]
+47 silly lifecycle No script for "postversion" in "@tbarous/drawbridge", continuing
+48 silly lifecycle No script for "postversion" in "@tbarous/merit", continuing
+49 silly lifecycle No script for "postversion" in "@tbarous/oxygen", continuing
+50 silly lifecycle No script for "postversion" in "root", continuing
+51 info git Pushing tags...
+52 silly gitPush origin master
+53 info publish Publishing packages to npm...
+54 notice Skipping all user and access validation due to third-party registry
+55 notice Make sure you're authenticated properly ¯\_(ツ)_/¯
+56 warn ENOLICENSE Packages @tbarous/drawbridge, @tbarous/merit, and @tbarous/oxygen are missing a license.
+56 warn ENOLICENSE One way to fix this is to add a LICENSE.md file to the root of this repository.
+56 warn ENOLICENSE See https://choosealicense.com for additional guidance.
+57 silly getCurrentSHA
+58 verbose getCurrentSHA 89f16069c4c696068b3d6fbdc2813a23e203d938
+59 silly lifecycle No script for "prepublish" in "root", continuing
+60 silly lifecycle No script for "prepare" in "root", continuing
+61 silly lifecycle No script for "prepublishOnly" in "root", continuing
+62 silly lifecycle No script for "prepack" in "root", continuing
+63 verbose pack-directory packages/drawbridge/dist
+64 verbose pack-directory packages/merit/dist
+65 silly lifecycle No script for "prepublish" in "@tbarous/drawbridge", continuing
+66 silly lifecycle No script for "prepublish" in "@tbarous/merit", continuing
+67 silly lifecycle No script for "prepare" in "@tbarous/drawbridge", continuing
+68 silly lifecycle No script for "prepare" in "@tbarous/merit", continuing
+69 silly lifecycle No script for "prepublishOnly" in "@tbarous/drawbridge", continuing
+70 silly lifecycle No script for "prepublishOnly" in "@tbarous/merit", continuing
+71 silly lifecycle No script for "prepack" in "@tbarous/drawbridge", continuing
+72 silly lifecycle No script for "prepack" in "@tbarous/merit", continuing
+73 error
