@@ -12,7 +12,7 @@ enum ContainerMaxWidthEnum {
 type T = { fluid?: boolean } & StyledProps;
 
 const ContainerStyled = styled.div<T>`
-  height: ${(p: T) => p.theme.dimension.auto};
+  height: ${(p: T) => p.theme.dimension.d100};
   padding-right: ${(p: T) => px(p.theme.spacing.s5)};
   padding-left: ${(p: T) => px(p.theme.spacing.s5)};
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};

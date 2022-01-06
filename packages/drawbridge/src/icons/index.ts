@@ -33,10 +33,26 @@ const ArrowCircleRightSolid: IconInterface = {
     d: "M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zm-28.9 143.6l75.5 72.4H120c-13.3 0-24 10.7-24 24v16c0 13.3 10.7 24 24 24h182.6l-75.5 72.4c-9.7 9.3-9.9 24.8-.4 34.3l11 10.9c9.4 9.4 24.6 9.4 33.9 0L404.3 273c9.4-9.4 9.4-24.6 0-33.9L271.6 106.3c-9.4-9.4-24.6-9.4-33.9 0l-11 10.9c-9.5 9.6-9.3 25.1.4 34.4z"
 }
 
+const Google: IconInterface = {
+    data: "google",
+    viewBox: "0 0 488 512",
+    fill: "currentColor",
+    d: "M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
+}
+
+const Facebook: IconInterface = {
+    data: "facebook-f",
+    viewBox: "0 0 320 512",
+    fill: "currentColor",
+    d: "M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+}
+
 export {
     Times,
     AddressCard,
     ArrowCircleLeftSolid,
-    ArrowCircleRightSolid
+    ArrowCircleRightSolid,
+    Google,
+    Facebook
 }
 

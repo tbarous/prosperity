@@ -5,7 +5,7 @@ import {px} from "@utils/ThemeUtils";
 type T = StyledProps & useMountChildStyledProps;
 
 const NavbarFixedStyled = styled.div<T>`
-  height: ${(p: T) => p.theme.dimension.d10};
+  height: ${(p: T) => "100px"};
   z-index: ${(p: T) => p.theme.zIndex.navbar};
   top: ${(p: T) => px(p.theme.spacing.s0)};
   position: ${(p: T) => p.theme.position.fixed};

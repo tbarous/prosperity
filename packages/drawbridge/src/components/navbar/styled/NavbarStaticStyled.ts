@@ -4,7 +4,7 @@ import {StyledProps} from "@typings";
 type T = StyledProps;
 
 const NavbarStaticStyled = styled.div<T>`
-  height: ${(p: T) => p.theme.dimension.d10};
+  height: ${(p: T) => "100px"};
   z-index: ${(p: T) => p.theme.zIndex.navbar};
   align-items: ${(props: T) => props.theme.alignItems.center};
   display: ${(props: T) => props.theme.display.flex};

@@ -17,7 +17,7 @@ interface Props {
 }
 
 const CardImageText = (props: Props) => (
-    <Card>
+    <Card rounded>
         <Image
             rounded-top
             src={props.image.src}

@@ -11,14 +11,7 @@ import NavbarStatic from "@components/navbar/NavbarStatic";
 import NavbarFixed from "@components/navbar/NavbarFixed";
 import useOnScroll from "@hooks/UseOnScroll";
 import Link from "@components/link/Link";
-
-const NavbarStaticStyled = styled(NavbarStatic)`
-  height: 100px;
-`;
-
-const NavbarFixedStyled = styled(NavbarFixed)`
-  height: 100px;
-`;
+import Button from "@components/button/Button";
 
 const Links = styled.div`
   display: flex;
@@ -39,21 +32,31 @@ const LinkStyled = styled(Link)`
   padding: 0 1rem;
 `;
 
-const Content = () => <Container>
-    <Row>
-        <Col xs={1}>
-            <Image src="/logo.png" alt="img"/>
-        </Col>
+const ButtonCol = styled(Col)`
+  padding: 1rem;
+`;
 
-        <Col xs={11}>
-            <Links>
-                <LinkStyled href="/">Link 1</LinkStyled>
-                <LinkStyled href="/about">Link 2</LinkStyled>
-                <LinkStyled href="/about">Link 3</LinkStyled>
-            </Links>
-        </Col>
-    </Row>
-</Container>
+const Content = () => (
+    <Container>
+        <Row>
+            <Col xs={1}>
+                <Image src="/logo.png" alt="img"/>
+            </Col>
+
+            <Col xs={9}>
+                <Links>
+                    <LinkStyled href="/">home</LinkStyled>
+                    <LinkStyled href="/about">about</LinkStyled>
+                    <LinkStyled href="/about">projects</LinkStyled>
+                </Links>
+            </Col>
+
+            <ButtonCol xs={2}>
+                <Button primary>Login/Register</Button>
+            </ButtonCol>
+        </Row>
+    </Container>
+)
 
 const DefaultNavbar = (args: BasicComponentProps) => {
     const navbarFixed = useMountChild(1000);
@@ -64,11 +67,17 @@ const DefaultNavbar = (args: BasicComponentProps) => {
 
     return (
         <StorybookWrapperStyled>
-            <NavbarStaticStyled>
+            <NavbarStatic>
                 <Content/>
-            </NavbarStaticStyled>
+            </NavbarStatic>
 
-            {navbarFixed.render && <NavbarFixedStyled {...navbarFixed}><Content/></NavbarFixedStyled>}
+            {navbarFixed.render &&
+                <NavbarFixed
+                    {...navbarFixed}
+                >
+                    <Content/>
+                </NavbarFixed>
+            }
         </StorybookWrapperStyled>
     );
 }

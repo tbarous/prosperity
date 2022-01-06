@@ -2,7 +2,9 @@ import styled, {css} from "styled-components";
 import {StyledProps} from "@typings";
 import MediaUtils from "@utils/MediaUtils";
 
-type T = { xs?: number, sm?: number, md?: number, lg?: number, xl?: number, xxl?: number, gutter?: number } & StyledProps;
+type T =
+    { xs?: number, sm?: number, md?: number, lg?: number, xl?: number, xxl?: number, gutter?: number }
+    & StyledProps;
 
 const width = (columns?: number) => columns ? `${(100 / 12) * columns}%` : "";
 
@@ -13,6 +15,7 @@ const ColStyled = styled.div<T>`
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
   padding-left: ${(p: T) => p.gutter ? `${p.gutter / 2}px` : ""};
   padding-right: ${(p: T) => p.gutter ? `${p.gutter / 2}px` : ""};
+  height: ${(p: T) => p.theme.dimension.d100};
 
   ${(p: T) => MediaUtils.up(p.theme.breakpoint.xs, css`
     width: ${width(p.xs)};

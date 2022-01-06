@@ -11,6 +11,7 @@ const RowStyled = styled.div<T>`
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
   display: ${(p: T) => p.theme.display.flex};
   flex-wrap: ${(p: T) => p.theme.flexWrap.wrap};
+  height: ${(p: T) => p.theme.dimension.d100};
 `;
 
 export default RowStyled;

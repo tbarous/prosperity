@@ -16,7 +16,9 @@ const CardImageTextStory = (args: { rounded?: boolean }) => (
             <Row gutter={14}>
                 <Col lg={3}>
                     <CardImageText
-                        text="text"
+                        text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aut beatae deserunt dignissimos, distinctio
+    dolore error exercitationem minima nisi placeat praesentium provident quas quo ratione sunt temporibus unde vel
+    voluptas."
                         image={{src: "/img.jpg", alt: "img"}}
                     />
                 </Col>
