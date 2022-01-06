@@ -1,5 +1,5 @@
 {
-  "version": "1.0.5",
+  "version": "1.0.6",
   "name": "@tbarous/oxygen",
   "description": "A React ui-compositions library",
   "author": {
@@ -22,7 +22,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@tbarous/drawbridge": "^0.0.52",
+    "@tbarous/drawbridge": "^0.0.53",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
