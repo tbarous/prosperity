@@ -1,6 +1,5 @@
 import Button, {ButtonSizeEnum, ButtonVariationEnum} from "@components/button/Button";
 import DefaultButton from "@stories/button/DefaultButton.story";
-import ButtonIcon from "./ButtonIcon.story";
 
 export default {
     title: 'Button',
@@ -19,5 +18,4 @@ export default {
 
 export {
     DefaultButton,
-    ButtonIcon
 }

@@ -75,7 +75,7 @@ const Content = () => {
 
                 <NavbarCol xs={2}>
                     <Tooltip clickable>
-                        <ButtonStyled secondary>Language <Icon icon={ChevronDown}/></ButtonStyled>
+                        <ButtonStyled secondary>{lang==="gr"? "GR" : "EN"} <Icon icon={ChevronDown}/></ButtonStyled>
 
                         <TooltipContentStyled>
                             <ListStyled>
@@ -83,7 +83,7 @@ const Content = () => {
                                     <Checkbox
                                         onChange={() => setLang(lang === "gr" ? "en" : "gr")}
                                         checked={lang === "gr"}
-                                        label="Greek"
+                                        label="GR"
                                     />
                                 </ListItem>
 
@@ -91,7 +91,7 @@ const Content = () => {
                                     <Checkbox
                                         onChange={() => setLang(lang === "en" ? "gr" : "en")}
                                         checked={lang === "en"}
-                                        label="English"
+                                        label="EN"
                                     />
                                 </ListItemStyled>
                             </ListStyled>

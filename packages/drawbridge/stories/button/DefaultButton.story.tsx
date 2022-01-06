@@ -5,28 +5,31 @@ import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import StorybookWrapper from "@stories/StorybookWrapper";
 import styled from "styled-components";
+import {Google} from "@icons";
 
 const StorybookWrapperStyled = styled(StorybookWrapper)`
   margin: 1rem;
 `;
 
-interface DefaultButtonArgsInterface {
+interface Args {
     variation?: ButtonVariationEnum,
     size?: ButtonSizeEnum,
-    children?: string
+    children?: string,
+    icon?: boolean
 }
 
-const DefaultButton = (args: DefaultButtonArgsInterface) => (
+const DefaultButton = (args: Args) => (
     <StorybookWrapperStyled>
         <Container fluid>
             <Row>
-                <Col xs={1}>
+                <Col xs={2}>
                     <Button
                         primary={ButtonVariationEnum.PRIMARY === args.variation}
                         secondary={ButtonVariationEnum.SECONDARY === args.variation}
                         small={ButtonSizeEnum.SMALL === args.size}
                         medium={ButtonSizeEnum.MEDIUM === args.size}
                         large={ButtonSizeEnum.LARGE === args.size}
+                        icon={args.icon ? Google : null}
                     >
                         {args.children}
                     </Button>
@@ -39,7 +42,8 @@ const DefaultButton = (args: DefaultButtonArgsInterface) => (
 DefaultButton.args = {
     variation: ButtonVariationEnum.PRIMARY,
     size: ButtonSizeEnum.MEDIUM,
-    children: "Button"
+    children: "Login with Google",
+    icon: false
 };
 
 export default DefaultButton;

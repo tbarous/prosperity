@@ -1,6 +1,9 @@
 import React, {ReactElement} from "react";
 import {BasicComponentProps} from "@typings";
 import ButtonStyled from "./styled/ButtonStyled";
+import {IconInterface} from "@icons";
+import ButtonWrapperStyled from "./styled/ButtonWrapperStyled";
+import ButtonIconStyled from "./styled/ButtonIconStyled";
 
 export enum ButtonSizeEnum {
     SMALL = "Small",
@@ -24,7 +27,8 @@ export interface ButtonMapping {
     secondary?: boolean,
     small?: boolean,
     medium?: boolean,
-    large?: boolean
+    large?: boolean,
+    icon?: IconInterface | null
 }
 
 export interface ButtonProps extends BasicComponentProps, ButtonMapping {
@@ -42,6 +46,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): React
         small,
         medium,
         large,
+        icon,
         onClick
     } = props;
 
@@ -57,7 +62,17 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): React
             medium={medium}
             large={large}
         >
-            {children}
+            <ButtonWrapperStyled>
+                {icon && <ButtonIconStyled
+                    icon={icon}
+                    width={20}
+                    height={20}
+                    primary={primary}
+                    secondary={secondary}
+                />}
+
+                {children}
+            </ButtonWrapperStyled>
         </ButtonStyled>
     );
 }
