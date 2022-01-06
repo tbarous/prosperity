@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "@tbarous/oxygen",
   "description": "A React ui-compositions library",
   "author": {
@@ -20,7 +20,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@tbarous/drawbridge": "^0.0.44"
+    "@tbarous/drawbridge": "^0.0.45"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
