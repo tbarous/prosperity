@@ -15,6 +15,7 @@ import Button from "@components/button/Button";
 import {T as ColT} from "@components/grid/styled/ColStyled";
 import {px} from "@utils/ThemeUtils";
 import Tooltip from "@components/tooltip/Tooltip";
+import TooltipContentStyled from '@components/tooltip/styled/TooltipContentStyled';
 
 const NavbarCol = styled(Col)`
   display: flex;
@@ -52,13 +53,15 @@ const Content = () => (
             </NavbarCol>
 
             <NavbarCol xs={2}>
-                <Tooltip
-                    Trigger={<Button secondary>Language</Button>}
-                    Content={<ul>
-                        <li>Greek</li>
-                        <li>English</li>
-                    </ul>}
-                />
+                <Tooltip>
+                    <Button secondary>Language</Button>
+                    <TooltipContentStyled>
+                        <ul>
+                            <li>Greek</li>
+                            <li>English</li>
+                        </ul>
+                    </TooltipContentStyled>
+                </Tooltip>
             </NavbarCol>
 
             <ButtonCol xs={2}>

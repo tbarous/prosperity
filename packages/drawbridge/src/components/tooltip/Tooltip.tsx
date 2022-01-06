@@ -1,22 +1,19 @@
-import React, {ReactNode, useRef, useState} from "react";
-import styled from "styled-components";
+import React, {Children, cloneElement, isValidElement, ReactNode, useRef, useState} from "react";
 import {BasicComponentProps} from "@typings";
-import TooltipTriggerStyled from "./styled/TooltipStyled";
-import TooltipContentStyled from "./styled/TooltipContentStyled";
 import useOnClickOutside from "@hooks/useOnClickOutside";
-
-const TooltipStyled = styled.div`
-  position: relative;
-`;
+import TooltipStyled from "./styled/TooltipStyled";
+import TooltipSeparatorStyled from "./styled/TooltipSeparatorStyled";
 
 interface Props extends BasicComponentProps {
-    Trigger?: ReactNode,
-    Content?: ReactNode,
     clickable?: boolean
 }
 
 const Tooltip: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
-    const {Trigger, Content, className, clickable} = props;
+    const {
+        className,
+        clickable,
+        children
+    } = props;
 
     const [active, setActive] = useState(false);
 
@@ -24,24 +21,27 @@ const Tooltip: React.FunctionComponent<Props> = (props: Props): React.ReactEleme
 
     clickable && useOnClickOutside(ref, () => setActive(false));
 
+    const onClick = () => clickable && setActive(!active);
+
+    const activate = () => !clickable && setActive(true);
+    const deactivate = () => !clickable && setActive(false);
+
     return (
         <TooltipStyled
             className={className}
-            onMouseEnter={() => !clickable && setActive(true)}
-            onMouseLeave={() => !clickable && setActive(false)}
+            onMouseEnter={activate}
+            onMouseLeave={deactivate}
             ref={ref}
         >
-            <TooltipTriggerStyled
-                onClick={() => clickable && setActive(!active)}
-            >
-                {Trigger}
-            </TooltipTriggerStyled>
+            {Children.map(children, (child, index: number) => {
+                if (isValidElement(child) && index === 0) return cloneElement(child, {onClick});
+            })}
 
-            <div style={{height: "20px", bottom: "-18px", position: "absolute", width: "100%"}}></div>
+            <TooltipSeparatorStyled/>
 
-            {active && <TooltipContentStyled>
-                {Content}
-            </TooltipContentStyled>}
+            {active && Children.map(children, (child, index: number) => {
+                if (isValidElement(child) && index === 1) return cloneElement(child);
+            })}
         </TooltipStyled>
     )
 }
