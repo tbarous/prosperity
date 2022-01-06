@@ -1,5 +1,5 @@
 {
-  "version": "0.0.56",
+  "version": "0.0.57",
   "name": "@tbarous/drawbridge",
   "description": "A React ui library",
   "author": {
@@ -12,7 +12,9 @@
     "url": "https://github.com/tbarous/prosperity"
   },
   "private": true,
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/",
     "directory": "dist"
