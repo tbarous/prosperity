@@ -1,7 +1,0 @@
-40 error Error: Command failed with exit code 128: git tag @tbarous/drawbridge@0.0.57 -m @tbarous/drawbridge@0.0.57
-40 error fatal: tag '@tbarous/drawbridge@0.0.57' already exists
-40 error     at makeError (/home/node1/Desktop/DEVELOPMENT/prosperity/node_modules/execa/lib/error.js:60:11)
-40 error     at handlePromise (/home/node1/Desktop/DEVELOPMENT/prosperity/node_modules/execa/index.js:118:26)
-40 error     at processTicksAndRejections (internal/process/task_queues.js:95:5)
-40 error     at async Promise.all (index 0)
-40 error     at async Promise.all (index 0)
