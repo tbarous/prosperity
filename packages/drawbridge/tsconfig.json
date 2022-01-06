@@ -47,13 +47,10 @@
     }
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx"
+    "./src/**/*.ts",
+    "./src/**/*.tsx"
   ],
   "exclude": [
-    "stories",
-    ".storybook",
     "node_modules",
-    "tests"
   ]
 }
