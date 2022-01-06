@@ -63,7 +63,7 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement =>
 
             <Wrapper>
                 <IconWrapper checked={checked}>
-                    {checked && <IconStyled icon={Checkmark} color="black" width={12} height={12}/>}
+                    {checked && <IconStyled icon={Checkmark} width={12} height={12}/>}
                 </IconWrapper>
 
                 {label && <TextStyled>{label}</TextStyled>}

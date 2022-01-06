@@ -30,11 +30,11 @@ const DefaultCarousel = (args: CarouselProps) => {
             <CarouselStyled {...args} change={changeToSlide}>
                 <CarouselControls>
                     <CarouselControl direction={CarouselDirectionEnum.LEFT}>
-                        <Icon color="white" icon={ArrowCircleLeftSolid} width={50} height={50}/>
+                        <Icon icon={ArrowCircleLeftSolid} width={50} height={50}/>
                     </CarouselControl>
 
                     <CarouselControl direction={CarouselDirectionEnum.RIGHT}>
-                        <Icon color="white" icon={ArrowCircleRightSolid} width={50} height={50}/>
+                        <Icon icon={ArrowCircleRightSolid} width={50} height={50}/>
                     </CarouselControl>
                 </CarouselControls>
 

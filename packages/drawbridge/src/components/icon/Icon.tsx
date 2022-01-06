@@ -1,14 +1,13 @@
 import React from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import {IconInterface} from "@components/icon/Icons";
 import IconStyled from "@components/icon/styled/IconStyled";
+import {IconInterface} from "@icons";
 
 interface Props extends BasicComponentProps {
     icon: IconInterface,
     width?: number,
     height?: number,
     onClick?: () => void,
-    color?: string
 }
 
 const Icon: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
@@ -17,7 +16,6 @@ const Icon: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull 
         width = 14,
         height = 14,
         className,
-        color,
         onClick = () => {
         },
     } = props;
@@ -28,7 +26,6 @@ const Icon: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull 
             className={className}
             width={width}
             height={height}
-            color={color}
         >
             <svg
                 aria-hidden="true"

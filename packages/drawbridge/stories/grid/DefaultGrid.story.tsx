@@ -4,15 +4,15 @@ import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import styled from "styled-components";
 import StorybookWrapper from "@stories/StorybookWrapper";
-import {TextStyledProps} from "@components/text/styled/TextStyled";
 import Text from "@components/text/Text";
+import {T} from "@components/text/styled/TextStyled";
 
 const StorybookWrapperStyled = styled(StorybookWrapper)`
   margin: 1rem;
 `;
 
-const StorybookColContent = styled(Text)<TextStyledProps>`
-  background-color: ${(props: TextStyledProps) => props.theme.color.primary};
+const StorybookColContent = styled(Text)<T>`
+  background-color: ${(props: T) => props.theme.color.primary};
   padding: 1rem;
   text-align: center;
   color: white;

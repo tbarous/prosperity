@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Roboto;
+  src: url('./Roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+  font-family: PlayfairDisplay;
+  src: url('./PlayfairDisplay/PlayfairDisplay-Regular.ttf');
+}
+
+@font-face {
+  font-family: OpenSans;
+  src: url('./OpenSans/OpenSans-Regular.ttf');
+}

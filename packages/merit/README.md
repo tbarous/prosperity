@@ -1,4 +1,4 @@
-## Authentication Module
+## Authentication Library
 
 ### Cookies Based Authentication
 

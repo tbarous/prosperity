@@ -32,7 +32,6 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
 
             <DrawerCloseStyled
                 icon={Times}
-                color="white"
                 onClick={unmountComponent}
                 width={20}
                 height={20}

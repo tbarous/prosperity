@@ -11,11 +11,11 @@ import StorybookWrapper from "@stories/StorybookWrapper";
 import styled from "styled-components";
 import ModalHeader from "@components/modal/ModalHeader";
 import ModalBody from "@components/modal/ModalBody";
-import {TextStyledProps} from "@components/text/styled/TextStyled";
 import Text from "@components/text/Text";
+import {T} from "@components/text/styled/TextStyled";
 
-export const StorybookColContent = styled(Text)<TextStyledProps>`
-  background-color: ${(props: TextStyledProps) => props.theme.color.primary};
+export const StorybookColContent = styled(Text)<T>`
+  background-color: ${(props: T) => props.theme.color.primary};
   padding: 1rem;
   text-align: center;
   color: white;
