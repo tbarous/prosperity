@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import StorybookWrapper from "@stories/StorybookWrapper";
 import Image from "@components/image/Image";
 import Container from "@components/grid/Container";
@@ -16,6 +16,11 @@ import {T as ColT} from "@components/grid/styled/ColStyled";
 import {px} from "@utils/ThemeUtils";
 import Tooltip from "@components/tooltip/Tooltip";
 import TooltipContentStyled from '@components/tooltip/styled/TooltipContentStyled';
+import ListItem from "@components/list/ListItem";
+import List from "@components/list/List";
+import Checkbox from "@components/form/Checkbox";
+import {ChevronDown} from "@icons";
+import Icon from "@components/icon/Icon";
 
 const NavbarCol = styled(Col)`
   display: flex;
@@ -31,45 +36,68 @@ const ButtonCol = styled(Col)`
   padding: ${(p: ColT) => px(p.theme.spacing.s8)};
 `;
 
-const Content = () => (
-    <Container>
-        <Row>
-            <Col xs={1}>
-                <Image src="/logo.png" alt="img"/>
-            </Col>
+const ListStyled = styled(List)`
+  background: white;
+`;
+const ListItemStyled = styled(ListItem)`
+  border-bottom: none;
+`;
 
-            <Col xs={4} />
+const ButtonStyled = styled(Button)`
+  display: flex;
+  align-items: center;
+`
 
-            <NavbarCol xs={1}>
-                <Link active href="/">home</Link>
-            </NavbarCol>
+const Content = () => {
+    const [lang, setLang] = useState("gr");
 
-            <NavbarCol xs={1}>
-                <Link href="/">about</Link>
-            </NavbarCol>
+    return (
+        <Container>
+            <Row>
+                <Col xs={1}>
+                    <Image src="/logo.png" alt="img"/>
+                </Col>
 
-            <NavbarCol xs={1}>
-                <Link href="/">projects</Link>
-            </NavbarCol>
+                <Col xs={4}/>
 
-            <NavbarCol xs={2}>
-                <Tooltip>
-                    <Button secondary>Language</Button>
-                    <TooltipContentStyled>
-                        <ul>
-                            <li>Greek</li>
-                            <li>English</li>
-                        </ul>
-                    </TooltipContentStyled>
-                </Tooltip>
-            </NavbarCol>
+                <NavbarCol xs={1}>
+                    <Link active href="/">home</Link>
+                </NavbarCol>
 
-            <ButtonCol xs={2}>
-                <Button primary>Login/Register</Button>
-            </ButtonCol>
-        </Row>
-    </Container>
-)
+                <NavbarCol xs={1}>
+                    <Link href="/">about</Link>
+                </NavbarCol>
+
+                <NavbarCol xs={1}>
+                    <Link href="/">projects</Link>
+                </NavbarCol>
+
+                <NavbarCol xs={2}>
+                    <Tooltip clickable>
+                        <ButtonStyled secondary>Language <Icon icon={ChevronDown}/></ButtonStyled>
+
+                        <TooltipContentStyled>
+                            <ListStyled>
+                                <ListItem>
+                                    <Checkbox onChange={() => setLang(lang === "gr" ? "en" : "gr")}
+                                              checked={lang === "gr"} label="Greek"/>
+                                </ListItem>
+                                <ListItemStyled>
+                                    <Checkbox onChange={() => setLang(lang === "en" ? "gr" : "en")}
+                                              checked={lang === "en"} label="English"/>
+                                </ListItemStyled>
+                            </ListStyled>
+                        </TooltipContentStyled>
+                    </Tooltip>
+                </NavbarCol>
+
+                <ButtonCol xs={2}>
+                    <Button primary>Login/Register</Button>
+                </ButtonCol>
+            </Row>
+        </Container>
+    )
+}
 
 const DefaultNavbar = (args: BasicComponentProps) => {
     const navbarFixed = useMountChild(300);

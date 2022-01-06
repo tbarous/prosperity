@@ -47,12 +47,20 @@ const Facebook: IconInterface = {
     d: "M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
 }
 
+const ChevronDown: IconInterface = {
+    data: "chevron-down",
+    viewBox: "0 0 448 512",
+    fill: "currentColor",
+    d: "M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"
+}
+
 export {
     Times,
     AddressCard,
     ArrowCircleLeftSolid,
     ArrowCircleRightSolid,
     Google,
-    Facebook
+    Facebook,
+    ChevronDown
 }
 

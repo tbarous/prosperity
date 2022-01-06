@@ -2,9 +2,9 @@ import ThemeBorderInterface from "@theme/interfaces/ThemeBorderInterface";
 
 const ThemeBorder: ThemeBorderInterface = {
     none: "none",
-    light: "1px solid",
-    medium: "2px solid",
-    large: ".5rem solid"
+    light: "1px solid #cccccc",
+    medium: "2px solid #cccccc",
+    large: ".5rem solid #cccccc"
 }
 
 export default ThemeBorder;
