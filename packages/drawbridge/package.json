@@ -12,8 +12,10 @@
     "url": "https://github.com/tbarous/prosperity"
   },
   "private": true,
+  "files": ["dist"],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/",
+    "directory": "dist"
   },
   "scripts": {
     "build": "tsc --declaration && tsc-alias && cp package.json dist/package.json",
