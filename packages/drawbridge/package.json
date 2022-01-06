@@ -1,5 +1,5 @@
 {
-  "version": "0.0.46",
+  "version": "0.0.50",
   "name": "@tbarous/drawbridge",
   "description": "A React ui library",
   "author": {
@@ -61,5 +61,5 @@
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "4.5.4"
   },
-  "gitHead": "a3b984313fb91675e57451c7fba82b4724d585f2"
+  "gitHead": "af2d2f8bd334027b5511e5d9fdd4d0efda159c36"
 }
