@@ -3,11 +3,22 @@
   "devDependencies": {
     "lerna": "^4.0.0"
   },
+  "dependencies": {
+    "styled-components": "5.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tbarous/prosperity"
+  },
+  "author": {
+    "name": "Tasos Barous",
+    "email": "tasosbarous@gmail.com"
+  },
   "scripts": {
     "prepublish": "node ./bin/prepublish.js",
     "pl": "lerna publish --registry=https://npm.pkg.github.com --contents dist"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/tbarous"
+    "registry": "https://npm.pkg.github.com/"
   }
 }

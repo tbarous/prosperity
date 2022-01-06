@@ -22,7 +22,9 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@tbarous/drawbridge": "^0.0.46"
+    "@tbarous/drawbridge": "^0.0.52",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.5",
@@ -53,10 +55,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.5.5",
     "jest": "^27.4.5",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
     "storybook-addon-styled-component-theme": "^2.0.0",
-    "styled-components": "5.3.3",
     "ts-jest": "^27.1.2",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "4.5.4"
