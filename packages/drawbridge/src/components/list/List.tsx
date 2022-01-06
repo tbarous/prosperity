@@ -1,14 +1,8 @@
 import React, {ReactNode} from "react";
-import styled from "styled-components";
+import ListStyled from "./styled/ListStyled";
+import {BasicComponentProps} from "@typings";
 
-const ListStyled = styled.ul`
-    padding: 0;
-    margin: 0;
-`;
-
-interface Props {
-    children?: ReactNode,
-    className?: string
+interface Props extends BasicComponentProps{
 }
 
 const List: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {

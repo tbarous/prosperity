@@ -38,7 +38,7 @@ const Content = () => (
                 <Image src="/logo.png" alt="img"/>
             </Col>
 
-            <Col xs={4}></Col>
+            <Col xs={4} />
 
             <NavbarCol xs={1}>
                 <Link active href="/">home</Link>
