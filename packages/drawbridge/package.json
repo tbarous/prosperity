@@ -1,12 +1,14 @@
 {
-  "version": "0.0.55",
+  "version": "0.0.56",
   "name": "@tbarous/drawbridge",
   "description": "A React ui library",
   "author": {
     "name": "Tasos Barous",
     "email": "tasosbarous@gmail.com"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
