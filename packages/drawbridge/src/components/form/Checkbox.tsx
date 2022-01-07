@@ -1,76 +1,52 @@
-import React, {ReactElement, useEffect, useRef, useState} from "react";
+import React, {ReactElement} from "react";
 import {BasicComponentProps, FunctionVoid} from "@typings";
 import {emptyFunction} from "@helpers";
 import {Checkmark} from "@icons";
-import Icon from "@components/icon/Icon";
-import Text from "@components/text/Text";
-import styled from "styled-components";
-import CheckboxWrapper from "./styled/checkbox/CheckboxWrapper";
 import CheckboxIconWrapper from "./styled/checkbox/CheckboxIconWrapper";
-import CheckboxStyled from "./styled/checkbox/CheckboxStyled";
-import CheckboxInputStyled from "./styled/checkbox/CheckboxInputStyled";
 import CheckboxIconStyled from "./styled/checkbox/CheckboxIconStyled";
-import CheckboxRipple from "./styled/checkbox/CheckboxRipple";
-import CheckboxRippleClicked from "./styled/checkbox/CheckboxRippleClicked";
+import RippleStyled, {RippleVariation} from "./styled/common/RippleStyled";
+import useRipple from "@components/form/styled/common/useRipple";
+import CheckboxRadioInputStyled from "./styled/common/CheckboxRadioInputStyled";
+import CheckboxRadioStyled from "./styled/common/CheckboxRadioStyled";
+import CheckboxRadioWrapper from "./styled/common/CheckboxRadioWrapper";
+import CheckboxRadioLabel from "./styled/common/CheckboxRadioLabel";
 
 interface Props extends BasicComponentProps {
     onChange?: FunctionVoid,
     checked?: boolean,
-    label?: string
+    label?: string,
+    disabled?: boolean
 }
-
-const TextStyled = styled(Text)`
-  margin-left: .5rem;
-`
-
-const IconStyled = styled(Icon)`
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  bottom: 6px;
-`
 
 const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement => {
     const {
-        children,
         className,
         onChange = emptyFunction,
         checked,
-        label
+        label,
+        disabled
     } = props;
 
-    const [ripple, setRipple] = useState(false);
-    const [clicked, setClicked] = useState(false);
-
-    function onClick() {
-        setClicked(true)
-    }
-
-
-    const ref = useRef<any>(null);
-    useEffect(() => {
-        ref.current = setTimeout(() => setClicked(false), 1000);
-
-        return () => clearTimeout(ref.current);
-    }, [clicked])
+    const {startRipple, stopRipple, startClickRipple, ripple, clicked} = useRipple();
 
     return (
-        <CheckboxStyled
+        <CheckboxRadioStyled
             className={className}
         >
-            <CheckboxInputStyled
+            <CheckboxRadioInputStyled
                 type="checkbox"
                 onChange={onChange}
                 checked={checked}
+                disabled={disabled}
             />
 
-            <CheckboxWrapper>
+            <CheckboxRadioWrapper>
                 <CheckboxIconWrapper
-                    onMouseEnter={() => setRipple(true)}
-                    onMouseLeave={() => setRipple(false)}
+                    onMouseEnter={startRipple}
+                    onMouseLeave={stopRipple}
                     checked={checked}
-                    onClick={onClick}
+                    disabled={disabled}
+                    onClick={startClickRipple}
                 >
                     {checked && <CheckboxIconStyled
                         icon={Checkmark}
@@ -78,16 +54,13 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement =>
                         height={12}
                     />}
 
-                    <CheckboxRipple ripple={ripple}/>
-
-                    {clicked && <CheckboxRippleClicked/>}
+                    {!disabled && ripple && <RippleStyled variation={RippleVariation.BASIC}/>}
+                    {clicked && !disabled && <RippleStyled variation={RippleVariation.STRONG}/>}
                 </CheckboxIconWrapper>
 
-                {label && <TextStyled>
-                    {label}
-                </TextStyled>}
-            </CheckboxWrapper>
-        </CheckboxStyled>
+                {label && <CheckboxRadioLabel disabled={disabled}>{label}</CheckboxRadioLabel>}
+            </CheckboxRadioWrapper>
+        </CheckboxRadioStyled>
     )
 }
 

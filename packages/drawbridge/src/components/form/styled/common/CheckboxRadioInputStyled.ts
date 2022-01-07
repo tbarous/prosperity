@@ -3,7 +3,7 @@ import {StyledProps} from "@typings";
 
 type T = StyledProps;
 
-const CheckboxInputStyled = styled.input<T>`
+const CheckboxRadioInputStyled = styled.input<T>`
   position: ${(p: T) => p.theme.position.absolute};
   cursor: ${(p: T) => p.theme.cursor.pointer};
   opacity: ${(p: T) => p.theme.opacity.hidden};
@@ -11,4 +11,4 @@ const CheckboxInputStyled = styled.input<T>`
   width: ${(p: T) => p.theme.dimension.d0};
 `;
 
-export default CheckboxInputStyled;
+export default CheckboxRadioInputStyled;

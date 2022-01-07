@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const CheckboxWrapper = styled.div`
+const CheckboxRadioWrapper = styled.div`
   display: flex;
   align-items: center;
 `
 
-export default CheckboxWrapper;
+export default CheckboxRadioWrapper;

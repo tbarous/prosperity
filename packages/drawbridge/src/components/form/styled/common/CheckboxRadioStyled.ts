@@ -4,7 +4,7 @@ import {px} from "@utils/ThemeUtils";
 
 type T = StyledProps;
 
-const CheckboxStyled = styled.label<T>`
+const CheckboxRadioStyled = styled.label<T>`
   display: ${(p: T) => p.theme.display.block};
   position: ${(p: T) => p.theme.position.relative};
   cursor: ${(p: T) => p.theme.cursor.pointer};
@@ -13,4 +13,4 @@ const CheckboxStyled = styled.label<T>`
   user-select: none;
 `;
 
-export default CheckboxStyled;
+export default CheckboxRadioStyled;

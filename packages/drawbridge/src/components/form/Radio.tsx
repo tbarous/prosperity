@@ -1,33 +1,26 @@
-import React, {ReactElement, useEffect, useState} from "react";
+import React, {ReactElement} from "react";
 import {BasicComponentProps, FunctionVoid} from "@typings";
 import {emptyFunction} from "@helpers";
-import {Checkmark} from "@icons";
-import Icon from "@components/icon/Icon";
 import Text from "@components/text/Text";
 import styled from "styled-components";
-import RadioWrapper from "./styled/radio/RadioWrapper";
 import RadioIconWrapper from "./styled/radio/RadioIconWrapper";
-import RadioStyled from "./styled/radio/RadioStyled";
-import RadioInputStyled from "./styled/radio/RadioInputStyled";
 import RadioIconStyled from "./styled/radio/RadioIconStyled";
-import RadioRipple from "./styled/radio/RadioRipple";
+import useRipple from "@components/form/styled/common/useRipple";
+import RippleStyled, {RippleVariation} from "./styled/common/RippleStyled";
+import CheckboxRadioInputStyled from "./styled/common/CheckboxRadioInputStyled";
+import CheckboxRadioStyled from "./styled/common/CheckboxRadioStyled";
+import CheckboxRadioWrapper from "./styled/common/CheckboxRadioWrapper";
+import CheckboxRadioLabel from "./styled/common/CheckboxRadioLabel";
 
 interface Props extends BasicComponentProps {
     onChange?: FunctionVoid,
     checked?: boolean,
-    label?: string
+    label?: string,
+    disabled?: boolean
 }
 
 const TextStyled = styled(Text)`
   margin-left: .5rem;
-`
-
-const IconStyled = styled(Icon)`
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  bottom: 6px;
 `
 
 const Radio: React.FunctionComponent<Props> = (props: Props): ReactElement => {
@@ -36,41 +29,38 @@ const Radio: React.FunctionComponent<Props> = (props: Props): ReactElement => {
         className,
         onChange = emptyFunction,
         checked,
-        label
+        label,
+        disabled
     } = props;
 
-    const [ripple, setRipple] = useState(false);
+    const {startRipple, stopRipple, startClickRipple, ripple, clicked} = useRipple();
 
     return (
-        <RadioStyled
+        <CheckboxRadioStyled
             className={className}
         >
-            <RadioInputStyled
+            <CheckboxRadioInputStyled
                 type="radio"
                 onChange={onChange}
                 checked={checked}
             />
 
-            <RadioWrapper>
+            <CheckboxRadioWrapper>
                 <RadioIconWrapper
-                    onMouseEnter={() => setRipple(true)}
-                    onMouseLeave={() => setRipple(false)}
+                    onMouseEnter={startRipple}
+                    onMouseLeave={stopRipple}
                     checked={checked}
+                    onClick={startClickRipple}
                 >
-                    {checked && <RadioIconStyled
-                        icon={Checkmark}
-                        width={12}
-                        height={12}
-                    />}
+                    {checked && <RadioIconStyled/>}
 
-                    <RadioRipple ripple={ripple}/>
+                    {!disabled && ripple && <RippleStyled variation={RippleVariation.BASIC}/>}
+                    {clicked && !disabled && <RippleStyled variation={RippleVariation.STRONG}/>}
                 </RadioIconWrapper>
 
-                {label && <TextStyled>
-                    {label}
-                </TextStyled>}
-            </RadioWrapper>
-        </RadioStyled>
+                {label && <CheckboxRadioLabel disabled={disabled}>{label}</CheckboxRadioLabel>}
+            </CheckboxRadioWrapper>
+        </CheckboxRadioStyled>
     )
 }
 

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Icon from "@components/icon/Icon";
 
 const CheckboxIconStyled = styled.div`
   width: 12px;

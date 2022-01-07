@@ -1,15 +1,20 @@
 import styled from "styled-components";
+import {StyledProps} from "@typings";
+import {hexToRgb} from "@utils/ColorUtils";
+import {getBackgroundColor, getBorder} from "@components/form/styled/common";
 
-const CheckboxIconWrapper = styled.div<{ checked?: boolean }>`
+type T = StyledProps & { checked?: boolean, disabled?: boolean };
+
+const CheckboxIconWrapper = styled.div<T>`
   border-radius: 2px;
   width: 18px;
   height: 18px;
   display: flex;
   align-items: center;
-  background-color: ${p => p.checked ? p.theme.color.primary : ""};
+  background-color: ${getBackgroundColor};
   position: relative;
   justify-content: center;
-  border: ${p => p.checked ? "" : " 2px solid rgba(0, 0, 0, 0.6)"};
+  border: ${getBorder};
 `
 
 export default CheckboxIconWrapper;

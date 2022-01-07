@@ -16,8 +16,8 @@ const CheckboxWrapper = styled(Col)`
   align-items: center;
 `
 
-const DefaultCheckbox = (args: any) => {
-    const [checked, setChecked] = useState(false);
+const DefaultCheckbox = (args: { disabled?: boolean, checked?: boolean, label?: string }) => {
+    const [checked, setChecked] = useState<boolean | undefined>(false);
 
     useEffect(() => {
         setChecked(args.checked)
@@ -32,6 +32,7 @@ const DefaultCheckbox = (args: any) => {
                             onChange={() => setChecked(!checked)}
                             checked={checked}
                             label={args.label}
+                            disabled={args.disabled}
                         />
                     </CheckboxWrapper>
                 </Row>
@@ -42,7 +43,8 @@ const DefaultCheckbox = (args: any) => {
 
 DefaultCheckbox.args = {
     label: "Label",
-    checked: false
+    checked: false,
+    disabled: false
 };
 
 export default DefaultCheckbox;
