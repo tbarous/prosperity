@@ -4,7 +4,7 @@ import {StyledProps} from "@typings";
 
 type T = StyledProps & { disabled?: boolean };
 
-function g(p: T) {
+function getColor(p: T) {
     if(p.disabled){
         return "rgba(0, 0, 0, 0.2)";
     }
@@ -12,10 +12,9 @@ function g(p: T) {
     return "rgba(0, 0, 0, 0.6)"
 }
 
-const CheckboxRadioLabel = styled(Text)<T>`
+const CheckboxRadioLabelStyled = styled(Text)<T>`
   margin-left: .5rem;
-  
-  color: ${g};
+  color: ${getColor};
 `
 
-export default CheckboxRadioLabel;
+export default CheckboxRadioLabelStyled;

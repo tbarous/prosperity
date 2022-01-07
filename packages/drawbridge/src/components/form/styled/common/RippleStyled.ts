@@ -52,10 +52,10 @@ function getBackground(p: T) {
 
 function getAnimation(p: T) {
     if (p.variation && p.variation === RippleVariation.STRONG) {
-        return css`${ripple} .4s linear forwards`;
+        return css`${ripple} .2s linear forwards`;
     }
 
-    return css`${ripple2} .4s linear forwards`;
+    return css`${ripple2} .2s linear forwards`;
 }
 
 function getSize(p: T) {

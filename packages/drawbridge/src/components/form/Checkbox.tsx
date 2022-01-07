@@ -2,14 +2,14 @@ import React, {ReactElement} from "react";
 import {BasicComponentProps, FunctionVoid} from "@typings";
 import {emptyFunction} from "@helpers";
 import {Checkmark} from "@icons";
-import CheckboxIconWrapper from "./styled/checkbox/CheckboxIconWrapper";
 import CheckboxIconStyled from "./styled/checkbox/CheckboxIconStyled";
 import RippleStyled, {RippleVariation} from "./styled/common/RippleStyled";
-import useRipple from "@components/form/styled/common/useRipple";
 import CheckboxRadioInputStyled from "./styled/common/CheckboxRadioInputStyled";
 import CheckboxRadioStyled from "./styled/common/CheckboxRadioStyled";
-import CheckboxRadioWrapper from "./styled/common/CheckboxRadioWrapper";
-import CheckboxRadioLabel from "./styled/common/CheckboxRadioLabel";
+import CheckboxIconWrapperStyled from "./styled/checkbox/CheckboxIconWrapperStyled";
+import CheckboxRadioWrapperStyled from "./styled/common/CheckboxRadioWrapperStyled";
+import CheckboxRadioLabelStyled from "./styled/common/CheckboxRadioLabelStyled";
+import useRipple from "@hooks/useRipple";
 
 interface Props extends BasicComponentProps {
     onChange?: FunctionVoid,
@@ -40,26 +40,23 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement =>
                 disabled={disabled}
             />
 
-            <CheckboxRadioWrapper>
-                <CheckboxIconWrapper
+            <CheckboxRadioWrapperStyled>
+                <CheckboxIconWrapperStyled
                     onMouseEnter={startRipple}
                     onMouseLeave={stopRipple}
                     checked={checked}
                     disabled={disabled}
                     onClick={startClickRipple}
                 >
-                    {checked && <CheckboxIconStyled
-                        icon={Checkmark}
-                        width={12}
-                        height={12}
-                    />}
+                    {checked && <CheckboxIconStyled icon={Checkmark} width={12} height={12}/>}
 
                     {!disabled && ripple && <RippleStyled variation={RippleVariation.BASIC}/>}
-                    {clicked && !disabled && <RippleStyled variation={RippleVariation.STRONG}/>}
-                </CheckboxIconWrapper>
 
-                {label && <CheckboxRadioLabel disabled={disabled}>{label}</CheckboxRadioLabel>}
-            </CheckboxRadioWrapper>
+                    {clicked && !disabled && <RippleStyled variation={RippleVariation.STRONG}/>}
+                </CheckboxIconWrapperStyled>
+
+                {label && <CheckboxRadioLabelStyled disabled={disabled}>{label}</CheckboxRadioLabelStyled>}
+            </CheckboxRadioWrapperStyled>
         </CheckboxRadioStyled>
     )
 }

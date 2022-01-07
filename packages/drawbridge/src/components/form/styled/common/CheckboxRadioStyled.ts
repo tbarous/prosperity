@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import {px} from "@utils/ThemeUtils";
 
 type T = StyledProps;
 

@@ -1,11 +1,12 @@
-import { StyledProps } from "@typings";
+import styled from "styled-components";
+import {StyledProps} from "@typings";
 import {hexToRgb} from "@utils/ColorUtils";
 
 type T = StyledProps & { checked?: boolean, disabled?: boolean };
 
-export function getBorder(p: T) {
+function getBorder(p: T) {
     if (p.disabled && p.checked) {
-        return ;
+        return;
     }
 
     if (p.checked && !p.disabled) {
@@ -21,7 +22,7 @@ export function getBorder(p: T) {
     }
 }
 
-export function getBackgroundColor(p: T) {
+function getBackgroundColor(p: T) {
     const {r, g, b} = hexToRgb(p.theme.color.primary);
 
     if (p.disabled && p.checked) {
@@ -40,3 +41,17 @@ export function getBackgroundColor(p: T) {
         return;
     }
 }
+
+const CheckboxIconWrapperStyled = styled.div<T>`
+  border-radius: 2px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  background-color: ${getBackgroundColor};
+  position: relative;
+  justify-content: center;
+  border: ${getBorder};
+`
+
+export default CheckboxIconWrapperStyled;

@@ -19,7 +19,7 @@ const RadioWrapper = styled(Col)`
 `
 
 const DefaultRadio = (args: any) => {
-    const [checked, setChecked] = useState(1);
+    const [checked, setChecked] = useState(2);
 
     useEffect(() => {
         setChecked(args.checked)
@@ -31,6 +31,7 @@ const DefaultRadio = (args: any) => {
                 <Row>
                     <RadioWrapper xs={4}>
                         <Radio
+                            disabled
                             onChange={() => setChecked(1)}
                             checked={checked === 1}
                             label={args.label}
@@ -58,7 +59,7 @@ const DefaultRadio = (args: any) => {
 
 DefaultRadio.args = {
     label: "Label",
-    checked: 1
+    checked: 2
 };
 
 export default DefaultRadio;
