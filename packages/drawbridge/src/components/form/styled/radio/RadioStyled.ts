@@ -2,16 +2,15 @@ import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
-type T = StyledProps & { checked?: boolean };
+type T = StyledProps;
 
-const RadioStyled = styled.label<T>`
+const CheckboxStyled = styled.label<T>`
   display: ${(p: T) => p.theme.display.block};
   position: ${(p: T) => p.theme.position.relative};
-  padding-left: ${(p: T) => px(p.theme.spacing.s13)};
-  margin-bottom: ${(p: T) => px(p.theme.spacing.s6)};
   cursor: ${(p: T) => p.theme.cursor.pointer};
   font-size: ${(p: T) => p.theme.fontSize.lg};
-  user-select: ${(p: T) => `none`};
+  border-radius: ${(p: T) => p.theme.borderRadius.large};
+  user-select: none;
 `;
 
-export default RadioStyled;
+export default CheckboxStyled;

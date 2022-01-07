@@ -1,12 +1,14 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-type T = StyledProps & { checked?: boolean };
+type T = StyledProps;
 
-const RadioInputStyled = styled.input<T>`
+const CheckboxInputStyled = styled.input<T>`
   position: ${(p: T) => p.theme.position.absolute};
-  opacity: ${(p: T) => p.theme.opacity.hidden};
   cursor: ${(p: T) => p.theme.cursor.pointer};
+  opacity: ${(p: T) => p.theme.opacity.hidden};
+  height: ${(p: T) => p.theme.dimension.d0};
+  width: ${(p: T) => p.theme.dimension.d0};
 `;
 
-export default RadioInputStyled;
+export default CheckboxInputStyled;

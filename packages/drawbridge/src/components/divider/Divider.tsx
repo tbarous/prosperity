@@ -1,16 +1,16 @@
 import React, {ReactNode} from "react";
 import DividerStyled from "./styled/DividerStyled";
+import {BasicComponentProps} from "@typings";
 
-interface Props {
-    children?: ReactNode,
-    className?: string
+interface Props extends BasicComponentProps{
+    spacing?: number
 }
 
 const Divider: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
-    const {children, className} = props;
+    const {children, className, spacing} = props;
 
     return (
-        <DividerStyled className={className}>
+        <DividerStyled className={className} spacing={spacing}>
             {children}
         </DividerStyled>
     )
