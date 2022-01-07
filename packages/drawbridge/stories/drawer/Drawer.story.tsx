@@ -12,6 +12,7 @@ import Card from "@components/card/Card";
 import Image from "@components/image/Image";
 import {px} from "@utils/ThemeUtils";
 import Text from "@components/text/Text";
+import Divider from "@components/divider/Divider";
 
 const StorybookWrapperStyled = styled(StorybookWrapper)`
   height: 100%;
@@ -54,6 +55,7 @@ const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, fixe
                         transparent={args.transparent}
                     >
                         <DrawerLink>Home</DrawerLink>
+                        <Divider />
                         <DrawerLink>About</DrawerLink>
                         <DrawerLink>Projects</DrawerLink>
                     </DrawerStyled>
