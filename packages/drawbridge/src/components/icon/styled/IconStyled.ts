@@ -7,6 +7,10 @@ const IconStyled = styled.div<T>`
   width: ${(p: T) => `${p.width}px`};
   height: ${(p: T) => `${p.height}px`};
   color: ${(p: T) => p.theme.color.dark};
+  
+      display: flex;
+    align-items: center;
+    justify-content: center;
 
   svg {
     width: ${(p: T) => p.theme.dimension.d100};

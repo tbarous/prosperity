@@ -1,9 +1,9 @@
 import React, {ReactElement, useState} from "react";
 import {BasicComponentProps, FunctionVoid} from "@typings";
 import {emptyFunction} from "@helpers";
-import RadioStyled from "@components/form/styled/RadioStyled";
-import RadioInputStyled from "@components/form/styled/RadioInputStyled";
-import RadioCheckmarkStyled from "@components/form/styled/RadioCheckmarkStyled";
+import RadioStyled from "./styled/radio/RadioStyled";
+import RadioCheckmarkStyled from "./styled/radio/RadioCheckmarkStyled";
+import RadioInputStyled from "./styled/radio/RadioInputStyled";
 
 interface Props extends BasicComponentProps {
     onChange?: FunctionVoid
