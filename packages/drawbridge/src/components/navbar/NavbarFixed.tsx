@@ -13,7 +13,6 @@ const NavbarFixed: FunctionComponent<NavbarFixedProps> = (props: NavbarFixedProp
         className,
         unmountComponent,
         mount,
-        entryDelay,
         exitDelay
     } = props;
 
@@ -21,7 +20,6 @@ const NavbarFixed: FunctionComponent<NavbarFixedProps> = (props: NavbarFixedProp
         <NavbarFixedStyled
             className={className}
             mount={mount}
-            entryDelay={entryDelay}
             exitDelay={exitDelay}
         >
             {children}

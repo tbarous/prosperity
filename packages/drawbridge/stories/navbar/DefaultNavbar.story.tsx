@@ -75,7 +75,7 @@ const Content = () => {
 
                 <NavbarCol xs={2}>
                     <Tooltip clickable>
-                        <ButtonStyled secondary>{lang==="gr"? "GR" : "EN"} <Icon icon={ChevronDown}/></ButtonStyled>
+                        <ButtonStyled secondary>{lang === "gr" ? "GR" : "EN"} <Icon icon={ChevronDown}/></ButtonStyled>
 
                         <TooltipContentStyled>
                             <ListStyled>
@@ -108,7 +108,7 @@ const Content = () => {
 }
 
 const DefaultNavbar = (args: BasicComponentProps) => {
-    const navbarFixed = useMountChild(300);
+    const navbarFixed = useMountChild(500);
 
     const scrollFromTop = useOnScroll();
 

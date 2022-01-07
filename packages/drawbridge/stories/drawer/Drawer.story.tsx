@@ -39,7 +39,7 @@ const TextStyled = styled(Text)`
 `;
 
 const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, fixed?: boolean, transparent?: boolean }) => {
-    const drawer = useMountChild(500, 500);
+    const drawer = useMountChild(500);
 
     useEffect(() => args.open ? drawer.renderComponent() : drawer.unmountComponent(), [args.open]);
 

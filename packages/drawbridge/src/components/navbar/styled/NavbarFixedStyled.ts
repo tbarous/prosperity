@@ -1,8 +1,18 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
 export type T = StyledProps & useMountChildStyledProps;
+
+const slideIn = keyframes`
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+`;
 
 const NavbarFixedStyled = styled.div<T>`
   height: ${(p: T) => "100px"};
@@ -15,7 +25,9 @@ const NavbarFixedStyled = styled.div<T>`
   background-color: ${(p: T) => p.theme.color.white};
   box-shadow: ${(p: T) => p.theme.shadow.light};
   transform: ${(p: T) => p.mount ? `translateY(0)` : `translateY(-100%)`};
-  transition: ${(p: T) => `transform ${p.mount ? `${p.entryDelay / 1000}s` : `${p.exitDelay / 1000}s`}`};
+  
+  animation: ${slideIn} .5s;
+  transition: ${(p: T) => `transform ${p.exitDelay / 1000}s`};
 `;
 
 export default NavbarFixedStyled;

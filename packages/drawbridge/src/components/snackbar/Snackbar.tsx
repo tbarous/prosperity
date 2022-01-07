@@ -34,7 +34,6 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
         closeOnDelay,
         unmountComponent,
         mount,
-        entryDelay,
         exitDelay
     } = props;
 
@@ -47,7 +46,6 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
             warning={warning}
             danger={danger}
             mount={mount}
-            entryDelay={entryDelay}
             exitDelay={exitDelay}
         >
             {children}

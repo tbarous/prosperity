@@ -5,7 +5,6 @@ import {emptyFunction} from "@helpers";
 export interface useMountChildProps {
     render: boolean,
     mount: boolean,
-    entryDelay: number,
     exitDelay: number,
     unmountComponent: (override?: boolean) => void,
     renderComponent: FunctionVoid,
@@ -22,7 +21,6 @@ export interface useMountChildProps {
  * [UNMOUNT] -> [UNRENDER]
  */
 function useMountChild(
-    entryDelay: number = 0,
     exitDelay = 0
 ): useMountChildProps {
     /**
@@ -96,7 +94,6 @@ function useMountChild(
         unmountComponent,
         renderComponent,
         toggle,
-        entryDelay,
         exitDelay
     };
 }

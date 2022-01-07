@@ -21,7 +21,6 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
         dismissible,
         unmountComponent,
         mount,
-        entryDelay,
         exitDelay
     } = props;
 
@@ -34,7 +33,6 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
             <ModalOverlayStyled
                 className={className}
                 mount={mount}
-                entryDelay={entryDelay}
                 exitDelay={exitDelay}
             />
 
@@ -42,7 +40,6 @@ const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull
                 <ModalContentStyled
                     ref={ref}
                     mount={mount}
-                    entryDelay={entryDelay}
                     exitDelay={exitDelay}
                 >
                     {dismissible && <ModalCloseStyled

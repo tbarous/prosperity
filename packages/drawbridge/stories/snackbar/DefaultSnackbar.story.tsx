@@ -22,7 +22,7 @@ interface Props extends BasicComponentProps {
 }
 
 const DefaultSnackbar = (args: Props) => {
-    const snackbar = useMountChild(1000, 1000);
+    const snackbar = useMountChild(500);
 
     useEffect(() => args.open ? snackbar.renderComponent() : snackbar.unmountComponent(), [args.open]);
 

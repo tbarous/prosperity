@@ -45,7 +45,7 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
 `;
 
 const BasicModal = (args: any) => {
-    const modal = useMountChild(1000, 1000);
+    const modal = useMountChild(500);
 
     useEffect(() => args.open ? modal.renderComponent() : modal.unmountComponent(), [args.open]);
 

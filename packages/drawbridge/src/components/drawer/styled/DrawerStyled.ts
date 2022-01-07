@@ -32,12 +32,10 @@ const DrawerStyled = styled.div<T>`
   position: ${(p: T) => p.fixed ? p.theme.position.fixed : p.theme.position.relative};
   box-shadow: ${(p: T) => p.theme.shadow.strong};
   overflow: ${(p: T) => p.theme.overflow.hidden};
+  z-index: 9999;
   
-  //animation: ${ p=> p.mount ? slideIn : slideOut} .5s forwards;
   animation: ${slideIn} .5s;
   transition: ${(p: T) => `max-width ${p.exitDelay / 1000}s`};
-  
-  z-index: 9999;
 `;
 
 export default DrawerStyled;

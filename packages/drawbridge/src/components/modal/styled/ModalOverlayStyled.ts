@@ -1,8 +1,19 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
 type T = StyledProps & useMountChildStyledProps;
+
+const fade = keyframes`
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.8;
+  }
+`;
+
 
 const ModalOverlayStyled = styled.div`
   background-color: ${(p: T) => p.theme.color.dark};
@@ -15,7 +26,9 @@ const ModalOverlayStyled = styled.div`
   top: ${(p: T) => px(p.theme.spacing.s0)};
   justify-content: ${(p: T) => p.theme.justifyContent.center};
   opacity: ${(p: T) => p.mount ? 0.8 : 0};
-  transition: ${(p: T) => p.mount ? `opacity ${p.entryDelay / 1000}s` : `opacity ${p.exitDelay / 1000}s`};
+  
+  animation: ${fade} .5s;
+  transition: ${(p: T) => `opacity ${p.exitDelay / 1000}s`};
 `;
 
 export default ModalOverlayStyled;
