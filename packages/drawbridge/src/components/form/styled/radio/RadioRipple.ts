@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
+import {hexToRgb} from "@utils/ColorUtils";
 
 type T = StyledProps & { ripple?: boolean };
 
 const CheckboxRipple = styled.div<T>`
   display: block;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(${p=> `${hexToRgb(p.theme.color.primary)?.r}, ${hexToRgb(p.theme.color.primary)?.g}, ${hexToRgb(p.theme.color.primary)?.b}, 0.2`});
   z-index: -1;
   width: 40px;
   height: 40px;

@@ -1,4 +1,4 @@
-import React, {ReactElement, useEffect, useState} from "react";
+import React, {ReactElement, useEffect, useRef, useState} from "react";
 import {BasicComponentProps, FunctionVoid} from "@typings";
 import {emptyFunction} from "@helpers";
 import {Checkmark} from "@icons";
@@ -11,6 +11,7 @@ import CheckboxStyled from "./styled/checkbox/CheckboxStyled";
 import CheckboxInputStyled from "./styled/checkbox/CheckboxInputStyled";
 import CheckboxIconStyled from "./styled/checkbox/CheckboxIconStyled";
 import CheckboxRipple from "./styled/checkbox/CheckboxRipple";
+import CheckboxRippleClicked from "./styled/checkbox/CheckboxRippleClicked";
 
 interface Props extends BasicComponentProps {
     onChange?: FunctionVoid,
@@ -40,6 +41,19 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement =>
     } = props;
 
     const [ripple, setRipple] = useState(false);
+    const [clicked, setClicked] = useState(false);
+
+    function onClick() {
+        setClicked(true)
+    }
+
+
+    const ref = useRef<any>(null);
+    useEffect(() => {
+        ref.current = setTimeout(() => setClicked(false), 1000);
+
+        return () => clearTimeout(ref.current);
+    }, [clicked])
 
     return (
         <CheckboxStyled
@@ -56,6 +70,7 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement =>
                     onMouseEnter={() => setRipple(true)}
                     onMouseLeave={() => setRipple(false)}
                     checked={checked}
+                    onClick={onClick}
                 >
                     {checked && <CheckboxIconStyled
                         icon={Checkmark}
@@ -64,6 +79,8 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement =>
                     />}
 
                     <CheckboxRipple ripple={ripple}/>
+
+                    {clicked && <CheckboxRippleClicked/>}
                 </CheckboxIconWrapper>
 
                 {label && <TextStyled>

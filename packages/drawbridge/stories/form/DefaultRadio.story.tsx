@@ -39,7 +39,7 @@ const DefaultRadio = (args: any) => {
                 </Row>
 
                 <Row>
-                    <Divider spacing={10}/>
+                    <Divider spacing={20}/>
                 </Row>
 
                 <Row>
