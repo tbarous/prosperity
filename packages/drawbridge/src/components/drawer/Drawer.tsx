@@ -27,14 +27,13 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
         transparent
     } = props;
 
-    const {mount, entryDelay, exitDelay} = props;
+    const {mount, exitDelay} = props;
 
     return (
         <DrawerStyled
             className={className}
             mount={mount}
             fixed={fixed}
-            entryDelay={entryDelay}
             exitDelay={exitDelay}
             light={light}
             dark={dark}

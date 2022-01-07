@@ -80,10 +80,13 @@ function useMountChild(
     }, [mount]);
 
     useEffect(() => {
-        if (render && !mount) {
-            timeoutRef2.current = setTimeout(() => setMount(true), 100);
-
-            return () => clearTimeout(timeoutRef2.current);
+        // if (render && !mount) {
+        //     timeoutRef2.current = setTimeout(() => setMount(true), 100);
+        //
+        //     return () => clearTimeout(timeoutRef2.current);
+        // }
+        if(render && !mount){
+            setMount(true);
         }
     }, [render]);
 

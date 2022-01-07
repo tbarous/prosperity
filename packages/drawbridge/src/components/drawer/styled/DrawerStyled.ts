@@ -1,7 +1,27 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
 
 type T = { fixed?: boolean, light?: boolean, dark?: boolean, transparent?: boolean} & StyledProps & useMountChildStyledProps;
+
+const slideIn = keyframes`
+  from {
+    max-width: 0;
+  }
+
+  to {
+    max-width: 300px;
+  }
+`;
+
+const slideOut = keyframes`
+  from {
+    max-width: 300px;
+  }
+
+  to {
+    max-width: 0;
+  }
+`;
 
 const DrawerStyled = styled.div<T>`
   display: ${(p: T) => p.theme.display.flex};
@@ -10,9 +30,13 @@ const DrawerStyled = styled.div<T>`
   height: ${(p: T) => p.theme.dimension.d100};
   background-color: ${(p: T) => p.transparent ? "transparent" : (p.light ? p.theme.color.white : p.theme.color.dark)};
   position: ${(p: T) => p.fixed ? p.theme.position.fixed : p.theme.position.relative};
-  transition: ${(p: T) => p.mount ? `max-width ${p.entryDelay / 1000}s` : `max-width ${p.exitDelay / 1000}s`};
   box-shadow: ${(p: T) => p.theme.shadow.strong};
   overflow: ${(p: T) => p.theme.overflow.hidden};
+  
+  //animation: ${ p=> p.mount ? slideIn : slideOut} .5s forwards;
+  animation: ${slideIn} .5s;
+  transition: ${(p: T) => `max-width ${p.exitDelay / 1000}s`};
+  
   z-index: 9999;
 `;
 
