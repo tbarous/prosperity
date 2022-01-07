@@ -5,8 +5,8 @@ type T = { fixed?: boolean, light?: boolean, dark?: boolean, transparent?: boole
 
 const DrawerStyled = styled.div<T>`
   display: ${(p: T) => p.theme.display.flex};
-  width: ${(p: T) => "250px"};
-  max-width: ${(p: T) => p.mount ? "250px" : 0};
+  width: ${(p: T) => "300px"};
+  max-width: ${(p: T) => p.mount ? "300px" : 0};
   height: ${(p: T) => p.theme.dimension.d100};
   background-color: ${(p: T) => p.transparent ? "transparent" : (p.light ? p.theme.color.white : p.theme.color.dark)};
   position: ${(p: T) => p.fixed ? p.theme.position.fixed : p.theme.position.relative};

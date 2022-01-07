@@ -5,7 +5,7 @@ type T = StyledProps & { dark?: boolean, light?: boolean };
 
 const DrawerLinkStyled = styled.div<T>`
   width: 100%;
-  height: 40px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,8 +13,9 @@ const DrawerLinkStyled = styled.div<T>`
   color: ${p => p.light ? p.theme.color.dark : p.theme.color.white};
   cursor: pointer ;
   
-  &: hover {
-    background: red;
+  &:hover {
+    background: ${(p: T) => "#737373"};
+    color: ${p => p.light ? p.theme.color.white : p.theme.color.dark};
   }
 `;
 
