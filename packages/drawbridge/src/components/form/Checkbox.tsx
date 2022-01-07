@@ -3,12 +3,12 @@ import {BasicComponentProps, FunctionVoid} from "@typings";
 import {emptyFunction} from "@helpers";
 import {Checkmark} from "@icons";
 import CheckboxIconStyled from "./styled/checkbox/CheckboxIconStyled";
-import RippleStyled, {RippleVariation} from "./styled/common/RippleStyled";
-import CheckboxRadioInputStyled from "./styled/common/CheckboxRadioInputStyled";
-import CheckboxRadioStyled from "./styled/common/CheckboxRadioStyled";
+import RippleStyled, {RippleVariation} from "./common/RippleStyled";
+import CheckboxRadioInputStyled from "./common/CheckboxRadioInputStyled";
+import CheckboxRadioStyled from "./common/CheckboxRadioStyled";
 import CheckboxIconWrapperStyled from "./styled/checkbox/CheckboxIconWrapperStyled";
-import CheckboxRadioWrapperStyled from "./styled/common/CheckboxRadioWrapperStyled";
-import CheckboxRadioLabelStyled from "./styled/common/CheckboxRadioLabelStyled";
+import CheckboxRadioWrapperStyled from "./common/CheckboxRadioWrapperStyled";
+import CheckboxRadioLabelStyled from "./common/CheckboxRadioLabelStyled";
 import useRipple from "@hooks/useRipple";
 
 interface Props extends BasicComponentProps {

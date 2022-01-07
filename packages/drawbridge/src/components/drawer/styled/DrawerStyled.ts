@@ -1,7 +1,10 @@
 import styled, {keyframes} from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
 
-type T = { fixed?: boolean, light?: boolean, dark?: boolean, transparent?: boolean} & StyledProps & useMountChildStyledProps;
+type T =
+    { fixed?: boolean, light?: boolean, dark?: boolean, transparent?: boolean }
+    & StyledProps
+    & useMountChildStyledProps;
 
 const slideIn = keyframes`
   from {
@@ -33,7 +36,7 @@ const DrawerStyled = styled.div<T>`
   box-shadow: ${(p: T) => p.theme.shadow.strong};
   overflow: ${(p: T) => p.theme.overflow.hidden};
   z-index: 9999;
-  
+
   animation: ${slideIn} .5s;
   transition: ${(p: T) => `max-width ${p.exitDelay / 1000}s`};
 `;

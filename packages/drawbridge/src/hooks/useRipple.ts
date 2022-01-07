@@ -9,12 +9,12 @@ function useRipple(){
     }
 
     const ref = useRef<any>(null);
+
     useEffect(() => {
         ref.current = setTimeout(() => setClicked(false), 400);
 
         return () => clearTimeout(ref.current);
     }, [clicked]);
-
 
     return {
         startRipple: () => setRipple(true),

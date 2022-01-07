@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import {StyledProps} from "@typings";
 
-const DrawerContent = styled.div`
+type T = StyledProps;
+
+const DrawerContent = styled.div<T>`
   z-index: 999;
-  width: 100%;
+  width: ${(p: T) => p.theme.dimension.d100};
 `;
 
 export default DrawerContent;
