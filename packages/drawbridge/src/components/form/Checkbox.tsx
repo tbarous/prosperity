@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from "react";
+import React, {ReactElement, useEffect, useState} from "react";
 import {BasicComponentProps, FunctionVoid} from "@typings";
 import {emptyFunction} from "@helpers";
 import {Checkmark} from "@icons";
@@ -53,16 +53,16 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement =>
 
             <CheckboxWrapper>
                 <CheckboxIconWrapper
-                    checked={checked}
-                    onMouseOver={() => setRipple(true)}
+                    onMouseEnter={() => setRipple(true)}
                     onMouseLeave={() => setRipple(false)}
+                    checked={checked}
                 >
                     {checked && <CheckboxIconStyled
                         icon={Checkmark}
                         width={12}
                         height={12}
                     />}
-                    
+
                     <CheckboxRipple ripple={ripple}/>
                 </CheckboxIconWrapper>
 
