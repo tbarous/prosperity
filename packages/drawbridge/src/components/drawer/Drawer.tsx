@@ -1,19 +1,31 @@
-import React from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import React, {ReactElement} from "react";
+import {BasicComponentProps} from "@typings";
 import {useMountChildProps} from "@hooks/useMountChild";
 import DrawerStyled from "@components/drawer/styled/DrawerStyled";
 import DrawerCloseStyled from "@components/drawer/styled/DrawerCloseStyled";
 import {Times} from "@icons";
 
-export interface DrawerProps extends BasicComponentProps, useMountChildProps {
-    overlay?: boolean
+export enum DrawerVariation {
+    LIGHT = "light",
+    DARK = "dark"
 }
 
-const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElementOrNull => {
+export interface DrawerProps extends BasicComponentProps, useMountChildProps {
+    overlay?: boolean,
+    light?: boolean,
+    dark?: boolean
+}
+
+const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElement => {
     const {
         children,
         className,
         overlay,
+        light,
+        dark,
+    } = props;
+
+    const {
         unmountComponent,
         mount,
         entryDelay,
@@ -27,6 +39,8 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
             overlay={overlay}
             entryDelay={entryDelay}
             exitDelay={exitDelay}
+            light={light}
+            dark={dark}
         >
             {children}
 
@@ -35,6 +49,8 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
                 onClick={unmountComponent}
                 width={20}
                 height={20}
+                light={light}
+                dark={dark}
             />
         </DrawerStyled>
     )

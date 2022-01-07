@@ -1,41 +1,44 @@
 import React, {useEffect} from "react";
-import Drawer, {DrawerProps} from "@components/drawer/Drawer";
+import Drawer, {DrawerVariation} from "@components/drawer/Drawer";
 import StorybookWrapper from "@stories/StorybookWrapper";
-import Button from "@components/button/Button";
 import styled from "styled-components";
 import useMountChild from "@hooks/useMountChild";
-
-interface DefaultDrawerProps extends DrawerProps {
-    open?: boolean
-}
-
-const ButtonStyled = styled(Button)`
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 200px;
-  height: 50px;
-`;
 
 const StorybookWrapperStyled = styled(StorybookWrapper)`
   height: 100%;
 `;
 
-const DefaultDrawer = (args: DefaultDrawerProps) => {
+const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, overlay?: boolean }) => {
     const drawer = useMountChild(500, 500);
 
     useEffect(() => args.open ? drawer.renderComponent() : drawer.unmountComponent(), [args.open]);
 
     return (
         <StorybookWrapperStyled>
-            {drawer.render && <Drawer {...drawer} />}
+            <div style={{display: "flex", height: "100%"}}>
+                {drawer.render &&
+                    <Drawer
+                        {...drawer}
+                        light={args.variation === DrawerVariation.LIGHT}
+                        dark={args.variation === DrawerVariation.DARK}
+                        overlay={args.overlay}
+                    >
+                        <div style={{textAlign: "center"}}>hello</div>
+                    </Drawer>
+                }
+
+                <div style={{padding: "1rem"}}>
+                    ddqwdqw
+                </div>
+            </div>
         </StorybookWrapperStyled>
     );
 }
 
 DefaultDrawer.args = {
-    open: true
+    open: true,
+    variation: DrawerVariation.DARK,
+    overlay: false
 };
 
 export default DefaultDrawer;
