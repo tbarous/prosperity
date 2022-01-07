@@ -9,7 +9,7 @@ const StorybookWrapperStyled = styled(StorybookWrapper)`
   height: 100%;
 `;
 
-const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, overlay?: boolean }) => {
+const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, fixed?: boolean, transparent?: boolean }) => {
     const drawer = useMountChild(500, 500);
 
     useEffect(() => args.open ? drawer.renderComponent() : drawer.unmountComponent(), [args.open]);
@@ -22,7 +22,8 @@ const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, over
                         {...drawer}
                         light={args.variation === DrawerVariation.LIGHT}
                         dark={args.variation === DrawerVariation.DARK}
-                        overlay={args.overlay}
+                        fixed={args.fixed}
+                        transparent={args.transparent}
                     >
                         <div style={{textAlign: "center"}}>hello</div>
                     </Drawer>
@@ -46,7 +47,8 @@ const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, over
 DefaultDrawer.args = {
     open: true,
     variation: DrawerVariation.DARK,
-    overlay: false
+    fixed: false,
+    transparent: false
 };
 
 export default DefaultDrawer;
