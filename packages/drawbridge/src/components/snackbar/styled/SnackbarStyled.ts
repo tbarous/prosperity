@@ -16,7 +16,7 @@ const slideUp = keyframes`
 `;
 
 const SnackbarStyled = styled.div`
-  height: ${(p: T) => p.theme.dimension.d10};
+  height: ${(p: T) => "60px"};
   display: ${(p: T) => p.theme.display.flex};
   align-items: ${(p: T) => p.theme.alignItems.center};
   font-family: ${(p: T) => p.theme.fontFamily.primary};

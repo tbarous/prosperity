@@ -108,7 +108,7 @@ const Content = () => {
 }
 
 const DefaultNavbar = (args: BasicComponentProps) => {
-    const navbarFixed = useMountChild(500);
+    const navbarFixed = useMountChild(0);
 
     const scrollFromTop = useOnScroll();
 

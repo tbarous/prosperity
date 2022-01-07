@@ -62,9 +62,9 @@ function useMountChild(
      * Toggles the appearance of a child component.
      */
     const toggle = () => {
-        if(!render) renderComponent();
+        if (!render) renderComponent();
 
-        if(mount) unmountComponent();
+        if (mount) unmountComponent();
     }
 
     useEffect(() => {
@@ -78,14 +78,7 @@ function useMountChild(
     }, [mount]);
 
     useEffect(() => {
-        // if (render && !mount) {
-        //     timeoutRef2.current = setTimeout(() => setMount(true), 100);
-        //
-        //     return () => clearTimeout(timeoutRef2.current);
-        // }
-        if(render && !mount){
-            setMount(true);
-        }
+        if (render && !mount) setMount(true);
     }, [render]);
 
     return {
