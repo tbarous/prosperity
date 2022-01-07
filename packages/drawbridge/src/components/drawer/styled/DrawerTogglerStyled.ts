@@ -17,6 +17,7 @@ const DrawerTogglerStyled = styled.div<T>`
   transition: left .5s;
   width: 50px;
   height: 40px;
+  z-index: 9999;
 `;
 
 export default DrawerTogglerStyled;

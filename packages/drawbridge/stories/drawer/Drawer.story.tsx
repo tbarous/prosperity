@@ -4,6 +4,7 @@ import StorybookWrapper from "@stories/StorybookWrapper";
 import styled from "styled-components";
 import useMountChild from "@hooks/useMountChild";
 import DrawerToggler from "@components/drawer/DrawerToggler";
+import DrawerLink from "@components/drawer/DrawerLink";
 
 const StorybookWrapperStyled = styled(StorybookWrapper)`
   height: 100%;
@@ -25,7 +26,9 @@ const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, fixe
                         fixed={args.fixed}
                         transparent={args.transparent}
                     >
-                        <div style={{textAlign: "center"}}>hello</div>
+                        <DrawerLink>Home</DrawerLink>
+                        <DrawerLink>About</DrawerLink>
+                        <DrawerLink>Projects</DrawerLink>
                     </Drawer>
                 }
 

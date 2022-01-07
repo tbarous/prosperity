@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react";
+import React, {Children, cloneElement, isValidElement, ReactElement} from "react";
 import {BasicComponentProps} from "@typings";
 import {useMountChildProps} from "@hooks/useMountChild";
 import DrawerStyled from "@components/drawer/styled/DrawerStyled";
@@ -40,7 +40,9 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
             dark={dark}
             transparent={transparent}
         >
-            <DrawerContent>{children}</DrawerContent>
+            <DrawerContent>
+                {Children.map(children, child => isValidElement(child) && cloneElement(child, {light, dark}))}
+            </DrawerContent>
 
             {transparent && <DrawerOverlay
                 light={light}
