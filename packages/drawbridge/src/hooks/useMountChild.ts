@@ -63,7 +63,11 @@ function useMountChild(
     /**
      * Toggles the appearance of a child component.
      */
-    const toggle = () => {}
+    const toggle = () => {
+        if(!render) renderComponent();
+
+        if(mount) unmountComponent();
+    }
 
     useEffect(() => {
         if (!mount) {

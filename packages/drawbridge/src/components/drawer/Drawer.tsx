@@ -2,8 +2,6 @@ import React, {ReactElement} from "react";
 import {BasicComponentProps} from "@typings";
 import {useMountChildProps} from "@hooks/useMountChild";
 import DrawerStyled from "@components/drawer/styled/DrawerStyled";
-import DrawerCloseStyled from "@components/drawer/styled/DrawerCloseStyled";
-import {Times} from "@icons";
 
 export enum DrawerVariation {
     LIGHT = "light",
@@ -25,12 +23,7 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
         dark,
     } = props;
 
-    const {
-        unmountComponent,
-        mount,
-        entryDelay,
-        exitDelay
-    } = props;
+    const {mount, entryDelay, exitDelay} = props;
 
     return (
         <DrawerStyled
@@ -43,15 +36,6 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
             dark={dark}
         >
             {children}
-
-            <DrawerCloseStyled
-                icon={Times}
-                onClick={unmountComponent}
-                width={20}
-                height={20}
-                light={light}
-                dark={dark}
-            />
         </DrawerStyled>
     )
 }

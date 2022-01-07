@@ -3,6 +3,7 @@ import Drawer, {DrawerVariation} from "@components/drawer/Drawer";
 import StorybookWrapper from "@stories/StorybookWrapper";
 import styled from "styled-components";
 import useMountChild from "@hooks/useMountChild";
+import DrawerToggler from "@components/drawer/DrawerToggler";
 
 const StorybookWrapperStyled = styled(StorybookWrapper)`
   height: 100%;
@@ -27,7 +28,14 @@ const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, over
                     </Drawer>
                 }
 
-                <div style={{padding: "1rem"}}>
+                <DrawerToggler
+                    light={args.variation === DrawerVariation.LIGHT}
+                    dark={args.variation === DrawerVariation.DARK}
+                    toggle={drawer.toggle}
+                    mount={drawer.mount}
+                />
+
+                <div style={{padding: "3rem"}}>
                     ddqwdqw
                 </div>
             </div>
