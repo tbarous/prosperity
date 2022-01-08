@@ -9,9 +9,10 @@ import Icon from "@components/icon/Icon";
 import CarouselItems from "@components/carousel/CarouselItems";
 import styled from "styled-components";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import usePrevious from "@hooks/usePrevious";
 
 const CarouselStyled = styled(Carousel)`
-  height: 500px;
+  height: 200px;
 `;
 
 const ControlIconStyled = styled(Icon)`
@@ -19,11 +20,27 @@ const ControlIconStyled = styled(Icon)`
 `;
 
 const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number, gutter?: number }) => {
+    const [current, setCurrent] = useState<any>(0);
+
+    const prevCurrent = usePrevious(current);
+
+    useEffect(() => {
+        console.log(prevCurrent)
+        setCurrent(args.changeToSlide);
+    }, [args.changeToSlide])
+
+    function onChange(position){
+        console.log(position)
+        if(position===0)return
+        setCurrent(position)
+    }
+
     return (
         <CarouselStyled
             itemsPerSlide={args.itemsPerSlide}
             gutter={args.gutter}
-            changeToSlide={args.changeToSlide}
+            changeToSlide={current}
+            onChange={onChange}
         >
             <CarouselControls>
                 <CarouselControl

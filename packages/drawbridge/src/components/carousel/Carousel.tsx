@@ -1,6 +1,7 @@
 import React, {ReactNode, Children, useState, useEffect, ReactElement, useRef} from "react";
 import CarouselStyled from "@components/carousel/styled/CarouselStyled";
 import {clone} from "@utils/ComponentUtils";
+import {fn} from "@helpers";
 
 export enum CarouselDirections {
     LEFT = "left",
@@ -12,7 +13,8 @@ export interface CarouselProps {
     className?: string
     itemsPerSlide?: number,
     gutter?: number,
-    changeToSlide?: number
+    changeToSlide?: number,
+    onChange?: (position: number) => void
 }
 
 const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps): ReactElement => {
@@ -21,7 +23,8 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
         className,
         itemsPerSlide = 2,
         gutter = 0,
-        changeToSlide = 0
+        changeToSlide = 0,
+        onChange = fn
     } = props;
 
     const [position, setPosition] = useState(0);
@@ -31,9 +34,12 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
         if (count === 0) return;
         const countReached = changeToSlide > count - itemsPerSlide;
         if (countReached || changeToSlide < 0) return;
-        if(changeToSlide===position)return;
-        setPosition(changeToSlide);
-    }, [count]);
+        setPosition(changeToSlide)
+    }, [changeToSlide]);
+
+    useEffect(() => {
+        onChange(position);
+    }, [position])
 
     const itemWidth = 100 / itemsPerSlide;
 
