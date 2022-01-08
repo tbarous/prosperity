@@ -14,6 +14,9 @@ export default {
             control: {type: 'radio'},
         },
     },
+    parameters: {
+        layout: 'padded',
+    },
 };
 
 export {

@@ -34,6 +34,24 @@ const DefaultCard = (args: { rounded?: boolean }) => (
                     </TextStyled>
                 </Card>
             </Col>
+
+            <Col lg={3}>
+                <Card rounded={args.rounded}>
+                    <Image
+                        rounded-top={args.rounded}
+                        src="/img.jpg"
+                        alt="img"
+                    />
+
+                    <TextStyled>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aut beatae deserunt
+                        dignissimos, distinctio
+                        dolore error exercitationem minima nisi placeat praesentium provident quas quo ratione sunt
+                        temporibus unde vel
+                        voluptas.
+                    </TextStyled>
+                </Card>
+            </Col>
         </Row>
     </Container>
 );

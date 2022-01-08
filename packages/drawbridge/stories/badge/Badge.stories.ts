@@ -5,6 +5,9 @@ export default {
     title: 'Badge',
     component: Badge,
     argTypes: {},
+    parameters: {
+        layout: 'padded',
+    },
 };
 
 export {
