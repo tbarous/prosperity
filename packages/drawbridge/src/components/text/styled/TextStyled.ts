@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-export type T = StyledProps & { bold?: boolean };
+export interface T {
+    theme: ThemeInterface,
+    bold?: boolean
+}
 
 const TextStyled = styled.div<T>`
   font-size: ${(p: T) => p.theme.fontSize.md};

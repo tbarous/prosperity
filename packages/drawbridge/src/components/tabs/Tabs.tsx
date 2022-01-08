@@ -1,31 +1,32 @@
-import React, {Children, ReactNode, useEffect, useState} from "react";
+import React, {Children, ReactElement, ReactNode, useEffect, useState} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import TabsStyled from "@components/tabs/styled/TabsStyled";
 import TabActiveStyled from "@components/tabs/styled/TabActiveStyled";
+import {fn} from "@helpers";
+import {clone} from "@utils/ComponentUtils";
 
-export interface TabsProps extends BasicComponentProps {
+export interface TabsProps {
+    children: ReactNode,
+    className?: string,
     onChange: (index: number) => void,
     activate?: number,
-    speed?: number
 }
 
-const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElementOrNull => {
+const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElement => {
     const {
         children,
         className,
         activate,
-        speed = 1,
-        onChange = () => {
-        }
+        onChange = fn
     } = props;
 
     const [active, setActive] = useState(0);
 
     useEffect(() => {
-        if (typeof activate === "number") {
-            setActive(activate);
-        }
+        if (typeof activate === "number") setActive(activate);
     }, [activate])
+
+    const width = 100 / Children.count(children);
 
     function onClickTab(index: number) {
         setActive(index);
@@ -33,20 +34,15 @@ const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElemen
         onChange(index);
     }
 
-    const width = 100 / Children.count(children)
-
     return (
         <TabsStyled
             className={className}
         >
-            {Children.map(children, (child: ReactNode, index: number) => {
-                return React.isValidElement(child) && React.cloneElement(child, {onClickTab: () => onClickTab(index)})
-            })}
+            {Children.map(children, (child: ReactNode, index: number) => clone(child, {onClickTab: () => onClickTab(index)}))}
 
             <TabActiveStyled
                 width={width}
                 left={active * 100}
-                speed={speed}
             />
         </TabsStyled>
     )

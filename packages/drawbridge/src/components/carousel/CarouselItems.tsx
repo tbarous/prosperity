@@ -23,7 +23,9 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
         getLeftDistance = () => 0
     } = props;
 
-    useEffect(() => getCount && getCount(Children.count(children)), []);
+    useEffect(() => {
+        getCount(Children.count(children));
+    }, []);
 
     return (
         <CarouselItemsStyled

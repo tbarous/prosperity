@@ -59,12 +59,12 @@ const DefaultTabs = (args: TabsProps) => {
             <Row>
                 <Col xs={8}>
                     <div style={{height: "60px"}}>
-                        <Tabs {...args} onChange={onChange} activate={active} speed={.4}>
+                        <Tabs onChange={onChange} activate={active}>
                             {tabs.map((tab: any, index: number) => <TabStyled key={index}>{tab}</TabStyled>)}
                         </Tabs>
 
                         <CardStyled>
-                            <Carousel {...args} change={active} speed={.4}>
+                            <Carousel change={active} itemsPerSlide={1}>
                                 <CarouselItems>
                                     {content.map((c: any, index: number) => (
                                         <CarouselItem key={index}>

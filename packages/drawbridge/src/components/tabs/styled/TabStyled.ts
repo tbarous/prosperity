@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & { onClick?: any };
+interface T {
+    theme: ThemeInterface,
+    onClick?: any
+}
 
 const TabStyled = styled.div<T>`
   flex: ${(p: T) => 1};

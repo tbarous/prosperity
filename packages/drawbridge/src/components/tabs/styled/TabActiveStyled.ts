@@ -1,17 +1,33 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & { speed?: number, left?: number, width?: number };
+interface T {
+    theme: ThemeInterface,
+    left: number,
+    width: number
+}
+
+function getTransform(p: T) {
+    return `translateX(${p.left}%)`;
+}
+
+function getWidth(p: T) {
+    return `${p.width}%`;
+}
+
+function getTransition(p: T) {
+    return `transform 1s`;
+}
 
 const TabActiveStyled = styled.div<T>`
   height: ${(p: T) => px(p.theme.spacing.s2)};
   background-color: ${(p: T) => p.theme.color.secondary};
   position: ${(p: T) => p.theme.position.absolute};
   bottom: ${(p: T) => px(p.theme.spacing.s0)};
-  width: ${(p: T) => `${p.width}%`};
-  transform: ${(p: T) => `translateX(${p.left}%)`};
-  transition: ${(p: T) => `transform ${p.speed}s`};
+  width: ${getWidth};
+  transform: ${getTransform};
+  transition: ${getTransition};
 `;
 
 export default TabActiveStyled;

@@ -1,8 +1,9 @@
-import React, {ReactElement} from "react";
-import {BasicComponentProps} from "@typings";
+import React, {ReactElement, ReactNode} from "react";
 import TextStyled from "@components/text/styled/TextStyled";
 
-export interface TextProps extends BasicComponentProps {
+export interface TextProps {
+    children: ReactNode,
+    className?: string,
     bold?: boolean
 }
 

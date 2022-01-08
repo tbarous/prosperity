@@ -1,18 +1,19 @@
-import React, {Children, cloneElement, isValidElement, ReactNode, useRef, useState} from "react";
-import {BasicComponentProps} from "@typings";
+import React, {Children, cloneElement, isValidElement, ReactElement, ReactNode, useRef, useState} from "react";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 import TooltipStyled from "./styled/TooltipStyled";
 import TooltipSeparatorStyled from "./styled/TooltipSeparatorStyled";
 
-interface Props extends BasicComponentProps {
+interface Props {
+    children: ReactNode,
+    className?: string,
     clickable?: boolean
 }
 
-const Tooltip: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
+const Tooltip: React.FunctionComponent<Props> = (props: Props): ReactElement => {
     const {
         className,
-        clickable,
-        children
+        children,
+        clickable
     } = props;
 
     const [active, setActive] = useState(false);
