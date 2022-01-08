@@ -29,35 +29,28 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
     const [count, setCount] = useState(0);
 
     const isOnStart = position === 0;
-
     const isOnEnd = position === count - itemsPerSlide;
-
-    const onMove = (direction: CarouselDirections) => setPosition(direction === CarouselDirections.LEFT ? position - 1 : position + 1);
-
-    const getCount = (count: number) => setCount(count);
-
     const itemWidth = 100 / itemsPerSlide;
-
-    const getLeftDistance = (index: number) => index * itemWidth;
-
     const moveDistance = position * itemWidth;
 
-    const childProps = {
-        isOnStart,
-        isOnEnd,
-        gutter,
-        onMove,
-        getCount,
-        itemWidth,
-        moveDistance,
-        getLeftDistance
+    function onMove(direction: CarouselDirections): void {
+        setPosition(direction === CarouselDirections.LEFT ? position - 1 : position + 1);
     }
+
+    function getCount(count: number): void {
+        setCount(count);
+    }
+
+    function getLeftDistance(index: number): number {
+        return index * itemWidth;
+    }
+
+    const childProps = {isOnStart, isOnEnd, gutter, itemWidth, moveDistance, onMove, getCount, getLeftDistance}
 
     useEffect(() => {
         if (typeof change !== "number") return;
 
         const countReached = change <= count - itemsPerSlide;
-
         const changeLessThanZero = change >= 0;
 
         if (countReached || changeLessThanZero) return;
