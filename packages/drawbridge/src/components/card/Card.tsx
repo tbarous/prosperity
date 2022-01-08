@@ -1,13 +1,13 @@
 import React, {ReactElement, ReactNode} from "react";
 import CardStyled from "@components/card/styled/CardStyled";
 
-export interface CardProps {
+interface T {
     children: ReactNode,
     className?: string,
     rounded?: boolean
 }
 
-const Card: React.FunctionComponent<CardProps> = (props: CardProps): ReactElement => {
+const Card: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,

@@ -3,7 +3,7 @@ import CarouselControlsStyled from "@components/carousel/styled/CarouselControls
 import {CarouselDirections} from "@components/carousel/Carousel";
 import {fn} from "@helpers";
 
-interface CarouselControlsProps {
+interface T {
     children: ReactNode,
     className?: string,
     onMove?: (direction: CarouselDirections) => void,
@@ -11,7 +11,7 @@ interface CarouselControlsProps {
     isOnEnd?: boolean,
 }
 
-const CarouselControls: React.FunctionComponent<CarouselControlsProps> = (props: CarouselControlsProps): ReactElement => {
+const CarouselControls: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,

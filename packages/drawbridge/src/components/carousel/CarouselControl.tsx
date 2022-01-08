@@ -3,14 +3,14 @@ import CarouselControlStyled from "@components/carousel/styled/CarouselControlSt
 import {CarouselDirections} from "@components/carousel/Carousel";
 import {fn} from "@helpers";
 
-export interface CarouselControlProps {
+interface T {
     children: ReactNode,
     className?: string,
     onMove?: (direction: CarouselDirections) => void,
     direction?: CarouselDirections,
 }
 
-const CarouselControl: React.FunctionComponent<CarouselControlProps> = (props: CarouselControlProps): ReactElement => {
+const CarouselControl: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,

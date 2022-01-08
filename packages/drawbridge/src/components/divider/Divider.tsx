@@ -1,13 +1,13 @@
 import React, {ReactNode} from "react";
 import DividerStyled from "./styled/DividerStyled";
 
-export interface DividerProps {
+interface T {
     className?: string,
     spacing?: number,
     vertical?: boolean
 }
 
-const Divider: React.FunctionComponent<DividerProps> = (props: DividerProps): React.ReactElement => {
+const Divider: React.FunctionComponent<T> = (props: T): React.ReactElement => {
     const {
         className,
         spacing = 16,

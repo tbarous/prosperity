@@ -3,7 +3,7 @@ import {CarouselDirections} from "@components/carousel/Carousel";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 import {px} from "@utils/ThemeUtils";
 
-export interface T {
+interface T {
     theme: ThemeInterface,
     direction: CarouselDirections
 }

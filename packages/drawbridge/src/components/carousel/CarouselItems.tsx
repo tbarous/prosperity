@@ -3,7 +3,7 @@ import CarouselItemsStyled from "@components/carousel/styled/CarouselItemsStyled
 import {fn} from "@helpers";
 import {clone} from "@utils/ComponentUtils";
 
-export interface CarouselItemsProps {
+interface T {
     children: ReactNode,
     className?: string,
     gutter?: number,
@@ -13,7 +13,7 @@ export interface CarouselItemsProps {
     getItemDistance?: (index: number) => number
 }
 
-const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: CarouselItemsProps): ReactElement => {
+const CarouselItems: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,

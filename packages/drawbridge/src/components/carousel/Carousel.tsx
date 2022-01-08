@@ -7,7 +7,7 @@ export enum CarouselDirections {
     RIGHT = "right"
 }
 
-export interface CarouselProps {
+interface T {
     children: ReactNode,
     className?: string
     itemsPerSlide?: number,
@@ -15,7 +15,7 @@ export interface CarouselProps {
     changeToPosition?: number
 }
 
-const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps): ReactElement => {
+const Carousel: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,

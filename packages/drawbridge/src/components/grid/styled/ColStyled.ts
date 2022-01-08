@@ -1,12 +1,21 @@
 import styled, {css} from "styled-components";
-import {StyledProps} from "@typings";
 import MediaUtils from "@utils/MediaUtils";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-export type T =
-    { xs?: number, sm?: number, md?: number, lg?: number, xl?: number, xxl?: number, gutter?: number }
-    & StyledProps;
+export interface T {
+    xs?: number,
+    sm?: number,
+    md?: number,
+    lg?: number,
+    xl?: number,
+    xxl?: number,
+    gutter?: number,
+    theme: ThemeInterface
+}
 
-const width = (columns?: number) => columns ? `${(100 / 12) * columns}%` : "";
+function getWidth(columns?: number) {
+    return columns ? `${(100 / 12) * columns}%` : "";
+}
 
 const ColStyled = styled.div<T>`
   flex-grow: ${(p: T) => p.theme.flexGrow.fg1};
@@ -17,28 +26,28 @@ const ColStyled = styled.div<T>`
   padding-right: ${(p: T) => p.gutter ? `${p.gutter / 2}px` : ""};
 
   ${(p: T) => MediaUtils.up(p.theme.breakpoint.xs, css`
-    width: ${width(p.xs)};
-    max-width: ${width(p.xs)};
+    width: ${getWidth(p.xs)};
+    max-width: ${getWidth(p.xs)};
   `)};
 
   ${(p: T) => MediaUtils.up(p.theme.breakpoint.sm, css`
-    width: ${width(p.sm)};
-    max-width: ${width(p.sm)};
+    width: ${getWidth(p.sm)};
+    max-width: ${getWidth(p.sm)};
   `)};
 
   ${(p: T) => MediaUtils.up(p.theme.breakpoint.md, css`
-    width: ${width(p.md)};
-    max-width: ${width(p.md)};
+    width: ${getWidth(p.md)};
+    max-width: ${getWidth(p.md)};
   `)};
 
   ${(p: T) => MediaUtils.up(p.theme.breakpoint.lg, css`
-    width: ${width(p.lg)};
-    max-width: ${width(p.lg)};
+    width: ${getWidth(p.lg)};
+    max-width: ${getWidth(p.lg)};
   `)};
 
   ${(p: T) => MediaUtils.up(p.theme.breakpoint.xl, css`
-    width: ${width(p.xl)};
-    max-width: ${width(p.xl)};
+    width: ${getWidth(p.xl)};
+    max-width: ${getWidth(p.xl)};
   `)};
 `;
 

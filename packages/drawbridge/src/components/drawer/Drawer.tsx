@@ -8,7 +8,7 @@ export enum DrawerVariations {
     DARK = "dark"
 }
 
-export interface DrawerProps {
+interface T {
     children: ReactNode,
     className?: string,
     fixed?: boolean,
@@ -18,7 +18,7 @@ export interface DrawerProps {
     mount?: boolean
 }
 
-const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElement => {
+const Drawer: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,

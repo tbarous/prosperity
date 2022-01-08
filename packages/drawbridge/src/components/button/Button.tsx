@@ -26,7 +26,7 @@ export enum ButtonRoles {
     BUTTON = "button"
 }
 
-export interface ButtonProps {
+interface T {
     children?: ReactNode,
     className?: string,
     onClick?: () => void,
@@ -40,7 +40,7 @@ export interface ButtonProps {
     role?: string
 }
 
-const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElement => {
+const Button: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,

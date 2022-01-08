@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {px} from "@utils/ThemeUtils";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-export interface T {
+interface T {
     theme: ThemeInterface,
     primary: boolean,
     secondary: boolean,

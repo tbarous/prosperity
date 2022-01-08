@@ -1,7 +1,7 @@
 import React, {ReactElement, ReactNode} from "react";
 import CarouselItemStyled from "@components/carousel/styled/CarouselItemStyled";
 
-interface CarouselItemProps {
+interface T {
     children: ReactNode,
     className?: string,
     itemWidth?: number,
@@ -9,7 +9,7 @@ interface CarouselItemProps {
     gutter?: number
 }
 
-const CarouselItem: React.FunctionComponent<CarouselItemProps> = (props: CarouselItemProps): ReactElement => {
+const CarouselItem: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-export interface T {
+interface T {
     rounded: boolean,
     theme: ThemeInterface
 }

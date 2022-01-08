@@ -1,13 +1,14 @@
-import React from "react";
+import React, {ReactElement, ReactNode} from "react";
 import DrawerLinkStyled from "./styled/DrawerLinkStyled";
-import {BasicComponentProps} from "@typings";
 
-export interface DrawerLinkProps extends BasicComponentProps {
+interface T {
+    children: ReactNode,
+    className?: string,
     light?: boolean,
     dark?: boolean
 }
 
-const DrawerLink: React.FunctionComponent<DrawerLinkProps> = (props: DrawerLinkProps): React.ReactElement => {
+const DrawerLink: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,

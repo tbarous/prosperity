@@ -1,12 +1,12 @@
 import React, {ReactElement, ReactNode} from "react";
 import BadgeStyled from "@components/badge/styled/BadgeStyled";
 
-export interface BadgeProps {
+interface T {
     children: ReactNode,
     className?: string
 }
 
-const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps): ReactElement => {
+const Badge: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className

@@ -1,17 +1,18 @@
-import React from "react";
+import React, {ReactElement, ReactNode} from "react";
 import {ArrowLeft, ArrowRight} from "@icons";
 import DrawerTogglerStyled from "./styled/DrawerTogglerStyled";
 import DrawerTogglerIconStyled from "./styled/DrawerTogglerIconStyled";
-import {BasicComponentProps} from "@typings";
 
-export interface DrawerTogglerProps extends BasicComponentProps {
+interface T {
+    children: ReactNode,
+    className?: string,
     dark?: boolean,
     light?: boolean,
     toggle?: any,
     mount?: any
 }
 
-const DrawerToggler: React.FunctionComponent<DrawerTogglerProps> = (props: DrawerTogglerProps): React.ReactElement => {
+const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         className,
         dark,

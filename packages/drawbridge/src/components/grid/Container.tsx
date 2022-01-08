@@ -1,12 +1,13 @@
-import React, {ReactElement} from "react";
-import {BasicComponentProps} from "@typings";
+import React, {ReactElement, ReactNode} from "react";
 import ContainerStyled from "@components/grid/styled/ContainerStyled";
 
-interface Props extends BasicComponentProps {
+export interface T {
+    children: ReactNode,
+    className?: string,
     fluid?: boolean
 }
 
-const Container: React.FunctionComponent<Props> = (props: Props): ReactElement => {
+const Container: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
