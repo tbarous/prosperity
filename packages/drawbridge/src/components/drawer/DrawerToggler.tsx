@@ -15,8 +15,8 @@ interface T {
 const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         className,
-        dark = true,
-        light = false,
+        dark,
+        light,
         toggle,
         mount
     } = props;

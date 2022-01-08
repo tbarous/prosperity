@@ -4,8 +4,8 @@ import {px} from "@utils/ThemeUtils";
 
 interface T {
     theme: ThemeInterface,
-    spacing: number,
-    vertical: boolean
+    spacing?: number,
+    vertical?: boolean
 }
 
 function getHeight(p: T) {
@@ -25,11 +25,13 @@ function getWidth(p: T) {
 }
 
 function getMargin(p: T) {
+    let spacing = p.spacing || 16;
+
     if (p.vertical) {
-        return `${px(p.theme.spacing.s0)} ${px(p.spacing)}`;
+        return `${px(p.theme.spacing.s0)} ${px(spacing)}`;
     }
 
-    return `${px(p.spacing)} ${px(p.theme.spacing.s0)}`;
+    return `${px(spacing)} ${px(p.theme.spacing.s0)}`;
 }
 
 const DividerStyled = styled.div<T>`

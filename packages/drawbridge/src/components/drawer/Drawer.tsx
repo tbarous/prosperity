@@ -1,7 +1,8 @@
-import React, {Children, cloneElement, isValidElement, ReactElement, ReactNode} from "react";
+import React, {Children, ReactElement, ReactNode} from "react";
 import DrawerStyled from "@components/drawer/styled/DrawerStyled";
 import DrawerOverlay from "./styled/DrawerOverlay";
 import DrawerContent from "./styled/DrawerContent";
+import {clone} from "@utils/ComponentUtils";
 
 export enum DrawerVariations {
     LIGHT = "light",
@@ -22,11 +23,11 @@ const Drawer: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
-        fixed = false,
-        light = false,
-        dark = true,
-        transparent = false,
-        mount = false
+        fixed,
+        light,
+        dark,
+        transparent,
+        mount
     } = props;
 
     return (
@@ -39,7 +40,7 @@ const Drawer: React.FunctionComponent<T> = (props: T): ReactElement => {
             mount={mount}
         >
             <DrawerContent>
-                {Children.map(children, child => isValidElement(child) && cloneElement(child, {light, dark}))}
+                {Children.map(children, child => clone(child, {light, dark}))}
             </DrawerContent>
 
             {transparent && <DrawerOverlay

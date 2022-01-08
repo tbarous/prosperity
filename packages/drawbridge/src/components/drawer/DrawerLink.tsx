@@ -12,8 +12,8 @@ const DrawerLink: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
-        light = false,
-        dark = true
+        light,
+        dark
     } = props;
 
     return (

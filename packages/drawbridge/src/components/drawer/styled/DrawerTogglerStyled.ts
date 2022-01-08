@@ -1,12 +1,11 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
 import {px, transition} from "@utils/ThemeUtils";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 interface T {
     theme: ThemeInterface,
-    dark: boolean,
-    light: boolean,
+    dark?: boolean,
+    light?: boolean,
     mount?: boolean
 }
 

@@ -1,4 +1,4 @@
-import React, {ReactNode} from "react";
+import React, {ReactElement} from "react";
 import DividerStyled from "./styled/DividerStyled";
 
 interface T {
@@ -7,11 +7,11 @@ interface T {
     vertical?: boolean
 }
 
-const Divider: React.FunctionComponent<T> = (props: T): React.ReactElement => {
+const Divider: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         className,
-        spacing = 16,
-        vertical = false
+        spacing,
+        vertical
     } = props;
 
     return (

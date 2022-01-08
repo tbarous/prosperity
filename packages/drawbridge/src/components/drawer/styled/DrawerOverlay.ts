@@ -3,8 +3,8 @@ import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 interface T {
     theme: ThemeInterface,
-    dark: boolean,
-    light: boolean
+    dark?: boolean,
+    light?: boolean
 }
 
 function getBackground(p: T) {

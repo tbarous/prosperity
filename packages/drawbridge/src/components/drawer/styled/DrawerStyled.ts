@@ -4,11 +4,11 @@ import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 interface T {
     theme: ThemeInterface,
-    dark: boolean,
-    light: boolean,
-    fixed: boolean,
-    transparent: boolean,
-    mount: boolean
+    dark?: boolean,
+    light?: boolean,
+    fixed?: boolean,
+    transparent?: boolean,
+    mount?: boolean
 }
 
 const slideIn = (p: T) => keyframes`

@@ -4,8 +4,8 @@ import {px} from "@utils/ThemeUtils";
 
 interface T {
     theme: ThemeInterface,
-    dark: boolean,
-    light: boolean
+    dark?: boolean,
+    light?: boolean
 }
 
 function getColor(p: T) {
