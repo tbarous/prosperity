@@ -1,4 +1,4 @@
-import Drawer, {DrawerVariation} from "@components/drawer/Drawer";
+import Drawer, {DrawerVariations} from "@components/drawer/Drawer";
 import DefaultDrawer from './Drawer.story';
 
 export default {
@@ -6,7 +6,7 @@ export default {
     component: Drawer,
     argTypes: {
         variation: {
-            options: [DrawerVariation.LIGHT, DrawerVariation.DARK],
+            options: [DrawerVariations.LIGHT, DrawerVariations.DARK],
             control: {type: 'radio'},
         },
     },

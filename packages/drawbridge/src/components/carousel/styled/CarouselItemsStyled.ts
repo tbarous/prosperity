@@ -4,9 +4,8 @@ import {px} from "@utils/ThemeUtils";
 
 export interface T {
     theme: ThemeInterface,
-    moveDistance?: number,
-    gutter?: number,
-    speed?: number
+    moveDistance: number,
+    gutter: number
 }
 
 function getTransform(p: T): string {
@@ -14,7 +13,7 @@ function getTransform(p: T): string {
 }
 
 function getTransition(p: T): string {
-    return `transform ${p.speed}s ease-out`;
+    return `transform 1s ease-out`;
 }
 
 function getPadding(p: T): string | undefined {

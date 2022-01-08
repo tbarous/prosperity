@@ -12,8 +12,7 @@ export interface CarouselProps {
     itemsPerSlide?: number,
     gutter?: number,
     start?: number,
-    change?: number,
-    speed?: number
+    change?: number
 }
 
 const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps): ReactElement => {
@@ -23,57 +22,24 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
         itemsPerSlide = 2,
         gutter = 0,
         start = 0,
-        change,
-        speed = 1
+        change
     } = props;
 
-    /**
-     * The current position of the carousel.
-     * Default: 0
-     */
     const [position, setPosition] = useState(start);
-
-    /**
-     * The number of carousel items.
-     * This has to be passed from the CarouselItems child component.
-     */
     const [count, setCount] = useState(0);
 
-    /**
-     * The carousel is showing the first item.
-     */
     const isOnStart = position === 0;
 
-    /**
-     * The carousel is showing the last item.
-     */
     const isOnEnd = position === count - itemsPerSlide;
 
-    /**
-     * Add or subtract from position on each move.
-     */
     const onMove = (direction: CarouselDirections) => setPosition(direction === CarouselDirections.LEFT ? position - 1 : position + 1);
 
-    /**
-     * Gets the total number of items.
-     * @param count
-     */
     const getCount = (count: number) => setCount(count);
 
-    /**
-     * The width of each item in percentage.
-     */
     const itemWidth = 100 / itemsPerSlide;
 
-    /**
-     * Calculates the item's distance from the left.
-     * @param index
-     */
     const getLeftDistance = (index: number) => index * itemWidth;
 
-    /**
-     * How much an item has to move on each swipe.
-     */
     const moveDistance = position * itemWidth;
 
     const childProps = {
@@ -84,8 +50,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
         getCount,
         itemWidth,
         moveDistance,
-        getLeftDistance,
-        speed
+        getLeftDistance
     }
 
     useEffect(() => {

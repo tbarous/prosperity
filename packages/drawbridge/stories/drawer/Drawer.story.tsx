@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import Drawer, {DrawerVariation} from "@components/drawer/Drawer";
+import Drawer, {DrawerVariations} from "@components/drawer/Drawer";
 import styled, {useTheme} from "styled-components";
 import useMountChild from "@hooks/useMountChild";
 import DrawerToggler from "@components/drawer/DrawerToggler";
@@ -11,7 +11,7 @@ const DrawerStyled = styled(Drawer)`
   align-items: center;
 `;
 
-const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, fixed?: boolean, transparent?: boolean }) => {
+const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariations, fixed?: boolean, transparent?: boolean }) => {
     const theme: any = useTheme();
 
     const drawer = useMountChild(theme.animation.drawer);
@@ -23,8 +23,8 @@ const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, fixe
             {drawer.render &&
                 <DrawerStyled
                     mount={drawer.mount}
-                    light={args.variation === DrawerVariation.LIGHT}
-                    dark={args.variation === DrawerVariation.DARK}
+                    light={args.variation === DrawerVariations.LIGHT}
+                    dark={args.variation === DrawerVariations.DARK}
                     fixed={args.fixed}
                     transparent={args.transparent}
                 >
@@ -36,8 +36,8 @@ const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, fixe
             }
 
             <DrawerToggler
-                light={args.variation === DrawerVariation.LIGHT}
-                dark={args.variation === DrawerVariation.DARK}
+                light={args.variation === DrawerVariations.LIGHT}
+                dark={args.variation === DrawerVariations.DARK}
                 toggle={drawer.toggle}
                 mount={drawer.mount}
             />
@@ -47,7 +47,7 @@ const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, fixe
 
 DefaultDrawer.args = {
     open: true,
-    variation: DrawerVariation.DARK,
+    variation: DrawerVariations.DARK,
     fixed: false,
     transparent: false
 };

@@ -11,7 +11,7 @@ const Card: React.FunctionComponent<CardProps> = (props: CardProps): ReactElemen
     const {
         children,
         className,
-        rounded
+        rounded = false
     } = props;
 
     return (

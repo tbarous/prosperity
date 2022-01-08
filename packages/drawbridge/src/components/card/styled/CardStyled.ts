@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 export interface T {
-    rounded?: boolean,
+    rounded: boolean,
     theme: ThemeInterface
 }
 

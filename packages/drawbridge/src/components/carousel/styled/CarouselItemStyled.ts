@@ -4,9 +4,9 @@ import {px} from "@utils/ThemeUtils";
 
 export interface T {
     theme: ThemeInterface
-    width?: number,
-    gutter?: number,
-    leftDistance?: number
+    width: number,
+    gutter: number,
+    leftDistance: number
 }
 
 function getPadding(p: T): undefined | string {

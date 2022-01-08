@@ -1,15 +1,16 @@
-import React, {Children, cloneElement, isValidElement, ReactElement} from "react";
-import {BasicComponentProps} from "@typings";
+import React, {Children, cloneElement, isValidElement, ReactElement, ReactNode} from "react";
 import DrawerStyled from "@components/drawer/styled/DrawerStyled";
 import DrawerOverlay from "./styled/DrawerOverlay";
 import DrawerContent from "./styled/DrawerContent";
 
-export enum DrawerVariation {
+export enum DrawerVariations {
     LIGHT = "light",
     DARK = "dark"
 }
 
-export interface DrawerProps extends BasicComponentProps {
+export interface DrawerProps {
+    children: ReactNode,
+    className?: string,
     fixed?: boolean,
     light?: boolean,
     dark?: boolean,

@@ -4,7 +4,7 @@ import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 export interface T {
     theme: ThemeInterface,
-    direction?: CarouselDirections
+    direction: CarouselDirections
 }
 
 function getLeft(p: T) {
