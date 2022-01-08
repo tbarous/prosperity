@@ -1,7 +1,7 @@
 {
   "version": "0.0.67",
   "name": "@tbarous/drawbridge",
-  "description": "A React ui library",
+  "description": "A React UI library",
   "author": {
     "name": "Tasos Barous",
     "email": "tasosbarous@gmail.com"
@@ -16,7 +16,7 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
-    "build": "tsc --declaration && tsc-alias && cp package.json dist/package.json",
+    "build": "tsc --declaration && tsc-alias",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
