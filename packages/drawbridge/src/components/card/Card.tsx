@@ -2,7 +2,7 @@ import React, {ReactElement, ReactNode} from "react";
 import CardStyled from "@components/card/styled/CardStyled";
 
 interface T {
-    children: ReactNode,
+    children?: ReactNode,
     className?: string,
     rounded?: boolean
 }
@@ -11,7 +11,7 @@ const Card: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
-        rounded = false
+        rounded
     } = props;
 
     return (

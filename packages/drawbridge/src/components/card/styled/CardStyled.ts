@@ -2,8 +2,8 @@ import styled from "styled-components";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 interface T {
-    rounded: boolean,
-    theme: ThemeInterface
+    theme: ThemeInterface,
+    rounded?: boolean
 }
 
 function getBorderRadius(p: T) {

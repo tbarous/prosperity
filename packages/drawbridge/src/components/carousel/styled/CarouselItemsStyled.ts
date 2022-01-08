@@ -4,8 +4,8 @@ import {px} from "@utils/ThemeUtils";
 
 interface T {
     theme: ThemeInterface,
-    distance: number,
-    gutter: number
+    distance?: number,
+    gutter?: number
 }
 
 function getTransform(p: T): string {

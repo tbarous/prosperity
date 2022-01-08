@@ -13,9 +13,9 @@ const CarouselItem: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
-        itemWidth = 1,
-        itemX = 0,
-        gutter = 0
+        itemWidth,
+        itemX,
+        gutter
     } = props;
 
     return (
@@ -25,7 +25,6 @@ const CarouselItem: React.FunctionComponent<T> = (props: T): ReactElement => {
             itemX={itemX}
             gutter={gutter}
         >
-            AAAAAAAAAAAAAAA {itemX}
             {children}
         </CarouselItemStyled>
     )

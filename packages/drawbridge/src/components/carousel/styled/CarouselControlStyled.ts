@@ -5,7 +5,7 @@ import {px} from "@utils/ThemeUtils";
 
 interface T {
     theme: ThemeInterface,
-    direction: CarouselDirections
+    direction?: CarouselDirections
 }
 
 function getLeft(p: T) {

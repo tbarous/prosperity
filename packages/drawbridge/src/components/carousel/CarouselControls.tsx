@@ -1,7 +1,6 @@
 import React, {isValidElement, ReactElement, ReactNode, Children} from "react";
 import CarouselControlsStyled from "@components/carousel/styled/CarouselControlsStyled";
 import {CarouselDirections} from "@components/carousel/Carousel";
-import {fn} from "@helpers";
 
 interface T {
     children: ReactNode,
@@ -15,9 +14,9 @@ const CarouselControls: React.FunctionComponent<T> = (props: T): ReactElement =>
     const {
         children,
         className,
-        onMove = fn,
-        isOnStart = true,
-        isOnEnd = false
+        onMove,
+        isOnStart,
+        isOnEnd
     } = props;
 
     function getChild(child: ReactNode & { props: { onMove?: (direction: CarouselDirections) => void, direction?: CarouselDirections, } }): ReactElement | undefined | boolean {

@@ -1,6 +1,5 @@
 import React, {Children, ReactElement, ReactNode, useEffect} from "react";
 import CarouselItemsStyled from "@components/carousel/styled/CarouselItemsStyled";
-import {fn} from "@helpers";
 import {clone} from "@utils/ComponentUtils";
 
 interface T {
@@ -17,17 +16,17 @@ const CarouselItems: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
-        gutter = 0,
+        gutter,
         itemWidth,
-        distance = 0,
-        getCount = fn,
-        getItemDistance = () => 0
+        distance,
+        getCount,
+        getItemDistance
     } = props;
 
     function sendCount() {
         const slidesCount = Children.count(children);
 
-        getCount(slidesCount);
+        if (getCount) getCount(slidesCount);
     }
 
     useEffect(sendCount, []);
@@ -39,7 +38,7 @@ const CarouselItems: React.FunctionComponent<T> = (props: T): ReactElement => {
             gutter={gutter}
         >
             {Children.map(children, (child: ReactNode, index) => clone(child, {
-                itemX: getItemDistance(index),
+                itemX: getItemDistance && getItemDistance(index),
                 gutter,
                 itemWidth
             }))}
