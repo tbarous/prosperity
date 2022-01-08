@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import Drawer, {DrawerVariation} from "@components/drawer/Drawer";
 import StorybookWrapper from "@stories/StorybookWrapper";
-import styled from "styled-components";
+import styled, {useTheme} from "styled-components";
 import useMountChild from "@hooks/useMountChild";
 import DrawerToggler from "@components/drawer/DrawerToggler";
 import DrawerLink from "@components/drawer/DrawerLink";
@@ -13,6 +13,8 @@ import Image from "@components/image/Image";
 import {px} from "@utils/ThemeUtils";
 import Text from "@components/text/Text";
 import Divider from "@components/divider/Divider";
+import { withTheme } from 'styled-components'
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 const StorybookWrapperStyled = styled(StorybookWrapper)`
   height: 100%;
@@ -39,12 +41,14 @@ const TextStyled = styled(Text)`
 `;
 
 const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, fixed?: boolean, transparent?: boolean }) => {
-    const drawer = useMountChild(500);
+    const theme: ThemeInterface = useTheme()
+    console.log(theme.animation.drawer)
+    const drawer = useMountChild(theme.animation.drawer);
 
     useEffect(() => args.open ? drawer.renderComponent() : drawer.unmountComponent(), [args.open]);
 
     return (
-        <StorybookWrapperStyled>
+        // <StorybookWrapperStyled>
             <App>
                 {drawer.render &&
                     <DrawerStyled
@@ -114,7 +118,7 @@ const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, fixe
                     </Container>
                 </Main>
             </App>
-        </StorybookWrapperStyled>
+        // </StorybookWrapperStyled>
     );
 }
 

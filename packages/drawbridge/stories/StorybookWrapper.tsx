@@ -5,9 +5,6 @@ import Light from "@theme/light/Theme";
 import {BasicComponentProps} from "@typings";
 import "../.storybook/assets/font/font.css";
 
-const GlobalStorybookStyle = GlobalStyledUtils.extendGlobalStyle(css`#root {
-  height: 100%;
-}`);
 
 export const Wrapper = styled.div``;
 

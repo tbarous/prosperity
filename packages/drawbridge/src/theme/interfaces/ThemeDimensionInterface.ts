@@ -14,7 +14,9 @@ interface ThemeDimensionInterface {
     auto: string,
 
 
-    drawerWidth: number
+    drawerWidth: number,
+    drawerTogglerWidth: number,
+    drawerTogglerHeight: number
 }
 
 export default ThemeDimensionInterface;

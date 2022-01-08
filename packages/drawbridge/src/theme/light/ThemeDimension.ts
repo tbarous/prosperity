@@ -16,7 +16,9 @@ const ThemeDimension: ThemeDimensionInterface = {
     auto: "auto",
 
 
-    drawerWidth: 300
+    drawerWidth: 300,
+    drawerTogglerWidth: 50,
+    drawerTogglerHeight: 40
 }
 
 export default ThemeDimension
