@@ -8,14 +8,9 @@ import {ArrowCircleLeftSolid, ArrowCircleRightSolid} from "@icons";
 import Icon from "@components/icon/Icon";
 import CarouselItems from "@components/carousel/CarouselItems";
 import styled from "styled-components";
-import StorybookWrapper from "@stories/StorybookWrapper";
 
 const CarouselStyled = styled(Carousel)`
   height: 500px;
-`;
-
-const StorybookWrapperStyled = styled(StorybookWrapper)`
-  margin: 1rem;
 `;
 
 const DefaultCarousel = (args: CarouselProps) => {
@@ -26,41 +21,39 @@ const DefaultCarousel = (args: CarouselProps) => {
     }, [args.change])
 
     return (
-        <StorybookWrapperStyled>
-            <CarouselStyled {...args} change={changeToSlide}>
-                <CarouselControls>
-                    <CarouselControl direction={CarouselDirectionEnum.LEFT}>
-                        <Icon icon={ArrowCircleLeftSolid} width={50} height={50}/>
-                    </CarouselControl>
+        <CarouselStyled {...args} change={changeToSlide}>
+            <CarouselControls>
+                <CarouselControl direction={CarouselDirectionEnum.LEFT}>
+                    <Icon icon={ArrowCircleLeftSolid} width={50} height={50}/>
+                </CarouselControl>
 
-                    <CarouselControl direction={CarouselDirectionEnum.RIGHT}>
-                        <Icon icon={ArrowCircleRightSolid} width={50} height={50}/>
-                    </CarouselControl>
-                </CarouselControls>
+                <CarouselControl direction={CarouselDirectionEnum.RIGHT}>
+                    <Icon icon={ArrowCircleRightSolid} width={50} height={50}/>
+                </CarouselControl>
+            </CarouselControls>
 
-                <CarouselItems>
-                    <CarouselItem>
-                        <Image src="/img.jpg" alt="img"/>
-                    </CarouselItem>
+            <CarouselItems>
+                <CarouselItem>
+                    <Image src="/img.jpg" alt="img"/>
+                </CarouselItem>
 
-                    <CarouselItem>
-                        <Image src="/img.jpg" alt="img"/>
-                    </CarouselItem>
+                <CarouselItem>
+                    <Image src="/img.jpg" alt="img"/>
+                </CarouselItem>
 
-                    <CarouselItem>
-                        <Image src="/img2.jpg" alt="img"/>
-                    </CarouselItem>
+                <CarouselItem>
+                    <Image src="/img2.jpg" alt="img"/>
+                </CarouselItem>
 
-                    <CarouselItem>
-                        <Image src="/img2.jpg" alt="img"/>
-                    </CarouselItem>
+                <CarouselItem>
+                    <Image src="/img2.jpg" alt="img"/>
+                </CarouselItem>
 
-                    <CarouselItem>
-                        <Image src="/img2.jpg" alt="img"/>
-                    </CarouselItem>
-                </CarouselItems>
-            </CarouselStyled>
-        </StorybookWrapperStyled>
+                <CarouselItem>
+                    <Image src="/img2.jpg" alt="img"/>
+                </CarouselItem>
+            </CarouselItems>
+        </CarouselStyled>
     );
 }
 

@@ -10,11 +10,6 @@ import Col from "@components/grid/Col";
 import CarouselItems from "@components/carousel/CarouselItems";
 import CarouselItem from "@components/carousel/CarouselItem";
 import Carousel from "@components/carousel/Carousel";
-import StorybookWrapper from "@stories/StorybookWrapper";
-
-const StorybookWrapperStyled = styled(StorybookWrapper)`
-  margin: 1rem;
-`;
 
 const CardStyled = styled(Card)`
   padding: 2rem;
@@ -33,7 +28,7 @@ const DefaultTabs = (args: TabsProps) => {
 
     useEffect(() => {
         if (typeof args.activate === "number") {
-            onChange(args.activate -1);
+            onChange(args.activate - 1);
         }
     }, [args.activate])
 
@@ -60,31 +55,29 @@ const DefaultTabs = (args: TabsProps) => {
     ]);
 
     return (
-        <StorybookWrapperStyled>
-            <Container fluid>
-                <Row>
-                    <Col xs={8}>
-                        <div style={{height: "60px"}}>
-                            <Tabs {...args} onChange={onChange} activate={active} speed={.4}>
-                                {tabs.map((tab: any, index: number) => <TabStyled key={index}>{tab}</TabStyled>)}
-                            </Tabs>
+        <Container fluid>
+            <Row>
+                <Col xs={8}>
+                    <div style={{height: "60px"}}>
+                        <Tabs {...args} onChange={onChange} activate={active} speed={.4}>
+                            {tabs.map((tab: any, index: number) => <TabStyled key={index}>{tab}</TabStyled>)}
+                        </Tabs>
 
-                            <CardStyled>
-                                <Carousel {...args} change={active} speed={.4}>
-                                    <CarouselItems>
-                                        {content.map((c: any, index: number) => (
-                                            <CarouselItem key={index}>
-                                                 {c}
-                                            </CarouselItem>
-                                        ))}
-                                    </CarouselItems>
-                                </Carousel>
-                            </CardStyled>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
-        </StorybookWrapperStyled>
+                        <CardStyled>
+                            <Carousel {...args} change={active} speed={.4}>
+                                <CarouselItems>
+                                    {content.map((c: any, index: number) => (
+                                        <CarouselItem key={index}>
+                                            {c}
+                                        </CarouselItem>
+                                    ))}
+                                </CarouselItems>
+                            </Carousel>
+                        </CardStyled>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
     )
 };
 

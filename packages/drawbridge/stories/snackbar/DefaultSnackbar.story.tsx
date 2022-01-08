@@ -2,12 +2,7 @@ import React, {useEffect} from 'react';
 import Snackbar, {SnackbarVariationEnum} from "@components/snackbar/Snackbar";
 import styled from "styled-components";
 import useMountChild from "@hooks/useMountChild";
-import StorybookWrapper from "@stories/StorybookWrapper";
 import {BasicComponentProps} from "@typings";
-
-const StorybookWrapperStyled = styled(StorybookWrapper)`
-  margin: 1rem;
-`;
 
 const Content = styled.div`
   text-align: center;
@@ -27,7 +22,7 @@ const DefaultSnackbar = (args: Props) => {
     useEffect(() => args.open ? snackbar.renderComponent() : snackbar.unmountComponent(), [args.open]);
 
     return (
-        <StorybookWrapperStyled>
+        <>
             {snackbar.render && <Snackbar
                 {...snackbar}
                 danger={args.variation === SnackbarVariationEnum.DANGER}
@@ -41,7 +36,7 @@ const DefaultSnackbar = (args: Props) => {
                     distinctio dolor eius eos hic illum libero molestiae nam non
                 </Content>
             </Snackbar>}
-        </StorybookWrapperStyled>
+        </>
     );
 }
 

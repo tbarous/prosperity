@@ -4,13 +4,8 @@ import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import Checkbox from "@components/form/Checkbox";
-import StorybookWrapper from "@stories/StorybookWrapper";
 import styled from "styled-components";
 import Switch from "@components/form/Switch";
-
-const StorybookWrapperStyled = styled(StorybookWrapper)`
-  margin: 1rem;
-`;
 
 const CheckboxWrapper = styled(Col)`
   display: flex;
@@ -25,7 +20,6 @@ const DefaultSwitch = (args: { active?: boolean }) => {
     }, [args.active])
 
     return (
-        <StorybookWrapperStyled>
             <Container fluid>
                 <Row>
                     <CheckboxWrapper xs={4}>
@@ -38,7 +32,6 @@ const DefaultSwitch = (args: { active?: boolean }) => {
                     </CheckboxWrapper>
                 </Row>
             </Container>
-        </StorybookWrapperStyled>
     )
 }
 

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import StorybookWrapper from "@stories/StorybookWrapper";
 import Image from "@components/image/Image";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
@@ -26,10 +25,6 @@ const NavbarCol = styled(Col)`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
-
-const StorybookWrapperStyled = styled(StorybookWrapper)`
-  height: 200%;
 `;
 
 const ButtonCol = styled(Col)`
@@ -115,7 +110,7 @@ const DefaultNavbar = (args: BasicComponentProps) => {
     useEffect(() => scrollFromTop >= 100 ? navbarFixed.renderComponent() : navbarFixed.unmountComponent(), [scrollFromTop])
 
     return (
-        <StorybookWrapperStyled>
+        <>
             <NavbarStatic transparent>
                 <Content/>
             </NavbarStatic>
@@ -127,7 +122,7 @@ const DefaultNavbar = (args: BasicComponentProps) => {
                     <Content/>
                 </NavbarFixed>
             }
-        </StorybookWrapperStyled>
+        </>
     );
 }
 

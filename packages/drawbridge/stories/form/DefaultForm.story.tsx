@@ -5,12 +5,7 @@ import Button, {ButtonTypeEnum} from "@components/button/Button";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
-import StorybookWrapper from "@stories/StorybookWrapper";
 import styled from "styled-components";
-
-const StorybookWrapperStyled = styled(StorybookWrapper)`
-  margin: 1rem;
-`;
 
 const DefaultForm = (args: any) => {
     function onSubmit() {
@@ -18,26 +13,23 @@ const DefaultForm = (args: any) => {
     }
 
     return (
-        <StorybookWrapperStyled>
-            <Container fluid>
-                <Row>
-                    <Col xs={4}>
-                        <Form onSubmit={onSubmit}>
-                            <Input label="Email"/>
+        <Container fluid>
+            <Row>
+                <Col xs={4}>
+                    <Form onSubmit={onSubmit}>
+                        <Input label="Email"/>
 
-                            <br/>
+                        <br/>
 
-                            <Input label="Password"/>
+                        <Input label="Password"/>
 
-                            <br/>
+                        <br/>
 
-                            <Button type={ButtonTypeEnum.SUBMIT}>Submit</Button>
-                        </Form>
-                    </Col>
-                </Row>
-            </Container>
-
-        </StorybookWrapperStyled>
+                        <Button type={ButtonTypeEnum.SUBMIT}>Submit</Button>
+                    </Form>
+                </Col>
+            </Row>
+        </Container>
     );
 }
 

@@ -3,13 +3,7 @@ import Button, {ButtonSizeEnum, ButtonVariationEnum} from "@components/button/Bu
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
-import StorybookWrapper from "@stories/StorybookWrapper";
-import styled from "styled-components";
 import {Google} from "@icons";
-
-const StorybookWrapperStyled = styled(StorybookWrapper)`
-  margin: 1rem;
-`;
 
 interface Args {
     variation?: ButtonVariationEnum,
@@ -19,24 +13,22 @@ interface Args {
 }
 
 const DefaultButton = (args: Args) => (
-    <StorybookWrapperStyled>
-        <Container fluid>
-            <Row>
-                <Col xs={2}>
-                    <Button
-                        primary={ButtonVariationEnum.PRIMARY === args.variation}
-                        secondary={ButtonVariationEnum.SECONDARY === args.variation}
-                        small={ButtonSizeEnum.SMALL === args.size}
-                        medium={ButtonSizeEnum.MEDIUM === args.size}
-                        large={ButtonSizeEnum.LARGE === args.size}
-                        icon={args.icon ? Google : null}
-                    >
-                        {args.children}
-                    </Button>
-                </Col>
-            </Row>
-        </Container>
-    </StorybookWrapperStyled>
+    <Container fluid>
+        <Row>
+            <Col xs={2}>
+                <Button
+                    primary={ButtonVariationEnum.PRIMARY === args.variation}
+                    secondary={ButtonVariationEnum.SECONDARY === args.variation}
+                    small={ButtonSizeEnum.SMALL === args.size}
+                    medium={ButtonSizeEnum.MEDIUM === args.size}
+                    large={ButtonSizeEnum.LARGE === args.size}
+                    icon={args.icon ? Google : null}
+                >
+                    {args.children}
+                </Button>
+            </Col>
+        </Row>
+    </Container>
 );
 
 DefaultButton.args = {

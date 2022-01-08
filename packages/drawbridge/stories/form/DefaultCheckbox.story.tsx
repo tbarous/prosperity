@@ -4,12 +4,7 @@ import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import Checkbox from "@components/form/Checkbox";
-import StorybookWrapper from "@stories/StorybookWrapper";
 import styled from "styled-components";
-
-const StorybookWrapperStyled = styled(StorybookWrapper)`
-  margin: 1rem;
-`;
 
 const CheckboxWrapper = styled(Col)`
   display: flex;
@@ -24,20 +19,18 @@ const DefaultCheckbox = (args: { disabled?: boolean, checked?: boolean, label?: 
     }, [args.checked])
 
     return (
-        <StorybookWrapperStyled>
-            <Container fluid>
-                <Row>
-                    <CheckboxWrapper xs={4}>
-                        <Checkbox
-                            onChange={() => setChecked(!checked)}
-                            checked={checked}
-                            label={args.label}
-                            disabled={args.disabled}
-                        />
-                    </CheckboxWrapper>
-                </Row>
-            </Container>
-        </StorybookWrapperStyled>
+        <Container fluid>
+            <Row>
+                <CheckboxWrapper xs={4}>
+                    <Checkbox
+                        onChange={() => setChecked(!checked)}
+                        checked={checked}
+                        label={args.label}
+                        disabled={args.disabled}
+                    />
+                </CheckboxWrapper>
+            </Row>
+        </Container>
     )
 }
 

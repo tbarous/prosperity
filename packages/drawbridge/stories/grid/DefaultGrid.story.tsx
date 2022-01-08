@@ -3,13 +3,8 @@ import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import styled from "styled-components";
-import StorybookWrapper from "@stories/StorybookWrapper";
 import Text from "@components/text/Text";
 import {T} from "@components/text/styled/TextStyled";
-
-const StorybookWrapperStyled = styled(StorybookWrapper)`
-  margin: 1rem;
-`;
 
 const StorybookColContent = styled(Text)<T>`
   background-color: ${(props: T) => props.theme.color.primary};
@@ -24,71 +19,69 @@ const DefaultGrid = (args: any) => {
     const isFluid = container === "fluid";
 
     return (
-        <StorybookWrapperStyled>
-            <Container fluid={isFluid}>
-                <Row>
-                    <Col>
-                        <StorybookColContent bold>
-                            8/12
-                        </StorybookColContent>
-                    </Col>
+        <Container fluid={isFluid}>
+            <Row>
+                <Col>
+                    <StorybookColContent bold>
+                        8/12
+                    </StorybookColContent>
+                </Col>
 
-                    <Col>
-                        <StorybookColContent>1/12</StorybookColContent>
-                    </Col>
+                <Col>
+                    <StorybookColContent>1/12</StorybookColContent>
+                </Col>
 
-                    <Col>
-                        <StorybookColContent>
-                            1/12
-                        </StorybookColContent>
-                    </Col>
+                <Col>
+                    <StorybookColContent>
+                        1/12
+                    </StorybookColContent>
+                </Col>
 
-                    <Col>
-                        <StorybookColContent>
-                            2/12
-                        </StorybookColContent>
-                    </Col>
-                </Row>
+                <Col>
+                    <StorybookColContent>
+                        2/12
+                    </StorybookColContent>
+                </Col>
+            </Row>
 
-                <br/>
+            <br/>
 
-                <Row gutter={20}>
-                    <Col sm={12} lg={6}>
-                        <StorybookColContent>
-                            6/12
-                        </StorybookColContent>
-                    </Col>
+            <Row gutter={20}>
+                <Col sm={12} lg={6}>
+                    <StorybookColContent>
+                        6/12
+                    </StorybookColContent>
+                </Col>
 
-                    <Col sm={12} lg={6}>
-                        <StorybookColContent>
-                            6/12
-                        </StorybookColContent>
-                    </Col>
-                </Row>
+                <Col sm={12} lg={6}>
+                    <StorybookColContent>
+                        6/12
+                    </StorybookColContent>
+                </Col>
+            </Row>
 
-                <br/>
+            <br/>
 
-                <Row gutter={12}>
-                    <Col sm={12} lg={4}>
-                        <StorybookColContent>
-                            4/12
-                        </StorybookColContent>
-                    </Col>
+            <Row gutter={12}>
+                <Col sm={12} lg={4}>
+                    <StorybookColContent>
+                        4/12
+                    </StorybookColContent>
+                </Col>
 
-                    <Col sm={12} lg={4}>
-                        <StorybookColContent>
-                            4/12
-                        </StorybookColContent>
-                    </Col>
+                <Col sm={12} lg={4}>
+                    <StorybookColContent>
+                        4/12
+                    </StorybookColContent>
+                </Col>
 
-                    <Col sm={12} lg={4}>
-                        <StorybookColContent>
-                            4/12
-                        </StorybookColContent>
-                    </Col>
-                </Row>
-            </Container>
-        </StorybookWrapperStyled>
+                <Col sm={12} lg={4}>
+                    <StorybookColContent>
+                        4/12
+                    </StorybookColContent>
+                </Col>
+            </Row>
+        </Container>
     )
 };
 

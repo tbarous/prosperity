@@ -7,7 +7,6 @@ import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import useMountChild from "@hooks/useMountChild";
-import StorybookWrapper from "@stories/StorybookWrapper";
 import styled from "styled-components";
 import ModalHeader from "@components/modal/ModalHeader";
 import ModalBody from "@components/modal/ModalBody";
@@ -39,18 +38,13 @@ const StorybookButtonWrapper = styled.div`
   width: 150px;
 `;
 
-const StorybookWrapperStyled = styled(StorybookWrapper)`
-  font-family: OpenSans, serif;
-  height: 100%;
-`;
-
 const BasicModal = (args: any) => {
     const modal = useMountChild(500);
 
     useEffect(() => args.open ? modal.renderComponent() : modal.unmountComponent(), [args.open]);
 
     return (
-        <StorybookWrapperStyled>
+        <>
             {modal.render ?
                 <Modal
                     closeOnClickOutside
@@ -80,7 +74,7 @@ const BasicModal = (args: any) => {
                     </ModalFooter>
                 </Modal>
                 : null}
-        </StorybookWrapperStyled>
+        </>
     )
 };
 
