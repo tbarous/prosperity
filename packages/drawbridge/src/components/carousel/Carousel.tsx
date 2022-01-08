@@ -1,7 +1,6 @@
 import React, {ReactNode, Children, useState, useEffect, ReactElement, useRef, useMemo} from "react";
 import CarouselStyled from "@components/carousel/styled/CarouselStyled";
 import {clone} from "@utils/ComponentUtils";
-import {fn} from "@helpers";
 
 export enum CarouselDirections {
     LEFT = "left",
@@ -13,8 +12,7 @@ export interface CarouselProps {
     className?: string
     itemsPerSlide?: number,
     gutter?: number,
-    onChange?: (position: number) => void,
-    position?: number
+    changeToPosition?: number
 }
 
 const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps): ReactElement => {
@@ -23,21 +21,21 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
         className,
         itemsPerSlide = 2,
         gutter = 0,
-        onChange = fn,
-        position = 0
+        changeToPosition = 0
     } = props;
 
+    const [position, setPosition] = useState(changeToPosition);
     const [count, setCount] = useState(0);
 
-    // useEffect(() => {
-    //     if (count === 0) return;
-    //
-    //     const countReached = changeToSlide > count - itemsPerSlide;
-    //
-    //     if (countReached || changeToSlide < 0 || position === changeToSlide) return;
-    //
-    //     setTimeout(() => setPosition(changeToSlide), 100);
-    // }, [count]);
+    useEffect(() => {
+        if (count === 0) return;
+
+        const countReached = changeToPosition > count - itemsPerSlide;
+
+        if (countReached || changeToPosition < 0 || changeToPosition === position) return;
+
+        setPosition(changeToPosition);
+    }, [changeToPosition]);
 
     const itemWidth = 100 / itemsPerSlide;
 
@@ -53,7 +51,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
     }
 
     function onMove(direction: CarouselDirections): void {
-        onChange(direction === CarouselDirections.LEFT ? position - 1 : position + 1);
+        setPosition(direction === CarouselDirections.LEFT ? position - 1 : position + 1);
     }
 
     function getCount(count: number): void {

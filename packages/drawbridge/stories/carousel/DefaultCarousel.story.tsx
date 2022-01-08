@@ -9,8 +9,6 @@ import Icon from "@components/icon/Icon";
 import CarouselItems from "@components/carousel/CarouselItems";
 import styled from "styled-components";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
-import Button from "@components/button/Button";
-import usePrevious from "@hooks/usePrevious";
 
 const CarouselStyled = styled(Carousel)`
   height: 200px;
@@ -20,28 +18,19 @@ const ControlIconStyled = styled(Icon)`
   color: ${(p: { theme: ThemeInterface }) => p.theme.color.white}
 `;
 
-const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number, gutter?: number }) => {
-    const [position, setPosition] = useState(args.changeToSlide);
-
-    function onChange(p: number) {
-        setPosition(p);
-    }
-
-    useEffect(() => {
-       setPosition(args.changeToSlide)
-    }, [args.changeToSlide])
+const DefaultCarousel = (args: { itemsPerSlide?: number, gutter?: number }) => {
+    const [changeToPosition, setChangeToPosition] = useState(0);
 
     return (
         <>
-            <button onClick={() => setPosition(5)}>dqwd</button>
-            <button onClick={() => setPosition(2)}>dqwd</button>
-            <button onClick={() => setPosition(6)}>dqwd</button>
+            <button onClick={() => setChangeToPosition(5)}>dsadsa</button>
+            <button onClick={() => setChangeToPosition(2)}>dsadsa</button>
+            <button onClick={() => setChangeToPosition(222)}>dsadsa</button>
 
             <CarouselStyled
                 itemsPerSlide={args.itemsPerSlide}
                 gutter={args.gutter}
-                onChange={onChange}
-                position={position}
+                changeToPosition={changeToPosition}
             >
                 <CarouselControls>
                     <CarouselControl
@@ -80,8 +69,7 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number,
 
 DefaultCarousel.args = {
     itemsPerSlide: 3,
-    gutter: 10,
-    changeToSlide: 0
+    gutter: 10
 };
 
 export default DefaultCarousel;
