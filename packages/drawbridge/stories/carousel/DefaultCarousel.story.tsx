@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import Carousel, {CarouselDirections} from "@components/carousel/Carousel";
 import CarouselItem from "@components/carousel/CarouselItem";
 import Image from "@components/image/Image";
@@ -21,14 +21,14 @@ const ControlIconStyled = styled(Icon)`
 `;
 
 const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number, gutter?: number }) => {
-    const [position, setPosition] = useState(0);
+    const [position, setPosition] = useState(args.changeToSlide);
 
     function onChange(p: number) {
         setPosition(p);
     }
 
     useEffect(() => {
-        setPosition(args.changeToSlide)
+       setPosition(args.changeToSlide)
     }, [args.changeToSlide])
 
     return (
@@ -65,7 +65,7 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number,
                     </CarouselControl>
                 </CarouselControls>
 
-                <CarouselItems>{[1, 2, 3, 4, 5, 6, 7, 5, 2].map((item, index) => {
+                <CarouselItems>{Array(10).fill(0).map((item, index) => {
                     return (
                         <CarouselItem key={index}>
                             <Image src="/img.jpg" alt="img"/>
@@ -74,9 +74,7 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number,
                 })}
                 </CarouselItems>
             </CarouselStyled>
-
         </>
-
     );
 }
 
