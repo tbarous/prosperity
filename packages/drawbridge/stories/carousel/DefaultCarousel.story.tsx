@@ -53,6 +53,10 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number,
                 </CarouselItem>
 
                 <CarouselItem>
+                    <Image src="/img2.jpg" alt="img"/>
+                </CarouselItem>
+
+                <CarouselItem>
                     <Image src="/img.jpg" alt="img"/>
                 </CarouselItem>
 
@@ -61,7 +65,7 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number,
                 </CarouselItem>
 
                 <CarouselItem>
-                    <Image src="/img2.jpg" alt="img"/>
+                    <Image src="/img.jpg" alt="img"/>
                 </CarouselItem>
 
                 <CarouselItem>
@@ -69,11 +73,7 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number,
                 </CarouselItem>
 
                 <CarouselItem>
-                    <Image src="/img2.jpg" alt="img"/>
-                </CarouselItem>
-
-                <CarouselItem>
-                    <Image src="/img2.jpg" alt="img"/>
+                    <Image src="/img.jpg" alt="img"/>
                 </CarouselItem>
 
                 <CarouselItem>

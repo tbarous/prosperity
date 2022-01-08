@@ -25,46 +25,35 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
     } = props;
 
     const [position, setPosition] = useState(0);
+    const [count, setCount] = useState(0);
 
-    const count = useRef(0);
-
-    function goToSlide() {
-        if (count.current === 0) return;
-
-        const countReached = changeToSlide > count.current - itemsPerSlide;
-
+    useEffect(() => {
+        if (count === 0) return;
+        const countReached = changeToSlide > count - itemsPerSlide;
         if (countReached || changeToSlide < 0) return;
-
+        if(changeToSlide===position)return;
         setPosition(changeToSlide);
-    }
-
-    useEffect(goToSlide, [count]);
+    }, [count]);
 
     const itemWidth = 100 / itemsPerSlide;
 
-    function getItemWidth(){
-        return 00 / itemsPerSlide;
-    }
-
-    function getChildProps() {
-        return {
-            isOnStart: position === 0,
-            isOnEnd: position === count.current - itemsPerSlide,
-            gutter,
-            itemWidth,
-            distance: position * itemWidth,
-            onMove,
-            getCount,
-            getItemDistance
-        };
+    const childProps = {
+        isOnStart: position === 0,
+        isOnEnd: position === count - itemsPerSlide,
+        gutter,
+        itemWidth,
+        distance: position * itemWidth,
+        onMove,
+        getCount,
+        getItemDistance
     }
 
     function onMove(direction: CarouselDirections): void {
         setPosition(direction === CarouselDirections.LEFT ? position - 1 : position + 1);
     }
 
-    function getCount(_count: number): void {
-        count.current = _count;
+    function getCount(count: number): void {
+        setCount(count)
     }
 
     function getItemDistance(index: number): number {
@@ -73,7 +62,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
 
     return (
         <CarouselStyled className={className}>
-            {Children.map(children, (child: ReactNode) => clone(child, getChildProps()))}
+            {Children.map(children, (child: ReactNode) => clone(child, childProps))}
         </CarouselStyled>
     )
 }

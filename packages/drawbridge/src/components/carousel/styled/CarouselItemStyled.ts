@@ -12,7 +12,7 @@ export interface T {
 function getPadding(p: T): undefined | string {
     if (!p.gutter) return;
 
-    return `${p.theme.spacing.s0} ${px(p.gutter / 2)}`;
+    return `${p.theme.spacing.s0} ${px(p.gutter)}`;
 }
 
 function getWidth(p: T): string {

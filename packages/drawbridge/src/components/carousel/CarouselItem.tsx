@@ -25,6 +25,7 @@ const CarouselItem: React.FunctionComponent<CarouselItemProps> = (props: Carouse
             itemX={itemX}
             gutter={gutter}
         >
+            AAAAAAAAAAAAAAA {itemX}
             {children}
         </CarouselItemStyled>
     )
