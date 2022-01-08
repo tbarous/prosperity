@@ -15,7 +15,7 @@ const ColStyled = styled.div<T>`
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
   padding-left: ${(p: T) => p.gutter ? `${p.gutter / 2}px` : ""};
   padding-right: ${(p: T) => p.gutter ? `${p.gutter / 2}px` : ""};
-  height: ${(p: T) => p.theme.dimension.d100};
+  //height: ${(p: T) => p.theme.dimension.d100};
 
   ${(p: T) => MediaUtils.up(p.theme.breakpoint.xs, css`
     width: ${width(p.xs)};

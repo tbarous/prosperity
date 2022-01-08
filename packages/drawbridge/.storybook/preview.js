@@ -20,9 +20,9 @@ import "../.storybook/assets/font/font.css";
 addDecorator(withThemes(ThemeProvider, [theme]));
 
 const GlobalStorybookStyle = GlobalStyledUtils.extendGlobalStyle(
-    // css`#root {
-    //   height: 100%;
-    // }`
+    css`#root {
+      height: 100%;
+    }`
 );
 
 export const decorators = [

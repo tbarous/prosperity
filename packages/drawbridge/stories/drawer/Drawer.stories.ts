@@ -10,6 +10,7 @@ export default {
             control: {type: 'radio'},
         },
     },
+
 };
 
 export {
