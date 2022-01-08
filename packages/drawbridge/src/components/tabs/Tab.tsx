@@ -1,18 +1,17 @@
 import React, {ReactElement, ReactNode} from "react";
 import TabStyled from "@components/tabs/styled/TabStyled";
-import {fn} from "@helpers";
 
-interface TabProps {
+interface T {
     children: ReactNode,
     className?: string,
     onClickTab?: (e: MouseEvent) => void
 }
 
-const Tab: React.FunctionComponent<TabProps> = (props: TabProps): ReactElement => {
+const Tab: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
-        onClickTab = fn
+        onClickTab
     } = props;
 
     return (

@@ -16,7 +16,8 @@ interface ThemeDimensionInterface {
 
     drawerWidth: number,
     drawerTogglerWidth: number,
-    drawerTogglerHeight: number
+    drawerTogglerHeight: number,
+    snackbarHeight: number
 }
 
 export default ThemeDimensionInterface;

@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-export type T = StyledProps;
+interface T {
+    theme: ThemeInterface
+}
 
 const TooltipContentStyled = styled.div<T>`
   position: ${(p: T) => p.theme.position.absolute};

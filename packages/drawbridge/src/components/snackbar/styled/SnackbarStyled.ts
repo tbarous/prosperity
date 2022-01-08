@@ -1,9 +1,14 @@
 import styled, {keyframes} from "styled-components";
-import {StyledProps, useMountChildStyledProps} from "@typings";
-import {SnackbarMapping} from "@components/snackbar/Snackbar";
-import {px} from "@utils/ThemeUtils";
+import {animation, px, transition} from "@utils/ThemeUtils";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & useMountChildStyledProps & SnackbarMapping;
+interface T {
+    theme: ThemeInterface,
+    danger?: boolean,
+    warning?: boolean,
+    success?: boolean,
+    mount?: boolean
+}
 
 const slideUp = keyframes`
   from {
@@ -15,8 +20,35 @@ const slideUp = keyframes`
   }
 `;
 
+function getColor(p: T) {
+    return p.danger ? p.theme.color.white : (p.warning ? p.theme.color.dark : (p.success ? p.theme.color.white : p.theme.color.white));
+}
+
+function getBackgroundColor(p: T) {
+    return p.danger ? p.theme.color.danger : (p.warning ? p.theme.color.warning : (p.success ? p.theme.color.success : p.theme.color.danger));
+}
+
+function getTransform(p: T) {
+    return p.mount ? `translateY(0)` : `translateY(150%)`;
+}
+
+function getTransition(p: T) {
+    return transition("transform", p.theme.animation.snackbar);
+}
+
+function getAnimation(p: T) {
+    return animation(slideUp, p.theme.animation.snackbar);
+}
+
+function getPadding(p: T) {
+    return `${px(p.theme.spacing.s0)} ${px(p.theme.spacing.s6)}`;
+}
+
+function getHeight(p: T) {
+    return px(p.theme.dimension.snackbarHeight);
+}
+
 const SnackbarStyled = styled.div`
-  height: ${(p: T) => "60px"};
   display: ${(p: T) => p.theme.display.flex};
   align-items: ${(p: T) => p.theme.alignItems.center};
   font-family: ${(p: T) => p.theme.fontFamily.primary};
@@ -25,15 +57,15 @@ const SnackbarStyled = styled.div`
   bottom: ${(p: T) => px(p.theme.spacing.s0)};
   left: ${(p: T) => px(p.theme.spacing.s0)};
   width: ${(p: T) => p.theme.dimension.d100};
-  padding: ${(p: T) => `${px(p.theme.spacing.s0)} ${px(p.theme.spacing.s6)}`};
   font-weight: ${(p: T) => p.theme.fontWeight.bold};
   box-shadow: ${(p: T) => p.theme.shadow.medium};
-  color: ${(p: T) => (p: T) => p.danger ? p.theme.color.white : (p.warning ? p.theme.color.dark : (p.success ? p.theme.color.white : p.theme.color.white))};
-  background-color: ${(p: T) => p.danger ? p.theme.color.danger : (p.warning ? p.theme.color.warning : (p.success ? p.theme.color.success : p.theme.color.danger))};
-  transform: ${(p: T) => p.mount ? `translateY(0)` : `translateY(150%)`};
-  
-  animation: ${slideUp} .5s;
-  transition: ${(p: T) => `transform ${p.exitDelay / 1000}s`};
+  padding: ${getPadding};
+  height: ${getHeight};
+  color: ${getColor};
+  background-color: ${getBackgroundColor};
+  transform: ${getTransform};
+  animation: ${getAnimation};
+  transition: ${getTransition};
 `;
 
 export default SnackbarStyled;

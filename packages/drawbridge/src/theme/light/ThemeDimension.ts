@@ -18,7 +18,8 @@ const ThemeDimension: ThemeDimensionInterface = {
 
     drawerWidth: 300,
     drawerTogglerWidth: 50,
-    drawerTogglerHeight: 40
+    drawerTogglerHeight: 40,
+    snackbarHeight: 60
 }
 
 export default ThemeDimension

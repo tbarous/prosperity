@@ -1,23 +1,21 @@
 import React, {Children, ReactElement, ReactNode, useEffect, useState} from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import TabsStyled from "@components/tabs/styled/TabsStyled";
 import TabActiveStyled from "@components/tabs/styled/TabActiveStyled";
-import {fn} from "@helpers";
 import {clone} from "@utils/ComponentUtils";
 
-export interface TabsProps {
+interface T {
     children: ReactNode,
     className?: string,
-    onChange: (index: number) => void,
+    onChange?: (index: number) => void,
     activate?: number,
 }
 
-const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElement => {
+const Tabs: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
         activate,
-        onChange = fn
+        onChange
     } = props;
 
     const [active, setActive] = useState(0);
@@ -31,7 +29,7 @@ const Tabs: React.FunctionComponent<TabsProps> = (props: TabsProps): ReactElemen
     function onClickTab(index: number) {
         setActive(index);
 
-        onChange(index);
+        onChange && onChange(index);
     }
 
     return (

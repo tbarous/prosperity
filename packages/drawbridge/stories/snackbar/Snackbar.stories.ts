@@ -1,4 +1,4 @@
-import Snackbar, {SnackbarVariationEnum} from "@components/snackbar/Snackbar";
+import Snackbar, {SnackbarVariations} from "@components/snackbar/Snackbar";
 import DefaultSnackbar from '@stories/snackbar/DefaultSnackbar.story';
 
 export default {
@@ -7,9 +7,9 @@ export default {
     argTypes: {
         variation: {
             options: [
-                SnackbarVariationEnum.DANGER,
-                SnackbarVariationEnum.WARNING,
-                SnackbarVariationEnum.SUCCESS
+                SnackbarVariations.DANGER,
+                SnackbarVariations.WARNING,
+                SnackbarVariations.SUCCESS
             ],
             control: {type: 'radio'},
         },

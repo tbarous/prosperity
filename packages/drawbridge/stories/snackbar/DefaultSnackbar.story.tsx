@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import Snackbar, {SnackbarVariationEnum} from "@components/snackbar/Snackbar";
+import Snackbar, {SnackbarVariations} from "@components/snackbar/Snackbar";
 import styled from "styled-components";
 import useMountChild from "@hooks/useMountChild";
 import {BasicComponentProps} from "@typings";
@@ -10,7 +10,7 @@ const Content = styled.div`
 `;
 
 interface Props extends BasicComponentProps {
-    variation?: SnackbarVariationEnum,
+    variation?: SnackbarVariations,
     open?: boolean,
     dismissible?: boolean,
     closeOnDelay?: number
@@ -25,9 +25,9 @@ const DefaultSnackbar = (args: Props) => {
         <>
             {snackbar.render && <Snackbar
                 {...snackbar}
-                danger={args.variation === SnackbarVariationEnum.DANGER}
-                success={args.variation === SnackbarVariationEnum.SUCCESS}
-                warning={args.variation === SnackbarVariationEnum.WARNING}
+                danger={args.variation === SnackbarVariations.DANGER}
+                success={args.variation === SnackbarVariations.SUCCESS}
+                warning={args.variation === SnackbarVariations.WARNING}
                 dismissible={args.dismissible}
                 closeOnDelay={args.closeOnDelay}
             >
@@ -44,7 +44,7 @@ DefaultSnackbar.args = {
     open: true,
     dismissible: false,
     closeOnDelay: 3000,
-    variation: SnackbarVariationEnum.SUCCESS
+    variation: SnackbarVariations.SUCCESS
 };
 
 export default DefaultSnackbar;

@@ -1,29 +1,28 @@
-import React from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import React, {ReactElement, ReactNode} from "react";
 import {Times} from "@icons";
-import {useMountChildProps} from "@hooks/useMountChild";
 import useCallbackOnTimeout from "@hooks/useCallbackOnTimeout";
 import SnackbarStyled from "@components/snackbar/styled/SnackbarStyled";
 import SnackbarCloseStyled from "@components/snackbar/styled/SnackbarCloseStyled";
 
-export enum SnackbarVariationEnum {
+export enum SnackbarVariations {
     SUCCESS = "success",
     WARNING = "warning",
     DANGER = "danger"
 }
 
-export interface SnackbarMapping {
+interface T {
+    children: ReactNode,
+    className?: string,
+    dismissible?: boolean,
+    closeOnDelay?: number,
     danger?: boolean,
     warning?: boolean,
-    success?: boolean
+    success?: boolean,
+    mount?: boolean,
+    unmountComponent: (override?: boolean) => void
 }
 
-export interface SnackbarProps extends BasicComponentProps, useMountChildProps, SnackbarMapping {
-    dismissible?: boolean,
-    closeOnDelay?: number
-}
-
-const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps): ReactElementOrNull => {
+const Snackbar: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
@@ -33,11 +32,12 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
         dismissible,
         closeOnDelay,
         unmountComponent,
-        mount,
-        exitDelay
+        mount
     } = props;
 
-    if (closeOnDelay) useCallbackOnTimeout(closeOnDelay, () => unmountComponent(true));
+    if (closeOnDelay) {
+        useCallbackOnTimeout(closeOnDelay, () => unmountComponent(true));
+    }
 
     return (
         <SnackbarStyled

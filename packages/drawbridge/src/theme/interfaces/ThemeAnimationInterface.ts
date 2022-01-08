@@ -1,5 +1,6 @@
 interface ThemeAnimationInterface {
-    drawer: number
+    drawer: number,
+    snackbar: number
 }
 
 export default ThemeAnimationInterface;
