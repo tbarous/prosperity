@@ -18,7 +18,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
         className,
         gutter = 0,
         itemWidth,
-        moveDistance = 0
+        moveDistance = 0,
         getCount = fn,
         getLeftDistance = () => 0
     } = props;

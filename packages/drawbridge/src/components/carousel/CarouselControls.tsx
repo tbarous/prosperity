@@ -21,13 +21,6 @@ const CarouselControls: React.FunctionComponent<Props> = (props: Props): ReactEl
         isOnEnd
     } = props;
 
-    /**
-     * Renders left handler control component if we are not at the start of the carousel (1st slide).
-     * Renders right handler control component if we are not at the end of the carousel.
-     * Attaches the onMove function on each handler component.
-     * @param child
-     * @return ReactElement
-     */
     function getChild(child: A): ReactElement | undefined | boolean {
         const direction = child.props.direction;
 
