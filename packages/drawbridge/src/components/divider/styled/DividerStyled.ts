@@ -1,13 +1,42 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {px} from "@utils/ThemeUtils";
 
-type T = StyledProps & { spacing?: number };
+interface T {
+    theme: ThemeInterface,
+    spacing: number,
+    vertical: boolean
+}
+
+function getHeight(p: T) {
+    if (p.vertical) {
+        return p.theme.dimension.d100;
+    }
+
+    return px(p.theme.spacing.s1);
+}
+
+function getWidth(p: T) {
+    if (p.vertical) {
+        return px(p.theme.spacing.s1);
+    }
+
+    return p.theme.dimension.d100;
+}
+
+function getMargin(p: T) {
+    if (p.vertical) {
+        return `${px(p.theme.spacing.s0)} ${px(p.spacing)}`;
+    }
+
+    return `${px(p.spacing)} ${px(p.theme.spacing.s0)}`;
+}
 
 const DividerStyled = styled.div<T>`
-  height: 1px;
-  width: 100%;
-  background: lightgray;
-  margin: ${p => p.spacing}px 0;
+  height: ${getHeight};
+  width: ${getWidth};
+  background: ${(p: T) => p.theme.color.light};
+  margin: ${getMargin};
 `;
 
 export default DividerStyled;
