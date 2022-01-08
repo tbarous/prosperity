@@ -6,7 +6,7 @@ export interface T {
     theme: ThemeInterface
     width: number,
     gutter: number,
-    leftDistance: number
+    itemX: number
 }
 
 function getPadding(p: T): undefined | string {
@@ -20,7 +20,7 @@ function getWidth(p: T): string {
 }
 
 function getLeft(p: T): string {
-    return `${p.leftDistance}%`;
+    return `${p.itemX}%`;
 }
 
 const CarouselItemStyled = styled.div<T>`

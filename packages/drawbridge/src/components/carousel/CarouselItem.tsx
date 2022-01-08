@@ -5,7 +5,7 @@ interface CarouselItemProps {
     children: ReactNode,
     className?: string,
     itemWidth?: number,
-    leftDistance?: number,
+    itemX?: number,
     gutter?: number
 }
 
@@ -14,7 +14,7 @@ const CarouselItem: React.FunctionComponent<CarouselItemProps> = (props: Carouse
         children,
         className,
         itemWidth = 1,
-        leftDistance = 0,
+        itemX = 0,
         gutter = 0
     } = props;
 
@@ -22,7 +22,7 @@ const CarouselItem: React.FunctionComponent<CarouselItemProps> = (props: Carouse
         <CarouselItemStyled
             className={className}
             width={itemWidth}
-            leftDistance={leftDistance}
+            itemX={itemX}
             gutter={gutter}
         >
             {children}

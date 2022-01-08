@@ -15,19 +15,15 @@ const CarouselStyled = styled(Carousel)`
 `;
 
 const ControlIconStyled = styled(Icon)`
-  color: ${(p: {theme: ThemeInterface}) => p.theme.color.white}
+  color: ${(p: { theme: ThemeInterface }) => p.theme.color.white}
 `;
 
-const DefaultCarousel = (args: { itemsPerSlide?: number, change?: number, gutter?: number }) => {
-    const [changeToSlide, setChangeToSlide] = useState<number | undefined>(undefined);
-
-    useEffect(() => setChangeToSlide(args.change), [args.change]);
-
+const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number, gutter?: number }) => {
     return (
         <CarouselStyled
             itemsPerSlide={args.itemsPerSlide}
             gutter={args.gutter}
-            change={changeToSlide}
+            changeToSlide={args.changeToSlide}
         >
             <CarouselControls>
                 <CarouselControl
@@ -71,6 +67,18 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, change?: number, gutter
                 <CarouselItem>
                     <Image src="/img2.jpg" alt="img"/>
                 </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/img2.jpg" alt="img"/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/img2.jpg" alt="img"/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/img2.jpg" alt="img"/>
+                </CarouselItem>
             </CarouselItems>
         </CarouselStyled>
     );
@@ -79,7 +87,7 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, change?: number, gutter
 DefaultCarousel.args = {
     itemsPerSlide: 3,
     gutter: 10,
-    change: -1
+    changeToSlide: 0
 };
 
 export default DefaultCarousel;

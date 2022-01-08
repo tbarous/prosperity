@@ -4,12 +4,12 @@ import {px} from "@utils/ThemeUtils";
 
 export interface T {
     theme: ThemeInterface,
-    moveDistance: number,
+    distance: number,
     gutter: number
 }
 
 function getTransform(p: T): string {
-    return `translateX(-${p.moveDistance}%)`;
+    return `translateX(-${p.distance}%)`;
 }
 
 function getTransition(p: T): string {
