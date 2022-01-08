@@ -3,7 +3,8 @@ interface ThemeZIndexInterface {
     carouselControl: number,
     navbar: number,
     drawer: number,
-    drawerToggler: number
+    drawerToggler: number,
+    drawerContent: number
 }
 
 export default ThemeZIndexInterface;

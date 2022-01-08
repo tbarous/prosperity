@@ -1,9 +1,26 @@
 import styled from "styled-components";
-import {ButtonMapping} from "@components/button/Button";
 import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
-type T = StyledProps & ButtonMapping;
+type T = StyledProps & {
+    primary: boolean,
+    secondary: boolean,
+    small: boolean,
+    medium: boolean,
+    large: boolean
+};
+
+function getBackgroundColor(p: T) {
+    return p.primary ? p.theme.color.primary : (p.secondary ? p.theme.color.secondary : p.theme.color.primary);
+}
+
+function getColor(p: T) {
+    return p.primary ? p.theme.color.white : (p.secondary ? p.theme.color.dark : p.theme.color.white);
+}
+
+function getPadding(p: T) {
+    return p.small ? px(p.theme.spacing.s4) : (p.medium ? px(p.theme.spacing.s5) : (p.large ? px(p.theme.spacing.s6) : px(p.theme.spacing.s5)));
+}
 
 const ButtonStyled = styled.button<T>`
   cursor: ${(p: T) => p.theme.cursor.pointer};
@@ -17,9 +34,9 @@ const ButtonStyled = styled.button<T>`
   height: ${(p: T) => p.theme.dimension.d100};
   letter-spacing: ${(p: T) => p.theme.letterSpacing.small};
   transition: ${(p: T) => p.theme.transition.elevation};
-  padding: ${(p: T) => p.small ? px(p.theme.spacing.s4) : (p.medium ? px(p.theme.spacing.s5) : (p.large ? px(p.theme.spacing.s6) : px(p.theme.spacing.s5)))};
-  background-color: ${(p: T) => p.primary ? p.theme.color.primary : (p.secondary ? p.theme.color.secondary : p.theme.color.primary)};
-  color: ${(p: T) => p.primary ? p.theme.color.white : (p.secondary ? p.theme.color.dark : p.theme.color.white)};
+  padding: ${getPadding};
+  background-color: ${getBackgroundColor};
+  color: ${getColor};
 
   &:hover {
     box-shadow: ${(p: T) => p.theme.shadow.elevate};

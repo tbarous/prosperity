@@ -4,7 +4,7 @@ import {StyledProps} from "@typings";
 type T = StyledProps;
 
 const DrawerContent = styled.div<T>`
-  z-index: 999;
+  z-index: ${(p: T) => p.theme.zIndex.drawerContent};
   width: ${(p: T) => p.theme.dimension.d100};
 `;
 

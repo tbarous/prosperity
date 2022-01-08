@@ -1,4 +1,4 @@
-import Button, {ButtonSizeEnum, ButtonVariationEnum} from "@components/button/Button";
+import Button, {ButtonSizes, ButtonVariations} from "@components/button/Button";
 import DefaultButton from "@stories/button/DefaultButton.story";
 
 export default {
@@ -6,11 +6,11 @@ export default {
     component: Button,
     argTypes: {
         variation: {
-            options: [ButtonVariationEnum.PRIMARY, ButtonVariationEnum.SECONDARY],
+            options: [ButtonVariations.PRIMARY, ButtonVariations.SECONDARY],
             control: {type: 'radio'},
         },
         size: {
-            options: [ButtonSizeEnum.SMALL, ButtonSizeEnum.MEDIUM, ButtonSizeEnum.LARGE],
+            options: [ButtonSizes.SMALL, ButtonSizes.MEDIUM, ButtonSizes.LARGE],
             control: {type: 'radio'},
         },
     },

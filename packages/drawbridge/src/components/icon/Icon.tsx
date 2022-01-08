@@ -1,24 +1,26 @@
-import React from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import React, {ReactElement} from "react";
+import {BasicComponentProps} from "@typings";
 import IconStyled from "@components/icon/styled/IconStyled";
 import {IconInterface} from "@icons";
 
 export interface Props extends BasicComponentProps {
-    icon: IconInterface,
+    icon?: IconInterface,
     width?: number,
     height?: number,
     onClick?: () => void,
 }
 
-const Icon: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+const Icon: React.FunctionComponent<Props> = (props: Props): ReactElement | null => {
     const {
+        className,
         icon,
         width = 14,
         height = 14,
-        className,
         onClick = () => {
         },
     } = props;
+
+    if (typeof icon === "undefined") return null;
 
     return (
         <IconStyled

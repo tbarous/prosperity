@@ -5,7 +5,8 @@ const ThemeZIndex: ThemeZIndexInterface = {
     carouselControl: 6,
     navbar: 8,
     drawer: 7,
-    drawerToggler: 10
+    drawerToggler: 10,
+    drawerContent: 11
 }
 
 export default ThemeZIndex;

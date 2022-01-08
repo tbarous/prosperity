@@ -2,10 +2,7 @@ import styled, {keyframes} from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
 import {animation, px, transition} from "@utils/ThemeUtils";
 
-type T =
-    { fixed?: boolean, light?: boolean, dark?: boolean, transparent?: boolean }
-    & StyledProps
-    & useMountChildStyledProps;
+type T = { fixed?: boolean, light?: boolean, dark?: boolean, transparent?: boolean, mount?: boolean } & StyledProps;
 
 const slideIn = (p: T) => keyframes`
   from {

@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "@components/form/Input";
 import Form from "@components/form/Form";
-import Button, {ButtonTypeEnum} from "@components/button/Button";
+import Button, {ButtonTypes} from "@components/button/Button";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
@@ -25,7 +25,7 @@ const DefaultForm = (args: any) => {
 
                         <br/>
 
-                        <Button type={ButtonTypeEnum.SUBMIT}>Submit</Button>
+                        <Button type={ButtonTypes.SUBMIT}>Submit</Button>
                     </Form>
                 </Col>
             </Row>

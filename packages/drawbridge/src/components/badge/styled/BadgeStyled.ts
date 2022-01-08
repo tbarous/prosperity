@@ -4,6 +4,10 @@ import {px} from "@utils/ThemeUtils";
 
 type T = StyledProps;
 
+function getPadding(p: T) {
+    return `${px(p.theme.spacing.s2)} ${px(p.theme.spacing.s4)}`
+}
+
 const BadgeStyled = styled.span<T>`
   position: ${(p: T) => p.theme.position.absolute};
   display: ${(p: T) => p.theme.display.inlineFlex};
@@ -11,7 +15,7 @@ const BadgeStyled = styled.span<T>`
   justify-content: ${(p: T) => p.theme.justifyContent.center};
   background-color: ${(p: T) => p.theme.color.primary};
   color: ${(p: T) => p.theme.color.white};
-  padding: ${(p: T) => `${px(p.theme.spacing.s2)} ${px(p.theme.spacing.s4)}`};
+  padding: ${getPadding};
   border-radius: ${(p: T) => p.theme.borderRadius.large};
   font-size: ${(p: T) => p.theme.fontSize.sm};
   box-shadow: ${(p: T) => p.theme.shadow.light};

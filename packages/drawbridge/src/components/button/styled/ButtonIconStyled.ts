@@ -1,13 +1,27 @@
 import styled from "styled-components";
 import Icon from "@components/icon/Icon";
-import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
+import {IconInterface} from "@icons";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & { primary?: boolean, secondary?: boolean };
+interface T {
+    theme: ThemeInterface,
+    primary: boolean,
+    secondary: boolean,
+    icon?: IconInterface
+}
+
+function getColor(p: T) {
+    return p.secondary ? p.theme.color.dark : p.theme.color.white;
+}
+
+function getMargin(p: T) {
+    return px(p.theme.spacing.s4);
+}
 
 const ButtonIconStyled = styled(Icon)<T>`
-  color: ${(p: T) => p.secondary ? p.theme.color.dark : p.theme.color.white};
-  margin-right: ${(p: T) => px(p.theme.spacing.s4)};
+  color: ${getColor};
+  margin-right: ${getMargin};
 `;
 
 export default ButtonIconStyled

@@ -4,15 +4,21 @@ import DrawerTogglerStyled from "./styled/DrawerTogglerStyled";
 import DrawerTogglerIconStyled from "./styled/DrawerTogglerIconStyled";
 import {BasicComponentProps} from "@typings";
 
-interface Props extends BasicComponentProps {
+export interface DrawerTogglerProps extends BasicComponentProps {
     dark?: boolean,
     light?: boolean,
     toggle?: any,
     mount?: any
 }
 
-const DrawerToggler: React.FunctionComponent<Props> = (props: Props): React.ReactElement => {
-    const {className, dark, light, toggle, mount} = props;
+const DrawerToggler: React.FunctionComponent<DrawerTogglerProps> = (props: DrawerTogglerProps): React.ReactElement => {
+    const {
+        className,
+        dark,
+        light,
+        toggle,
+        mount
+    } = props;
 
     return (
         <DrawerTogglerStyled

@@ -1,13 +1,13 @@
 import React from 'react';
-import Button, {ButtonSizeEnum, ButtonVariationEnum} from "@components/button/Button";
+import Button, {ButtonSizes, ButtonVariations} from "@components/button/Button";
 import Container from "@components/grid/Container";
 import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import {Google} from "@icons";
 
 interface Args {
-    variation?: ButtonVariationEnum,
-    size?: ButtonSizeEnum,
+    variation?: ButtonVariations,
+    size?: ButtonSizes,
     children?: string,
     icon?: boolean
 }
@@ -17,11 +17,11 @@ const DefaultButton = (args: Args) => (
         <Row>
             <Col xs={2}>
                 <Button
-                    primary={ButtonVariationEnum.PRIMARY === args.variation}
-                    secondary={ButtonVariationEnum.SECONDARY === args.variation}
-                    small={ButtonSizeEnum.SMALL === args.size}
-                    medium={ButtonSizeEnum.MEDIUM === args.size}
-                    large={ButtonSizeEnum.LARGE === args.size}
+                    primary={ButtonVariations.PRIMARY === args.variation}
+                    secondary={ButtonVariations.SECONDARY === args.variation}
+                    small={ButtonSizes.SMALL === args.size}
+                    medium={ButtonSizes.MEDIUM === args.size}
+                    large={ButtonSizes.LARGE === args.size}
                     icon={args.icon ? Google : null}
                 >
                     {args.children}
@@ -32,8 +32,8 @@ const DefaultButton = (args: Args) => (
 );
 
 DefaultButton.args = {
-    variation: ButtonVariationEnum.PRIMARY,
-    size: ButtonSizeEnum.MEDIUM,
+    variation: ButtonVariations.PRIMARY,
+    size: ButtonSizes.MEDIUM,
     children: "Login with Google",
     icon: false
 };

@@ -1,6 +1,5 @@
 import React, {Children, cloneElement, isValidElement, ReactElement} from "react";
 import {BasicComponentProps} from "@typings";
-import {useMountChildProps} from "@hooks/useMountChild";
 import DrawerStyled from "@components/drawer/styled/DrawerStyled";
 import DrawerOverlay from "./styled/DrawerOverlay";
 import DrawerContent from "./styled/DrawerContent";
@@ -25,19 +24,18 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
         fixed,
         light,
         dark,
-        transparent
+        transparent,
+        mount
     } = props;
-
-    const {mount} = props;
 
     return (
         <DrawerStyled
             className={className}
-            mount={mount}
             fixed={fixed}
             light={light}
             dark={dark}
             transparent={transparent}
+            mount={mount}
         >
             <DrawerContent>
                 {Children.map(children, child => isValidElement(child) && cloneElement(child, {light, dark}))}

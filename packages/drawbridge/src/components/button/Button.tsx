@@ -1,68 +1,72 @@
-import React, {ReactElement} from "react";
-import {BasicComponentProps} from "@typings";
+import React, {ReactElement, ReactNode} from "react";
 import ButtonStyled from "./styled/ButtonStyled";
 import {IconInterface} from "@icons";
-import ButtonWrapperStyled from "./styled/ButtonWrapperStyled";
 import ButtonIconStyled from "./styled/ButtonIconStyled";
+import ButtonContentStyled from "./styled/ButtonContentStyled";
 
-export enum ButtonSizeEnum {
+export enum ButtonSizes {
     SMALL = "Small",
     MEDIUM = "Medium",
     LARGE = "Large"
 }
 
-export enum ButtonTypeEnum {
+export enum ButtonTypes {
     BUTTON = "button",
     SUBMIT = "submit",
     RESET = "reset"
 }
 
-export enum ButtonVariationEnum {
+export enum ButtonVariations {
     PRIMARY = "Primary",
     SECONDARY = "Secondary"
 }
 
-export interface ButtonMapping {
+export enum ButtonRoles {
+    BUTTON = "button"
+}
+
+export interface ButtonProps {
+    children?: ReactNode,
+    className?: string,
+    onClick?: () => void,
+    type?: ButtonTypes,
     primary?: boolean,
     secondary?: boolean,
     small?: boolean,
     medium?: boolean,
     large?: boolean,
-    icon?: IconInterface | null
-}
-
-export interface ButtonProps extends BasicComponentProps, ButtonMapping {
-    onClick?: () => void,
-    type?: ButtonTypeEnum,
+    icon?: IconInterface,
+    role?: string
 }
 
 const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElement => {
     const {
         children,
         className,
-        type,
-        primary,
-        secondary,
-        small,
-        medium,
-        large,
-        icon,
-        onClick
+        type = ButtonTypes.BUTTON,
+        primary = true,
+        secondary = false,
+        small = false,
+        medium = true,
+        large = false,
+        icon = undefined,
+        role = ButtonRoles.BUTTON,
+        onClick = () => {}
     } = props;
 
     return (
         <ButtonStyled
             className={className}
-            onClick={onClick}
             type={type}
-            role="button"
+            role={role}
             primary={primary}
             secondary={secondary}
             small={small}
             medium={medium}
             large={large}
+            onClick={onClick}
         >
-            <ButtonWrapperStyled>
+            <ButtonContentStyled>
                 {icon && <ButtonIconStyled
                     icon={icon}
                     width={20}
@@ -72,7 +76,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): React
                 />}
 
                 {children}
-            </ButtonWrapperStyled>
+            </ButtonContentStyled>
         </ButtonStyled>
     );
 }

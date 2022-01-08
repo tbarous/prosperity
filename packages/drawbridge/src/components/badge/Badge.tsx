@@ -2,10 +2,10 @@ import React, {ReactElement} from "react";
 import {BasicComponentProps} from "@typings";
 import BadgeStyled from "./styled/BadgeStyled";
 
-interface Props extends BasicComponentProps {
+export interface BadgeProps extends BasicComponentProps {
 }
 
-const Badge: React.FunctionComponent<Props> = (props: Props): ReactElement => {
+const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps): ReactElement => {
     const {
         children,
         className
