@@ -1,8 +1,9 @@
-import React, {ReactElement} from "react";
-import {BasicComponentProps} from "@typings";
-import BadgeStyled from "./styled/BadgeStyled";
+import React, {ReactElement, ReactNode} from "react";
+import BadgeStyled from "@components/badge/styled/BadgeStyled";
 
-export interface BadgeProps extends BasicComponentProps {
+export interface BadgeProps {
+    children: ReactNode,
+    className?: string
 }
 
 const Badge: React.FunctionComponent<BadgeProps> = (props: BadgeProps): ReactElement => {

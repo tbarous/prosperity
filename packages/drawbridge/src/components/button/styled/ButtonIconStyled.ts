@@ -4,7 +4,7 @@ import {px} from "@utils/ThemeUtils";
 import {IconInterface} from "@icons";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-interface T {
+export interface T {
     theme: ThemeInterface,
     primary: boolean,
     secondary: boolean,

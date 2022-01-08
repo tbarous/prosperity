@@ -1,8 +1,9 @@
-import React, {ReactElement} from "react";
-import {BasicComponentProps} from "@typings";
+import React, {ReactElement, ReactNode} from "react";
 import CardStyled from "@components/card/styled/CardStyled";
 
-export interface CardProps extends BasicComponentProps {
+export interface CardProps {
+    children: ReactNode,
+    className?: string,
     rounded?: boolean
 }
 

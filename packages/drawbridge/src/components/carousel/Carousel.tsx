@@ -2,7 +2,7 @@ import React, {ReactNode, Children, useState, useEffect} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import CarouselStyled from "@components/carousel/styled/CarouselStyled";
 
-export enum CarouselDirectionEnum {
+export enum CarouselDirections {
     LEFT = "left",
     RIGHT = "right"
 }
@@ -51,7 +51,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
     /**
      * Add or subtract from position on each move.
      */
-    const onMove = (direction: CarouselDirectionEnum) => setPosition(direction === CarouselDirectionEnum.LEFT ? position - 1 : position + 1);
+    const onMove = (direction: CarouselDirections) => setPosition(direction === CarouselDirections.LEFT ? position - 1 : position + 1);
 
     /**
      * Gets the total number of items.

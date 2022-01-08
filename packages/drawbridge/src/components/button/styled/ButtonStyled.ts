@@ -1,14 +1,15 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & {
+export interface T {
+    theme: ThemeInterface,
     primary: boolean,
     secondary: boolean,
     small: boolean,
     medium: boolean,
     large: boolean
-};
+}
 
 function getBackgroundColor(p: T) {
     return p.primary ? p.theme.color.primary : (p.secondary ? p.theme.color.secondary : p.theme.color.primary);

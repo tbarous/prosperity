@@ -2,10 +2,10 @@ import React, {isValidElement, ReactElement, ReactNode, Children} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import CarouselControlsStyled from "@components/carousel/styled/CarouselControlsStyled";
 import {CarouselControlProps} from "@components/carousel/CarouselControl";
-import {CarouselDirectionEnum} from "@components/carousel/Carousel";
+import {CarouselDirections} from "@components/carousel/Carousel";
 
 interface Props extends BasicComponentProps {
-    onMove?: (direction: CarouselDirectionEnum) => void,
+    onMove?: (direction: CarouselDirections) => void,
     isOnStart?: boolean,
     isOnEnd?: boolean,
 }
@@ -33,7 +33,7 @@ const CarouselControls: React.FunctionComponent<Props> = (props: Props): ReactEl
 
         if (!direction) return;
 
-        if ((direction === CarouselDirectionEnum.LEFT && isOnStart) || (direction === CarouselDirectionEnum.RIGHT && isOnEnd)) return;
+        if ((direction === CarouselDirections.LEFT && isOnStart) || (direction === CarouselDirections.RIGHT && isOnEnd)) return;
 
         return isValidElement(child) && React.cloneElement(child, {onMove});
     }
