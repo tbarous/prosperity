@@ -1,43 +1,33 @@
 import React, {useEffect} from 'react';
 import Snackbar, {SnackbarVariations} from "@components/snackbar/Snackbar";
-import styled from "styled-components";
+import {useTheme} from "styled-components";
 import useMountChild from "@hooks/useMountChild";
-import {BasicComponentProps} from "@typings";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import SnackbarContentStyled from '@components/snackbar/styled/SnackbarContentStyled';
 
-const Content = styled.div`
-  text-align: center;
-  margin: auto;
-`;
+const DefaultSnackbar = (args: { variation?: SnackbarVariations, open?: boolean, dismissible?: boolean, closeOnDelay?: number }) => {
+    const theme: ThemeInterface = useTheme();
 
-interface Props extends BasicComponentProps {
-    variation?: SnackbarVariations,
-    open?: boolean,
-    dismissible?: boolean,
-    closeOnDelay?: number
-}
+    const snackbar = useMountChild(theme.animation.snackbar);
 
-const DefaultSnackbar = (args: Props) => {
-    const snackbar = useMountChild(500);
+    useEffect(() => snackbar.toggle, [args.open]);
 
-    useEffect(() => args.open ? snackbar.renderComponent() : snackbar.unmountComponent(), [args.open]);
-
-    return (
-        <>
-            {snackbar.render && <Snackbar
-                {...snackbar}
-                danger={args.variation === SnackbarVariations.DANGER}
-                success={args.variation === SnackbarVariations.SUCCESS}
-                warning={args.variation === SnackbarVariations.WARNING}
-                dismissible={args.dismissible}
-                closeOnDelay={args.closeOnDelay}
-            >
-                <Content>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque consequuntur
-                    distinctio dolor eius eos hic illum libero molestiae nam non
-                </Content>
-            </Snackbar>}
-        </>
-    );
+    return snackbar.render && (
+        <Snackbar
+            unmountComponent={snackbar.unmountComponent}
+            mount={snackbar.mount}
+            danger={args.variation === SnackbarVariations.DANGER}
+            success={args.variation === SnackbarVariations.SUCCESS}
+            warning={args.variation === SnackbarVariations.WARNING}
+            dismissible={args.dismissible}
+            closeOnDelay={args.closeOnDelay}
+        >
+            <SnackbarContentStyled>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque consequuntur
+                distinctio dolor eius eos hic illum libero molestiae nam non
+            </SnackbarContentStyled>
+        </Snackbar>
+    )
 }
 
 DefaultSnackbar.args = {

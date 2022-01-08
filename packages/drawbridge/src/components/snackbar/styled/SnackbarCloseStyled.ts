@@ -1,9 +1,11 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
 import Icon from "@components/icon/Icon";
 import {px} from "@utils/ThemeUtils";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps;
+interface T {
+    theme: ThemeInterface
+}
 
 const SnackbarCloseStyled = styled(Icon)<T>`
   position: ${(p: T) => p.theme.position.absolute};

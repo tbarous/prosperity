@@ -64,3 +64,5 @@ const Light: ThemeInterface = {
 }
 
 export default Light;
+
+export type ThemeType = typeof Light;

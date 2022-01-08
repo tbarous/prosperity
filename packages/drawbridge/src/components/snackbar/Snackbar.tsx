@@ -46,14 +46,10 @@ const Snackbar: React.FunctionComponent<T> = (props: T): ReactElement => {
             warning={warning}
             danger={danger}
             mount={mount}
-            exitDelay={exitDelay}
         >
             {children}
 
-            {dismissible && <SnackbarCloseStyled
-                onClick={unmountComponent}
-                icon={Times}
-            />}
+            {dismissible && <SnackbarCloseStyled onClick={unmountComponent} icon={Times}/>}
         </SnackbarStyled>
     )
 }
