@@ -16,25 +16,7 @@ const TextStyled = styled(Text)`
 
 const DefaultCard = (args: { rounded?: boolean }) => (
     <Container fluid>
-        <Row gutter={14}>
-            <Col lg={3}>
-                <Card rounded={args.rounded}>
-                    <Image
-                        rounded-top={args.rounded}
-                        src="/img.jpg"
-                        alt="img"
-                    />
-
-                    <TextStyled>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aut beatae deserunt
-                        dignissimos, distinctio
-                        dolore error exercitationem minima nisi placeat praesentium provident quas quo ratione sunt
-                        temporibus unde vel
-                        voluptas.
-                    </TextStyled>
-                </Card>
-            </Col>
-
+        <Row>
             <Col lg={3}>
                 <Card rounded={args.rounded}>
                     <Image

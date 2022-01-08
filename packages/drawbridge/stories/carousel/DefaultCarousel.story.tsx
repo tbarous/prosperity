@@ -13,7 +13,7 @@ const CarouselStyled = styled(Carousel)`
   height: 500px;
 `;
 
-const DefaultCarousel = (args: CarouselProps) => {
+const DefaultCarousel = (args: { itemsPerSlide?: number, change?: number, gutter?: number }) => {
     const [changeToSlide, setChangeToSlide] = useState<number | undefined>(undefined);
 
     useEffect(() => {
@@ -21,7 +21,11 @@ const DefaultCarousel = (args: CarouselProps) => {
     }, [args.change])
 
     return (
-        <CarouselStyled {...args} change={changeToSlide}>
+        <CarouselStyled
+            itemsPerSlide={args.itemsPerSlide}
+            gutter={args.gutter}
+            change={changeToSlide}
+        >
             <CarouselControls>
                 <CarouselControl direction={CarouselDirectionEnum.LEFT}>
                     <Icon icon={ArrowCircleLeftSolid} width={50} height={50}/>

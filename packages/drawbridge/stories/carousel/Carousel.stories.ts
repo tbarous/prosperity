@@ -5,6 +5,9 @@ export default {
     title: 'Carousel',
     component: Carousel,
     argTypes: {},
+    parameters: {
+        layout: 'padded',
+    },
 };
 
 export {
