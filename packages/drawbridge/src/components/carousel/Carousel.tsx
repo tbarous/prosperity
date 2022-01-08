@@ -1,4 +1,4 @@
-import React, {ReactNode, Children, useState, useEffect, ReactElement, useRef} from "react";
+import React, {ReactNode, Children, useState, useEffect, ReactElement, useRef, useMemo} from "react";
 import CarouselStyled from "@components/carousel/styled/CarouselStyled";
 import {clone} from "@utils/ComponentUtils";
 import {fn} from "@helpers";
@@ -33,7 +33,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
 
         const countReached = changeToSlide > count - itemsPerSlide;
 
-        if (countReached || changeToSlide < 0) return;
+        if (countReached || changeToSlide < 0 || position === changeToSlide) return;
 
         setPosition(changeToSlide)
     }, [count]);
