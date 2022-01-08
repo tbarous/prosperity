@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {CarouselDirections} from "@components/carousel/Carousel";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {px} from "@utils/ThemeUtils";
 
 export interface T {
     theme: ThemeInterface,
@@ -8,11 +9,11 @@ export interface T {
 }
 
 function getLeft(p: T) {
-    return p.direction === CarouselDirections.LEFT ? p.theme.spacing.s5 : p.theme.spacing.auto;
+    return p.direction === CarouselDirections.LEFT ? px(p.theme.spacing.s5) : p.theme.spacing.auto;
 }
 
 function getRight(p: T) {
-    return p.direction === CarouselDirections.RIGHT ? p.theme.spacing.s5 : p.theme.spacing.auto;
+    return p.direction === CarouselDirections.RIGHT ? px(p.theme.spacing.s5) : p.theme.spacing.auto;
 }
 
 const CarouselControlStyled = styled.div<T>`

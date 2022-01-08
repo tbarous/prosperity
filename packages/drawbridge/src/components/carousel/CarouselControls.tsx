@@ -1,27 +1,26 @@
 import React, {isValidElement, ReactElement, ReactNode, Children} from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import CarouselControlsStyled from "@components/carousel/styled/CarouselControlsStyled";
-import {CarouselControlProps} from "@components/carousel/CarouselControl";
 import {CarouselDirections} from "@components/carousel/Carousel";
+import {fn} from "@helpers";
 
-interface Props extends BasicComponentProps {
+interface CarouselControlsProps {
+    children: ReactNode,
+    className?: string,
     onMove?: (direction: CarouselDirections) => void,
     isOnStart?: boolean,
     isOnEnd?: boolean,
 }
 
-type A = ReactNode & { props: CarouselControlProps };
-
-const CarouselControls: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
+const CarouselControls: React.FunctionComponent<CarouselControlsProps> = (props: CarouselControlsProps): ReactElement => {
     const {
         children,
         className,
-        onMove,
-        isOnStart,
-        isOnEnd
+        onMove = fn,
+        isOnStart = true,
+        isOnEnd = false
     } = props;
 
-    function getChild(child: A): ReactElement | undefined | boolean {
+    function getChild(child: ReactNode & { props: { onMove?: (direction: CarouselDirections) => void, direction?: CarouselDirections, } }): ReactElement | undefined | boolean {
         const direction = child.props.direction;
 
         if (!direction) return;
@@ -32,7 +31,9 @@ const CarouselControls: React.FunctionComponent<Props> = (props: Props): ReactEl
     }
 
     return (
-        <CarouselControlsStyled className={className}>
+        <CarouselControlsStyled
+            className={className}
+        >
             {Children.map<ReactNode, any>(children, getChild)}
         </CarouselControlsStyled>
     )

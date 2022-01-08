@@ -8,9 +8,14 @@ import {ArrowCircleLeftSolid, ArrowCircleRightSolid} from "@icons";
 import Icon from "@components/icon/Icon";
 import CarouselItems from "@components/carousel/CarouselItems";
 import styled from "styled-components";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 const CarouselStyled = styled(Carousel)`
   height: 500px;
+`;
+
+const ControlIconStyled = styled(Icon)`
+  color: ${(p: {theme: ThemeInterface}) => p.theme.color.white}
 `;
 
 const DefaultCarousel = (args: { itemsPerSlide?: number, change?: number, gutter?: number }) => {
@@ -25,12 +30,24 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, change?: number, gutter
             change={changeToSlide}
         >
             <CarouselControls>
-                <CarouselControl direction={CarouselDirections.LEFT}>
-                    <Icon icon={ArrowCircleLeftSolid} width={50} height={50}/>
+                <CarouselControl
+                    direction={CarouselDirections.LEFT}
+                >
+                    <ControlIconStyled
+                        icon={ArrowCircleLeftSolid}
+                        width={30}
+                        height={30}
+                    />
                 </CarouselControl>
 
-                <CarouselControl direction={CarouselDirections.RIGHT}>
-                    <Icon icon={ArrowCircleRightSolid} width={50} height={50}/>
+                <CarouselControl
+                    direction={CarouselDirections.RIGHT}
+                >
+                    <ControlIconStyled
+                        icon={ArrowCircleRightSolid}
+                        width={30}
+                        height={30}
+                    />
                 </CarouselControl>
             </CarouselControls>
 
