@@ -1,8 +1,9 @@
 import React, {ReactElement, ReactNode} from "react";
-import ButtonStyled from "./styled/ButtonStyled";
 import {IconInterface} from "@icons";
-import ButtonIconStyled from "./styled/ButtonIconStyled";
-import ButtonContentStyled from "./styled/ButtonContentStyled";
+import ButtonStyled from "@components/button/styled/ButtonStyled";
+import ButtonContentIconStyled from "@components/button/styled/ButtonContentIconStyled";
+import ButtonContentStyled from "@components/button/styled/ButtonContentStyled";
+import {fn} from "@helpers";
 
 export enum ButtonSizes {
     SMALL = "Small",
@@ -51,7 +52,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): React
         large = false,
         icon = undefined,
         role = ButtonRoles.BUTTON,
-        onClick = () => {}
+        onClick = fn
     } = props;
 
     return (
@@ -67,7 +68,7 @@ const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): React
             onClick={onClick}
         >
             <ButtonContentStyled>
-                {icon && <ButtonIconStyled
+                {icon && <ButtonContentIconStyled
                     icon={icon}
                     width={20}
                     height={20}

@@ -5,14 +5,12 @@ import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import {Google} from "@icons";
 
-interface Args {
+const DefaultButton = (args: {
     variation?: ButtonVariations,
     size?: ButtonSizes,
     children?: string,
     icon?: boolean
-}
-
-const DefaultButton = (args: Args) => (
+}) => (
     <Container fluid>
         <Row>
             <Col xs={2}>
@@ -22,7 +20,7 @@ const DefaultButton = (args: Args) => (
                     small={ButtonSizes.SMALL === args.size}
                     medium={ButtonSizes.MEDIUM === args.size}
                     large={ButtonSizes.LARGE === args.size}
-                    icon={args.icon ? Google : null}
+                    icon={args.icon ? Google : undefined}
                 >
                     {args.children}
                 </Button>

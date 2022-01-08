@@ -1,9 +1,11 @@
-import React, {ReactElement} from "react";
-import {BasicComponentProps} from "@typings";
+import React, {ReactElement, ReactNode} from "react";
 import CarouselControlStyled from "@components/carousel/styled/CarouselControlStyled";
 import {CarouselDirections} from "@components/carousel/Carousel";
+import {fn} from "@helpers";
 
-export interface CarouselControlProps extends BasicComponentProps {
+export interface CarouselControlProps {
+    children: ReactNode,
+    className?: string,
     onMove?: (direction: CarouselDirections) => void,
     direction?: CarouselDirections,
 }
@@ -13,12 +15,16 @@ const CarouselControl: React.FunctionComponent<CarouselControlProps> = (props: C
         children,
         className,
         direction = CarouselDirections.RIGHT,
-        onMove = () => {}
+        onMove = fn
     } = props;
+
+    function onClick(): void {
+        onMove(direction);
+    }
 
     return (
         <CarouselControlStyled
-            onClick={() => onMove(direction)}
+            onClick={onClick}
             direction={direction}
             className={className}
         >

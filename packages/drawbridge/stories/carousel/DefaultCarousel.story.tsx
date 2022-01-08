@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import Carousel, {CarouselDirectionEnum, CarouselProps} from "@components/carousel/Carousel";
+import Carousel, {CarouselDirections} from "@components/carousel/Carousel";
 import CarouselItem from "@components/carousel/CarouselItem";
 import Image from "@components/image/Image";
 import CarouselControls from "@components/carousel/CarouselControls";
@@ -16,9 +16,7 @@ const CarouselStyled = styled(Carousel)`
 const DefaultCarousel = (args: { itemsPerSlide?: number, change?: number, gutter?: number }) => {
     const [changeToSlide, setChangeToSlide] = useState<number | undefined>(undefined);
 
-    useEffect(() => {
-        setChangeToSlide(args.change)
-    }, [args.change])
+    useEffect(() => setChangeToSlide(args.change), [args.change]);
 
     return (
         <CarouselStyled
@@ -27,11 +25,11 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, change?: number, gutter
             change={changeToSlide}
         >
             <CarouselControls>
-                <CarouselControl direction={CarouselDirectionEnum.LEFT}>
+                <CarouselControl direction={CarouselDirections.LEFT}>
                     <Icon icon={ArrowCircleLeftSolid} width={50} height={50}/>
                 </CarouselControl>
 
-                <CarouselControl direction={CarouselDirectionEnum.RIGHT}>
+                <CarouselControl direction={CarouselDirections.RIGHT}>
                     <Icon icon={ArrowCircleRightSolid} width={50} height={50}/>
                 </CarouselControl>
             </CarouselControls>

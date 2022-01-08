@@ -19,9 +19,9 @@ function getMargin(p: T) {
     return px(p.theme.spacing.s4);
 }
 
-const ButtonIconStyled = styled(Icon)<T>`
+const ButtonContentIconStyled = styled(Icon)<T>`
   color: ${getColor};
   margin-right: ${getMargin};
 `;
 
-export default ButtonIconStyled
+export default ButtonContentIconStyled;
