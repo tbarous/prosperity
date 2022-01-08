@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import Text from "@components/text/Text";
-import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & { disabled?: boolean };
+interface T {
+    theme: ThemeInterface,
+    disabled?: boolean
+}
 
 function getColor(p: T) {
     if (p.disabled) {

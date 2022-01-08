@@ -1,9 +1,16 @@
 import styled, {css, keyframes} from "styled-components";
-import {StyledProps} from "@typings";
 import {hexToRgb} from "@utils/ColorUtils";
-import exp from "constants";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & { variation?: string };
+interface T {
+    theme: ThemeInterface,
+    variation?: string
+}
+
+export enum RippleVariations {
+    BASIC = "basic",
+    STRONG = "strong"
+}
 
 const ripple = keyframes`
   0% {
@@ -32,18 +39,12 @@ const ripple2 = keyframes`
   }
 `;
 
-
-export enum RippleVariation {
-    BASIC = "basic",
-    STRONG = "strong"
-}
-
 function getBackground(p: T) {
     const {r, g, b} = hexToRgb(p.theme.color.primary);
 
     let colorOpacity = 0.1;
 
-    if (p.variation && p.variation === RippleVariation.STRONG) {
+    if (p.variation && p.variation === RippleVariations.STRONG) {
         colorOpacity = 0.5;
     }
 
@@ -51,7 +52,7 @@ function getBackground(p: T) {
 }
 
 function getAnimation(p: T) {
-    if (p.variation && p.variation === RippleVariation.STRONG) {
+    if (p.variation && p.variation === RippleVariations.STRONG) {
         return css`${ripple} .2s linear forwards`;
     }
 
@@ -59,7 +60,7 @@ function getAnimation(p: T) {
 }
 
 function getSize(p: T) {
-    if (p.variation && p.variation === RippleVariation.STRONG) {
+    if (p.variation && p.variation === RippleVariations.STRONG) {
         return `60px`;
     }
 
@@ -67,13 +68,13 @@ function getSize(p: T) {
 }
 
 const RippleStyled = styled.div<T>`
-  display: block;
+  display: ${(p: T) => p.theme.display.block};
   background-color: ${getBackground};
   z-index: -1;
   width: ${getSize};
   height: ${getSize};
-  border-radius: 50%;
-  position: absolute;
+  border-radius: ${(p: T) => p.theme.borderRadius.circle};
+  position: ${(p: T) => p.theme.position.absolute};
   animation: ${getAnimation};
 `;
 

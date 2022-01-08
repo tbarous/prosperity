@@ -1,8 +1,12 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
 import {hexToRgb} from "@utils/ColorUtils";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & { checked?: boolean, disabled?: boolean };
+interface T {
+    theme: ThemeInterface,
+    checked?: boolean,
+    disabled?: boolean
+}
 
 function getBorder(p: T) {
     if (p.disabled && p.checked) {
@@ -43,14 +47,14 @@ function getBackgroundColor(p: T) {
 }
 
 const CheckboxIconWrapperStyled = styled.div<T>`
-  border-radius: 2px;
-  width: 18px;
-  height: 18px;
-  display: flex;
-  align-items: center;
+  border-radius: ${(p: T) => p.theme.borderRadius.small};
+  width: ${(p: T) => p.theme.spacing.s6};
+  height: ${(p: T) => p.theme.spacing.s6};
+  display: ${(p: T) => p.theme.display.flex};
+  align-items: ${(p: T) => p.theme.alignItems.center};
   background-color: ${getBackgroundColor};
-  position: relative;
-  justify-content: center;
+  position: ${(p: T) => p.theme.position.relative};
+  justify-content: ${(p: T) => p.theme.justifyContent.center};
   border: ${getBorder};
 `
 

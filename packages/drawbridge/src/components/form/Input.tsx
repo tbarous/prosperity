@@ -6,13 +6,13 @@ import InputLineStyled from "@components/form/styled/input/InputLineStyled";
 import InputStyledLabel from "@components/form/styled/input/InputLabelStyled";
 import InputStyledWrapper from "@components/form/styled/input/InputWrapperStyled";
 
-interface Props extends BasicComponentProps {
+interface T extends BasicComponentProps {
     label?: string,
     focused?: boolean,
     value?: string
 }
 
-const Input: React.FunctionComponent<Props> = (props: Props): ReactElement => {
+const Input: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         className,
         label,

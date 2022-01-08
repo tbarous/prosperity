@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps;
+interface T {
+    theme: ThemeInterface,
+}
 
 const FormStyled = styled.form<T>`
 `;

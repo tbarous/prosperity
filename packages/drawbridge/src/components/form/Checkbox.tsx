@@ -1,9 +1,9 @@
-import React, {ReactElement} from "react";
-import {BasicComponentProps, FunctionVoid} from "@typings";
+import React, {ReactElement, ReactNode} from "react";
+import {FunctionVoid} from "@typings";
 import {emptyFunction} from "@helpers";
 import {Checkmark} from "@icons";
 import CheckboxIconStyled from "./styled/checkbox/CheckboxIconStyled";
-import RippleStyled, {RippleVariation} from "./common/RippleStyled";
+import RippleStyled, {RippleVariations} from "./common/RippleStyled";
 import CheckboxRadioInputStyled from "./common/CheckboxRadioInputStyled";
 import CheckboxRadioStyled from "./common/CheckboxRadioStyled";
 import CheckboxIconWrapperStyled from "./styled/checkbox/CheckboxIconWrapperStyled";
@@ -11,14 +11,16 @@ import CheckboxRadioWrapperStyled from "./common/CheckboxRadioWrapperStyled";
 import CheckboxRadioLabelStyled from "./common/CheckboxRadioLabelStyled";
 import useRipple from "@hooks/useRipple";
 
-interface Props extends BasicComponentProps {
+interface T {
+    children: ReactNode,
+    className?: string,
     onChange?: FunctionVoid,
     checked?: boolean,
     label?: string,
     disabled?: boolean
 }
 
-const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement => {
+const Checkbox: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         className,
         onChange = emptyFunction,
@@ -50,9 +52,9 @@ const Checkbox: React.FunctionComponent<Props> = (props: Props): ReactElement =>
                 >
                     {checked && <CheckboxIconStyled icon={Checkmark} width={12} height={12}/>}
 
-                    {!disabled && ripple && <RippleStyled variation={RippleVariation.BASIC}/>}
+                    {!disabled && ripple && <RippleStyled variation={RippleVariations.BASIC}/>}
 
-                    {clicked && !disabled && <RippleStyled variation={RippleVariation.STRONG}/>}
+                    {clicked && !disabled && <RippleStyled variation={RippleVariations.STRONG}/>}
                 </CheckboxIconWrapperStyled>
 
                 {label && <CheckboxRadioLabelStyled disabled={disabled}>{label}</CheckboxRadioLabelStyled>}

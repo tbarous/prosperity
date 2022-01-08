@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {hexToRgb} from "@utils/ColorUtils";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & { disabled?: boolean, checked?: boolean };
+interface T {
+    theme: ThemeInterface,
+    disabled?: boolean,
+    checked?: boolean
+}
 
 function getBackgroundColor(p: T) {
     const {r, g, b} = hexToRgb(p.theme.color.primary);
@@ -23,10 +28,10 @@ function getBackgroundColor(p: T) {
 }
 
 const CheckboxIconStyled = styled.div<T>`
-  width: 12px;
-  height: 12px;
+  width: ${(p: T) => p.theme.spacing.s4};
+  height: ${(p: T) => p.theme.spacing.s4};
   background: ${getBackgroundColor};
-  border-radius: 50%;
+  border-radius: ${(p: T) => p.theme.borderRadius.circle};
 `;
 
 export default CheckboxIconStyled;

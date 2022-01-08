@@ -3,7 +3,7 @@ import {BasicComponentProps, FunctionVoid} from "@typings";
 import {emptyFunction} from "@helpers";
 import RadioIconWrapper from "./styled/radio/RadioIconWrapper";
 import RadioIconStyled from "./styled/radio/RadioIconStyled";
-import RippleStyled, {RippleVariation} from "./common/RippleStyled";
+import RippleStyled, {RippleVariations} from "./common/RippleStyled";
 import CheckboxRadioInputStyled from "./common/CheckboxRadioInputStyled";
 import CheckboxRadioStyled from "./common/CheckboxRadioStyled";
 import useRipple from "@hooks/useRipple";
@@ -49,9 +49,9 @@ const Radio: React.FunctionComponent<Props> = (props: Props): ReactElement => {
                 >
                     {checked && <RadioIconStyled disabled={disabled} checked={checked}/>}
 
-                    {!disabled && ripple && <RippleStyled variation={RippleVariation.BASIC}/>}
+                    {!disabled && ripple && <RippleStyled variation={RippleVariations.BASIC}/>}
 
-                    {clicked && !disabled && <RippleStyled variation={RippleVariation.STRONG}/>}
+                    {clicked && !disabled && <RippleStyled variation={RippleVariations.STRONG}/>}
                 </RadioIconWrapper>
 
                 {label && <CheckboxRadioLabelStyled disabled={disabled}>{label}</CheckboxRadioLabelStyled>}

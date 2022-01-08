@@ -1,16 +1,36 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & { focused?: boolean, hasValue?: boolean };
+interface T {
+    theme: ThemeInterface,
+    focused?: boolean,
+    hasValue?: boolean
+}
+
+function getColor(p: T) {
+    return p.focused ? p.theme.color.primary : p.theme.color.light;
+}
+
+function getFontSize(p: T) {
+    return p.focused || p.hasValue ? p.theme.fontSize.xs : p.theme.fontSize.md;
+}
+
+function getTransform(p: T) {
+    return p.focused || p.hasValue ? "translateY(-20px)" : "";
+}
+
+function getTransition(p: T) {
+    return "transform .2s linear";
+}
 
 const InputStyledLabel = styled.label<T>`
   position: ${(p: T) => p.theme.position.absolute};
-  font-size: ${(p: T) => p.focused || p.hasValue ? p.theme.fontSize.xs : p.theme.fontSize.md};
-  color: ${(p: T) => p.focused ? p.theme.color.primary : p.theme.color.light};
+  font-size: ${getFontSize};
+  color: ${getColor};
   font-weight: ${(p: T) => p.theme.fontWeight.bold};
   pointer-events: none;
-  transform: ${(p: T) => p.focused || p.hasValue ? "translateY(-20px)" : ""};
-  transition: ${(p: T) => "transform .2s linear"};
+  transform: ${getTransform};
+  transition: ${getTransition};
   font-family: ${(p: T) => p.theme.fontFamily.primary};
 `;
 

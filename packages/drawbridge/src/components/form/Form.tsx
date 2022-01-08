@@ -1,12 +1,13 @@
-import React, {FormEvent, ReactElement} from "react";
-import {BasicComponentProps} from "@typings";
+import React, {FormEvent, ReactElement, ReactNode} from "react";
 import FormStyled from "./styled/form/FormStyled";
 
-interface Props extends BasicComponentProps {
+interface T {
+    children: ReactNode,
+    className?: string,
     onSubmit?: () => void
 }
 
-const Form: React.FunctionComponent<Props> = (props: Props): ReactElement => {
+const Form: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
@@ -20,7 +21,10 @@ const Form: React.FunctionComponent<Props> = (props: Props): ReactElement => {
     }
 
     return (
-        <FormStyled onSubmit={onSubmitHandler} className={className}>
+        <FormStyled
+            onSubmit={onSubmitHandler}
+            className={className}
+        >
             {children}
         </FormStyled>
     )

@@ -1,7 +1,9 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps;
+interface T {
+    theme: ThemeInterface,
+}
 
 const CheckboxRadioStyled = styled.label<T>`
   display: ${(p: T) => p.theme.display.block};
