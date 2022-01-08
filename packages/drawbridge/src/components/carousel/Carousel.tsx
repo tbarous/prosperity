@@ -36,7 +36,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
         if (countReached || changeToSlide < 0) return;
 
         setPosition(changeToSlide)
-    }, [changeToSlide]);
+    }, [count]);
 
     const itemWidth = 100 / itemsPerSlide;
 
