@@ -11,7 +11,10 @@ interface ThemeDimensionInterface {
     d80: string,
     d90: string,
     d100: string,
-    auto: string
+    auto: string,
+
+
+    drawerWidth: number
 }
 
 export default ThemeDimensionInterface;

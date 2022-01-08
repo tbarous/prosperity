@@ -27,6 +27,7 @@ import ThemeAlignItemsInterface from "@theme/interfaces/ThemeAlignItemsInterface
 import ThemeOverflowInterface from "@theme/interfaces/ThemeOverflowInterface";
 import ThemeTextAlignInterface from "@theme/interfaces/ThemeTextAlignInterface";
 import ThemeJustifyContentInterface from "@theme/interfaces/ThemeJustifyContentInterface";
+import ThemeAnimationInterface from "@theme/interfaces/ThemeAnimationInterface";
 
 interface ThemeInterface {
     breakpoint: ThemeBreakpointInterface,
@@ -46,9 +47,6 @@ interface ThemeInterface {
     zIndex: ThemeZIndexInterface,
     transform: ThemeTransformInterface,
     opacity: ThemeOpacityInterface,
-
-
-
     cursor: ThemeCursorInterface,
     boxSizing: ThemeBoxSizingInterface,
     display: ThemeDisplayInterface,
@@ -61,6 +59,7 @@ interface ThemeInterface {
     overflow: ThemeOverflowInterface,
     textAlign: ThemeTextAlignInterface,
     justifyContent: ThemeJustifyContentInterface,
+    animation: ThemeAnimationInterface
 }
 
 export default ThemeInterface;

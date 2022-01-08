@@ -28,6 +28,7 @@ import ThemeAlignItems from "@theme/light/ThemeAlignItems";
 import ThemeOverflow from "@theme/light/ThemeOverflow";
 import ThemeTextAlign from "@theme/light/ThemeTextAlign";
 import ThemeJustifyContent from "@theme/light/ThemeJustifyContent";
+import ThemeAnimation from "@theme/light/ThemeAnimation";
 
 const Light: ThemeInterface = {
     breakpoint: ThemeBreakpoint,
@@ -47,7 +48,6 @@ const Light: ThemeInterface = {
     zIndex: ThemeZIndex,
     transform: ThemeTransform,
     opacity: ThemeOpacity,
-
     cursor: ThemeCursor,
     boxSizing: ThemeBoxSizing,
     display: ThemeDisplay,
@@ -60,6 +60,7 @@ const Light: ThemeInterface = {
     overflow: ThemeOverflow,
     textAlign: ThemeTextAlign,
     justifyContent: ThemeJustifyContent,
+    animation: ThemeAnimation
 }
 
 export default Light;

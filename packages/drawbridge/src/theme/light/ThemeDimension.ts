@@ -13,7 +13,10 @@ const ThemeDimension: ThemeDimensionInterface = {
     d90: "20%",
     d80: "80%",
     d100: "100%",
-    auto: "auto"
+    auto: "auto",
+
+
+    drawerWidth: 300
 }
 
 export default ThemeDimension

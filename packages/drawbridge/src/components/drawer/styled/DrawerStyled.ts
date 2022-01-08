@@ -1,44 +1,54 @@
 import styled, {keyframes} from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
+import {animation, px, transition} from "@utils/ThemeUtils";
 
 type T =
     { fixed?: boolean, light?: boolean, dark?: boolean, transparent?: boolean }
     & StyledProps
     & useMountChildStyledProps;
 
-const slideIn = keyframes`
+const slideIn = (p: T) => keyframes`
   from {
     max-width: 0;
   }
 
   to {
-    max-width: 300px;
+    max-width: ${px(p.theme.dimension.drawerWidth)};
   }
 `;
 
-const slideOut = keyframes`
-  from {
-    max-width: 300px;
-  }
+function getMaxWidth(p: T) {
+    return p.mount ? px(p.theme.dimension.drawerWidth) : 0;
+}
 
-  to {
-    max-width: 0;
-  }
-`;
+function getBackgroundColor(p: T) {
+    return p.transparent ? "transparent" : (p.light ? p.theme.color.white : p.theme.color.dark);
+}
+
+function getPosition(p: T) {
+    return p.fixed ? p.theme.position.fixed : p.theme.position.relative;
+}
+
+function getEntryAnimation(p: T) {
+    return animation(slideIn, p.theme.animation.drawer);
+}
+
+function getExitTransition(p: T) {
+    return transition("max-width", p.theme.animation.drawer);
+}
 
 const DrawerStyled = styled.div<T>`
   display: ${(p: T) => p.theme.display.flex};
-  width: ${(p: T) => "300px"};
-  max-width: ${(p: T) => p.mount ? "300px" : 0};
+  width: ${(p: T) => px(p.theme.dimension.drawerWidth)};
+  max-width: ${getMaxWidth};
   height: ${(p: T) => p.theme.dimension.d100};
-  background-color: ${(p: T) => p.transparent ? "transparent" : (p.light ? p.theme.color.white : p.theme.color.dark)};
-  position: ${(p: T) => p.fixed ? p.theme.position.fixed : p.theme.position.relative};
+  background-color: ${getBackgroundColor};
+  position: ${getPosition};
   box-shadow: ${(p: T) => p.theme.shadow.strong};
   overflow: ${(p: T) => p.theme.overflow.hidden};
-  z-index: 9999;
-
-  animation: ${slideIn} .5s;
-  transition: ${(p: T) => `max-width ${p.exitDelay / 1000}s`};
+  z-index: ${(p: T) => p.theme.zIndex.drawer};
+  animation: ${getEntryAnimation};
+  transition: ${getExitTransition};
 `;
 
 export default DrawerStyled;
