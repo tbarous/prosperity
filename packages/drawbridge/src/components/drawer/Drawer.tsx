@@ -10,11 +10,12 @@ export enum DrawerVariation {
     DARK = "dark"
 }
 
-export interface DrawerProps extends BasicComponentProps, useMountChildProps {
+export interface DrawerProps extends BasicComponentProps {
     fixed?: boolean,
     light?: boolean,
     dark?: boolean,
-    transparent?: boolean
+    transparent?: boolean,
+    mount?: boolean
 }
 
 const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElement => {
@@ -27,14 +28,13 @@ const Drawer: React.FunctionComponent<DrawerProps> = (props: DrawerProps): React
         transparent
     } = props;
 
-    const {mount, exitDelay} = props;
+    const {mount} = props;
 
     return (
         <DrawerStyled
             className={className}
             mount={mount}
             fixed={fixed}
-            exitDelay={exitDelay}
             light={light}
             dark={dark}
             transparent={transparent}
