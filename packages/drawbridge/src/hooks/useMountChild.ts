@@ -1,83 +1,62 @@
 import {useEffect, useRef, useState} from "react";
-import {FunctionVoid} from "@typings";
 
-export interface useMountChildProps {
+interface T {
     render: boolean,
     mount: boolean,
-    exitDelay: number,
-    unmountComponent: (override?: boolean) => void,
-    renderComponent: FunctionVoid,
-    toggle: FunctionVoid,
+    unmountComponent: (force?: boolean) => void,
+    renderComponent: () => void,
+    toggle: () => void,
 }
 
-/**
- * Controls the behavior of a child component.
- * Mostly useful to separate the appearance of a
- * child component in the DOM and the actual appearance of it on a
- * page. To achieve this 2 state variables are used, render and mount.
- * The operations that are automatically happening are:
- * [RENDER] -> [MOUNT]
- * [UNMOUNT] -> [UNRENDER]
- */
-function useMountChild(
-    exitDelay = 0
-): useMountChildProps {
-    /**
-     * This state variable manages the appearance of the child component
-     * on the DOM. This may differ to the way it appears on the page.
-     */
+function useMountChild(delay = 0): T {
     const [render, setRender] = useState<boolean>(false);
-
-    /**
-     * This state variable manages the appearance of the child component
-     * on the page. It is used mostly to add a delay behavior.
-     */
     const [mount, setMount] = useState<boolean>(false);
-
-    /**
-     * This state variable manages the appearance of the child component
-     * on the page. It is used mostly to add a delay behavior.
-     */
     const timeoutRef = useRef<any>(null);
-    const timeoutRef2 = useRef<any>(null);
 
-    /**
-     * Render a child component.
-     */
-    const renderComponent = () => {
-        if (!render) setRender(true);
-
-        if (render && !mount) setMount(true);
+    function renderComponent() {
+        if (!render) {
+            setRender(true);
+        } else {
+            if (!mount) {
+                setMount(true);
+            }
+        }
     }
 
-    /**
-     * Perform inner unmount on child component.
-     */
-    const unmountComponent = (override = false) => {
-        if (mount || override) setMount(false);
+    function unmountComponent(force?: boolean) {
+        if (force || mount) {
+            setMount(false);
+        }
     }
 
-    /**
-     * Toggles the appearance of a child component.
-     */
-    const toggle = () => {
-        if (!render) renderComponent();
+    function toggle() {
+        if (!render) {
+            renderComponent();
+        }
 
-        if (mount) unmountComponent();
+        if (mount) {
+            unmountComponent();
+        }
     }
 
     useEffect(() => {
-        if (!mount) {
-            if (!exitDelay) setRender(false);
+        if (mount) return;
 
-            timeoutRef.current = setTimeout(() => setRender(false), exitDelay);
+        if (!delay) {
+            setRender(false);
 
-            return () => clearTimeout(timeoutRef.current);
+            return;
         }
+
+        timeoutRef.current = setTimeout(() => setRender(false), delay);
+
+        return () => clearTimeout(timeoutRef.current);
     }, [mount]);
 
     useEffect(() => {
-        if (render && !mount) setMount(true);
+        if (render && !mount) {
+            setMount(true);
+        }
     }, [render]);
 
     return {
@@ -85,8 +64,7 @@ function useMountChild(
         mount,
         unmountComponent,
         renderComponent,
-        toggle,
-        exitDelay
+        toggle
     };
 }
 

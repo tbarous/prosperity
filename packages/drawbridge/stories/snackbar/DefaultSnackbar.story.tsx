@@ -8,25 +8,37 @@ import SnackbarContentStyled from '@components/snackbar/styled/SnackbarContentSt
 const DefaultSnackbar = (args: { variation?: SnackbarVariations, open?: boolean, dismissible?: boolean, closeOnDelay?: number }) => {
     const theme: ThemeInterface = useTheme();
 
-    const snackbar = useMountChild(theme.animation.snackbar);
+    const {render, mount, unmountComponent, toggle, renderComponent} = useMountChild(theme.animation.snackbar);
 
-    useEffect(() => snackbar.toggle, [args.open]);
+    const {variation,dismissible, closeOnDelay} = args;
 
-    return snackbar.render && (
-        <Snackbar
-            unmountComponent={snackbar.unmountComponent}
-            mount={snackbar.mount}
-            danger={args.variation === SnackbarVariations.DANGER}
-            success={args.variation === SnackbarVariations.SUCCESS}
-            warning={args.variation === SnackbarVariations.WARNING}
-            dismissible={args.dismissible}
-            closeOnDelay={args.closeOnDelay}
-        >
-            <SnackbarContentStyled>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque consequuntur
-                distinctio dolor eius eos hic illum libero molestiae nam non
-            </SnackbarContentStyled>
-        </Snackbar>
+    // useEffect(() => {
+    //     if(args.open){
+    //         renderComponent()
+    //     } else {
+    //         unmountComponent()
+    //     }
+    // }, [args.open]);
+
+    console.log('RERENDERED', render)
+
+    return (
+        <>
+            {render && <Snackbar
+                unmountComponent={unmountComponent}
+                mount={mount}
+                danger={variation === SnackbarVariations.DANGER}
+                success={variation === SnackbarVariations.SUCCESS}
+                warning={variation === SnackbarVariations.WARNING}
+                dismissible={dismissible}
+                closeOnDelay={closeOnDelay}
+            >
+                <SnackbarContentStyled>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque consequuntur
+                    distinctio dolor eius eos hic illum libero molestiae nam non
+                </SnackbarContentStyled>
+            </Snackbar>}
+        </>
     )
 }
 
