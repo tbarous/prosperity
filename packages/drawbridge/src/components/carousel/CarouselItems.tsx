@@ -24,8 +24,6 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
         getItemDistance = () => 0
     } = props;
 
-    console.log(distance)
-
     function sendCount() {
         const slidesCount = Children.count(children);
 
