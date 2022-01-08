@@ -12,7 +12,6 @@ import Image from "@components/image/Image";
 import {px} from "@utils/ThemeUtils";
 import Text from "@components/text/Text";
 import Divider from "@components/divider/Divider";
-import {withTheme} from 'styled-components'
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 const DrawerStyled = styled(Drawer)`
@@ -36,8 +35,8 @@ const TextStyled = styled(Text)`
 `;
 
 const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariation, fixed?: boolean, transparent?: boolean }) => {
-    const theme: ThemeInterface = useTheme()
-    console.log(theme.animation.drawer)
+    const theme: any = useTheme();
+
     const drawer = useMountChild(theme.animation.drawer);
 
     useEffect(() => args.open ? drawer.renderComponent() : drawer.unmountComponent(), [args.open]);

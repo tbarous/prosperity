@@ -10,10 +10,9 @@ const TooltipStyled = styled(Tooltip)`
 `;
 
 const DefaultTooltip = (args: { clickable: boolean }) => (
-    <TooltipStyled
-        clickable={args.clickable}
-    >
+    <TooltipStyled clickable={args.clickable}>
         <Button>Trigger</Button>
+
         <TooltipContentStyled>aa</TooltipContentStyled>
     </TooltipStyled>
 );
