@@ -1,8 +1,12 @@
 import styled from "styled-components";
 import Icon from "@components/icon/Icon";
-import {StyledProps} from "@typings";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & { dark?: boolean, light?: boolean };
+interface T {
+    theme: ThemeInterface,
+    dark: boolean,
+    light: boolean,
+}
 
 function getColor(p: T) {
     return p.light ? p.theme.color.dark : p.theme.color.white;

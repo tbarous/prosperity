@@ -1,8 +1,14 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {px, transition} from "@utils/ThemeUtils";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & { light?: boolean, dark?: boolean, mount?: boolean };
+interface T {
+    theme: ThemeInterface,
+    dark: boolean,
+    light: boolean,
+    mount?: boolean
+}
 
 function getLeft(p: T) {
     return p.mount ? px(p.theme.dimension.drawerWidth - p.theme.dimension.drawerTogglerWidth / 2) : "-10px";

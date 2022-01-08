@@ -1,7 +1,11 @@
 import styled from "styled-components";
-import {StyledProps} from "@typings";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = StyledProps & { light?: boolean, dark?: boolean, };
+interface T {
+    theme: ThemeInterface,
+    dark: boolean,
+    light: boolean
+}
 
 function getBackground(p: T) {
     return p.light ? "rgba(255, 255, 255, 0.7)" : "rgba(0, 0, 0, 0.7)";

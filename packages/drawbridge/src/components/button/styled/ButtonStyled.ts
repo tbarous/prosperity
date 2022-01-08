@@ -4,11 +4,11 @@ import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 interface T {
     theme: ThemeInterface,
-    primary: boolean,
-    secondary: boolean,
-    small: boolean,
-    medium: boolean,
-    large: boolean
+    primary?: boolean,
+    secondary?: boolean,
+    small?: boolean,
+    medium?: boolean,
+    large?: boolean
 }
 
 function getBackgroundColor(p: T) {

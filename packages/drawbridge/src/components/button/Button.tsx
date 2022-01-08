@@ -3,7 +3,6 @@ import {IconInterface} from "@icons";
 import ButtonStyled from "@components/button/styled/ButtonStyled";
 import ButtonContentIconStyled from "@components/button/styled/ButtonContentIconStyled";
 import ButtonContentStyled from "@components/button/styled/ButtonContentStyled";
-import {fn} from "@helpers";
 
 export enum ButtonSizes {
     SMALL = "Small",
@@ -44,15 +43,15 @@ const Button: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
-        type = ButtonTypes.BUTTON,
-        primary = true,
-        secondary = false,
-        small = false,
-        medium = true,
-        large = false,
-        icon = undefined,
-        role = ButtonRoles.BUTTON,
-        onClick = fn
+        type,
+        primary,
+        secondary,
+        small,
+        medium,
+        large,
+        icon ,
+        role,
+        onClick
     } = props;
 
     return (

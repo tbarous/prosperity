@@ -1,8 +1,15 @@
 import styled, {keyframes} from "styled-components";
-import {StyledProps, useMountChildStyledProps} from "@typings";
 import {animation, px, transition} from "@utils/ThemeUtils";
+import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-type T = { fixed?: boolean, light?: boolean, dark?: boolean, transparent?: boolean, mount?: boolean } & StyledProps;
+interface T {
+    theme: ThemeInterface,
+    dark: boolean,
+    light: boolean,
+    fixed: boolean,
+    transparent: boolean,
+    mount: boolean
+}
 
 const slideIn = (p: T) => keyframes`
   from {

@@ -22,11 +22,11 @@ const Drawer: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         children,
         className,
-        fixed,
-        light,
-        dark,
-        transparent,
-        mount
+        fixed = false,
+        light = false,
+        dark = true,
+        transparent = false,
+        mount = false
     } = props;
 
     return (

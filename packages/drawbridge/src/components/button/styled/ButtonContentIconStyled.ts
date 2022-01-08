@@ -6,8 +6,8 @@ import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 interface T {
     theme: ThemeInterface,
-    primary: boolean,
-    secondary: boolean,
+    primary?: boolean,
+    secondary?: boolean,
     icon?: IconInterface
 }
 

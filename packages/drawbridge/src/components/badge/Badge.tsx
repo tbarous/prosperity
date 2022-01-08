@@ -2,7 +2,7 @@ import React, {ReactElement, ReactNode} from "react";
 import BadgeStyled from "@components/badge/styled/BadgeStyled";
 
 interface T {
-    children: ReactNode,
+    children?: ReactNode,
     className?: string
 }
 
