@@ -13,8 +13,7 @@ export interface CarouselProps {
     className?: string
     itemsPerSlide?: number,
     gutter?: number,
-    changeToSlide?: number,
-    onChange?: (position: number) => void
+    changeToSlide?: number
 }
 
 const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps): ReactElement => {
@@ -23,8 +22,7 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
         className,
         itemsPerSlide = 2,
         gutter = 0,
-        changeToSlide = 0,
-        onChange = fn
+        changeToSlide = 0
     } = props;
 
     const [position, setPosition] = useState(0);
@@ -32,14 +30,13 @@ const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps):
 
     useEffect(() => {
         if (count === 0) return;
+
         const countReached = changeToSlide > count - itemsPerSlide;
+
         if (countReached || changeToSlide < 0) return;
+
         setPosition(changeToSlide)
     }, [changeToSlide]);
-
-    useEffect(() => {
-        onChange(position);
-    }, [position])
 
     const itemWidth = 100 / itemsPerSlide;
 

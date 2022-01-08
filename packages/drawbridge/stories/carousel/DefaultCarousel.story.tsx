@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import Carousel, {CarouselDirections} from "@components/carousel/Carousel";
 import CarouselItem from "@components/carousel/CarouselItem";
 import Image from "@components/image/Image";
@@ -9,7 +9,6 @@ import Icon from "@components/icon/Icon";
 import CarouselItems from "@components/carousel/CarouselItems";
 import styled from "styled-components";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
-import usePrevious from "@hooks/usePrevious";
 
 const CarouselStyled = styled(Carousel)`
   height: 200px;
@@ -20,27 +19,11 @@ const ControlIconStyled = styled(Icon)`
 `;
 
 const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number, gutter?: number }) => {
-    const [current, setCurrent] = useState<any>(0);
-
-    const prevCurrent = usePrevious(current);
-
-    useEffect(() => {
-        console.log(prevCurrent)
-        setCurrent(args.changeToSlide);
-    }, [args.changeToSlide])
-
-    function onChange(position){
-        console.log(position)
-        if(position===0)return
-        setCurrent(position)
-    }
-
     return (
         <CarouselStyled
             itemsPerSlide={args.itemsPerSlide}
             gutter={args.gutter}
-            changeToSlide={current}
-            onChange={onChange}
+            changeToSlide={args.changeToSlide}
         >
             <CarouselControls>
                 <CarouselControl
@@ -64,38 +47,13 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, changeToSlide?: number,
                 </CarouselControl>
             </CarouselControls>
 
-            <CarouselItems>
-                <CarouselItem>
-                    <Image src="/img.jpg" alt="img"/>
-                </CarouselItem>
-
-                <CarouselItem>
-                    <Image src="/img2.jpg" alt="img"/>
-                </CarouselItem>
-
-                <CarouselItem>
-                    <Image src="/img.jpg" alt="img"/>
-                </CarouselItem>
-
-                <CarouselItem>
-                    <Image src="/img2.jpg" alt="img"/>
-                </CarouselItem>
-
-                <CarouselItem>
-                    <Image src="/img.jpg" alt="img"/>
-                </CarouselItem>
-
-                <CarouselItem>
-                    <Image src="/img2.jpg" alt="img"/>
-                </CarouselItem>
-
-                <CarouselItem>
-                    <Image src="/img.jpg" alt="img"/>
-                </CarouselItem>
-
-                <CarouselItem>
-                    <Image src="/img2.jpg" alt="img"/>
-                </CarouselItem>
+            <CarouselItems>{[1, 2, 3, 4, 5].map((item, index) => {
+                return (
+                    <CarouselItem key={index}>
+                        <Image src="/img.jpg" alt="img"/>
+                    </CarouselItem>
+                )
+            })}
             </CarouselItems>
         </CarouselStyled>
     );
