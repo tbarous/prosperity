@@ -1,26 +1,25 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
+import {CardUIProps} from "@components/card/Card";
 
-interface T {
-    theme: ThemeInterface,
-    rounded?: boolean
-}
+export interface CardStyledProps extends StyledProps, CardUIProps {}
+
+type T = CardStyledProps;
 
 function getBorderRadius(p: T) {
-    return p.rounded && p.theme.borderRadius.medium;
+    if (p.rounded) {
+        return p.theme.borderRadius.medium;
+    }
 }
 
 const CardStyled = styled.div<T>`
+  border-radius: ${getBorderRadius};
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
   box-shadow: ${(p: T) => p.theme.shadow.light};
   background-color: ${(p: T) => p.theme.color.white};
-  border-radius: ${getBorderRadius};
   width: ${(p: T) => p.theme.dimension.d100};
   transition: ${(p: T) => p.theme.transition.elevation};
-
-  &:hover {
-    box-shadow: ${(p: T) => p.theme.shadow.elevate}
-  }
+  &:hover {box-shadow: ${(p: T) => p.theme.shadow.elevate};}
 `;
 
 export default CardStyled;

@@ -1,27 +1,19 @@
-import React, {ReactElement, ReactNode} from "react";
+import React, {ReactElement} from "react";
 import CardStyled from "@components/card/styled/CardStyled";
+import {BasicComponentProps} from "@typings";
 
-interface T {
-    children?: ReactNode,
-    className?: string,
+export interface CardUIProps {
     rounded?: boolean
 }
 
-const Card: React.FunctionComponent<T> = (props: T): ReactElement => {
-    const {
-        children,
-        className,
-        rounded
-    } = props;
+interface CardProps extends BasicComponentProps, CardUIProps {}
 
-    return (
-        <CardStyled
-            rounded={rounded}
-            className={className}
-        >
-            {children}
-        </CardStyled>
-    )
+const Card: React.FunctionComponent<CardProps> = (props: CardProps): ReactElement => {
+    const {children, className, rounded} = props;
+
+    const UIProps = {rounded};
+
+    return <CardStyled {...UIProps} className={className}>{children}</CardStyled>;
 }
 
 export default Card;
