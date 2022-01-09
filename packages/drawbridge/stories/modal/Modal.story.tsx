@@ -4,11 +4,12 @@ import ModalFooter from "@components/modal/ModalFooter";
 import ModalHeader from "@components/modal/ModalHeader";
 import ModalBody from "@components/modal/ModalBody";
 
-const BasicModal = (args: {  }) => {
+const BasicModal = (args: {}) => {
     const [display, setDisplay] = useState(true);
 
     return (
-        <Modal display={display} onStartDisplay={() => setDisplay(true)} onStopDisplay={() => setDisplay(false)} closeOnClickOutside dismissible={true}>
+        <Modal display={display} onStartDisplay={() => setDisplay(true)} onStopDisplay={() => setDisplay(false)}
+               closeOnClickOutside dismissible={true}>
             <ModalHeader>Header</ModalHeader>
             <ModalBody>Body</ModalBody>
             <ModalFooter>Footer</ModalFooter>
@@ -16,9 +17,7 @@ const BasicModal = (args: {  }) => {
     )
 };
 
-BasicModal.args = {
-
-};
+BasicModal.args = {};
 
 export default BasicModal;
 
