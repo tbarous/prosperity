@@ -1,5 +1,5 @@
 import styled, {keyframes} from "styled-components";
-import {StyledProps, useMountChildStyledProps} from "@typings";
+import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
 interface ModalOverlayStyledProps extends StyledProps {}
@@ -15,7 +15,6 @@ const fade = keyframes`
     opacity: 0.8;
   }
 `;
-
 
 const ModalOverlayStyled = styled.div`
   background-color: ${(p: T) => p.theme.color.dark};

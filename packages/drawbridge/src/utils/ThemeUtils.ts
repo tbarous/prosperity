@@ -8,9 +8,7 @@ function animation(animation: any, ms: number) {
     return css`${animation} ${ms / 1000}s`;
 }
 
-function transition(
-    props: { ms?: number, property?: string, timing?: string }
-) {
+function transition(props: { ms?: number, property?: string, timing?: string }) {
     let data = {
         ms: props.ms || 0,
         property: props.property || "transform",

@@ -39,12 +39,7 @@ function useTransition(duration: number, onStopDisplay: () => void, onStartDispl
         }
     }
 
-    return {
-        remove,
-        transition,
-        toggle,
-        insert
-    }
+    return {remove, transition, toggle, insert}
 }
 
 export default useTransition;

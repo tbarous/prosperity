@@ -1,5 +1,4 @@
 import React, {FunctionComponent, ReactElement} from "react";
-import {FunctionVoid} from "@typings";
 import {Checkmark} from "@icons";
 import CheckboxIconStyled from "@components/form/styled/checkbox/CheckboxIconStyled";
 import RippleStyled, {RippleVariations} from "@components/form/styled/common/CheckboxRadioRippleStyled";
@@ -12,7 +11,7 @@ import useRipple from "@hooks/useRipple";
 
 interface CheckboxProps {
     className?: string,
-    onChange?: FunctionVoid,
+    onChange?: () => void,
     checked?: boolean,
     label?: string,
     disabled?: boolean

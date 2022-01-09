@@ -1,22 +1,17 @@
 import {ThemeProvider as StyledComponentsThemeProvider} from "styled-components";
-import React, {ReactElement, ReactNode} from "react";
+import React, {FunctionComponent, ReactElement, ReactNode} from "react";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {BasicComponentProps} from "@typings";
 
-interface T {
-    theme?: ThemeInterface,
-    children?: ReactNode,
+export interface ThemeProviderProps extends BasicComponentProps {
+    theme: ThemeInterface,
 }
 
-const ThemeProvider: React.FunctionComponent<T> = (props: T): ReactElement => {
-    const {
-        children,
-        theme
-    } = props;
+const ThemeProvider: FunctionComponent<ThemeProviderProps> = (props: ThemeProviderProps): ReactElement => {
+    const {children, theme} = props;
 
     return (
-        <StyledComponentsThemeProvider
-            theme={theme}
-        >
+        <StyledComponentsThemeProvider theme={theme}>
             {children}
         </StyledComponentsThemeProvider>
     )

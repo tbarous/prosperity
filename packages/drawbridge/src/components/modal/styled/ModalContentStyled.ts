@@ -1,5 +1,5 @@
 import styled, {css, keyframes} from "styled-components";
-import {StyledProps, useMountChildStyledProps} from "@typings";
+import {StyledProps} from "@typings";
 import MediaUtils from "@utils/MediaUtils";
 
 interface ModalContentStyledProps extends StyledProps {}

@@ -1,5 +1,5 @@
 import React, {ReactElement} from "react";
-import {BasicComponentProps, FunctionVoid} from "@typings";
+import {BasicComponentProps} from "@typings";
 import RadioIconWrapper from "./styled/radio/RadioIconWrapper";
 import RadioIconStyled from "./styled/radio/RadioIconStyled";
 import RippleStyled, {RippleVariations} from "@components/form/styled/common/CheckboxRadioRippleStyled";
@@ -10,7 +10,7 @@ import CheckboxRadioLabelStyled from "@components/form/styled/common/CheckboxRad
 import useRipple from "@hooks/useRipple";
 
 export interface RadioProps extends BasicComponentProps {
-    onChange?: FunctionVoid,
+    onChange?: () => void,
     checked?: boolean,
     label?: string,
     disabled?: boolean
