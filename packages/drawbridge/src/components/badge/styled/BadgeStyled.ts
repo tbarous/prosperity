@@ -27,10 +27,7 @@ const BadgeStyled = styled.span<T>`
   transition: ${(p: T) => p.theme.transition.elevation};
   font-weight: ${(p: T) => p.theme.fontWeight.bold};
   font-family: ${(p: T) => p.theme.fontFamily.primary};
-
-  &:hover {
-    box-shadow: ${(p: T) => p.theme.shadow.elevate};
-  }
+  &:hover {box-shadow: ${(p: T) => p.theme.shadow.elevate};}
 `;
 
 export default BadgeStyled;

@@ -1,29 +1,50 @@
 import styled from "styled-components";
 import {px} from "@utils/ThemeUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
+import {ButtonUIProps} from "@components/button/Button";
 
-interface T {
-    theme: ThemeInterface,
-    primary?: boolean,
-    secondary?: boolean,
-    small?: boolean,
-    medium?: boolean,
-    large?: boolean
-}
+export interface ButtonStyledProps extends StyledProps, ButtonUIProps {}
+
+type T = ButtonStyledProps;
 
 function getBackgroundColor(p: T) {
-    return p.primary ? p.theme.color.primary : (p.secondary ? p.theme.color.secondary : p.theme.color.primary);
+    if (p.primary) {
+        return p.theme.color.primary;
+    }
+
+    if (p.secondary) {
+        return p.theme.color.secondary;
+    }
 }
 
 function getColor(p: T) {
-    return p.primary ? p.theme.color.white : (p.secondary ? p.theme.color.dark : p.theme.color.white);
+    if (p.primary) {
+        return p.theme.color.white;
+    }
+
+    if (p.secondary) {
+        return p.theme.color.dark;
+    }
 }
 
 function getPadding(p: T) {
-    return p.small ? px(p.theme.spacing.s4) : (p.medium ? px(p.theme.spacing.s5) : (p.large ? px(p.theme.spacing.s6) : px(p.theme.spacing.s5)));
+    if (p.small) {
+        return px(p.theme.spacing.s4);
+    }
+
+    if (p.medium) {
+        return px(p.theme.spacing.s5);
+    }
+
+    if (p.large) {
+        return p.theme.spacing.s6;
+    }
 }
 
 const ButtonStyled = styled.button<T>`
+  padding: ${getPadding};
+  background-color: ${getBackgroundColor};
+  color: ${getColor};
   cursor: ${(p: T) => p.theme.cursor.pointer};
   border: ${(p: T) => p.theme.border.none};
   border-radius: ${(p: T) => p.theme.borderRadius.xlarge};
@@ -35,25 +56,10 @@ const ButtonStyled = styled.button<T>`
   height: ${(p: T) => p.theme.dimension.d100};
   letter-spacing: ${(p: T) => p.theme.letterSpacing.small};
   transition: ${(p: T) => p.theme.transition.elevation};
-  padding: ${getPadding};
-  background-color: ${getBackgroundColor};
-  color: ${getColor};
-
-  &:hover {
-    box-shadow: ${(p: T) => p.theme.shadow.elevate};
-  }
-
-  &:focus {
-    filter: ${(p: T) => p.theme.brightness.darken};
-  }
-
-  &:active {
-    filter: ${(p: T) => p.theme.brightness.darken};
-  }
-
-  &:visited {
-    filter: ${(p: T) => p.theme.brightness.darken};
-  }
+  &:hover {box-shadow: ${(p: T) => p.theme.shadow.elevate};}
+  &:focus {filter: ${(p: T) => p.theme.brightness.darken};}
+  &:active {filter: ${(p: T) => p.theme.brightness.darken};}
+  &:visited {filter: ${(p: T) => p.theme.brightness.darken};}
 `;
 
 export default ButtonStyled;

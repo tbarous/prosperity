@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface
-}
+export interface ButtonContentProps extends StyledProps {}
+
+type T = ButtonContentProps;
 
 const ButtonContentStyled = styled.div`
   display: ${(p: T) => p.theme.display.flex};

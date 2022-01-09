@@ -2,17 +2,23 @@ import styled from "styled-components";
 import Icon from "@components/icon/Icon";
 import {px} from "@utils/ThemeUtils";
 import {IconInterface} from "@icons";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
+import {ButtonUIProps} from "@components/button/Button";
 
-interface T {
-    theme: ThemeInterface,
-    primary?: boolean,
-    secondary?: boolean,
+export interface ButtonContentIconProps extends StyledProps, ButtonUIProps {
     icon?: IconInterface
 }
 
+type T = ButtonContentIconProps;
+
 function getColor(p: T) {
-    return p.secondary ? p.theme.color.dark : p.theme.color.white;
+    if (p.primary) {
+        return p.theme.color.white;
+    }
+
+    if (p.secondary) {
+        return p.theme.color.dark;
+    }
 }
 
 function getMargin(p: T) {
