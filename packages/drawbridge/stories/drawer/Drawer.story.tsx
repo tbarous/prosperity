@@ -1,52 +1,51 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import Drawer, {DrawerVariations} from "@components/drawer/Drawer";
 import styled, {useTheme} from "styled-components";
 import useMountChild from "@hooks/useMountChild";
 import DrawerToggler from "@components/drawer/DrawerToggler";
 import DrawerLink from "@components/drawer/DrawerLink";
 import Divider from "@components/divider/Divider";
+import useControlChild from "@hooks/useControlChild";
 
 const DrawerStyled = styled(Drawer)`
   display: flex;
   align-items: center;
 `;
 
-const DefaultDrawer = (args: { open?: boolean, variation?: DrawerVariations, fixed?: boolean, transparent?: boolean }) => {
-    const theme: any = useTheme();
+const DefaultDrawer = (args: { variation?: DrawerVariations, fixed?: boolean, transparent?: boolean }) => {
+    const {variation, transparent, fixed} = args;
 
-    const drawer = useMountChild(theme.animation.drawer);
-
-    useEffect(drawer.toggle, [args.open]);
+    const {render, toggle, unmount, onUnmounted} = useControlChild();
 
     return (
         <>
-            {drawer.render &&
+            {render &&
                 <DrawerStyled
-                    mount={drawer.mount}
-                    light={args.variation === DrawerVariations.LIGHT}
-                    dark={args.variation === DrawerVariations.DARK}
-                    fixed={args.fixed}
-                    transparent={args.transparent}
+                    unmount={unmount}
+                    onUnmounted={onUnmounted}
+                    light={variation === DrawerVariations.LIGHT}
+                    dark={variation === DrawerVariations.DARK}
+                    fixed={fixed}
+                    transparent={transparent}
                 >
-                    <DrawerLink>Home</DrawerLink>
-                    <Divider/>
-                    <DrawerLink>About</DrawerLink>
-                    <DrawerLink>Projects</DrawerLink>
+                    {/*<DrawerLink>Home</DrawerLink>*/}
+                    {/*<Divider/>*/}
+                    {/*<DrawerLink>About</DrawerLink>*/}
+                    {/*<DrawerLink>Projects</DrawerLink>*/}
                 </DrawerStyled>
             }
 
             <DrawerToggler
-                light={args.variation === DrawerVariations.LIGHT}
-                dark={args.variation === DrawerVariations.DARK}
-                toggle={drawer.toggle}
-                mount={drawer.mount}
+                light={variation === DrawerVariations.LIGHT}
+                dark={variation === DrawerVariations.DARK}
+                toggle={toggle}
+                unmount={unmount}
             />
         </>
     );
 }
 
 DefaultDrawer.args = {
-    open: true,
     variation: DrawerVariations.DARK,
     fixed: false,
     transparent: false

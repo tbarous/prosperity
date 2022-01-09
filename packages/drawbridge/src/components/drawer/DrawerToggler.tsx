@@ -4,12 +4,11 @@ import DrawerTogglerStyled from "./styled/DrawerTogglerStyled";
 import DrawerTogglerIconStyled from "./styled/DrawerTogglerIconStyled";
 
 interface T {
-    children: ReactNode,
     className?: string,
     dark?: boolean,
     light?: boolean,
     toggle?: any,
-    mount?: any
+    unmount: any
 }
 
 const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
@@ -18,7 +17,7 @@ const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
         dark,
         light,
         toggle,
-        mount
+        unmount
     } = props;
 
     return (
@@ -27,10 +26,10 @@ const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
             light={light}
             dark={dark}
             onClick={toggle}
-            mount={mount}
+            unmount={unmount}
         >
             <DrawerTogglerIconStyled
-                icon={mount ? ArrowLeft : ArrowRight}
+                icon={unmount ? ArrowRight : ArrowLeft}
                 width={18}
                 height={18}
                 light={light}

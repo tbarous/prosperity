@@ -8,7 +8,8 @@ const ThemeColor: ThemeColorInterface = {
     warning: "yellow",
     success: "green",
     danger: "red",
-    light: "#999999"
+    light: "#999999",
+    transparent: "transparent"
 }
 
 export default ThemeColor;

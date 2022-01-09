@@ -3,7 +3,8 @@ import DefaultDrawer from './Drawer.story';
 
 export default {
     title: 'Drawer',
-    component: Drawer,
+    component: () => {
+    },
     argTypes: {
         variation: {
             options: [DrawerVariations.LIGHT, DrawerVariations.DARK],
