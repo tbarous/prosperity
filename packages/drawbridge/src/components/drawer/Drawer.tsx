@@ -36,8 +36,7 @@ const Drawer: FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElemen
 
     const {transition, toggle} = useTransition(useTheme().animation.drawer, onStopDisplay, onStartDisplay);
 
-    let icon = transition ? ArrowLeft : ArrowRight;
-    if (small !== undefined) icon = small ? ArrowRight : ArrowLeft;
+    const icon = transition || small ? ArrowLeft : ArrowRight;
 
     return (
         <>
