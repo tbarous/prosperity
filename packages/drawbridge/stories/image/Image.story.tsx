@@ -1,10 +1,8 @@
 import React from 'react';
 import Image from "@components/image/Image";
-import {Props} from "@components/image/Image";
-import styled from "styled-components";
 
-const DefaultImage = (args: Props) => (
-        <Image {...args} />
+const DefaultImage = (args: {}) => (
+    <Image src="" alt=""/>
 );
 
 DefaultImage.args = {

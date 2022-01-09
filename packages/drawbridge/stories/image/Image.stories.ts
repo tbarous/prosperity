@@ -1,9 +1,9 @@
-import DefaultImage from "@stories/image/DefaultImage.story";
+import DefaultImage from "@stories/image/Image.story";
 import Image from "@components/image/Image";
 
 export default {
     title: 'Image',
-    component: Image,
+    component: () => {},
     argTypes: {},
 };
 

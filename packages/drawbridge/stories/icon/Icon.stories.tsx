@@ -1,17 +1,17 @@
 import React from "react";
 import Icon from "@components/icon/Icon";
-import {Times as TimesIcon} from "@icons";
-import styled from "styled-components";
+import {Times as TimesIcon, ArrowRight as ArrowToTheRight} from "@icons";
 
 export default {
     title: 'Icon',
-    component: () => {
-    },
+    component: () => { },
     argTypes: {},
 };
 
-const Times = () => <Icon icon={TimesIcon} width={30} height={30}/>;
+const Times = () => <Icon icon={TimesIcon}/>;
+const ArrowRight = () => <Icon icon={ArrowToTheRight}/>;
 
 export {
-    Times
+    Times,
+    ArrowRight
 }

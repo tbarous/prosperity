@@ -1,10 +1,9 @@
 import Text from "@components/text/Text";
-import DefaultText from '@stories/text/DefaultText.story';
+import DefaultText from '@stories/text/Text.story';
 
 export default {
     title: 'Text',
-    component: () => {
-    },
+    component: () => {},
     argTypes: {},
     parameters: {
         layout: 'padded',

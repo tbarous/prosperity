@@ -1,4 +1,4 @@
-import DefaultList from './DefaultList.story';
+import DefaultList from './List.story';
 
 export default {
     title: 'List',

@@ -1,8 +1,8 @@
 import DefaultInput from "@stories/form/Input.story";
-import DefaultForm from "@stories/form/DefaultForm.story";
-import DefaultCheckbox from "./DefaultCheckbox.story";
-import DefaultRadio from "./DefaultRadio.story";
-import DefaultSwitch from "./DefaultSwitch.story";
+import DefaultForm from "@stories/form/Form.story";
+import DefaultCheckbox from "./Checkbox.story";
+import DefaultRadio from "./Radio.story";
+import DefaultSwitch from "./Switch.story";
 
 export default {
     title: 'Form',

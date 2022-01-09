@@ -1,9 +1,9 @@
 import Link from "@components/link/Link";
-import DefaultLink from './DefaultLink.story';
+import DefaultLink from './Link.story';
 
 export default {
     title: 'Link',
-    component: Link,
+    component: () => [],
     argTypes: {},
 };
 
