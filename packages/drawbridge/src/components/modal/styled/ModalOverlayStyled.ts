@@ -2,7 +2,7 @@ import styled, {keyframes} from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
-type T = StyledProps & useMountChildStyledProps;
+type T = StyledProps;
 
 const fade = keyframes`
   from {
@@ -26,7 +26,7 @@ const ModalOverlayStyled = styled.div`
   top: ${(p: T) => px(p.theme.spacing.s0)};
   justify-content: ${(p: T) => p.theme.justifyContent.center};
   opacity: ${(p: T) => p.mount ? 0.8 : 0};
-  
+
   animation: ${fade} .5s;
   transition: ${(p: T) => `opacity ${p.exitDelay / 1000}s`};
 `;

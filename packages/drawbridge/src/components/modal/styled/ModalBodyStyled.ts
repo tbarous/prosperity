@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-type T = StyledProps;
+interface ModalBodyStyledProps extends StyledProps {}
+
+type T = ModalBodyStyledProps;
 
 const ModalBodyStyled = styled.div<T>`
   font-size: ${(p: T) => p.theme.fontSize.md};

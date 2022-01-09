@@ -1,22 +1,14 @@
-import React from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import React, {FunctionComponent, ReactElement} from "react";
+import {BasicComponentProps} from "@typings";
 import ModalHeaderStyled from "@components/modal/styled/ModalHeaderStyled";
 
-/**
- * Modal Header Component.
- * @param props
- * @constructor
- */
-const ModalHeader: React.FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElementOrNull => {
-    const {
-        children,
-        className
-    } = props;
+interface ModalFooterProps extends BasicComponentProps {}
+
+const ModalHeader: FunctionComponent<ModalFooterProps> = (props: ModalFooterProps): ReactElement => {
+    const {children, className} = props;
 
     return (
-        <ModalHeaderStyled
-            className={className}
-        >
+        <ModalHeaderStyled className={className}>
             {children}
         </ModalHeaderStyled>
     );

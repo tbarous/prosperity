@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {ReactElement, useRef} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 import {Times} from "@icons";
@@ -6,48 +6,26 @@ import ModalCloseStyled from "@components/modal/styled/ModalCloseStyled";
 import ModalOverlayStyled from "@components/modal/styled/ModalOverlayStyled";
 import ModalContentStyled from "@components/modal/styled/ModalContentStyled";
 import ModalWrapperStyled from "@components/modal/styled/ModalWrapperStyled";
-import {useMountChildProps} from "@hooks/useMountChild";
 
-interface Props extends BasicComponentProps, useMountChildProps {
+export interface ModalProps extends BasicComponentProps {
     closeOnClickOutside?: boolean,
     dismissible?: boolean
 }
 
-const Modal: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {
-        children,
-        className,
-        closeOnClickOutside,
-        dismissible,
-        unmountComponent,
-        mount,
-        exitDelay
-    } = props;
+const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps): ReactElementOrNull => {
+    const {children, className, closeOnClickOutside, dismissible,} = props;
 
     const ref = useRef(null);
 
-    if (closeOnClickOutside) useOnClickOutside(ref, () => unmountComponent(true));
+    if (closeOnClickOutside) useOnClickOutside(ref, () => {});
 
     return (
         <>
-            <ModalOverlayStyled
-                className={className}
-                mount={mount}
-                exitDelay={exitDelay}
-            />
+            <ModalOverlayStyled className={className}/>
 
             <ModalWrapperStyled>
-                <ModalContentStyled
-                    ref={ref}
-                    mount={mount}
-                    exitDelay={exitDelay}
-                >
-                    {dismissible && <ModalCloseStyled
-                        onClick={unmountComponent}
-                        width={24}
-                        height={24}
-                        icon={Times}
-                    />}
+                <ModalContentStyled ref={ref}>
+                    {dismissible && <ModalCloseStyled onClick={() => {}} icon={Times}/>}
 
                     {children}
                 </ModalContentStyled>

@@ -1,17 +1,11 @@
-import React from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import React, {FunctionComponent, ReactElement} from "react";
+import {BasicComponentProps} from "@typings";
 import ModalBodyStyled from "@components/modal/styled/ModalBodyStyled";
 
-/**
- * Modal Body Component.
- * @param props
- * @constructor
- */
-const ModalBody: React.FunctionComponent<BasicComponentProps> = (props: BasicComponentProps): ReactElementOrNull => {
-    const {
-        children,
-        className
-    } = props;
+interface ModalBodyProps extends BasicComponentProps {}
+
+const ModalBody: FunctionComponent<ModalBodyProps> = (props: ModalBodyProps): ReactElement => {
+    const {children, className} = props;
 
     return (
         <ModalBodyStyled className={className}>

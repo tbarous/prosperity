@@ -2,7 +2,7 @@ import styled, {css, keyframes} from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
 import MediaUtils from "@utils/MediaUtils";
 
-type T = StyledProps & useMountChildStyledProps;
+type T = StyledProps;
 
 const slideIn = keyframes`
   from {

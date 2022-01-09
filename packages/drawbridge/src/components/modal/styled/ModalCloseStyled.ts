@@ -17,6 +17,9 @@ const ModalCloseStyled = styled(Icon)<T>`
   display: ${(p: T) => p.theme.display.flex};
   background-color: ${(p: T) => p.theme.color.white};
   border: ${(p: T) => p.theme.border.medium};
+  
+  width: 24px;
+  height: 24px;
 `;
 
 export default ModalCloseStyled;
