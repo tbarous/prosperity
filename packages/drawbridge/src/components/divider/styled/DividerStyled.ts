@@ -1,12 +1,13 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
 import {px} from "@utils/ThemeUtils";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
+interface DividerStyledProps extends StyledProps {
     spacing?: number,
     vertical?: boolean
 }
+
+type T = DividerStyledProps;
 
 function getHeight(p: T) {
     if (p.vertical) {
@@ -37,8 +38,8 @@ function getMargin(p: T) {
 const DividerStyled = styled.div<T>`
   height: ${getHeight};
   width: ${getWidth};
-  background: ${(p: T) => p.theme.color.light};
   margin: ${getMargin};
+  background: ${(p: T) => p.theme.color.light};
 `;
 
 export default DividerStyled;
