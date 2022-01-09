@@ -1,26 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import Drawer, {DrawerVariations} from "@components/drawer/Drawer";
-import styled, {useTheme} from "styled-components";
-import useMountChild from "@hooks/useMountChild";
+import styled from "styled-components";
 import DrawerToggler from "@components/drawer/DrawerToggler";
-import DrawerLink from "@components/drawer/DrawerLink";
-import Divider from "@components/divider/Divider";
 import useControlChild from "@hooks/useControlChild";
-
-const DrawerStyled = styled(Drawer)`
-  display: flex;
-  align-items: center;
-`;
 
 const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, transparent: boolean }) => {
     const {variation, transparent, fixed} = args;
 
-    const [small, setSmall] = useState(true);
+    const [small, setSmall] = useState(undefined);
 
     const {render, toggle, unmount, onUnmounted} = useControlChild();
 
-    function toggleDrawer(){
-        if(small !== undefined){
+    function toggleDrawer() {
+        if (small !== undefined) {
             setSmall(!small)
         } else {
             toggle()
@@ -30,7 +22,7 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
     return (
         <>
             {render &&
-                <DrawerStyled
+                <Drawer
                     unmount={unmount}
                     onUnmounted={onUnmounted}
                     light={variation === DrawerVariations.LIGHT}
@@ -43,7 +35,7 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
                     {/*<Divider/>*/}
                     {/*<DrawerLink>About</DrawerLink>*/}
                     {/*<DrawerLink>Projects</DrawerLink>*/}
-                </DrawerStyled>
+                </Drawer>
             }
 
             <DrawerToggler
