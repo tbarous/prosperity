@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface
-}
+interface TabsStyledProps extends StyledProps {}
+
+type T = TabsStyledProps;
 
 const TabsStyled = styled.div<T>`
   display: ${(p: T) => p.theme.display.flex};

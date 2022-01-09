@@ -1,22 +1,16 @@
-import React, {Children, ReactElement, ReactNode, useEffect, useState} from "react";
+import React, {Children, FunctionComponent, ReactElement, ReactNode, useEffect, useState} from "react";
 import TabsStyled from "@components/tabs/styled/TabsStyled";
 import TabActiveStyled from "@components/tabs/styled/TabActiveStyled";
 import {clone} from "@utils/ComponentUtils";
+import {BasicComponentProps} from "@typings";
 
-interface T {
-    children: ReactNode,
-    className?: string,
+export interface TabsProps extends BasicComponentProps {
     onChange?: (index: number) => void,
     activate?: number,
 }
 
-const Tabs: React.FunctionComponent<T> = (props: T): ReactElement => {
-    const {
-        children,
-        className,
-        activate,
-        onChange
-    } = props;
+const Tabs: FunctionComponent<TabsProps> = (props: TabsProps): ReactElement => {
+    const {children, className, activate, onChange} = props;
 
     const [active, setActive] = useState(0);
 
@@ -33,15 +27,10 @@ const Tabs: React.FunctionComponent<T> = (props: T): ReactElement => {
     }
 
     return (
-        <TabsStyled
-            className={className}
-        >
+        <TabsStyled className={className}>
             {Children.map(children, (child: ReactNode, index: number) => clone(child, {onClickTab: () => onClickTab(index)}))}
 
-            <TabActiveStyled
-                width={width}
-                left={active * 100}
-            />
+            <TabActiveStyled width={width} left={active * 100}/>
         </TabsStyled>
     )
 }
