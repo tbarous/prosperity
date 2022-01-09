@@ -4,6 +4,7 @@ import useCallbackOnTimeout from "@hooks/useCallbackOnTimeout";
 import SnackbarStyled from "@components/snackbar/styled/SnackbarStyled";
 import SnackbarCloseStyled from "@components/snackbar/styled/SnackbarCloseStyled";
 import {useTheme} from "styled-components";
+import useUnmount from "@hooks/useUnmount";
 
 export enum SnackbarVariations {
     SUCCESS = "success",
@@ -19,8 +20,8 @@ interface T {
     danger?: boolean,
     warning?: boolean,
     success?: boolean,
-    onUnmounted?: () => void,
-    unmount?: boolean
+    onUnmounted: () => void,
+    unmount: boolean
 }
 
 const Snackbar: React.FunctionComponent<T> = (props: T): ReactElement => {
@@ -36,33 +37,11 @@ const Snackbar: React.FunctionComponent<T> = (props: T): ReactElement => {
         unmount
     } = props;
 
-    const ref = useRef<any>(null);
-    const [myUnmount, setMyUnmount] = useState(true)
-    const theme = useTheme()
+    const delay = useTheme().animation.snackbar;
 
-    useEffect(() => {
-        if (unmount) {
-            startUnmount()
-        } else {
-            setMyUnmount(false)
-        }
-    }, [unmount])
+    const {startUnmount, myUnmount} = useUnmount(unmount, onUnmounted, delay);
 
-    useEffect(() => {
-        if (myUnmount) {
-            ref.current = setTimeout(() => onUnmounted && onUnmounted(), theme.animation.snackbar)
-        }
-
-        return () => clearTimeout(ref.current)
-    }, [myUnmount])
-
-    if (closeOnDelay) {
-        useCallbackOnTimeout(closeOnDelay + theme.animation.snackbar * 2, startUnmount);
-    }
-
-    function startUnmount() {
-        setMyUnmount(true);
-    }
+    if (closeOnDelay) useCallbackOnTimeout(closeOnDelay + delay * 2, startUnmount);
 
     return (
         <SnackbarStyled
