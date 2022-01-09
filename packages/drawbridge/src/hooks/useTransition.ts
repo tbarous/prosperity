@@ -3,23 +3,11 @@ import {useEffect, useRef, useState} from "react";
 function useTransition(duration: number, onStopDisplay: () => void, onStartDisplay?: () => void) {
     const [transition, setTransition] = useState(false);
 
+    const ref = useRef<any>(null);
+
     useEffect(() => {
         setTransition(true);
     }, [])
-
-    const ref = useRef<any>(null);
-
-    function remove() {
-        setTransition(false);
-    }
-
-    function insert() {
-        setTransition(true);
-    }
-
-    function toggle() {
-        setTransition(!transition);
-    }
 
     useEffect(() => {
         if (!transition) {
@@ -28,10 +16,28 @@ function useTransition(duration: number, onStopDisplay: () => void, onStartDispl
             }, duration)
 
             return () => clearTimeout(ref.current);
-        } else {
-            onStartDisplay && onStartDisplay();
         }
     }, [transition])
+
+    function remove() {
+        setTransition(false);
+    }
+
+    function insert() {
+        onStartDisplay && onStartDisplay();
+
+        setTimeout(() => {
+            setTransition(true);
+        }, 100)
+    }
+
+    function toggle() {
+        if (transition) {
+            remove()
+        } else {
+            insert();
+        }
+    }
 
     return {
         remove,

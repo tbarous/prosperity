@@ -37,7 +37,7 @@ const Drawer: FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElemen
 
     const {transition, toggle} = useTransition(useTheme().animation.drawer, onStopDisplay, onStartDisplay);
 
-    const icon = transition || small ? ArrowLeft : ArrowRight;
+    const togglerIcon = (transition || small) ? ArrowLeft : ArrowRight;
 
     return (
         <>
@@ -50,7 +50,7 @@ const Drawer: FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElemen
             )}
 
             {toggler && <DrawerTogglerStyled {...UIProps} onClick={toggle} transition={transition}>
-                <DrawerTogglerIconStyled icon={icon} {...UIProps}/>
+                <DrawerTogglerIconStyled icon={togglerIcon} {...UIProps}/>
             </DrawerTogglerStyled>}
         </>
     )
