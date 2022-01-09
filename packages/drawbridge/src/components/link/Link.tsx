@@ -1,35 +1,32 @@
-import React, {useState} from "react";
+import React, {FunctionComponent, ReactElement, useState} from "react";
 import LinkStyled from "./styled/LinkStyled";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
+import {BasicComponentProps} from "@typings";
 import LinkLineStyled from "./styled/LInkLineStyled";
 
-interface Props extends BasicComponentProps {
+export interface LinkProps extends BasicComponentProps {
     href: string,
     blank?: boolean,
     active?: boolean
 }
 
-const Link: React.FunctionComponent<Props> = (props: Props): ReactElementOrNull => {
-    const {
-        children,
-        className,
-        href,
-        blank,
-        active
-    } = props;
+const Link: FunctionComponent<LinkProps> = (props: LinkProps): ReactElement => {
+    const {children, className, href, blank, active} = props;
 
     const [hovered, setHovered] = useState(false);
+
+    const target = blank ? "_blank" : "";
 
     return (
         <LinkStyled
             className={className}
             href={href}
-            target={blank ? "blank" : ""}
+            target={target}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             active={active}
         >
             {children}
+
             <LinkLineStyled hovered={hovered} active={active}/>
         </LinkStyled>
     )

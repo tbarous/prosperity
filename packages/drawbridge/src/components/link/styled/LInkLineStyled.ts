@@ -1,22 +1,42 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-type T = StyledProps & { hovered?: boolean, active?: boolean };
+export interface LinkedLineStyledProps extends StyledProps {
+    hovered?: boolean,
+    active?: boolean
+}
+
+type T = LinkedLineStyledProps;
+
+function getTransform(p: T) {
+    if (p.active) {
+        return "scale(1)";
+    }
+
+    if (p.hovered) {
+        return "scale(1)";
+    }
+
+    return "scale(0)";
+}
+
+function getBackgroundColor(p: T) {
+    if (p.active) {
+        return p.theme.color.primary;
+    }
+
+    return p.theme.color.dark;
+}
 
 const LinkLineStyled = styled.div<T>`
-  transform: ${(p: T) => p.active ? "scale(1)" : p.hovered ? "scale(1)" : "scale(0)"};
+  transform: ${getTransform};
+  background-color: ${getBackgroundColor};
+  position: ${(p: T) => p.theme.position.absolute};
+  height: ${(p: T) => p.theme.spacing.s1};
+  width: ${(p: T) => p.theme.dimension.d100};
+  display: ${(p: T) => p.theme.display.block};
+  bottom: -${(p: T) => p.theme.spacing.s3};
   transition: all .3s;
-  position: absolute;
-  //border-radius: 8px;
-  //height: 100%;
-  height: 3px;
-  width: 100%;
-  //pointer-events: none;
-
-  // border: 2px solid ${(p: T) => p.theme.color.primary};
-    background: ${(p: T) => p.active ? p.theme.color.primary : p.theme.color.dark};
-  display: block;
-  bottom: -6px;
 `;
 
 export default LinkLineStyled;
