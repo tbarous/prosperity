@@ -12,12 +12,17 @@ interface ThemeDimensionInterface {
     d90: string,
     d100: string,
     auto: string,
-
-
-    drawerWidth: number,
-    drawerTogglerWidth: number,
-    drawerTogglerHeight: number,
-    snackbarHeight: number
+    drawer: {
+        width: number,
+        toggler: {
+            width: number,
+            height: number,
+            icon: number
+        }
+    },
+    snackbar: {
+        height: number
+    }
 }
 
 export default ThemeDimensionInterface;

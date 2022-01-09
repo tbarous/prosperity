@@ -12,7 +12,7 @@ interface T {
 }
 
 function getMaxWidth(p: T) {
-    return p.unmount ? 0 : px(p.theme.dimension.drawerWidth);
+    return p.unmount ? 0 : px(p.theme.dimension.drawer.width);
 }
 
 function getBackgroundColor(p: T) {
@@ -28,7 +28,7 @@ function getTransition(p: T) {
 }
 
 function getWidth(p: T) {
-    return px(p.theme.dimension.drawerWidth);
+    return px(p.theme.dimension.drawer.width);
 }
 
 const DrawerStyled = styled.div<T>`

@@ -10,7 +10,7 @@ interface T {
 }
 
 function getLeft(p: T) {
-    return p.unmount ? `-${(p: T) => p.theme.spacing.s5}` : px(p.theme.dimension.drawerWidth - p.theme.dimension.drawerTogglerWidth / 2);
+    return p.unmount ? `-${px(p.theme.spacing.s3)}` : px(p.theme.dimension.drawer.width - p.theme.dimension.drawer.toggler.width / 2);
 }
 
 function getTransition(p: T) {
@@ -22,11 +22,11 @@ function getTop(p: T) {
 }
 
 function getWidth(p: T) {
-    return px(p.theme.dimension.drawerTogglerWidth);
+    return px(p.theme.dimension.drawer.toggler.width);
 }
 
 function getHeight(p: T) {
-    return px(p.theme.dimension.drawerTogglerHeight);
+    return px(p.theme.dimension.drawer.toggler.height);
 }
 
 const DrawerTogglerStyled = styled.div<T>`

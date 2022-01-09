@@ -14,12 +14,17 @@ const ThemeDimension: ThemeDimensionInterface = {
     d80: "80%",
     d100: "100%",
     auto: "auto",
-
-
-    drawerWidth: 300,
-    drawerTogglerWidth: 50,
-    drawerTogglerHeight: 40,
-    snackbarHeight: 60
+    drawer: {
+        width: 300,
+        toggler: {
+            width: 50,
+            height: 40,
+            icon: 18
+        }
+    },
+    snackbar: {
+        height: 60
+    }
 }
 
 export default ThemeDimension
