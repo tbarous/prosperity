@@ -11,7 +11,7 @@ interface T {
     light?: boolean,
     toggle?: any,
     unmount: any,
-    small?:any
+    small?: any
 }
 
 const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
@@ -25,7 +25,16 @@ const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
     } = props;
 
     const theme = useTheme();
+    
     const {myUnmount} = useUnmount(unmount, () => {}, theme.animation.drawer);
+
+    function getIcon() {
+        if (small !== undefined) {
+            return small ? ArrowRight : ArrowLeft
+        }
+
+        return unmount ? ArrowRight : ArrowLeft
+    }
 
     return (
         <DrawerTogglerStyled
@@ -37,7 +46,7 @@ const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
             small={small}
         >
             <DrawerTogglerIconStyled
-                icon={unmount ? ArrowRight : ArrowLeft}
+                icon={getIcon()}
                 width={theme.dimension.drawer.toggler.icon}
                 height={theme.dimension.drawer.toggler.icon}
                 light={light}
