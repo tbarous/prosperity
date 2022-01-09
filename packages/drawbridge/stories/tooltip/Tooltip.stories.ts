@@ -1,10 +1,9 @@
 import Tooltip from "@components/tooltip/Tooltip";
-import DefaultTooltip from "./DefaultTooltip.story";
+import DefaultTooltip from "./Tooltip.story";
 
 export default {
     title: 'Tooltip',
-    component: () => {
-    },
+    component: () => {},
     argTypes: {},
     parameters: {
         layout: 'padded',

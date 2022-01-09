@@ -1,4 +1,4 @@
-import DefaultNavbar from './DefaultNavbar.story';
+import DefaultNavbar from './Navbar.story';
 
 export default {
     title: 'Navbar',

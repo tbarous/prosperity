@@ -4,9 +4,6 @@ import Tab from "@components/tabs/Tab";
 import Card from "@components/card/Card";
 import {TabsProps} from "@components/tabs/Tabs";
 import styled from "styled-components";
-import Container from "@components/grid/Container";
-import Row from "@components/grid/Row";
-import Col from "@components/grid/Col";
 import CarouselItems from "@components/carousel/CarouselItems";
 import CarouselItem from "@components/carousel/CarouselItem";
 import Carousel from "@components/carousel/Carousel";
@@ -49,7 +46,7 @@ const DefaultTabs = (args: TabsProps) => {
             </Tabs>
 
             <CardStyled>
-                <Carousel change={active} itemsPerSlide={1}>
+                <Carousel itemsPerSlide={1}>
                     <CarouselItems>
                         {content.map((c: any, index: number) => (
                             <CarouselItem key={index}>
