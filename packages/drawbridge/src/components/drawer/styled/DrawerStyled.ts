@@ -17,7 +17,7 @@ function getMaxWidth(p: T) {
         return p.unmount ? 0 : px(p.theme.dimension.drawer.width);
     }
 
-    return p.small ? "60px" : px(p.theme.dimension.drawer.width);
+    return p.small ? px(p.theme.dimension.drawer.small) : px(p.theme.dimension.drawer.width);
 }
 
 function getBackgroundColor(p: T) {
@@ -37,7 +37,7 @@ function getWidth(p: T) {
         return p.unmount ? 0 : px(p.theme.dimension.drawer.width);
     }
 
-    return p.small ? "60px" : px(p.theme.dimension.drawer.width);
+    return p.small ? px(p.theme.dimension.drawer.small) : px(p.theme.dimension.drawer.width);
 }
 
 const DrawerStyled = styled.div<T>`

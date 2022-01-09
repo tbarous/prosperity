@@ -25,7 +25,7 @@ const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
     } = props;
 
     const theme = useTheme();
-    
+
     const {myUnmount} = useUnmount(unmount, () => {}, theme.animation.drawer);
 
     function getIcon() {

@@ -15,7 +15,7 @@ function getLeft(p: T) {
 
     if (p.small === undefined) return p.unmount ? `-${px(p.theme.spacing.s3)}` : openDistance;
 
-    return p.small ? "50px" : openDistance;
+    return p.small ? px(p.theme.dimension.drawer.small - p.theme.dimension.drawer.toggler.width / 2) : openDistance;
 }
 
 function getTransition(p: T) {

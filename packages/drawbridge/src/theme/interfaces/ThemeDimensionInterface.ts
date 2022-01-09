@@ -14,6 +14,7 @@ interface ThemeDimensionInterface {
     auto: string,
     drawer: {
         width: number,
+        small: number,
         toggler: {
             width: number,
             height: number,
