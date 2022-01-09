@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
-}
+interface CheckboxRadioWrapperStyledProps extends StyledProps {}
+
+type T = CheckboxRadioWrapperStyledProps;
 
 const CheckboxRadioWrapperStyled = styled.div<T>`
   display: ${(p: T) => p.theme.display.flex};

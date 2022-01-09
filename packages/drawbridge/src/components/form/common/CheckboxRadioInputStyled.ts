@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface
-}
+interface CheckboxRadioInputStyledProps extends StyledProps {}
+
+type T = CheckboxRadioInputStyledProps;
 
 const CheckboxRadioInputStyled = styled.input<T>`
   position: ${(p: T) => p.theme.position.absolute};

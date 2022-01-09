@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import Text from "@components/text/Text";
 import {px} from "@utils/ThemeUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
+interface CheckboxRadioLabelStyledProps extends StyledProps {
     disabled?: boolean
 }
+
+type T = CheckboxRadioLabelStyledProps;
 
 function getColor(p: T) {
     if (p.disabled) {
