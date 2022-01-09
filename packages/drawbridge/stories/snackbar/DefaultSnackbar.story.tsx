@@ -34,7 +34,6 @@ const DefaultSnackbar = (args: { variation?: SnackbarVariations, dismissible?: b
 }
 
 DefaultSnackbar.args = {
-    open: true,
     dismissible: false,
     closeOnDelay: 3000,
     variation: SnackbarVariations.SUCCESS
