@@ -37,7 +37,7 @@ function getPadding(p: T) {
     }
 
     if (p.large) {
-        return p.theme.spacing.s6;
+        return px(p.theme.spacing.s6);
     }
 }
 
