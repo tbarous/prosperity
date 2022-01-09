@@ -7,10 +7,14 @@ export interface ColStyledProps extends StyledProps, ColUIProps {}
 
 type T = ColStyledProps;
 
-function getWidth(columns?: number) {
+function getWidth(breakpoint: string, columns?: number) {
+    let width = "100%";
+
     if (columns) {
-        return `${(100 / 12) * columns}%`;
+        width = `${(100 / 12) * columns}%`;
     }
+
+    return MediaUtils.up(breakpoint, css`width: ${width};max-width: ${width};`);
 }
 
 const ColStyled = styled.div<T>`
@@ -20,31 +24,11 @@ const ColStyled = styled.div<T>`
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
   padding-left: ${(p: T) => p.gutter ? `${p.gutter / 2}px` : ""};
   padding-right: ${(p: T) => p.gutter ? `${p.gutter / 2}px` : ""};
-
-  ${(p: T) => MediaUtils.up(p.theme.breakpoint.xs, css`
-    width: ${getWidth(p.xs)};
-    max-width: ${getWidth(p.xs)};
-  `)};
-
-  ${(p: T) => MediaUtils.up(p.theme.breakpoint.sm, css`
-    width: ${getWidth(p.sm)};
-    max-width: ${getWidth(p.sm)};
-  `)};
-
-  ${(p: T) => MediaUtils.up(p.theme.breakpoint.md, css`
-    width: ${getWidth(p.md)};
-    max-width: ${getWidth(p.md)};
-  `)};
-
-  ${(p: T) => MediaUtils.up(p.theme.breakpoint.lg, css`
-    width: ${getWidth(p.lg)};
-    max-width: ${getWidth(p.lg)};
-  `)};
-
-  ${(p: T) => MediaUtils.up(p.theme.breakpoint.xl, css`
-    width: ${getWidth(p.xl)};
-    max-width: ${getWidth(p.xl)};
-  `)};
+  ${(p: T) => getWidth(p.theme.breakpoint.xs, p.xs)};
+  ${(p: T) => getWidth(p.theme.breakpoint.sm, p.sm)};
+  ${(p: T) => getWidth(p.theme.breakpoint.md, p.md)};
+  ${(p: T) => getWidth(p.theme.breakpoint.lg, p.lg)};
+  ${(p: T) => getWidth(p.theme.breakpoint.xl, p.xl)};
 `;
 
 export default ColStyled;

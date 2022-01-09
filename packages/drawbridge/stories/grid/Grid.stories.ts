@@ -1,14 +1,16 @@
-import Container from "@components/grid/Container";
-import DefaultGrid from './DefaultGrid.story';
+import DefaultGrid from './Grid.story';
 
 export default {
     title: 'Grid',
-    component: Container,
+    component: () => {},
     argTypes: {
         container: {
             options: ['default', 'fluid'],
             control: {type: 'radio'},
         },
+    },
+    parameters: {
+        layout: 'padded',
     },
 };
 
