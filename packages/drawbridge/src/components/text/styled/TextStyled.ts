@@ -16,9 +16,9 @@ function getFontWeight(p: T) {
 }
 
 const TextStyled = styled.div<T>`
+  font-weight: ${getFontWeight};
   font-size: ${(p: T) => p.theme.fontSize.md};
   color: ${(p: T) => p.theme.color.dark};
-  font-weight: ${getFontWeight};
   font-family: ${(p: T) => p.theme.fontFamily.primary};
 `;
 

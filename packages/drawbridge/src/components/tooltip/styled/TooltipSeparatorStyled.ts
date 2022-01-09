@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
 import {px} from "@utils/ThemeUtils";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface
-}
+export interface TooltipSeparatorStyledProps extends StyledProps {}
+
+type T = TooltipSeparatorStyledProps;
 
 const TooltipSeparatorStyled = styled.div<T>`
   height: ${(p: T) => px(p.theme.spacing.s8)};
