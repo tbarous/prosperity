@@ -23,6 +23,9 @@ interface ThemeDimensionInterface {
     },
     snackbar: {
         height: number
+    },
+    navbar: {
+        height: number
     }
 }
 

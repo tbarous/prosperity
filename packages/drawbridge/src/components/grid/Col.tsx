@@ -2,7 +2,7 @@ import React, {ReactElement, ReactNode} from "react";
 import ColStyled from "@components/grid/styled/ColStyled";
 
 export interface T {
-    children: ReactNode,
+    children?: ReactNode,
     className?: string,
     xs?: number,
     sm?: number,

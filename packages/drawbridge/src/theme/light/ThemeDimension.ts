@@ -25,6 +25,9 @@ const ThemeDimension: ThemeDimensionInterface = {
     },
     snackbar: {
         height: 60
+    },
+    navbar: {
+        height: 60
     }
 }
 

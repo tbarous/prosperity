@@ -20,6 +20,7 @@ import List from "@components/list/List";
 import Checkbox from "@components/form/Checkbox";
 import {ChevronDown} from "@icons";
 import Icon from "@components/icon/Icon";
+import useControlChild from "@hooks/useControlChild";
 
 const NavbarCol = styled(Col)`
   display: flex;
@@ -103,25 +104,23 @@ const Content = () => {
 }
 
 const DefaultNavbar = (args: BasicComponentProps) => {
-    const navbarFixed = useMountChild(0);
-
     const scrollFromTop = useOnScroll();
 
-    useEffect(() => scrollFromTop >= 100 ? navbarFixed.renderComponent() : navbarFixed.unmountComponent(), [scrollFromTop])
+    const {render, toggle, unmount, onUnmounted, unMount, mount} = useControlChild();
+
+    useEffect(() => {
+        if (scrollFromTop <= 100) {
+            unMount()
+        } else {
+            mount()
+        }
+    }, [scrollFromTop])
 
     return (
         <>
-            <NavbarStatic transparent>
-                <Content/>
-            </NavbarStatic>
+            <NavbarStatic transparent><Content/></NavbarStatic>
 
-            {navbarFixed.render &&
-                <NavbarFixed
-                    {...navbarFixed}
-                >
-                    <Content/>
-                </NavbarFixed>
-            }
+            {render && <NavbarFixed unmount={unmount} onUnmounted={onUnmounted}><Content/></NavbarFixed>}
         </>
     );
 }

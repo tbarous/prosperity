@@ -1,6 +1,5 @@
-import React, {ReactElement, ReactNode} from "react";
+import React, {ReactElement} from "react";
 import {FunctionVoid} from "@typings";
-import {emptyFunction} from "@helpers";
 import {Checkmark} from "@icons";
 import CheckboxIconStyled from "./styled/checkbox/CheckboxIconStyled";
 import RippleStyled, {RippleVariations} from "./common/RippleStyled";
@@ -12,7 +11,6 @@ import CheckboxRadioLabelStyled from "./common/CheckboxRadioLabelStyled";
 import useRipple from "@hooks/useRipple";
 
 interface T {
-    children: ReactNode,
     className?: string,
     onChange?: FunctionVoid,
     checked?: boolean,
@@ -23,7 +21,7 @@ interface T {
 const Checkbox: React.FunctionComponent<T> = (props: T): ReactElement => {
     const {
         className,
-        onChange = emptyFunction,
+        onChange,
         checked,
         label,
         disabled

@@ -1,27 +1,25 @@
-import React from "react";
+import React, {ReactElement, ReactNode} from "react";
 import {FunctionComponent} from "react";
-import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import NavbarFixedStyled from "@components/navbar/styled/NavbarFixedStyled";
-import {useMountChildProps} from "@hooks/useMountChild";
+import useUnmount from "@hooks/useUnmount";
+import {useTheme} from "styled-components";
 
-interface NavbarFixedProps extends BasicComponentProps, useMountChildProps {
+interface T {
+    children: ReactNode,
+    className?: string,
+    unmount: boolean,
+    onUnmounted: () => void,
 }
 
-const NavbarFixed: FunctionComponent<NavbarFixedProps> = (props: NavbarFixedProps): ReactElementOrNull => {
-    const {
-        children,
-        className,
-        unmountComponent,
-        mount,
-        exitDelay
-    } = props;
+const NavbarFixed: FunctionComponent<T> = (props: T): ReactElement => {
+    const {children, className, unmount, onUnmounted,} = props;
+
+    const theme = useTheme();
+
+    const {myUnmount} = useUnmount(unmount, onUnmounted, theme.animation.navbar);
 
     return (
-        <NavbarFixedStyled
-            className={className}
-            mount={mount}
-            exitDelay={exitDelay}
-        >
+        <NavbarFixedStyled className={className} unmount={myUnmount}>
             {children}
         </NavbarFixedStyled>
     )
