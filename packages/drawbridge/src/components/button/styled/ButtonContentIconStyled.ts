@@ -28,6 +28,8 @@ function getMargin(p: T) {
 const ButtonContentIconStyled = styled(Icon)<T>`
   color: ${getColor};
   margin-right: ${getMargin};
+  width: ${(p: T) => px(p.theme.spacing.s6)};
+  height: ${(p: T) => px(p.theme.spacing.s6)};
 `;
 
 export default ButtonContentIconStyled;

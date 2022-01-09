@@ -49,7 +49,7 @@ const Button: FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElemen
     return (
         <ButtonStyled className={className} type={type} role={role}{...UIProps} onClick={onClick}>
             <ButtonContentStyled>
-                {icon && <ButtonContentIconStyled icon={icon} width={20} height={20}{...UIProps} />}
+                {icon && <ButtonContentIconStyled icon={icon} {...UIProps} />}
 
                 {children}
             </ButtonContentStyled>
