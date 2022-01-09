@@ -7,6 +7,7 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
     const {variation, transparent, fixed} = args;
 
     const [small, setSmall] = useState<boolean | undefined>(undefined);
+
     const [display, setDisplay] = useState<boolean>(true);
 
     const UIProps = {light: variation === DrawerVariations.LIGHT, dark: variation === DrawerVariations.DARK};

@@ -1,20 +1,21 @@
 import styled, {css, keyframes} from "styled-components";
 import {StyledProps} from "@typings";
 import MediaUtils from "@utils/MediaUtils";
+import {transformY, transition} from "@utils/ThemeUtils";
 
-interface ModalContentStyledProps extends StyledProps {}
+interface ModalContentStyledProps extends StyledProps {
+    transition: boolean
+}
 
 type T = ModalContentStyledProps;
 
-const slideIn = keyframes`
-  from {
-    transform: translateY(-130%);
-  }
+function getTransform(p: T) {
+    return transformY(p.transition, -500);
+}
 
-  to {
-    transform: translateY(0);
-  }
-`;
+function getTransition(p: T) {
+    return transition({ms: 2000});
+}
 
 const ModalContentStyled = styled.div<T>`
   background-color: ${(p: T) => p.theme.color.white};
@@ -23,10 +24,8 @@ const ModalContentStyled = styled.div<T>`
   width: ${(p: T) => p.theme.dimension.d100};
   height: ${(p: T) => p.theme.dimension.d80};
   ${(p: T) => MediaUtils.up(p.theme.breakpoint.md, css`width: 500px;`)};
+  transition: ${getTransition};
+  transform: ${getTransform};
 `;
-
-// transform: ${(p: T) => p.mount ? `translateY(0)` : `translateY(-130%)`};
-// animation: ${slideIn} .5s;
-// transition: ${(p: T) => `transform ${p.exitDelay / 1000}s`};
 
 export default ModalContentStyled;

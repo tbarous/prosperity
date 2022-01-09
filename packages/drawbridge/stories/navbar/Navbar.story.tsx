@@ -5,13 +5,11 @@ import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import {BasicComponentProps, StyledProps} from "@typings";
 import styled from "styled-components";
-import useMountChild from "@hooks/useMountChild";
 import NavbarStatic from "@components/navbar/NavbarStatic";
 import NavbarFixed from "@components/navbar/NavbarFixed";
 import useOnScroll from "@hooks/UseOnScroll";
 import Link from "@components/link/Link";
 import Button from "@components/button/Button";
-import {T as ColT} from "@components/grid/styled/ColStyled";
 import {px} from "@utils/ThemeUtils";
 import Tooltip from "@components/tooltip/Tooltip";
 import TooltipContentStyled from '@components/tooltip/styled/TooltipContentStyled';
@@ -20,30 +18,12 @@ import List from "@components/list/List";
 import Checkbox from "@components/form/Checkbox";
 import {ChevronDown} from "@icons";
 import Icon from "@components/icon/Icon";
-import useControlChild from "@hooks/useControlChild";
 
 const NavbarCol = styled(Col)`
   display: flex;
   align-items: center;
   justify-content: center;
 `;
-
-const ButtonCol = styled(Col)`
-  padding: ${(p: ColT) => px(p.theme.spacing.s8)};
-`;
-
-const ListStyled = styled(List)`
-  background: white;
-`;
-
-const ListItemStyled = styled(ListItem)`
-  border-bottom: none;
-`;
-
-const ButtonStyled = styled(Button)`
-  display: flex;
-  align-items: center;
-`
 
 const Content = () => {
     const [lang, setLang] = useState("gr");
@@ -71,33 +51,33 @@ const Content = () => {
 
                 <NavbarCol xs={2}>
                     <Tooltip clickable>
-                        <ButtonStyled secondary>{lang === "gr" ? "GR" : "EN"} <Icon icon={ChevronDown}/></ButtonStyled>
+                        {/*<ButtonStyled secondary>{lang === "gr" ? "GR" : "EN"} <Icon icon={ChevronDown}/></ButtonStyled>*/}
 
                         <TooltipContentStyled>
-                            <ListStyled>
-                                <ListItem>
-                                    <Checkbox
-                                        onChange={() => setLang(lang === "gr" ? "en" : "gr")}
-                                        checked={lang === "gr"}
-                                        label="GR"
-                                    />
-                                </ListItem>
+                            {/*<ListStyled>*/}
+                            {/*    <ListItem>*/}
+                            {/*        <Checkbox*/}
+                            {/*            onChange={() => setLang(lang === "gr" ? "en" : "gr")}*/}
+                            {/*            checked={lang === "gr"}*/}
+                            {/*            label="GR"*/}
+                            {/*        />*/}
+                            {/*    </ListItem>*/}
 
-                                <ListItemStyled>
-                                    <Checkbox
-                                        onChange={() => setLang(lang === "en" ? "gr" : "en")}
-                                        checked={lang === "en"}
-                                        label="EN"
-                                    />
-                                </ListItemStyled>
-                            </ListStyled>
+                            {/*    <ListItemStyled>*/}
+                            {/*        <Checkbox*/}
+                            {/*            onChange={() => setLang(lang === "en" ? "gr" : "en")}*/}
+                            {/*            checked={lang === "en"}*/}
+                            {/*            label="EN"*/}
+                            {/*        />*/}
+                            {/*    </ListItemStyled>*/}
+                            {/*</ListStyled>*/}
                         </TooltipContentStyled>
                     </Tooltip>
                 </NavbarCol>
 
-                <ButtonCol xs={2}>
-                    <Button primary>Login/Register</Button>
-                </ButtonCol>
+                {/*<ButtonCol xs={2}>*/}
+                {/*    <Button primary>Login/Register</Button>*/}
+                {/*</ButtonCol>*/}
             </Row>
         </Container>
     )
@@ -106,23 +86,13 @@ const Content = () => {
 const DefaultNavbar = (args: BasicComponentProps) => {
     const scrollFromTop = useOnScroll();
 
-    const {render, toggle, unmount, onUnmounted, unMount, mount} = useControlChild(false);
-
-    useEffect(() => {
-        if (scrollFromTop <= 100) {
-            unMount()
-        } else {
-            mount()
-        }
-    }, [scrollFromTop])
-
     return (
         <>
             <NavbarStatic transparent><Content/></NavbarStatic>
 
-            {render && <NavbarFixed unmount={unmount} onUnmounted={onUnmounted}><Content/></NavbarFixed>}
+            <NavbarFixed><Content/></NavbarFixed>
 
-            <div style={{height: "3000px"}} />
+            <div style={{height: "3000px"}}/>
         </>
     );
 }
