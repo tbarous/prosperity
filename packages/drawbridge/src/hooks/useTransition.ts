@@ -33,7 +33,7 @@ function useTransition(duration: number, onStopDisplay: () => void, onStartDispl
 
     function toggle() {
         if (transition) {
-            remove()
+            remove();
         } else {
             insert();
         }
@@ -42,7 +42,8 @@ function useTransition(duration: number, onStopDisplay: () => void, onStartDispl
     return {
         remove,
         transition,
-        toggle
+        toggle,
+        insert
     }
 }
 
