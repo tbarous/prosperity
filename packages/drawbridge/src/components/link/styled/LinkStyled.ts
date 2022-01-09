@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-type T = StyledProps & { bold?: boolean, active?: boolean };
+export interface LinkStyledProps extends StyledProps {
+    bold?: boolean,
+    active?: boolean
+}
+
+type T = LinkStyledProps;
 
 const LinkStyled = styled.a<T>`
   display: ${(p: T) => p.theme.display.block};
