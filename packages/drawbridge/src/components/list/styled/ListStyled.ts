@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-type T = StyledProps;
+interface ListStyledProps extends StyledProps {}
+
+type T = ListStyledProps;
 
 const ListStyled = styled.ul<T>`
-  margin: 0;
+  margin: ${(p: T) => p.theme.spacing.s0};
   box-shadow: ${(p: T) => p.theme.shadow.medium};
 `;
 

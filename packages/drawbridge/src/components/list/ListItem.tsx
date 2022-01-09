@@ -1,12 +1,10 @@
-import React, {ReactNode} from "react";
+import React, {FunctionComponent, ReactElement, ReactNode} from "react";
 import {BasicComponentProps} from "@typings";
 import ListItemStyled from "./styled/ListItemStyled";
 
-interface Props extends BasicComponentProps{
+interface ListItemProps extends BasicComponentProps {}
 
-}
-
-const ListItem: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
+const ListItem: FunctionComponent<ListItemProps> = (props: ListItemProps): ReactElement => {
     const {children, className} = props;
 
     return (
