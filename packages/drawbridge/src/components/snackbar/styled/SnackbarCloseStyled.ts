@@ -1,14 +1,25 @@
 import styled from "styled-components";
 import Icon from "@components/icon/Icon";
 import {px} from "@utils/ThemeUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
+import {SnackbarUIProps} from "@components/snackbar/Snackbar";
 
-interface T {
-    theme: ThemeInterface
-}
+export interface SnackbarCloseStyledProps extends SnackbarUIProps, StyledProps {}
 
-function getColor(p: T){
-    if(p.s)
+type T = SnackbarCloseStyledProps;
+
+function getColor(p: T) {
+    if (p.danger) {
+        return p.theme.color.white;
+    }
+
+    if (p.success) {
+        return p.theme.color.white;
+    }
+
+    if (p.warning) {
+        return p.theme.color.dark;
+    }
 }
 
 const SnackbarCloseStyled = styled(Icon)<T>`
@@ -16,6 +27,7 @@ const SnackbarCloseStyled = styled(Icon)<T>`
   cursor: ${(p: T) => p.theme.cursor.pointer};
   right: ${(p: T) => px(p.theme.spacing.s5)};
   top: ${(p: T) => px(p.theme.spacing.s5)};
+  color: ${getColor};
 `;
 
 export default SnackbarCloseStyled;

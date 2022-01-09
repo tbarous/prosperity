@@ -3,9 +3,11 @@ import {px, transformY, transition} from "@utils/ThemeUtils";
 import {SnackbarUIProps} from "@components/snackbar/Snackbar";
 import {StyledProps} from "@typings";
 
-interface T extends SnackbarUIProps, StyledProps {
+export interface SnackbarStyledProps extends SnackbarUIProps, StyledProps {
     transition: boolean,
 }
+
+type T = SnackbarStyledProps;
 
 function getColor(p: T) {
     if (p.danger) {
@@ -26,11 +28,13 @@ function getBackgroundColor(p: T) {
         return p.theme.color.danger;
     }
 
-    if (p.danger) {
-        return p.theme.color.danger;
+    if (p.warning) {
+        return p.theme.color.warning;
     }
 
-    return p.danger ? p.theme.color.danger : (p.warning ? p.theme.color.warning : (p.success ? p.theme.color.success : p.theme.color.danger));
+    if (p.success) {
+        return p.theme.color.success;
+    }
 }
 
 function getTransform(p: T) {
@@ -42,7 +46,10 @@ function getTransition(p: T) {
 }
 
 function getPadding(p: T) {
-    return `${px(p.theme.spacing.s0)} ${px(p.theme.spacing.s6)}`;
+    const x = px(p.theme.spacing.s0);
+    const y = px(p.theme.spacing.s6);
+
+    return `${x} ${y}`;
 }
 
 function getHeight(p: T) {

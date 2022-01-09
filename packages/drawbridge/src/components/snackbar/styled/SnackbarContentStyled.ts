@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface
-}
+export interface SnackbarContentStyledProps extends StyledProps {}
+
+type T = SnackbarContentStyledProps;
 
 const SnackbarContentStyled = styled.div<T>`
   text-align: ${(p: T) => p.theme.textAlign.center};
