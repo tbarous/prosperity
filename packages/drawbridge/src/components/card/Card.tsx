@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react";
+import React, {FunctionComponent, ReactElement} from "react";
 import CardStyled from "@components/card/styled/CardStyled";
 import {BasicComponentProps} from "@typings";
 
@@ -8,7 +8,7 @@ export interface CardUIProps {
 
 interface CardProps extends BasicComponentProps, CardUIProps {}
 
-const Card: React.FunctionComponent<CardProps> = (props: CardProps): ReactElement => {
+const Card: FunctionComponent<CardProps> = (props: CardProps): ReactElement => {
     const {children, className, rounded} = props;
 
     const UIProps = {rounded};

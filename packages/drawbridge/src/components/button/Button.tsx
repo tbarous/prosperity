@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react";
+import React, {FunctionComponent, ReactElement} from "react";
 import {IconInterface} from "@icons";
 import ButtonStyled from "@components/button/styled/ButtonStyled";
 import ButtonContentIconStyled from "@components/button/styled/ButtonContentIconStyled";
@@ -41,7 +41,7 @@ export interface ButtonProps extends BasicComponentProps, ButtonUIProps {
     role?: string
 }
 
-const Button: React.FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElement => {
+const Button: FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElement => {
     const {children, className, type, primary, secondary, small, medium, large, icon, role, onClick} = props;
 
     const UIProps = {small, medium, large, primary, secondary};
