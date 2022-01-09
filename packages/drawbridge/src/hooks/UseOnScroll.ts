@@ -1,10 +1,5 @@
 import {useEffect, useState} from "react";
 
-/**
- * Handle the appearance of a React Node in the DOM.
- * Mostly useful for a HOC parent to manage the appearance
- * of a child Node in the DOM.
- */
 function useOnScroll() {
     const [scrolled, setScrolled] = useState(0);
 

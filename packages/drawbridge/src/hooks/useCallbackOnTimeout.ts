@@ -1,7 +1,6 @@
 import {useEffect, useRef} from "react";
-import {FunctionVoid} from "@typings";
 
-function useCallbackOnTimeout(delay: number, callback: FunctionVoid) {
+function useCallbackOnTimeout(delay: number, callback: () => void) {
     const timeoutCloseRef = useRef<any>(null);
 
     useEffect(() => {
