@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {px} from "@utils/ThemeUtils";
 import {StyledProps} from "@typings";
 
-interface DividerStyledProps extends StyledProps {
+export interface DividerStyledProps extends StyledProps {
     spacing?: number,
     vertical?: boolean
 }

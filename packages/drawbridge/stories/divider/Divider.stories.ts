@@ -1,9 +1,8 @@
-import DefaultDivider from "./DefaultDivider.story";
-import {fn} from "@helpers";
+import DefaultDivider from "./Divider.story";
 
 export default {
     title: 'Divider',
-    component: fn,
+    component: () => {},
     argTypes: {},
     parameters: {
         layout: 'padded',

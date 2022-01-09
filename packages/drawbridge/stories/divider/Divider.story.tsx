@@ -13,10 +13,9 @@ const Wrapper = styled.div<{ vertical?: boolean }>`
 const DefaultDivider = (args: { spacing?: number, vertical?: boolean }) => (
     <Wrapper vertical={args.vertical}>
         <Text>Text</Text>
-        <Divider
-            spacing={args.spacing}
-            vertical={args.vertical}
-        />
+
+        <Divider spacing={args.spacing} vertical={args.vertical}/>
+
         <Text>Text</Text>
     </Wrapper>
 );
