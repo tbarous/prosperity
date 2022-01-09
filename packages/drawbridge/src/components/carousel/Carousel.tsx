@@ -11,24 +11,24 @@ export enum CarouselDirections {
 interface CarouselProps extends BasicComponentProps {
     itemsPerSlide?: number,
     gutter?: number,
-    changeToPosition?: number
+    current?: number
 }
 
 const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps): ReactElement => {
-    const {children, className, itemsPerSlide = 2, gutter = 0, changeToPosition = 0} = props;
+    const {children, className, itemsPerSlide = 2, gutter = 0, current = 0} = props;
 
-    const [position, setPosition] = useState(changeToPosition);
+    const [position, setPosition] = useState(current);
     const [count, setCount] = useState(0);
 
     useEffect(() => {
         if (count === 0) return;
 
-        const countReached = changeToPosition > count - itemsPerSlide;
+        const countReached = current > count - itemsPerSlide;
 
-        if (countReached || changeToPosition < 0 || changeToPosition === position) return;
+        if (countReached || current < 0 || current === position) return;
 
-        setPosition(changeToPosition);
-    }, [changeToPosition]);
+        setPosition(current);
+    }, [current]);
 
     const itemWidth = 100 / itemsPerSlide;
 

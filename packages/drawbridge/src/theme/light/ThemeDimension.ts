@@ -28,6 +28,12 @@ const ThemeDimension: ThemeDimensionInterface = {
     },
     navbar: {
         height: 120
+    },
+    carousel: {
+        controls: {
+            width: 30,
+            height: 30
+        }
     }
 }
 

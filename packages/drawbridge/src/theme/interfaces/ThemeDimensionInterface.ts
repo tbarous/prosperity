@@ -26,6 +26,12 @@ interface ThemeDimensionInterface {
     },
     navbar: {
         height: number
+    },
+    carousel: {
+        controls: {
+            width: number,
+            height: number
+        }
     }
 }
 
