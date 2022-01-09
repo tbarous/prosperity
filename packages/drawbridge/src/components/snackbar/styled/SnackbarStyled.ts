@@ -19,7 +19,7 @@ function getBackgroundColor(p: T) {
 }
 
 function getTransform(p: T) {
-    return transformY(p.unmount, p.theme.dimension.snackbarHeight);
+    return transformY(p.unmount, p.theme.dimension.snackbar.height);
 }
 
 function getTransition(p: T) {
@@ -31,7 +31,7 @@ function getPadding(p: T) {
 }
 
 function getHeight(p: T) {
-    return px(p.theme.dimension.snackbarHeight);
+    return px(p.theme.dimension.snackbar.height);
 }
 
 const SnackbarStyled = styled.div`

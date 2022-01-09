@@ -8,11 +8,16 @@ interface T {
     light?: boolean,
     fixed?: boolean,
     transparent?: boolean,
-    unmount?: boolean
+    unmount?: boolean,
+    small?: boolean
 }
 
 function getMaxWidth(p: T) {
-    return p.unmount ? 0 : px(p.theme.dimension.drawer.width);
+    if (p.small === undefined) {
+        return p.unmount ? 0 : px(p.theme.dimension.drawer.width);
+    }
+
+    return p.small ? "60px" : px(p.theme.dimension.drawer.width);
 }
 
 function getBackgroundColor(p: T) {
@@ -24,11 +29,15 @@ function getPosition(p: T) {
 }
 
 function getTransition(p: T) {
-    return transition({property: "max-width", ms: p.theme.animation.drawer});
+    return transition({property: "all", ms: p.theme.animation.drawer});
 }
 
 function getWidth(p: T) {
-    return px(p.theme.dimension.drawer.width);
+    if (p.small === undefined) {
+        return p.unmount ? 0 : px(p.theme.dimension.drawer.width);
+    }
+
+    return p.small ? "60px" : px(p.theme.dimension.drawer.width);
 }
 
 const DrawerStyled = styled.div<T>`

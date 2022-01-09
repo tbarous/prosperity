@@ -6,11 +6,16 @@ interface T {
     theme: ThemeInterface,
     dark?: boolean,
     light?: boolean,
-    unmount: boolean
+    unmount: boolean,
+    small?: boolean
 }
 
 function getLeft(p: T) {
-    return p.unmount ? `-${px(p.theme.spacing.s3)}` : px(p.theme.dimension.drawer.width - p.theme.dimension.drawer.toggler.width / 2);
+    const openDistance = px(p.theme.dimension.drawer.width - p.theme.dimension.drawer.toggler.width / 2);
+
+    if (p.small === undefined) return p.unmount ? `-${px(p.theme.spacing.s3)}` : openDistance;
+
+    return p.small ? "50px" : openDistance;
 }
 
 function getTransition(p: T) {

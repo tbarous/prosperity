@@ -12,10 +12,20 @@ const DrawerStyled = styled(Drawer)`
   align-items: center;
 `;
 
-const DefaultDrawer = (args: { variation?: DrawerVariations, fixed?: boolean, transparent?: boolean }) => {
+const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, transparent: boolean }) => {
     const {variation, transparent, fixed} = args;
 
+    // const [small, setSmall] = useState(undefined);
+
     const {render, toggle, unmount, onUnmounted} = useControlChild();
+
+    // function toggleDrawer(){
+    //     if(small !== undefined){
+    //
+    //     } else {
+    //         toggle()
+    //     }
+    // }
 
     return (
         <>
@@ -27,6 +37,7 @@ const DefaultDrawer = (args: { variation?: DrawerVariations, fixed?: boolean, tr
                     dark={variation === DrawerVariations.DARK}
                     fixed={fixed}
                     transparent={transparent}
+                    // small={small}
                 >
                     {/*<DrawerLink>Home</DrawerLink>*/}
                     {/*<Divider/>*/}
@@ -40,6 +51,7 @@ const DefaultDrawer = (args: { variation?: DrawerVariations, fixed?: boolean, tr
                 dark={variation === DrawerVariations.DARK}
                 toggle={toggle}
                 unmount={unmount}
+                // small={small}
             />
         </>
     );

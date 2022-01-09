@@ -19,7 +19,8 @@ interface T {
     dark?: boolean,
     transparent?: boolean,
     unmount: boolean,
-    onUnmounted: () => void
+    onUnmounted: () => void,
+    small?: boolean
 }
 
 const Drawer: React.FunctionComponent<T> = (props: T): ReactElement => {
@@ -31,12 +32,13 @@ const Drawer: React.FunctionComponent<T> = (props: T): ReactElement => {
         dark,
         transparent,
         unmount,
-        onUnmounted
+        onUnmounted,
+        small
     } = props;
 
     const delay = useTheme().animation.drawer;
 
-    const {startUnmount, myUnmount} = useUnmount(unmount, onUnmounted, delay);
+    const {myUnmount} = useUnmount(unmount, onUnmounted, delay);
 
     return (
         <DrawerStyled
@@ -46,6 +48,7 @@ const Drawer: React.FunctionComponent<T> = (props: T): ReactElement => {
             dark={dark}
             transparent={transparent}
             unmount={myUnmount}
+            small={small}
         >
             <DrawerContent>
                 {Children.map(children, child => clone(child, {light, dark}))}

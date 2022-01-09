@@ -10,7 +10,8 @@ interface T {
     dark?: boolean,
     light?: boolean,
     toggle?: any,
-    unmount: any
+    unmount: any,
+    small?:any
 }
 
 const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
@@ -19,7 +20,8 @@ const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
         dark,
         light,
         toggle,
-        unmount
+        unmount,
+        small
     } = props;
 
     const theme = useTheme();
@@ -32,6 +34,7 @@ const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
             dark={dark}
             onClick={toggle}
             unmount={myUnmount}
+            small={small}
         >
             <DrawerTogglerIconStyled
                 icon={unmount ? ArrowRight : ArrowLeft}

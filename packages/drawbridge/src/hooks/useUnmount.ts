@@ -6,18 +6,18 @@ function useUnmount(unmount: boolean, onUnmounted: () => void, delay?: number) {
 
     useEffect(() => {
         if (unmount) {
-            startUnmount()
+            startUnmount();
         } else {
-            setMyUnmount(false)
+            setMyUnmount(false);
         }
     }, [unmount])
 
     useEffect(() => {
         if (myUnmount) {
-            ref.current = setTimeout(() => onUnmounted && onUnmounted(), delay)
+            ref.current = setTimeout(() => onUnmounted && onUnmounted(), delay);
         }
 
-        return () => clearTimeout(ref.current)
+        return () => clearTimeout(ref.current);
     }, [myUnmount])
 
     function startUnmount() {
