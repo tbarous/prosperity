@@ -5,7 +5,7 @@ const ThemeAnimation: ThemeAnimationInterface = {
     snackbar: 500,
     navbar: 2200,
     carousel: 1000,
-    modal: 2000
+    modal: 500
 }
 
 export default ThemeAnimation;

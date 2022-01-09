@@ -14,7 +14,7 @@ function getTransform(p: T) {
 }
 
 function getTransition(p: T) {
-    return transition({ms: 2000});
+    return transition({ms: p.theme.animation.modal});
 }
 
 const ModalContentStyled = styled.div<T>`

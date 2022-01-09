@@ -4,7 +4,7 @@ import ModalFooter from "@components/modal/ModalFooter";
 import ModalHeader from "@components/modal/ModalHeader";
 import ModalBody from "@components/modal/ModalBody";
 
-const BasicModal = (args: any) => {
+const BasicModal = (args: {  }) => {
     const [display, setDisplay] = useState(true);
 
     return (
@@ -17,7 +17,7 @@ const BasicModal = (args: any) => {
 };
 
 BasicModal.args = {
-    open: true
+
 };
 
 export default BasicModal;

@@ -24,7 +24,9 @@ const Modal: React.FunctionComponent<ModalProps> = (props: ModalProps): ReactEle
 
     const {transition, toggle, remove} = useTransition(useTheme().animation.modal, onStopDisplay, onStartDisplay);
 
-    if (closeOnClickOutside) useOnClickOutside(ref, () => {});
+    if (closeOnClickOutside) {
+        useOnClickOutside(ref, remove);
+    }
 
     return (
         <>
