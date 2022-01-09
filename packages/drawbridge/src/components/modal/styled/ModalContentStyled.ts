@@ -2,7 +2,9 @@ import styled, {css, keyframes} from "styled-components";
 import {StyledProps, useMountChildStyledProps} from "@typings";
 import MediaUtils from "@utils/MediaUtils";
 
-type T = StyledProps;
+interface ModalContentStyledProps extends StyledProps {}
+
+type T = ModalContentStyledProps;
 
 const slideIn = keyframes`
   from {
@@ -20,14 +22,11 @@ const ModalContentStyled = styled.div<T>`
   box-shadow: ${(p: T) => p.theme.shadow.medium};
   width: ${(p: T) => p.theme.dimension.d100};
   height: ${(p: T) => p.theme.dimension.d80};
-  transform: ${(p: T) => p.mount ? `translateY(0)` : `translateY(-130%)`};
-  
-  animation: ${slideIn} .5s;
-  transition: ${(p: T) => `transform ${p.exitDelay / 1000}s`};
-
-  ${(p: T) => MediaUtils.up(p.theme.breakpoint.md, css`
-    width: 500px;
-  `)};
+  ${(p: T) => MediaUtils.up(p.theme.breakpoint.md, css`width: 500px;`)};
 `;
+
+// transform: ${(p: T) => p.mount ? `translateY(0)` : `translateY(-130%)`};
+// animation: ${slideIn} .5s;
+// transition: ${(p: T) => `transform ${p.exitDelay / 1000}s`};
 
 export default ModalContentStyled;

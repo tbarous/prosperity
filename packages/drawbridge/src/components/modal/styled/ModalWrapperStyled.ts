@@ -2,7 +2,9 @@ import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
-type T = StyledProps;
+interface ModalWrapperStyledProps extends StyledProps {}
+
+type T = ModalWrapperStyledProps;
 
 const ModalWrapperStyled = styled.div<T>`
   display: ${(p: T) => p.theme.display.flex};

@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-type T = StyledProps;
+interface ModalHeaderStyledProps extends StyledProps {}
+
+type T = ModalHeaderStyledProps;
 
 const ModalHeaderStyled = styled.div<T>`
   border-top-left-radius: ${(p: T) => p.theme.borderRadius.medium};

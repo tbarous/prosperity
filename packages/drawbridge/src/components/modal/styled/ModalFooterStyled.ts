@@ -2,7 +2,9 @@ import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
-type T = StyledProps;
+interface ModalFooterStyledProps extends StyledProps {}
+
+type T = ModalFooterStyledProps;
 
 const ModalFooterStyled = styled.div`
   overflow-y: ${(p: T) => p.theme.overflow.auto};
