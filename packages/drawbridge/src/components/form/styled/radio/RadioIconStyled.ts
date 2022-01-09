@@ -1,13 +1,13 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {hexToRgb} from "@utils/ColorUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-interface T {
-    theme: ThemeInterface,
+interface RadioIconStyledProps extends StyledProps {
     disabled?: boolean,
     checked?: boolean
 }
+
+type T = RadioIconStyledProps;
 
 function getBackgroundColor(p: T) {
     const {r, g, b} = hexToRgb(p.theme.color.primary);
@@ -28,9 +28,9 @@ function getBackgroundColor(p: T) {
 }
 
 const CheckboxIconStyled = styled.div<T>`
+  background: ${getBackgroundColor};
   width: ${(p: T) => p.theme.spacing.s4};
   height: ${(p: T) => p.theme.spacing.s4};
-  background: ${getBackgroundColor};
   border-radius: ${(p: T) => p.theme.borderRadius.circle};
 `;
 

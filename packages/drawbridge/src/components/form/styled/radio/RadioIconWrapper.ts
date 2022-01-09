@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import {hexToRgb} from "@utils/ColorUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
+interface RadioIconWrapperProps extends StyledProps {
     disabled?: boolean,
     checked?: boolean
 }
+
+type T = RadioIconWrapperProps;
 
 function getBorder(p: T) {
     const {r, g, b} = hexToRgb(p.theme.color.primary);

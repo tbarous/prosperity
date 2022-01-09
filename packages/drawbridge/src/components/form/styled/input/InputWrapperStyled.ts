@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import {px} from "@utils/ThemeUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
+interface InputWrapperStyledProps extends StyledProps {
     focused?: boolean,
 }
+
+type T = InputWrapperStyledProps;
 
 const InputStyledWrapper = styled.div<T>`
   height: ${(p: T) => px(p.theme.spacing.s10)};
