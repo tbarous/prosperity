@@ -1,5 +1,5 @@
 import Snackbar, {SnackbarVariations} from "@components/snackbar/Snackbar";
-import DefaultSnackbar from '@stories/snackbar/DefaultSnackbar.story';
+import DefaultSnackbar from '@stories/snackbar/Snackbar.story';
 
 export default {
     title: 'Snackbar',

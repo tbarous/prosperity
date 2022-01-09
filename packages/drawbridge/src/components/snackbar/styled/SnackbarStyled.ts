@@ -46,10 +46,10 @@ function getTransition(p: T) {
 }
 
 function getPadding(p: T) {
-    const x = px(p.theme.spacing.s0);
-    const y = px(p.theme.spacing.s6);
+    const y = px(p.theme.spacing.s0);
+    const x = px(p.theme.spacing.s6);
 
-    return `${x} ${y}`;
+    return `${y} ${x}`;
 }
 
 function getHeight(p: T) {

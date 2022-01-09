@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import {px} from "@utils/ThemeUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface
-}
+export interface BadgeStyledProps extends StyledProps {}
+
+type T = BadgeStyledProps;
 
 function getPadding(p: T) {
-    return `${px(p.theme.spacing.s2)} ${px(p.theme.spacing.s4)}`
+    const y = px(p.theme.spacing.s2);
+    const x = px(p.theme.spacing.s4);
+
+    return `${y} ${x}`
 }
 
 const BadgeStyled = styled.span<T>`

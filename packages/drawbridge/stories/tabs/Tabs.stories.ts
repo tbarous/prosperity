@@ -1,10 +1,9 @@
 import Tabs from "@components/tabs/Tabs";
-import DefaultTabs from './DefaultTabs.story';
-import {fn} from "@helpers";
+import DefaultTabs from '@stories/tabs/Tabs.story';
 
 export default {
     title: 'Tabs',
-    component: fn,
+    component: () => {},
     argTypes: {},
 };
 
