@@ -1,17 +1,10 @@
-import React, {ReactNode} from "react";
-import styled from "styled-components";
+import React, {FunctionComponent, ReactElement} from "react";
+import {BasicComponentProps} from "@typings";
+import AppStyled from "./styled/AppStyled";
 
-const AppStyled = styled.div`
-  display: flex;
-  height: 100%;
-`;
+export interface AppProps extends BasicComponentProps {}
 
-interface Props {
-    children?: ReactNode,
-    className?: string
-}
-
-const App: React.FunctionComponent<Props> = (props: Props): React.ReactElement | null => {
+const App: FunctionComponent<AppProps> = (props: AppProps): ReactElement => {
     const {children, className} = props;
 
     return (
