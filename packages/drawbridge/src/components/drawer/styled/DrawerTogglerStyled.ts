@@ -14,9 +14,9 @@ function getLeft(p: T) {
 
     if (p.small === undefined) {
         if (p.display) {
-            return `-${px(p.theme.spacing.s3)}`;
+            return open;
         } else {
-            return open
+            return `-${px(p.theme.spacing.s3)}`;
         }
     }
 

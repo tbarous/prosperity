@@ -22,7 +22,7 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
                 <DrawerLink {...UIProps}>Projects</DrawerLink>
             </Drawer>
 
-            <DrawerToggler {...UIProps} display={display} onToggle={() => {}}/>
+            <DrawerToggler {...UIProps} display={display} onToggle={() => setDisplay(!display)}/>
         </>
     );
 }
