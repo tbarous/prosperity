@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
-}
+interface FormStyledProps extends StyledProps {}
+
+type T = FormStyledProps;
 
 const FormStyled = styled.form<T>`
+  display: ${(p: T) => p.theme.display.block};
 `;
 
 export default FormStyled;

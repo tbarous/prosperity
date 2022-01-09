@@ -1,16 +1,13 @@
-import React, {ReactNode} from "react";
+import React, {FunctionComponent, ReactElement, ReactNode} from "react";
 import styled from "styled-components";
+import {BasicComponentProps} from "@typings";
+import SelectStyled from "./styled/select/SelectStyled";
 
-const SelectStyled = styled.div`
-    
-`;
+interface SelectProps extends BasicComponentProps{
 
-interface Props {
-    children?: ReactNode,
-    className?: string
 }
 
-const Select: React.FunctionComponent<Props> = (props: Props): React.ReactElement => {
+const Select: FunctionComponent<SelectProps> = (props: SelectProps): ReactElement => {
     const {children, className} = props;
 
     return (

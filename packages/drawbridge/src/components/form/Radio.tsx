@@ -1,6 +1,5 @@
 import React, {ReactElement} from "react";
 import {BasicComponentProps, FunctionVoid} from "@typings";
-import {emptyFunction} from "@helpers";
 import RadioIconWrapper from "./styled/radio/RadioIconWrapper";
 import RadioIconStyled from "./styled/radio/RadioIconStyled";
 import RippleStyled, {RippleVariations} from "./common/RippleStyled";
@@ -10,34 +9,21 @@ import useRipple from "@hooks/useRipple";
 import CheckboxRadioWrapperStyled from "./common/CheckboxRadioWrapperStyled";
 import CheckboxRadioLabelStyled from "./common/CheckboxRadioLabelStyled";
 
-interface Props extends BasicComponentProps {
+export interface RadioProps extends BasicComponentProps {
     onChange?: FunctionVoid,
     checked?: boolean,
     label?: string,
     disabled?: boolean
 }
 
-const Radio: React.FunctionComponent<Props> = (props: Props): ReactElement => {
-    const {
-        className,
-        onChange = emptyFunction,
-        checked,
-        label,
-        disabled
-    } = props;
+const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps): ReactElement => {
+    const {className, onChange, checked, label, disabled} = props;
 
     const {startRipple, stopRipple, startClickRipple, ripple, clicked} = useRipple();
 
     return (
-        <CheckboxRadioStyled
-            className={className}
-        >
-            <CheckboxRadioInputStyled
-                type="radio"
-                onChange={!disabled ? onChange : () => {
-                }}
-                checked={checked}
-            />
+        <CheckboxRadioStyled className={className}>
+            <CheckboxRadioInputStyled type="radio" onChange={!disabled ? onChange : () => {}} checked={checked}/>
 
             <CheckboxRadioWrapperStyled>
                 <RadioIconWrapper

@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
-}
+interface SwitchStyledProps extends StyledProps {}
+
+type T = SwitchStyledProps;
 
 const SwitchStyled = styled.div<T>`
   width: ${(p: T) => p.theme.spacing.s10};

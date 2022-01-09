@@ -1,13 +1,15 @@
 import styled from "styled-components";
 import Icon from "@components/icon/Icon";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
-}
+export interface CheckboxIconStyledProps extends StyledProps {}
+
+type T = CheckboxIconStyledProps;
 
 const CheckboxIconStyled = styled(Icon)<T>`
   color: ${(p: T) => p.theme.color.white};
+  width: 12px;
+  height: 12px;
 `;
 
 export default CheckboxIconStyled;

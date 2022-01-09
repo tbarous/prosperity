@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
-interface T {
-    theme: ThemeInterface,
+interface InputStyledProps extends StyledProps {
     focused?: boolean,
 }
+
+type T = InputStyledProps;
 
 const InputStyled = styled.input<T>`
   border: ${(p: T) => p.theme.border.none};

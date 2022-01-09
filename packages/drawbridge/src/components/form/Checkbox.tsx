@@ -1,4 +1,4 @@
-import React, {ReactElement} from "react";
+import React, {FunctionComponent, ReactElement} from "react";
 import {FunctionVoid} from "@typings";
 import {Checkmark} from "@icons";
 import CheckboxIconStyled from "./styled/checkbox/CheckboxIconStyled";
@@ -10,7 +10,7 @@ import CheckboxRadioWrapperStyled from "./common/CheckboxRadioWrapperStyled";
 import CheckboxRadioLabelStyled from "./common/CheckboxRadioLabelStyled";
 import useRipple from "@hooks/useRipple";
 
-interface T {
+interface CheckboxProps {
     className?: string,
     onChange?: FunctionVoid,
     checked?: boolean,
@@ -18,27 +18,14 @@ interface T {
     disabled?: boolean
 }
 
-const Checkbox: React.FunctionComponent<T> = (props: T): ReactElement => {
-    const {
-        className,
-        onChange,
-        checked,
-        label,
-        disabled
-    } = props;
+const Checkbox: FunctionComponent<CheckboxProps> = (props: CheckboxProps): ReactElement => {
+    const {className, onChange, checked, label, disabled} = props;
 
     const {startRipple, stopRipple, startClickRipple, ripple, clicked} = useRipple();
 
     return (
-        <CheckboxRadioStyled
-            className={className}
-        >
-            <CheckboxRadioInputStyled
-                type="checkbox"
-                onChange={onChange}
-                checked={checked}
-                disabled={disabled}
-            />
+        <CheckboxRadioStyled className={className}>
+            <CheckboxRadioInputStyled type="checkbox" onChange={onChange} checked={checked} disabled={disabled}/>
 
             <CheckboxRadioWrapperStyled>
                 <CheckboxIconWrapperStyled
@@ -48,7 +35,7 @@ const Checkbox: React.FunctionComponent<T> = (props: T): ReactElement => {
                     disabled={disabled}
                     onClick={startClickRipple}
                 >
-                    {checked && <CheckboxIconStyled icon={Checkmark} width={12} height={12}/>}
+                    {checked && <CheckboxIconStyled icon={Checkmark}/>}
 
                     {!disabled && ripple && <RippleStyled variation={RippleVariations.BASIC}/>}
 

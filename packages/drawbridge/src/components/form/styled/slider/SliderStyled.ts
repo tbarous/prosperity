@@ -1,11 +1,9 @@
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
 import styled from "styled-components";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
-}
+interface SliderStyled extends StyledProps {}
 
-const SliderStyled = styled.div<T>`
+const SliderStyled = styled.div<SliderStyled>`
 
 `;
 

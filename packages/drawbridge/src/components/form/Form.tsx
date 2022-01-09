@@ -1,30 +1,22 @@
-import React, {FormEvent, ReactElement, ReactNode} from "react";
+import React, {FormEvent, FunctionComponent, ReactElement, ReactNode} from "react";
 import FormStyled from "./styled/form/FormStyled";
+import {BasicComponentProps} from "@typings";
 
-interface T {
-    children: ReactNode,
-    className?: string,
+interface FormProps extends BasicComponentProps {
     onSubmit?: () => void
 }
 
-const Form: React.FunctionComponent<T> = (props: T): ReactElement => {
-    const {
-        children,
-        className,
-        onSubmit
-    } = props;
+const Form: FunctionComponent<FormProps> = (props: FormProps): ReactElement => {
+    const {children, className, onSubmit} = props;
 
-    function onSubmitHandler(e: FormEvent) {
+    function submit(e: FormEvent) {
         e.preventDefault();
 
         onSubmit && onSubmit();
     }
 
     return (
-        <FormStyled
-            onSubmit={onSubmitHandler}
-            className={className}
-        >
+        <FormStyled onSubmit={submit} className={className}>
             {children}
         </FormStyled>
     )

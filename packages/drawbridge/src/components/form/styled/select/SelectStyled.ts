@@ -1,11 +1,9 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
-}
+interface SelectStyledProps extends StyledProps {}
 
-const SelectStyled = styled.div<T>`
+const SelectStyled = styled.div<SelectStyledProps>`
 
 `;
 
