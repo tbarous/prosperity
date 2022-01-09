@@ -2,13 +2,18 @@ import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
-type T = { fluid?: boolean, gutter?: number } & StyledProps;
+interface RowStyledProps extends StyledProps {
+    fluid?: boolean,
+    gutter?: number
+}
+
+type T = RowStyledProps;
 
 function getMargin(p: T) {
     if (p.gutter) {
-        let negative = -0.5 * p.gutter;
+        let negativeHalfGutter = -0.5 * p.gutter;
 
-        return px(negative - p.theme.spacing.s5);
+        return px(negativeHalfGutter - p.theme.spacing.s5);
     }
 
     return `-${px(p.theme.spacing.s5)}`;

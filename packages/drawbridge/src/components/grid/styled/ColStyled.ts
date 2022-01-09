@@ -11,7 +11,7 @@ export interface ColStyledProps extends StyledProps, ColUIProps {
 type T = ColStyledProps;
 
 function getWidth(breakpoint: string, columns?: number) {
-    if(!columns) return;
+    if (!columns) return;
 
     let width = `${(100 / 12)}%`;
 
@@ -31,7 +31,7 @@ function getPadding(p: T) {
 }
 
 const ColStyled = styled.div<T>`
-    flex-grow: ${(p: T) => p.theme.flexGrow.fg1};
+  flex-grow: ${(p: T) => p.theme.flexGrow.fg1};
   position: ${(p: T) => p.theme.position.relative};
   display: ${(p: T) => p.theme.display.block};
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};

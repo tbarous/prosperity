@@ -9,6 +9,7 @@ import {px} from "@utils/ThemeUtils";
 const Item = styled.div`
   padding: ${(p: StyledProps) => px(p.theme.spacing.s3)};
   background: ${(p: StyledProps) => p.theme.color.primary};
+  color: ${(p: StyledProps) => p.theme.color.white};
 `
 
 const DefaultGrid = (args: { fluid: boolean, gutter: number }) => {
