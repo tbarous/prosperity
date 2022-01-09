@@ -1,20 +1,16 @@
 import styled, {css} from "styled-components";
 import MediaUtils from "@utils/MediaUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {ColUIProps} from "@components/grid/Col";
+import {StyledProps} from "@typings";
 
-export interface T {
-    xs?: number,
-    sm?: number,
-    md?: number,
-    lg?: number,
-    xl?: number,
-    xxl?: number,
-    gutter?: number,
-    theme: ThemeInterface
-}
+export interface ColStyledProps extends StyledProps, ColUIProps {}
+
+type T = ColStyledProps;
 
 function getWidth(columns?: number) {
-    return columns ? `${(100 / 12) * columns}%` : "";
+    if (columns) {
+        return `${(100 / 12) * columns}%`;
+    }
 }
 
 const ColStyled = styled.div<T>`

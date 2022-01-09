@@ -18,7 +18,7 @@ function getMargin(p: T) {
 
 const InputStyled = styled.input<T>`
   padding: ${getPadding};
-  margin: ${(getMargin};
+  margin: ${getMargin};
   border: ${(p: T) => p.theme.border.none};
   height: ${(p: T) => p.theme.dimension.d100};
   width: ${(p: T) => p.theme.dimension.d100};
