@@ -5,33 +5,28 @@ import Col from "@components/grid/Col";
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
+import {number} from "prop-types";
 
-const ColStyled = styled(Col)`background: ${(p: StyledProps) => p.theme.color.primary}; padding: ${(p: StyledProps) => px(p.theme.spacing.s4)};`
+const ColStyled = styled(Col)`background: ${(p: StyledProps) => p.theme.color.primary}; `
 
-const DefaultGrid = (args: { fluid: boolean }) => {
-    const {fluid} = args;
+const DefaultGrid = (args: { fluid: boolean, gutter: number }) => {
+    const {fluid, gutter} = args;
 
     return (
         <Container fluid={fluid}>
-            <Row>
+            <Row gutter={gutter}>
                 <ColStyled>8/12</ColStyled>
                 <ColStyled>1/12</ColStyled>
                 <ColStyled>1/12</ColStyled>
                 <ColStyled>2/12</ColStyled>
-            </Row>
-
-            <br/>
-
-            <Row gutter={20}>
-                <ColStyled sm={12} lg={6}>6/12</ColStyled>
-                <ColStyled sm={12} lg={6}>6/12</ColStyled>
             </Row>
         </Container>
     )
 };
 
 DefaultGrid.args = {
-    fluid: false
+    fluid: false,
+    gutter: 0
 };
 
 export default DefaultGrid;
