@@ -13,23 +13,13 @@ interface T {
 }
 
 const CarouselItems: React.FunctionComponent<T> = (props: T): ReactElement => {
-    const {
-        children,
-        className,
-        gutter,
-        itemWidth,
-        distance,
-        getCount,
-        getItemDistance
-    } = props;
+    const {children, className, gutter, itemWidth, distance, getCount, getItemDistance} = props;
 
-    function sendCount() {
+    useEffect(() => {
         const slidesCount = Children.count(children);
 
         if (getCount) getCount(slidesCount);
-    }
-
-    useEffect(sendCount, []);
+    }, []);
 
     return (
         <CarouselItemsStyled

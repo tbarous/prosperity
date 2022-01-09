@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface
-}
+interface CarouselControlsStyledProps extends StyledProps {}
+
+type T = CarouselControlsStyledProps;
 
 const CarouselControlsStyled = styled.div<T>`
   position: ${(p: T) => p.theme.position.absolute};

@@ -1,27 +1,36 @@
 import styled from "styled-components";
 import {CarouselDirections} from "@components/carousel/Carousel";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
 import {px} from "@utils/ThemeUtils";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
+export interface CarouselControlStyledProps extends StyledProps {
     direction?: CarouselDirections
 }
 
+type T = CarouselControlStyledProps;
+
 function getLeft(p: T) {
-    return p.direction === CarouselDirections.LEFT ? px(p.theme.spacing.s5) : p.theme.spacing.auto;
+    if (p.direction === CarouselDirections.LEFT) {
+        return px(p.theme.spacing.s5)
+    }
+
+    return p.theme.spacing.auto;
 }
 
 function getRight(p: T) {
-    return p.direction === CarouselDirections.RIGHT ? px(p.theme.spacing.s5) : p.theme.spacing.auto;
+    if (p.direction === CarouselDirections.RIGHT) {
+        return px(p.theme.spacing.s5)
+    }
+
+    return p.theme.spacing.auto;
 }
 
 const CarouselControlStyled = styled.div<T>`
+  left: ${getLeft};
+  right: ${getRight};
   z-index: ${(p: T) => p.theme.zIndex.carouselControl};
   position: ${(p: T) => p.theme.position.absolute};
   cursor: ${(p: T) => p.theme.cursor.pointer};
-  left: ${getLeft};
-  right: ${getRight};
 `;
 
 export default CarouselControlStyled;

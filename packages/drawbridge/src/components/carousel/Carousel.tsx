@@ -1,28 +1,21 @@
 import React, {ReactNode, Children, useState, useEffect, ReactElement, useRef, useMemo} from "react";
 import CarouselStyled from "@components/carousel/styled/CarouselStyled";
 import {clone} from "@utils/ComponentUtils";
+import {BasicComponentProps} from "@typings";
 
 export enum CarouselDirections {
     LEFT = "left",
     RIGHT = "right"
 }
 
-interface T {
-    children: ReactNode,
-    className?: string
+interface CarouselProps extends BasicComponentProps {
     itemsPerSlide?: number,
     gutter?: number,
     changeToPosition?: number
 }
 
-const Carousel: React.FunctionComponent<T> = (props: T): ReactElement => {
-    const {
-        children,
-        className,
-        itemsPerSlide = 2,
-        gutter = 0,
-        changeToPosition = 0
-    } = props;
+const Carousel: React.FunctionComponent<CarouselProps> = (props: CarouselProps): ReactElement => {
+    const {children, className, itemsPerSlide = 2, gutter = 0, changeToPosition = 0} = props;
 
     const [position, setPosition] = useState(changeToPosition);
     const [count, setCount] = useState(0);

@@ -1,23 +1,16 @@
 import React, {isValidElement, ReactElement, ReactNode, Children} from "react";
 import CarouselControlsStyled from "@components/carousel/styled/CarouselControlsStyled";
 import {CarouselDirections} from "@components/carousel/Carousel";
+import {BasicComponentProps} from "@typings";
 
-interface T {
-    children: ReactNode,
-    className?: string,
+export interface CarouselControlsProps extends BasicComponentProps {
     onMove?: (direction: CarouselDirections) => void,
     isOnStart?: boolean,
     isOnEnd?: boolean,
 }
 
-const CarouselControls: React.FunctionComponent<T> = (props: T): ReactElement => {
-    const {
-        children,
-        className,
-        onMove,
-        isOnStart,
-        isOnEnd
-    } = props;
+const CarouselControls: React.FunctionComponent<CarouselControlsProps> = (props: CarouselControlsProps): ReactElement => {
+    const {children, className, onMove, isOnStart, isOnEnd} = props;
 
     function getChild(child: ReactNode & { props: { onMove?: (direction: CarouselDirections) => void, direction?: CarouselDirections, } }): ReactElement | undefined | boolean {
         const direction = child.props.direction;
@@ -30,9 +23,7 @@ const CarouselControls: React.FunctionComponent<T> = (props: T): ReactElement =>
     }
 
     return (
-        <CarouselControlsStyled
-            className={className}
-        >
+        <CarouselControlsStyled className={className}>
             {Children.map<ReactNode, any>(children, getChild)}
         </CarouselControlsStyled>
     )

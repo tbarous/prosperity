@@ -1,9 +1,9 @@
 import Carousel from "@components/carousel/Carousel";
-import DefaultCarousel from "@stories/carousel/DefaultCarousel.story";
+import DefaultCarousel from "@stories/carousel/Carousel.story";
 
 export default {
     title: 'Carousel',
-    component: Carousel,
+    component: () => {},
     argTypes: {},
     parameters: {
         layout: 'padded',
