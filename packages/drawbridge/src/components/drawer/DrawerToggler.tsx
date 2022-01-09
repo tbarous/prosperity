@@ -1,57 +1,29 @@
-import React, {ReactElement, ReactNode} from "react";
+import React, {ReactElement} from "react";
 import {ArrowLeft, ArrowRight} from "@icons";
 import DrawerTogglerStyled from "./styled/DrawerTogglerStyled";
 import DrawerTogglerIconStyled from "./styled/DrawerTogglerIconStyled";
-import useUnmount from "@hooks/useUnmount";
 import {useTheme} from "styled-components";
+import {BasicComponentProps} from "@typings";
+import {DrawerUIProps} from "@components/drawer/Drawer";
+import useTransition from "@hooks/useTransition";
 
-interface T {
-    className?: string,
-    dark?: boolean,
-    light?: boolean,
-    toggle?: any,
-    unmount: any,
-    small?: any
+export interface DrawerTogglerProps extends BasicComponentProps, DrawerUIProps {
+    display: boolean,
+    onToggle: () => void
 }
 
-const DrawerToggler: React.FunctionComponent<T> = (props: T): ReactElement => {
-    const {
-        className,
-        dark,
-        light,
-        toggle,
-        unmount,
-        small
-    } = props;
+const DrawerToggler: React.FunctionComponent<DrawerTogglerProps> = (props: DrawerTogglerProps): ReactElement => {
+    const {className, dark, light, display, small, onToggle} = props;
 
-    const theme = useTheme();
+    const UIProps = {light, dark, small};
 
-    const {myUnmount} = useUnmount(unmount, () => {}, theme.animation.drawer);
+    let icon = display ? ArrowRight : ArrowLeft;
 
-    function getIcon() {
-        if (small !== undefined) {
-            return small ? ArrowRight : ArrowLeft
-        }
-
-        return unmount ? ArrowRight : ArrowLeft
-    }
+    if (small !== undefined) icon = small ? ArrowRight : ArrowLeft
 
     return (
-        <DrawerTogglerStyled
-            className={className}
-            light={light}
-            dark={dark}
-            onClick={toggle}
-            unmount={myUnmount}
-            small={small}
-        >
-            <DrawerTogglerIconStyled
-                icon={getIcon()}
-                width={theme.dimension.drawer.toggler.icon}
-                height={theme.dimension.drawer.toggler.icon}
-                light={light}
-                dark={dark}
-            />
+        <DrawerTogglerStyled className={className} {...UIProps} onClick={onToggle} display={display}>
+            <DrawerTogglerIconStyled icon={icon} {...UIProps}/>
         </DrawerTogglerStyled>
     )
 }

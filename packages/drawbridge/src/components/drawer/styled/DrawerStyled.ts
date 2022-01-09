@@ -1,56 +1,67 @@
 import styled from "styled-components";
 import {px, transition} from "@utils/ThemeUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
+import {DrawerUIProps} from "@components/drawer/Drawer";
 
-interface T {
-    theme: ThemeInterface,
-    dark?: boolean,
-    light?: boolean,
-    fixed?: boolean,
-    transparent?: boolean,
-    unmount?: boolean,
-    small?: boolean
+interface DrawerStyledProps extends StyledProps, DrawerUIProps {
+    transition?: boolean,
 }
 
-function getMaxWidth(p: T) {
+type T = DrawerStyledProps;
+
+function getWidth(p: T) {
     if (p.small === undefined) {
-        return p.unmount ? 0 : px(p.theme.dimension.drawer.width);
+        if (p.transition) {
+            return px(p.theme.dimension.drawer.width);
+        } else {
+            return 0;
+        }
     }
 
-    return p.small ? px(p.theme.dimension.drawer.small) : px(p.theme.dimension.drawer.width);
+    if (p.small) {
+        return px(p.theme.dimension.drawer.small);
+    } else {
+        return px(p.theme.dimension.drawer.width);
+    }
 }
 
 function getBackgroundColor(p: T) {
-    return p.transparent ? p.theme.color.transparent : (p.light ? p.theme.color.white : p.theme.color.dark);
+    if (p.transparent) {
+        return p.theme.color.transparent;
+    }
+
+    if (p.light) {
+        return p.theme.color.white;
+    }
+
+    if (p.dark) {
+        return p.theme.color.dark;
+    }
 }
 
 function getPosition(p: T) {
-    return p.fixed ? p.theme.position.fixed : p.theme.position.relative;
+    if (p.fixed) {
+        return p.theme.position.fixed;
+    }
+
+    return p.theme.position.relative;
 }
 
 function getTransition(p: T) {
     return transition({property: "all", ms: p.theme.animation.drawer});
 }
 
-function getWidth(p: T) {
-    if (p.small === undefined) {
-        return p.unmount ? 0 : px(p.theme.dimension.drawer.width);
-    }
-
-    return p.small ? px(p.theme.dimension.drawer.small) : px(p.theme.dimension.drawer.width);
-}
-
 const DrawerStyled = styled.div<T>`
+  width: ${getWidth};
+  max-width: ${getWidth};
+  position: ${getPosition};
+  background-color: ${getBackgroundColor};
+  transition: ${getTransition};
   display: ${(p: T) => p.theme.display.flex};
   height: ${(p: T) => p.theme.dimension.d100};
   box-shadow: ${(p: T) => p.theme.shadow.strong};
   overflow: ${(p: T) => p.theme.overflow.hidden};
   z-index: ${(p: T) => p.theme.zIndex.drawer};
-  width: ${getWidth};
-  position: ${getPosition};
-  background-color: ${getBackgroundColor};
-  max-width: ${getMaxWidth};
-  transition: ${getTransition};
 `;
 
 export default DrawerStyled;

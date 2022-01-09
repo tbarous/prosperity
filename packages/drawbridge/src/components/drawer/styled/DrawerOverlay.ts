@@ -1,14 +1,19 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
+import {DrawerUIProps} from "@components/drawer/Drawer";
 
-interface T {
-    theme: ThemeInterface,
-    dark?: boolean,
-    light?: boolean
-}
+interface DrawerOverlayProps extends StyledProps, DrawerUIProps {}
+
+type T = DrawerOverlayProps;
 
 function getBackground(p: T) {
-    return p.light ? "rgba(255, 255, 255, 0.7)" : "rgba(0, 0, 0, 0.7)";
+    if (p.light) {
+        return "rgba(255, 255, 255, 0.7)";
+    }
+
+    if (p.dark) {
+        return "rgba(0, 0, 0, 0.7)";
+    }
 }
 
 const DrawerOverlay = styled.div<T>`

@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface
-}
+export interface DrawerContentProps extends StyledProps {}
+
+type T = DrawerContentProps;
 
 const DrawerContent = styled.div<T>`
   z-index: ${(p: T) => p.theme.zIndex.drawerContent};
