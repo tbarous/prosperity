@@ -4,8 +4,12 @@ import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import styled from "styled-components";
 import {StyledProps} from "@typings";
+import {px} from "@utils/ThemeUtils";
 
-const ColStyled = styled(Col)`background: ${(p: StyledProps) => p.theme.color.primary}; `
+const Item = styled.div`
+  padding: ${(p: StyledProps) => px(p.theme.spacing.s3)};
+  background: ${(p: StyledProps) => p.theme.color.primary};
+`
 
 const DefaultGrid = (args: { fluid: boolean, gutter: number }) => {
     const {fluid, gutter} = args;
@@ -13,10 +17,9 @@ const DefaultGrid = (args: { fluid: boolean, gutter: number }) => {
     return (
         <Container fluid={fluid}>
             <Row gutter={gutter}>
-                <ColStyled>8/12</ColStyled>
-                <ColStyled>1/12</ColStyled>
-                <ColStyled>1/12</ColStyled>
-                <ColStyled>2/12</ColStyled>
+                <Col xs={2}><Item>11</Item></Col>
+                <Col xs={4}><Item>11</Item></Col>
+                <Col xs={4}><Item>11</Item></Col>
             </Row>
         </Container>
     )

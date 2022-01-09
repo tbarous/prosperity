@@ -10,8 +10,10 @@ export interface ColStyledProps extends StyledProps, ColUIProps {
 
 type T = ColStyledProps;
 
-function getWidth(breakpoint: string, columns?: number, count?: number) {
-    let width;
+function getWidth(breakpoint: string, columns?: number) {
+    if(!columns) return;
+
+    let width = `${(100 / 12)}%`;
 
     if (columns) {
         const colPercentage = (100 / 12) * columns;
@@ -29,20 +31,18 @@ function getPadding(p: T) {
 }
 
 const ColStyled = styled.div<T>`
-  flex-grow: ${(p: T) => p.theme.flexGrow.fg1};
+    flex-grow: ${(p: T) => p.theme.flexGrow.fg1};
   position: ${(p: T) => p.theme.position.relative};
   display: ${(p: T) => p.theme.display.block};
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
   padding-left: ${getPadding};
   padding-right: ${getPadding};
-  margin-left: ${getPadding};
-  margin-right: ${getPadding};
 
-  ${(p: T) => getWidth(p.theme.breakpoint.xs, p.xs, p.count)};
-  ${(p: T) => getWidth(p.theme.breakpoint.sm, p.sm, p.count)};
-  ${(p: T) => getWidth(p.theme.breakpoint.md, p.md, p.count)};
-  ${(p: T) => getWidth(p.theme.breakpoint.lg, p.lg, p.count)};
-  ${(p: T) => getWidth(p.theme.breakpoint.xl, p.xl, p.count)};
+  ${(p: T) => getWidth(p.theme.breakpoint.xs, p.xs)};
+  ${(p: T) => getWidth(p.theme.breakpoint.sm, p.sm)};
+  ${(p: T) => getWidth(p.theme.breakpoint.md, p.md)};
+  ${(p: T) => getWidth(p.theme.breakpoint.lg, p.lg)};
+  ${(p: T) => getWidth(p.theme.breakpoint.xl, p.xl)};
 `;
 
 export default ColStyled;
