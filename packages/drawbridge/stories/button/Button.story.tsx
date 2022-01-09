@@ -5,30 +5,29 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`width: 300px;`;
 
-const DefaultButton = (args: {
-    variation?: ButtonVariations,
-    size?: ButtonSizes,
-    children?: string,
-    icon?: boolean
-}) => (
-    <Wrapper>
-        <Button
-            primary={ButtonVariations.PRIMARY === args.variation}
-            secondary={ButtonVariations.SECONDARY === args.variation}
-            small={ButtonSizes.SMALL === args.size}
-            medium={ButtonSizes.MEDIUM === args.size}
-            large={ButtonSizes.LARGE === args.size}
-            icon={args.icon ? Google : undefined}
-        >
-            {args.children}
-        </Button>
-    </Wrapper>
-);
+const DefaultButton = (args: { variation?: ButtonVariations, size?: ButtonSizes, children?: string, icon?: boolean }) => {
+    const {variation, size, children, icon} = args;
+
+    return (
+        <Wrapper>
+            <Button
+                primary={ButtonVariations.PRIMARY === variation}
+                secondary={ButtonVariations.SECONDARY === variation}
+                small={ButtonSizes.SMALL === size}
+                medium={ButtonSizes.MEDIUM === size}
+                large={ButtonSizes.LARGE === size}
+                icon={icon ? Google : undefined}
+            >
+                {children}
+            </Button>
+        </Wrapper>
+    );
+}
 
 DefaultButton.args = {
     variation: ButtonVariations.PRIMARY,
     size: ButtonSizes.MEDIUM,
-    children: "Login with Google",
+    children: "Login",
     icon: false
 };
 
