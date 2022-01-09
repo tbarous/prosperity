@@ -34,6 +34,10 @@ const ThemeDimension: ThemeDimensionInterface = {
             width: 30,
             height: 30
         }
+    },
+    checkbox: {
+        width: 18,
+        height: 18
     }
 }
 

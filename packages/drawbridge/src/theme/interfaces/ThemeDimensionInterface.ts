@@ -32,6 +32,10 @@ interface ThemeDimensionInterface {
             width: number,
             height: number
         }
+    },
+    checkbox: {
+        width: number,
+        height: number
     }
 }
 

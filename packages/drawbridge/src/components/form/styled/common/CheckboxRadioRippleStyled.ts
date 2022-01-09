@@ -1,11 +1,12 @@
 import styled, {css, keyframes} from "styled-components";
 import {hexToRgb} from "@utils/ColorUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
+interface CheckboxRadioRippleStyledProps extends StyledProps {
     variation?: string
 }
+
+type T = CheckboxRadioRippleStyledProps;
 
 export enum RippleVariations {
     BASIC = "basic",
@@ -68,14 +69,14 @@ function getSize(p: T) {
 }
 
 const RippleStyled = styled.div<T>`
-  display: ${(p: T) => p.theme.display.block};
-  background-color: ${getBackground};
-  z-index: -1;
   width: ${getSize};
   height: ${getSize};
+  background-color: ${getBackground};
+  animation: ${getAnimation};
+  display: ${(p: T) => p.theme.display.block};
+  z-index: -1;
   border-radius: ${(p: T) => p.theme.borderRadius.circle};
   position: ${(p: T) => p.theme.position.absolute};
-  animation: ${getAnimation};
 `;
 
 export default RippleStyled;

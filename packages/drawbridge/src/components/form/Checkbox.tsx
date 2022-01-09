@@ -1,13 +1,13 @@
 import React, {FunctionComponent, ReactElement} from "react";
 import {FunctionVoid} from "@typings";
 import {Checkmark} from "@icons";
-import CheckboxIconStyled from "./styled/checkbox/CheckboxIconStyled";
-import RippleStyled, {RippleVariations} from "./common/RippleStyled";
-import CheckboxRadioInputStyled from "./common/CheckboxRadioInputStyled";
-import CheckboxRadioStyled from "./common/CheckboxRadioStyled";
-import CheckboxIconWrapperStyled from "./styled/checkbox/CheckboxIconWrapperStyled";
-import CheckboxRadioWrapperStyled from "./common/CheckboxRadioWrapperStyled";
-import CheckboxRadioLabelStyled from "./common/CheckboxRadioLabelStyled";
+import CheckboxIconStyled from "@components/form/styled/checkbox/CheckboxIconStyled";
+import RippleStyled, {RippleVariations} from "@components/form/styled/common/CheckboxRadioRippleStyled";
+import CheckboxRadioInputStyled from "@components/form/styled/common/CheckboxRadioInputStyled";
+import CheckboxRadioStyled from "@components/form/styled/common/CheckboxRadioStyled";
+import CheckboxIconWrapperStyled from "@components/form/styled/checkbox/CheckboxIconWrapperStyled";
+import CheckboxRadioWrapperStyled from "@components/form/styled/common/CheckboxRadioWrapperStyled";
+import CheckboxRadioLabelStyled from "@components/form/styled/common/CheckboxRadioLabelStyled";
 import useRipple from "@hooks/useRipple";
 
 interface CheckboxProps {

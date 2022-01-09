@@ -2,12 +2,12 @@ import React, {ReactElement} from "react";
 import {BasicComponentProps, FunctionVoid} from "@typings";
 import RadioIconWrapper from "./styled/radio/RadioIconWrapper";
 import RadioIconStyled from "./styled/radio/RadioIconStyled";
-import RippleStyled, {RippleVariations} from "./common/RippleStyled";
-import CheckboxRadioInputStyled from "./common/CheckboxRadioInputStyled";
-import CheckboxRadioStyled from "./common/CheckboxRadioStyled";
+import RippleStyled, {RippleVariations} from "@components/form/styled/common/CheckboxRadioRippleStyled";
+import CheckboxRadioInputStyled from "@components/form/styled/common/CheckboxRadioInputStyled";
+import CheckboxRadioStyled from "@components/form/styled/common/CheckboxRadioStyled";
+import CheckboxRadioWrapperStyled from "@components/form/styled/common/CheckboxRadioWrapperStyled";
+import CheckboxRadioLabelStyled from "@components/form/styled/common/CheckboxRadioLabelStyled";
 import useRipple from "@hooks/useRipple";
-import CheckboxRadioWrapperStyled from "./common/CheckboxRadioWrapperStyled";
-import CheckboxRadioLabelStyled from "./common/CheckboxRadioLabelStyled";
 
 export interface RadioProps extends BasicComponentProps {
     onChange?: FunctionVoid,
