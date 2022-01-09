@@ -6,14 +6,13 @@ import Divider from "@components/divider/Divider";
 const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, transparent: boolean }) => {
     const {variation, transparent, fixed} = args;
 
-    // const [small, setSmall] = useState<boolean | undefined>(undefined);
-
+    const [small, setSmall] = useState<boolean | undefined>(undefined);
     const [display, setDisplay] = useState<boolean>(true);
 
     const UIProps = {light: variation === DrawerVariations.LIGHT, dark: variation === DrawerVariations.DARK};
 
     return (
-        <Drawer toggler display={display} onStartDisplay={() => setDisplay(true)} onStopDisplay={() => setDisplay(false)} {...UIProps}>
+        <Drawer small={small} toggler display={display} onStartDisplay={() => setDisplay(true)} onStopDisplay={() => setDisplay(false)} {...UIProps}>
             <DrawerLink {...UIProps}>Home</DrawerLink>
             <Divider/>
             <DrawerLink {...UIProps}>About</DrawerLink>
