@@ -3,8 +3,12 @@ import DefaultText from '@stories/text/DefaultText.story';
 
 export default {
     title: 'Text',
-    component: Text,
+    component: () => {
+    },
     argTypes: {},
+    parameters: {
+        layout: 'padded',
+    },
 };
 
 export {

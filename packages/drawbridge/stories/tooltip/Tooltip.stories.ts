@@ -3,8 +3,12 @@ import DefaultTooltip from "./DefaultTooltip.story";
 
 export default {
     title: 'Tooltip',
-    component: () => {},
+    component: () => {
+    },
     argTypes: {},
+    parameters: {
+        layout: 'padded',
+    },
 };
 
 export {

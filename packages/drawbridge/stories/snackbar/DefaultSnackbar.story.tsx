@@ -20,7 +20,7 @@ const DefaultSnackbar = (args: { variation?: SnackbarVariations, dismissible?: b
                 success={variation === SnackbarVariations.SUCCESS}
                 warning={variation === SnackbarVariations.WARNING}
                 dismissible={dismissible}
-                // closeOnDelay={closeOnDelay}
+                closeOnDelay={closeOnDelay}
                 unmount={unmount}
                 onUnmounted={() => setRender(false)}
             >
