@@ -5,7 +5,7 @@ import {BasicComponentProps} from "@typings";
 import CarouselControlIconStyled from "./styled/CarouselControlIconStyled";
 import {ArrowCircleLeftSolid, ArrowCircleRightSolid} from "@icons";
 
-interface CarouselControlProps extends BasicComponentProps {
+export interface CarouselControlProps extends BasicComponentProps {
     onMove?: (direction: CarouselDirections) => void,
     direction?: CarouselDirections
 }

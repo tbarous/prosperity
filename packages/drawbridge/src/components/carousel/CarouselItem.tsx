@@ -1,8 +1,8 @@
-import React, {ReactElement, ReactNode} from "react";
+import React, {ReactElement} from "react";
 import CarouselItemStyled from "@components/carousel/styled/CarouselItemStyled";
 import {BasicComponentProps} from "@typings";
 
-interface CarouselItemProps extends BasicComponentProps {
+export interface CarouselItemProps extends BasicComponentProps {
     itemWidth?: number,
     itemX?: number,
     gutter?: number

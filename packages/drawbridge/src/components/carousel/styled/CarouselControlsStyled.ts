@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-interface CarouselControlsStyledProps extends StyledProps {}
+export interface CarouselControlsStyledProps extends StyledProps {}
 
 type T = CarouselControlsStyledProps;
 

@@ -1,10 +1,9 @@
 import React, {Children, ReactElement, ReactNode, useEffect} from "react";
 import CarouselItemsStyled from "@components/carousel/styled/CarouselItemsStyled";
 import {clone} from "@utils/ComponentUtils";
+import {BasicComponentProps} from "@typings";
 
-interface T {
-    children: ReactNode,
-    className?: string,
+interface CarouselItemsProps extends BasicComponentProps {
     gutter?: number,
     itemWidth?: number,
     distance?: number,
@@ -12,7 +11,7 @@ interface T {
     getItemDistance?: (index: number) => number
 }
 
-const CarouselItems: React.FunctionComponent<T> = (props: T): ReactElement => {
+const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: CarouselItemsProps): ReactElement => {
     const {children, className, gutter, itemWidth, distance, getCount, getItemDistance} = props;
 
     useEffect(() => {
@@ -22,11 +21,7 @@ const CarouselItems: React.FunctionComponent<T> = (props: T): ReactElement => {
     }, []);
 
     return (
-        <CarouselItemsStyled
-            className={className}
-            distance={distance}
-            gutter={gutter}
-        >
+        <CarouselItemsStyled className={className} distance={distance} gutter={gutter}>
             {Children.map(children, (child: ReactNode, index) => clone(child, {
                 itemX: getItemDistance && getItemDistance(index),
                 gutter,
