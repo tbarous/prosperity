@@ -1,9 +1,9 @@
 import Button, {ButtonSizes, ButtonVariations} from "@components/button/Button";
-import DefaultButton from "@stories/button/DefaultButton.story";
+import DefaultButton from "@stories/button/Button.story";
 
 export default {
     title: 'Button',
-    component: Button,
+    component: () => {},
     argTypes: {
         variation: {
             options: [ButtonVariations.PRIMARY, ButtonVariations.SECONDARY],

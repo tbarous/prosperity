@@ -53,7 +53,6 @@ const ButtonStyled = styled.button<T>`
   font-size: ${(p: T) => p.theme.fontSize.md};
   font-weight: ${(p: T) => p.theme.fontWeight.bold};
   width: ${(p: T) => p.theme.dimension.d100};
-  height: ${(p: T) => p.theme.dimension.d100};
   letter-spacing: ${(p: T) => p.theme.letterSpacing.small};
   transition: ${(p: T) => p.theme.transition.elevation};
   &:hover {box-shadow: ${(p: T) => p.theme.shadow.elevate};}
