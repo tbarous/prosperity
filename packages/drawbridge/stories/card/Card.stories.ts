@@ -3,8 +3,7 @@ import DefaultCard from '@stories/card/DefaultCard.story';
 
 export default {
     title: 'Card',
-    component: () => {
-    },
+    component: () => {},
     argTypes: {},
     parameters: {
         layout: 'padded',

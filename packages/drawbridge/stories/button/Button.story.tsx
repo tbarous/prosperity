@@ -27,7 +27,7 @@ const DefaultButton = (args: { variation?: ButtonVariations, size?: ButtonSizes,
 DefaultButton.args = {
     variation: ButtonVariations.PRIMARY,
     size: ButtonSizes.MEDIUM,
-    children: "Login",
+    children: "Login/Register",
     icon: false
 };
 
