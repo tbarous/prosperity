@@ -4,8 +4,6 @@ import Row from "@components/grid/Row";
 import Col from "@components/grid/Col";
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import {px} from "@utils/ThemeUtils";
-import {number} from "prop-types";
 
 const ColStyled = styled(Col)`background: ${(p: StyledProps) => p.theme.color.primary}; `
 
@@ -26,7 +24,7 @@ const DefaultGrid = (args: { fluid: boolean, gutter: number }) => {
 
 DefaultGrid.args = {
     fluid: false,
-    gutter: 0
+    gutter: 10
 };
 
 export default DefaultGrid;

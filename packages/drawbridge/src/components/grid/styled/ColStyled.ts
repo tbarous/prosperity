@@ -4,15 +4,19 @@ import {ColUIProps} from "@components/grid/Col";
 import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
-export interface ColStyledProps extends StyledProps, ColUIProps {}
+export interface ColStyledProps extends StyledProps, ColUIProps {
+    count?: number
+}
 
 type T = ColStyledProps;
 
-function getWidth(breakpoint: string, columns?: number) {
+function getWidth(breakpoint: string, columns?: number, count?: number) {
     let width;
 
     if (columns) {
-        width = `${(100 / 12) * columns}%`;
+        const colPercentage = (100 / 12) * columns;
+
+        width = `${colPercentage}%`;
     }
 
     return MediaUtils.up(breakpoint, css`width: ${width};max-width: ${width};`);
@@ -31,11 +35,14 @@ const ColStyled = styled.div<T>`
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
   padding-left: ${getPadding};
   padding-right: ${getPadding};
-  ${(p: T) => getWidth(p.theme.breakpoint.xs, p.xs)};
-  ${(p: T) => getWidth(p.theme.breakpoint.sm, p.sm)};
-  ${(p: T) => getWidth(p.theme.breakpoint.md, p.md)};
-  ${(p: T) => getWidth(p.theme.breakpoint.lg, p.lg)};
-  ${(p: T) => getWidth(p.theme.breakpoint.xl, p.xl)};
+  margin-left: ${getPadding};
+  margin-right: ${getPadding};
+
+  ${(p: T) => getWidth(p.theme.breakpoint.xs, p.xs, p.count)};
+  ${(p: T) => getWidth(p.theme.breakpoint.sm, p.sm, p.count)};
+  ${(p: T) => getWidth(p.theme.breakpoint.md, p.md, p.count)};
+  ${(p: T) => getWidth(p.theme.breakpoint.lg, p.lg, p.count)};
+  ${(p: T) => getWidth(p.theme.breakpoint.xl, p.xl, p.count)};
 `;
 
 export default ColStyled;

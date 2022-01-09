@@ -6,7 +6,7 @@ type T = { fluid?: boolean, gutter?: number } & StyledProps;
 
 function getMargin(p: T) {
     if (p.gutter) {
-        let negative = -0.5 * p.gutter
+        let negative = -0.5 * p.gutter;
 
         return px(negative - p.theme.spacing.s5);
     }

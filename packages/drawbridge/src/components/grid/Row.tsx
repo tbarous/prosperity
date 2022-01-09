@@ -10,11 +10,13 @@ export interface RowProps extends BasicComponentProps {
 const Row: FunctionComponent<RowProps> = (props: RowProps): ReactElement => {
     const {children, gutter, className} = props;
 
-    const eventGutter = gutter ? (gutter % 2 === 0 ? gutter : gutter + 1) : 0;
+    const evenGutter = gutter ? (gutter % 2 === 0 ? gutter : gutter + 1) : 0;
+
+    const count = Children.count(children);
 
     return (
         <RowStyled className={className} gutter={gutter}>
-            {!gutter ? children : Children.map(children, (child: ReactNode) => clone(child, {gutter: eventGutter}))}
+            {!gutter ? children : Children.map(children, (child: ReactNode) => clone(child, {gutter: evenGutter, count}))}
         </RowStyled>
     )
 }
