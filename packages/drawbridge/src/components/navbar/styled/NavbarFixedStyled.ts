@@ -1,18 +1,20 @@
 import styled, {keyframes} from "styled-components";
 import {px, transformY, transition} from "@utils/ThemeUtils";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
-    unmount: boolean
+interface NavbarFixedStyledProps extends StyledProps {
 }
+
+type T = NavbarFixedStyledProps;
 
 function getHeight(p: T) {
     return px(p.theme.dimension.navbar.height);
 }
 
 function getTransform(p: T) {
-    return transformY(p.unmount, -p.theme.dimension.navbar.height);
+    return null;
+    // return transformY(p.unmount, -p.theme.dimension.navbar.height);
 }
 
 function getTransition(p: T) {

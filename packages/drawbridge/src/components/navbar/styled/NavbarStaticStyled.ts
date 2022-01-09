@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
 import {px} from "@utils/ThemeUtils";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
+interface NavbarStaticStyledProps extends StyledProps {
     transparent?: boolean
 }
+
+type T = NavbarStaticStyledProps;
 
 function getHeight(p: T) {
     return px(p.theme.dimension.navbar.height);
@@ -22,14 +23,14 @@ function getBoxShadow(p: T) {
 }
 
 const NavbarStaticStyled = styled.div<T>`
+  background-color: ${getBackgroundColor};
+  box-shadow: ${getBoxShadow};
+  height: ${getHeight};
   z-index: ${(p: T) => p.theme.zIndex.navbar};
   align-items: ${(p: T) => p.theme.alignItems.center};
   display: ${(p: T) => p.theme.display.flex};
   position: ${(p: T) => p.theme.position.relative};
   width: ${(p: T) => p.theme.dimension.d100};
-  background-color: ${getBackgroundColor};
-  box-shadow: ${getBoxShadow};
-  height: ${getHeight};
 `;
 
 export default NavbarStaticStyled;
