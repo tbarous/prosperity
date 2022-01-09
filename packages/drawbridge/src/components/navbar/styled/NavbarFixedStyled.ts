@@ -8,7 +8,7 @@ interface T {
 }
 
 function getHeight(p: T) {
-    return p.theme.dimension.navbar.height;
+    return px(p.theme.dimension.navbar.height);
 }
 
 function getTransform(p: T) {

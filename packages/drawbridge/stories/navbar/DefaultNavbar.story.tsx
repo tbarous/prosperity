@@ -106,7 +106,7 @@ const Content = () => {
 const DefaultNavbar = (args: BasicComponentProps) => {
     const scrollFromTop = useOnScroll();
 
-    const {render, toggle, unmount, onUnmounted, unMount, mount} = useControlChild();
+    const {render, toggle, unmount, onUnmounted, unMount, mount} = useControlChild(false);
 
     useEffect(() => {
         if (scrollFromTop <= 100) {
@@ -121,6 +121,8 @@ const DefaultNavbar = (args: BasicComponentProps) => {
             <NavbarStatic transparent><Content/></NavbarStatic>
 
             {render && <NavbarFixed unmount={unmount} onUnmounted={onUnmounted}><Content/></NavbarFixed>}
+
+            <div style={{height: "3000px"}} />
         </>
     );
 }

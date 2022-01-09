@@ -21,7 +21,7 @@ function transition(
 }
 
 function transformY(flag: boolean, dimension: number) {
-    return flag ? `translateY(${px(dimension)})` : `translateY(0)`;
+    return flag ? `translateY(0)` : `translateY(${px(dimension)})`;
 }
 
 export {

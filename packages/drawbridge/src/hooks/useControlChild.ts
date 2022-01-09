@@ -1,14 +1,14 @@
 import {useEffect, useState} from "react";
 
-function useControlChild() {
+function useControlChild(mountImmediately = true) {
     const [unmount, setUnmount] = useState(false);
-    const [render, setRender] = useState(true);
+    const [render, setRender] = useState(mountImmediately);
 
-    function unMount(){
+    function unMount() {
         setUnmount(true);
     }
 
-    function mount(){
+    function mount() {
         setRender(true);
     }
 

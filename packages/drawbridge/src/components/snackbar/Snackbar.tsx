@@ -1,10 +1,11 @@
-import React, {ReactElement, ReactNode} from "react";
+import React from "react";
 import {Times} from "@icons";
 import useCallbackOnTimeout from "@hooks/useCallbackOnTimeout";
 import SnackbarStyled from "@components/snackbar/styled/SnackbarStyled";
 import SnackbarCloseStyled from "@components/snackbar/styled/SnackbarCloseStyled";
 import {useTheme} from "styled-components";
-import useUnmount from "@hooks/useUnmount";
+import useTransition from "@hooks/useTransition";
+import {BasicComponentProps, ReactElementOrNull} from "@typings";
 
 export enum SnackbarVariations {
     SUCCESS = "success",
@@ -12,53 +13,35 @@ export enum SnackbarVariations {
     DANGER = "danger"
 }
 
-interface T {
-    children: ReactNode,
-    className?: string,
-    dismissible?: boolean,
-    closeOnDelay?: number,
+export interface SnackbarUIProps {
     danger?: boolean,
     warning?: boolean,
     success?: boolean,
-    onUnmounted: () => void,
-    unmount: boolean
 }
 
-const Snackbar: React.FunctionComponent<T> = (props: T): ReactElement => {
-    const {
-        children,
-        className,
-        success,
-        warning,
-        danger,
-        dismissible,
-        closeOnDelay,
-        onUnmounted,
-        unmount
-    } = props;
+export interface SnackbarProps extends BasicComponentProps, SnackbarUIProps {
+    dismissible?: boolean,
+    closeOnDelay?: number,
+    display?: boolean,
+    onStopDisplay: () => void
+}
 
-    const delay = useTheme().animation.snackbar;
+const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps): ReactElementOrNull => {
+    const {children, className, success, warning, danger, dismissible, closeOnDelay, display, onStopDisplay} = props;
 
-    const {startUnmount, myUnmount} = useUnmount(unmount, onUnmounted, delay);
+    const UIProps = {success, warning, danger};
 
-    if (closeOnDelay) {
-        useCallbackOnTimeout(closeOnDelay + (delay * 2), startUnmount);
-    }
+    const {remove, transition} = useTransition(useTheme().animation.snackbar, onStopDisplay);
+
+    if (closeOnDelay) useCallbackOnTimeout(closeOnDelay, remove);
+
+    if (!display) return null;
 
     return (
-        <SnackbarStyled
-            className={className}
-            success={success}
-            warning={warning}
-            danger={danger}
-            unmount={myUnmount}
-        >
+        <SnackbarStyled className={className} transition={transition} {...UIProps}>
             {children}
 
-            {dismissible && <SnackbarCloseStyled
-                onClick={startUnmount}
-                icon={Times}
-            />}
+            {dismissible && <SnackbarCloseStyled onClick={remove} icon={Times} {...UIProps} />}
         </SnackbarStyled>
     )
 }

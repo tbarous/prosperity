@@ -7,6 +7,10 @@ interface T {
     theme: ThemeInterface
 }
 
+function getColor(p: T){
+    if(p.s)
+}
+
 const SnackbarCloseStyled = styled(Icon)<T>`
   position: ${(p: T) => p.theme.position.absolute};
   cursor: ${(p: T) => p.theme.cursor.pointer};

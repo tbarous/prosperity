@@ -14,6 +14,8 @@ interface T {
 const NavbarFixed: FunctionComponent<T> = (props: T): ReactElement => {
     const {children, className, unmount, onUnmounted,} = props;
 
+    console.log(unmount)
+
     const theme = useTheme();
 
     const {myUnmount} = useUnmount(unmount, onUnmounted, theme.animation.navbar);

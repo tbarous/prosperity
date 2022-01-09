@@ -1,25 +1,40 @@
 import styled from "styled-components";
 import {px, transformY, transition} from "@utils/ThemeUtils";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {SnackbarUIProps} from "@components/snackbar/Snackbar";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
-    danger?: boolean,
-    warning?: boolean,
-    success?: boolean,
-    unmount: boolean
+interface T extends SnackbarUIProps, StyledProps {
+    transition: boolean,
 }
 
 function getColor(p: T) {
-    return p.danger ? p.theme.color.white : (p.warning ? p.theme.color.dark : (p.success ? p.theme.color.white : p.theme.color.white));
+    if (p.danger) {
+        return p.theme.color.white;
+    }
+
+    if (p.success) {
+        return p.theme.color.white;
+    }
+
+    if (p.warning) {
+        return p.theme.color.dark;
+    }
 }
 
 function getBackgroundColor(p: T) {
+    if (p.danger) {
+        return p.theme.color.danger;
+    }
+
+    if (p.danger) {
+        return p.theme.color.danger;
+    }
+
     return p.danger ? p.theme.color.danger : (p.warning ? p.theme.color.warning : (p.success ? p.theme.color.success : p.theme.color.danger));
 }
 
 function getTransform(p: T) {
-    return transformY(p.unmount, p.theme.dimension.snackbar.height);
+    return transformY(p.transition, p.theme.dimension.snackbar.height);
 }
 
 function getTransition(p: T) {

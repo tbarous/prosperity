@@ -27,7 +27,7 @@ const ThemeDimension: ThemeDimensionInterface = {
         height: 60
     },
     navbar: {
-        height: 60
+        height: 120
     }
 }
 
