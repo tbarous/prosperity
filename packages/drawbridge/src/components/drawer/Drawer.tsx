@@ -26,11 +26,12 @@ export interface DrawerUIProps {
 export interface DrawerProps extends BasicComponentProps, DrawerUIProps {
     display?: boolean,
     onStartDisplay: () => void,
-    onStopDisplay: () => void
+    onStopDisplay: () => void,
+    toggler?: boolean
 }
 
 const Drawer: FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElementOrNull => {
-    const {children, className, fixed, light, dark, transparent, display, onStartDisplay, onStopDisplay, small} = props;
+    const {children, className, fixed, light, dark, transparent, display, onStartDisplay, onStopDisplay, small, toggler} = props;
 
     const UIProps = {fixed, light, dark, transparent};
 
@@ -48,9 +49,9 @@ const Drawer: FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElemen
                 </DrawerStyled>
             )}
 
-            <DrawerTogglerStyled {...UIProps} onClick={toggle} transition={transition}>
+            {toggler && <DrawerTogglerStyled {...UIProps} onClick={toggle} transition={transition}>
                 <DrawerTogglerIconStyled icon={icon} {...UIProps}/>
-            </DrawerTogglerStyled>
+            </DrawerTogglerStyled>}
         </>
     )
 }
