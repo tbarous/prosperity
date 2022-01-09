@@ -1,8 +1,9 @@
-import React, {ReactElement, ReactNode} from "react";
+import React, {ReactElement, ReactNode, useEffect, useRef, useState} from "react";
 import {Times} from "@icons";
 import useCallbackOnTimeout from "@hooks/useCallbackOnTimeout";
 import SnackbarStyled from "@components/snackbar/styled/SnackbarStyled";
 import SnackbarCloseStyled from "@components/snackbar/styled/SnackbarCloseStyled";
+import {useTheme} from "styled-components";
 
 export enum SnackbarVariations {
     SUCCESS = "success",
@@ -18,8 +19,8 @@ interface T {
     danger?: boolean,
     warning?: boolean,
     success?: boolean,
-    mount?: boolean,
-    unmountComponent: (force?: boolean) => void
+    onUnmounted?: () => void,
+    unmount?: boolean
 }
 
 const Snackbar: React.FunctionComponent<T> = (props: T): ReactElement => {
@@ -31,12 +32,36 @@ const Snackbar: React.FunctionComponent<T> = (props: T): ReactElement => {
         danger,
         dismissible,
         closeOnDelay,
-        unmountComponent,
-        mount
+        onUnmounted,
+        unmount
     } = props;
 
+    const ref = useRef<any>(null);
+    const [myUnmount, setMyUnmount] = useState(true)
+    const theme = useTheme()
+
+    useEffect(() => {
+        if (unmount) {
+            startUnmount()
+        } else {
+            setMyUnmount(false)
+        }
+    }, [unmount])
+
+    useEffect(() => {
+        if (myUnmount) {
+            ref.current = setTimeout(() => onUnmounted && onUnmounted(), theme.animation.snackbar)
+        }
+
+        return () => clearTimeout(ref.current)
+    }, [myUnmount])
+
     if (closeOnDelay) {
-        useCallbackOnTimeout(closeOnDelay, () => unmountComponent(true));
+        useCallbackOnTimeout(closeOnDelay + theme.animation.snackbar * 2, startUnmount);
+    }
+
+    function startUnmount() {
+        setMyUnmount(true);
     }
 
     return (
@@ -45,12 +70,12 @@ const Snackbar: React.FunctionComponent<T> = (props: T): ReactElement => {
             success={success}
             warning={warning}
             danger={danger}
-            mount={mount}
+            unmount={myUnmount}
         >
             {children}
 
             {dismissible && <SnackbarCloseStyled
-                onClick={unmountComponent}
+                onClick={startUnmount}
                 icon={Times}
             />}
         </SnackbarStyled>

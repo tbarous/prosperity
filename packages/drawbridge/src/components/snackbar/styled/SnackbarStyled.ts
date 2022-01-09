@@ -7,18 +7,8 @@ interface T {
     danger?: boolean,
     warning?: boolean,
     success?: boolean,
-    mount?: boolean
+    unmount?: boolean
 }
-
-const slideUp = keyframes`
-  from {
-    transform: translateY(150%);
-  }
-
-  to {
-    transform: translateY(0);
-  }
-`;
 
 function getColor(p: T) {
     return p.danger ? p.theme.color.white : (p.warning ? p.theme.color.dark : (p.success ? p.theme.color.white : p.theme.color.white));
@@ -29,15 +19,11 @@ function getBackgroundColor(p: T) {
 }
 
 function getTransform(p: T) {
-    return p.mount ? `translateY(0)` : `translateY(150%)`;
+    return p.unmount ? `translateY(${px(p.theme.dimension.snackbarHeight)})` : `translateY(0)`;
 }
 
 function getTransition(p: T) {
-    return transition("transform", p.theme.animation.snackbar);
-}
-
-function getAnimation(p: T) {
-    return animation(slideUp, p.theme.animation.snackbar);
+    return transition("transform", p.theme.animation.snackbar, "linear");
 }
 
 function getPadding(p: T) {
@@ -64,7 +50,6 @@ const SnackbarStyled = styled.div`
   color: ${getColor};
   background-color: ${getBackgroundColor};
   transform: ${getTransform};
-  animation: ${getAnimation};
   transition: ${getTransition};
 `;
 

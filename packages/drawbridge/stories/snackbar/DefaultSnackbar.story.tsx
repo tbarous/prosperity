@@ -1,37 +1,28 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Snackbar, {SnackbarVariations} from "@components/snackbar/Snackbar";
 import {useTheme} from "styled-components";
-import useMountChild from "@hooks/useMountChild";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 import SnackbarContentStyled from '@components/snackbar/styled/SnackbarContentStyled';
 
-const DefaultSnackbar = (args: { variation?: SnackbarVariations, open?: boolean, dismissible?: boolean, closeOnDelay?: number }) => {
-    const theme: ThemeInterface = useTheme();
+const DefaultSnackbar = (args: { variation?: SnackbarVariations, dismissible?: boolean, closeOnDelay?: number }) => {
+    const {variation, dismissible, closeOnDelay} = args;
 
-    const {render, mount, unmountComponent, toggle, renderComponent} = useMountChild(theme.animation.snackbar);
-
-    const {variation,dismissible, closeOnDelay} = args;
-
-    // useEffect(() => {
-    //     if(args.open){
-    //         renderComponent()
-    //     } else {
-    //         unmountComponent()
-    //     }
-    // }, [args.open]);
-
-    console.log('RERENDERED', render)
+    const [unmount, setUnmount] = useState(false);
+    const [render, setRender] = useState(true);
 
     return (
         <>
+            <button onClick={() => setUnmount(false)}>mount</button>
+            <button onClick={() => setUnmount(true)}>unmount</button>
+
             {render && <Snackbar
-                unmountComponent={unmountComponent}
-                mount={mount}
                 danger={variation === SnackbarVariations.DANGER}
                 success={variation === SnackbarVariations.SUCCESS}
                 warning={variation === SnackbarVariations.WARNING}
                 dismissible={dismissible}
-                closeOnDelay={closeOnDelay}
+                // closeOnDelay={closeOnDelay}
+                unmount={unmount}
+                onUnmounted={() => setRender(false)}
             >
                 <SnackbarContentStyled>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aspernatur atque consequuntur
