@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 
-function useTransition(duration: number, onStopDisplay: () => void) {
+function useTransition(duration: number, onStopDisplay: () => void, onStartDisplay?: () => void) {
     const [transition, setTransition] = useState(false);
 
     useEffect(() => {
@@ -13,6 +13,14 @@ function useTransition(duration: number, onStopDisplay: () => void) {
         setTransition(false);
     }
 
+    function insert() {
+        setTransition(true);
+    }
+
+    function toggle() {
+        setTransition(!transition);
+    }
+
     useEffect(() => {
         if (!transition) {
             ref.current = setTimeout(() => {
@@ -20,12 +28,15 @@ function useTransition(duration: number, onStopDisplay: () => void) {
             }, duration)
 
             return () => clearTimeout(ref.current);
+        } else {
+            onStartDisplay && onStartDisplay();
         }
     }, [transition])
 
     return {
         remove,
-        transition
+        transition,
+        toggle
     }
 }
 

@@ -1,4 +1,4 @@
-import React, {Children, FunctionComponent} from "react";
+import React, {Children, FunctionComponent, useEffect} from "react";
 import DrawerStyled from "@components/drawer/styled/DrawerStyled";
 import DrawerOverlay from "./styled/DrawerOverlay";
 import DrawerContent from "./styled/DrawerContent";
@@ -6,7 +6,9 @@ import {clone} from "@utils/ComponentUtils";
 import {useTheme} from "styled-components";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import useTransition from "@hooks/useTransition";
-import DrawerToggler from "@components/drawer/DrawerToggler";
+import {ArrowLeft, ArrowRight} from "@icons";
+import DrawerTogglerIconStyled from "./styled/DrawerTogglerIconStyled";
+import DrawerTogglerStyled from "./styled/DrawerTogglerStyled";
 
 export enum DrawerVariations {
     LIGHT = "light",
@@ -23,16 +25,19 @@ export interface DrawerUIProps {
 
 export interface DrawerProps extends BasicComponentProps, DrawerUIProps {
     display?: boolean,
-    onToggle: () => void,
+    onStartDisplay: () => void,
     onStopDisplay: () => void
 }
 
 const Drawer: FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElementOrNull => {
-    const {children, className, fixed, light, dark, transparent, display, onToggle, onStopDisplay, small} = props;
+    const {children, className, fixed, light, dark, transparent, display, onStartDisplay, onStopDisplay, small} = props;
 
     const UIProps = {fixed, light, dark, transparent};
 
-    const {transition} = useTransition(useTheme().animation.drawer, onStopDisplay);
+    const {transition, toggle} = useTransition(useTheme().animation.drawer, onStopDisplay, onStartDisplay);
+
+    let icon = transition ? ArrowLeft : ArrowRight;
+    if (small !== undefined) icon = small ? ArrowRight : ArrowLeft;
 
     return (
         <>
@@ -44,7 +49,9 @@ const Drawer: FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElemen
                 </DrawerStyled>
             )}
 
-            <DrawerToggler onToggle={onToggle} {...UIProps} transition={transition}/>
+            <DrawerTogglerStyled {...UIProps} onClick={toggle} transition={transition}>
+                <DrawerTogglerIconStyled icon={icon} {...UIProps}/>
+            </DrawerTogglerStyled>
         </>
     )
 }

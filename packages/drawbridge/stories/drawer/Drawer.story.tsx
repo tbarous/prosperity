@@ -10,10 +10,10 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
 
     const [display, setDisplay] = useState<boolean>(true);
 
-    const UIProps = {light: variation === DrawerVariations.LIGHT, dark: variation === DrawerVariations.DARK}
+    const UIProps = {light: variation === DrawerVariations.LIGHT, dark: variation === DrawerVariations.DARK};
 
     return (
-        <Drawer display={display} onToggle={() => setDisplay(!display)} onStopDisplay={() => setDisplay(false)} {...UIProps}>
+        <Drawer display={display} onStartDisplay={() => setDisplay(true)} onStopDisplay={() => setDisplay(false)} {...UIProps}>
             <DrawerLink {...UIProps}>Home</DrawerLink>
             <Divider/>
             <DrawerLink {...UIProps}>About</DrawerLink>
