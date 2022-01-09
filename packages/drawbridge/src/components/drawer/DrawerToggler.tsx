@@ -4,25 +4,27 @@ import DrawerTogglerStyled from "./styled/DrawerTogglerStyled";
 import DrawerTogglerIconStyled from "./styled/DrawerTogglerIconStyled";
 import {BasicComponentProps} from "@typings";
 import {DrawerUIProps} from "@components/drawer/Drawer";
+import useTransition from "@hooks/useTransition";
+import {useTheme} from "styled-components";
 
 export interface DrawerTogglerProps extends BasicComponentProps, DrawerUIProps {
-    display: boolean,
+    transition: boolean,
     onToggle: () => void
 }
 
 const DrawerToggler: React.FunctionComponent<DrawerTogglerProps> = (props: DrawerTogglerProps): ReactElement => {
-    const {className, dark, light, display, small, onToggle} = props;
+    const {className, dark, light, transition, small, onToggle} = props;
 
     const UIProps = {light, dark, small};
 
-    let icon = display ? ArrowLeft : ArrowRight;
+    let icon = transition ? ArrowLeft : ArrowRight;
 
     if (small !== undefined) {
         icon = small ? ArrowRight : ArrowLeft
     }
 
     return (
-        <DrawerTogglerStyled className={className} {...UIProps} onClick={onToggle} display={display}>
+        <DrawerTogglerStyled className={className} {...UIProps} onClick={onToggle} transition={transition}>
             <DrawerTogglerIconStyled icon={icon} {...UIProps}/>
         </DrawerTogglerStyled>
     )

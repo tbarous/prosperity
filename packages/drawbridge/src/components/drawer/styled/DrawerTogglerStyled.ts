@@ -4,7 +4,7 @@ import {StyledProps} from "@typings";
 import {DrawerUIProps} from "@components/drawer/Drawer";
 
 interface DrawerToggler extends StyledProps, DrawerUIProps {
-    display?: boolean
+    transition?: boolean
 }
 
 type T = DrawerToggler;
@@ -13,7 +13,7 @@ function getLeft(p: T) {
     const open = px(p.theme.dimension.drawer.width - p.theme.dimension.drawer.toggler.width / 2);
 
     if (p.small === undefined) {
-        if (p.display) {
+        if (p.transition) {
             return open;
         } else {
             return `-${px(p.theme.spacing.s3)}`;
@@ -24,6 +24,16 @@ function getLeft(p: T) {
         return px(p.theme.dimension.drawer.small - p.theme.dimension.drawer.toggler.width / 2);
     } else {
         return open;
+    }
+}
+
+function getBackgroundColor(p: T) {
+    if (p.light) {
+        return p.theme.color.white;
+    }
+
+    if (p.dark) {
+        return p.theme.color.dark;
     }
 }
 
@@ -41,16 +51,6 @@ function getWidth(p: T) {
 
 function getHeight(p: T) {
     return px(p.theme.dimension.drawer.toggler.height);
-}
-
-function getBackgroundColor(p: T) {
-    if (p.light) {
-        return p.theme.color.white;
-    }
-
-    if (p.dark) {
-        return p.theme.color.dark;
-    }
 }
 
 const DrawerTogglerStyled = styled.div<T>`
