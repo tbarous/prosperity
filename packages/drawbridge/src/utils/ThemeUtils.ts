@@ -9,15 +9,15 @@ function animation(animation: any, ms: number) {
 }
 
 function transition(
-    props: { ms?: number, property?: string, algorithm?: string }
+    props: { ms?: number, property?: string, timing?: string }
 ) {
     let data = {
         ms: props.ms || 0,
         property: props.property || "transform",
-        algorithm: props.algorithm || "linear"
+        timing: props.timing || "linear"
     }
 
-    return css`${data.property} ${data.ms / 1000}s ${data.algorithm}`;
+    return css`${data.property} ${data.ms / 1000}s ${data.timing}`;
 }
 
 function transformY(flag: boolean, dimension: number) {

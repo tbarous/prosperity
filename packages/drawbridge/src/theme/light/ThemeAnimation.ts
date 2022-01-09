@@ -2,7 +2,7 @@ import ThemeAnimationInterface from "@theme/interfaces/ThemeAnimationInterface";
 
 const ThemeAnimation: ThemeAnimationInterface = {
     drawer: 500,
-    snackbar: 1000,
+    snackbar: 500,
     navbar: 2200
 }
 

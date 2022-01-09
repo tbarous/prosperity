@@ -4,6 +4,7 @@ import SnackbarContentStyled from '@components/snackbar/styled/SnackbarContentSt
 
 const DefaultSnackbar = (args: { variation: SnackbarVariations, dismissible: boolean, closeOnDelay:number }) => {
     const {variation, dismissible, closeOnDelay} = args;
+    
     const [display, setDisplay] = useState(true);
 
     return (

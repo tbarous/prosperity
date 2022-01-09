@@ -3,7 +3,7 @@ import DefaultSnackbar from '@stories/snackbar/DefaultSnackbar.story';
 
 export default {
     title: 'Snackbar',
-    component: Snackbar,
+    component: () => {},
     argTypes: {
         variation: {
             options: [
