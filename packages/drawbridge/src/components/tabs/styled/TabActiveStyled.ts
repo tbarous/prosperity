@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {px} from "@utils/ThemeUtils";
 import {StyledProps} from "@typings";
 
-interface TabActiveStyledProps extends StyledProps {
+export interface TabActiveStyledProps extends StyledProps {
     left: number,
     width: number
 }

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-interface TabStyledProps extends StyledProps {
+export interface TabStyledProps extends StyledProps {
     onClick?: any
 }
 

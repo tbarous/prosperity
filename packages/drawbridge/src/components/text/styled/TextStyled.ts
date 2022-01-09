@@ -1,15 +1,24 @@
 import styled from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
+import {StyledProps} from "@typings";
 
-interface T {
-    theme: ThemeInterface,
+interface TextStyledProps extends StyledProps {
     bold?: boolean
+}
+
+type T = TextStyledProps;
+
+function getFontWeight(p: T) {
+    if (p.bold) {
+        return p.theme.fontWeight.bold;
+    }
+
+    return p.theme.fontWeight.normal;
 }
 
 const TextStyled = styled.div<T>`
   font-size: ${(p: T) => p.theme.fontSize.md};
   color: ${(p: T) => p.theme.color.dark};
-  font-weight: ${(p: T) => p.bold ? p.theme.fontWeight.bold : p.theme.fontWeight.normal};
+  font-weight: ${getFontWeight};
   font-family: ${(p: T) => p.theme.fontFamily.primary};
 `;
 

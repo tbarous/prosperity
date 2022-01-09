@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 
-interface TabsStyledProps extends StyledProps {}
+export interface TabsStyledProps extends StyledProps {}
 
 type T = TabsStyledProps;
 
