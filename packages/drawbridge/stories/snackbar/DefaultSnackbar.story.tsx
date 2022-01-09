@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Snackbar, {SnackbarVariations} from "@components/snackbar/Snackbar";
-import {useTheme} from "styled-components";
-import ThemeInterface from "@theme/interfaces/ThemeInterface";
 import SnackbarContentStyled from '@components/snackbar/styled/SnackbarContentStyled';
 
-const DefaultSnackbar = (args: { variation?: SnackbarVariations, dismissible?: boolean, closeOnDelay?: number }) => {
+const DefaultSnackbar = (args: { variation: SnackbarVariations, dismissible: boolean, closeOnDelay: number }) => {
     const {variation, dismissible, closeOnDelay} = args;
 
     const [unmount, setUnmount] = useState(false);

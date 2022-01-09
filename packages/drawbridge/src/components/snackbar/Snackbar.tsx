@@ -1,4 +1,4 @@
-import React, {ReactElement, ReactNode, useEffect, useRef, useState} from "react";
+import React, {ReactElement, ReactNode} from "react";
 import {Times} from "@icons";
 import useCallbackOnTimeout from "@hooks/useCallbackOnTimeout";
 import SnackbarStyled from "@components/snackbar/styled/SnackbarStyled";
@@ -41,7 +41,9 @@ const Snackbar: React.FunctionComponent<T> = (props: T): ReactElement => {
 
     const {startUnmount, myUnmount} = useUnmount(unmount, onUnmounted, delay);
 
-    if (closeOnDelay) useCallbackOnTimeout(closeOnDelay + delay * 2, startUnmount);
+    if (closeOnDelay) {
+        useCallbackOnTimeout(closeOnDelay + (delay * 2), startUnmount);
+    }
 
     return (
         <SnackbarStyled

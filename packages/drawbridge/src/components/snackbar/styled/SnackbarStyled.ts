@@ -1,5 +1,5 @@
-import styled, {keyframes} from "styled-components";
-import {animation, px, transition} from "@utils/ThemeUtils";
+import styled from "styled-components";
+import {px, transformY, transition} from "@utils/ThemeUtils";
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 
 interface T {
@@ -7,7 +7,7 @@ interface T {
     danger?: boolean,
     warning?: boolean,
     success?: boolean,
-    unmount?: boolean
+    unmount: boolean
 }
 
 function getColor(p: T) {
@@ -19,11 +19,11 @@ function getBackgroundColor(p: T) {
 }
 
 function getTransform(p: T) {
-    return p.unmount ? `translateY(${px(p.theme.dimension.snackbarHeight)})` : `translateY(0)`;
+    return transformY(p.unmount, p.theme.dimension.snackbarHeight);
 }
 
 function getTransition(p: T) {
-    return transition("transform", p.theme.animation.snackbar, "linear");
+    return transition({ms: p.theme.animation.snackbar});
 }
 
 function getPadding(p: T) {
