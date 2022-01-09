@@ -3,20 +3,24 @@ import Drawer, {DrawerVariations} from "@components/drawer/Drawer";
 import styled from "styled-components";
 import DrawerToggler from "@components/drawer/DrawerToggler";
 import useControlChild from "@hooks/useControlChild";
+import DrawerLink from "@components/drawer/DrawerLink";
+import Divider from "@components/divider/Divider";
 
 const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, transparent: boolean }) => {
     const {variation, transparent, fixed} = args;
 
-    const [small, setSmall] = useState(undefined);
+    const [small, setSmall] = useState<boolean | undefined>(undefined);
 
     const {render, toggle, unmount, onUnmounted} = useControlChild();
 
     function toggleDrawer() {
         if (small !== undefined) {
-            setSmall(!small)
-        } else {
-            toggle()
+            setSmall(!small);
+
+            return;
         }
+
+        toggle()
     }
 
     return (
@@ -31,10 +35,28 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
                     transparent={transparent}
                     small={small}
                 >
-                    {/*<DrawerLink>Home</DrawerLink>*/}
-                    {/*<Divider/>*/}
-                    {/*<DrawerLink>About</DrawerLink>*/}
-                    {/*<DrawerLink>Projects</DrawerLink>*/}
+                    <DrawerLink
+                        light={variation === DrawerVariations.LIGHT}
+                        dark={variation === DrawerVariations.DARK}
+                    >
+                        Home
+                    </DrawerLink>
+
+                    <Divider/>
+
+                    <DrawerLink
+                        light={variation === DrawerVariations.LIGHT}
+                        dark={variation === DrawerVariations.DARK}
+                    >
+                        About
+                    </DrawerLink>
+
+                    <DrawerLink
+                        light={variation === DrawerVariations.LIGHT}
+                        dark={variation === DrawerVariations.DARK}
+                    >
+                        Projects
+                    </DrawerLink>
                 </Drawer>
             }
 
