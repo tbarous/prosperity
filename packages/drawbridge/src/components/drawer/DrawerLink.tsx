@@ -1,27 +1,17 @@
 import React, {ReactElement, ReactNode} from "react";
 import DrawerLinkStyled from "./styled/DrawerLinkStyled";
+import {BasicComponentProps} from "@typings";
+import {DrawerUIProps} from "@components/drawer/Drawer";
 
-interface T {
-    children: ReactNode,
-    className?: string,
-    light: boolean,
-    dark: boolean
-}
+export interface DrawerLinkProps extends BasicComponentProps, DrawerUIProps {}
 
-const DrawerLink: React.FunctionComponent<T> = (props: T): ReactElement => {
-    const {
-        children,
-        className,
-        light,
-        dark
-    } = props;
+const DrawerLink: React.FunctionComponent<DrawerLinkProps> = (props: DrawerLinkProps): ReactElement => {
+    const {children, className, light, dark} = props;
+
+    const UIProps = {dark, light};
 
     return (
-        <DrawerLinkStyled
-            className={className}
-            light={light}
-            dark={dark}
-        >
+        <DrawerLinkStyled className={className} {...UIProps}>
             {children}
         </DrawerLinkStyled>
     )
