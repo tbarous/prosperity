@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {px} from "@utils/ThemeUtils";
 import {StyledProps} from "@typings";
 
-interface InputWrapperStyledProps extends StyledProps {
+export interface InputWrapperStyledProps extends StyledProps {
     focused?: boolean,
 }
 

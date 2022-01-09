@@ -9,7 +9,11 @@ interface InputLineStyledProps extends StyledProps {
 type T = InputLineStyledProps;
 
 function getTransform(p: T) {
-    return p.focused ? "scale(1)" : "scale(0)";
+    if (p.focused) {
+        return "scale(1)";
+    }
+
+    return "scale(0)";
 }
 
 function getTransition(p: T) {
@@ -20,15 +24,23 @@ function getBottom(p: T) {
     return `-1px`;
 }
 
+function getLeft(p: T) {
+    return px(p.theme.spacing.s0);
+}
+
+function getHeight(p: T) {
+    return px(p.theme.spacing.s1)
+}
+
 const InputLineStyled = styled.div<T>`
   transform: ${getTransform};
   transition: ${getTransition};
   bottom: ${getBottom};
+  height: ${getHeight};
+  left: ${getLeft};
   position: ${(p: T) => p.theme.position.absolute};
   background-color: ${(p: T) => p.theme.color.primary};
-  left: ${(p: T) => px(p.theme.spacing.s0)};
   width: ${(p: T) => p.theme.dimension.d100};
-  height: ${(p: T) => px(p.theme.spacing.s1)};
 `;
 
 export default InputLineStyled;

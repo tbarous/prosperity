@@ -11,15 +11,25 @@ export interface InputLabelStyledProps extends StyledProps {
 type T = InputLabelStyledProps;
 
 function getColor(p: T) {
-    return p.focused ? p.theme.color.primary : p.theme.color.light;
+    if (p.focused) {
+        return p.theme.color.primary;
+    }
+
+    return p.theme.color.light;
 }
 
 function getFontSize(p: T) {
-    return p.focused || p.filled ? p.theme.fontSize.xs : p.theme.fontSize.md;
+    if (p.focused || p.filled) {
+        return p.theme.fontSize.xs;
+    }
+
+    return p.theme.fontSize.md;
 }
 
 function getTransform(p: T) {
-    return p.focused || p.filled ? "translateY(-20px)" : "";
+    if (p.focused || p.filled) {
+        return "translateY(-20px)";
+    }
 }
 
 function getTransition(p: T) {
@@ -33,8 +43,8 @@ const InputStyledLabel = styled.label<T>`
   transition: ${getTransition};
   position: ${(p: T) => p.theme.position.absolute};
   font-weight: ${(p: T) => p.theme.fontWeight.bold};
-  pointer-events: none;
   font-family: ${(p: T) => p.theme.fontFamily.primary};
+  pointer-events: none;
 `;
 
 export default InputStyledLabel;
