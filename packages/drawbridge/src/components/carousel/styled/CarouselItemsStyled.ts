@@ -4,17 +4,20 @@ import {StyledProps} from "@typings";
 
 export interface CarouselItemsStyledProps extends StyledProps {
     distance?: number,
-    gutter?: number
+    gutter?: number,
+    dragPosition: number
 }
 
 type T = CarouselItemsStyledProps;
 
 function getTransform(p: T) {
-    // return `translateX(-${p.distance}%)`;
+    return `translateX(-${p.distance}%)`;
 }
 
 function getTransition(p: T) {
-    // return transition({ms: p.theme.animation.carousel});
+    if (p.dragPosition > 0) return;
+
+    return transition({ms: p.theme.animation.carousel});
 }
 
 function getPadding(p: T) {
@@ -30,8 +33,8 @@ function getMargin(p: T) {
 }
 
 const CarouselItemsStyled = styled.div<T>`
-  //transform: ${getTransform};
-  //transition: ${getTransition};
+  transform: ${getTransform};
+  transition: ${getTransition};
   padding-left: ${getPadding};
   padding-right: ${getPadding};
   margin-left: ${getMargin};

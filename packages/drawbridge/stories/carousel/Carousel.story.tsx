@@ -9,7 +9,6 @@ import styled, {useTheme} from "styled-components";
 
 const CarouselStyled = styled(Carousel)`height: 200px;`;
 
-
 const DefaultCarousel = (args: { items?: number, gutter?: number }) => {
     const {items, gutter} = args;
 
@@ -22,7 +21,7 @@ const DefaultCarousel = (args: { items?: number, gutter?: number }) => {
 
             <CarouselItems>
                 {Array(10).fill(0).map((item, index) => (
-                    <CarouselItem key={index}><Image src="/img.jpg" alt="img"/></CarouselItem>
+                    <CarouselItem key={index}><Image src={`https://picsum.photos/id/${index}/700/500`} alt="img"/></CarouselItem>
                 ))}
             </CarouselItems>
         </CarouselStyled>

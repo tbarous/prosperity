@@ -11,6 +11,8 @@ const CarouselStyled = styled.div<T>`
   overflow: ${(p: T) => p.theme.overflow.hidden};
   width: ${(p: T) => p.theme.dimension.d100};
   height: ${(p: T) => p.theme.dimension.d100};
+  
+  cursor: grabbing;
 `;
 
 export default CarouselStyled;
