@@ -8,13 +8,11 @@ interface CarouselItemsProps extends BasicComponentProps {
     itemWidth?: number,
     distance?: number,
     getCount?: (count: number) => void,
-    getItemDistance?: (index: number) => number,
-
-    dragDistance: any
+    updateDistance: any
 }
 
 const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: CarouselItemsProps): ReactElement => {
-    const {children, className, gutter, itemWidth, distance, getCount, getItemDistance, updateDistance} = props;
+    const {children, className, gutter, itemWidth, distance, getCount, updateDistance} = props;
 
     const [dragDistance, setDragDistance] = useState(undefined);
     const [endDragDistance, setEndDragDistance] = useState(0);
@@ -57,6 +55,10 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
         setStartDragDistance((e.pageX / window.innerWidth) * 100)
     }
 
+    function getItemX(index) {
+        return index * itemWidth
+    }
+
     return (
         <CarouselItemsStyled
             onDrag={onDrag}
@@ -68,11 +70,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
             distance={distance}
             gutter={gutter}
         >
-            {Children.map(children, (child: ReactNode, index) => clone(child, {
-                itemX: index * itemWidth,
-                gutter,
-                itemWidth
-            }))}
+            {Children.map(children, (child: ReactNode, index) => clone(child, {itemX: getItemX(index), gutter, itemWidth}))}
         </CarouselItemsStyled>
     )
 }

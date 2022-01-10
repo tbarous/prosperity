@@ -41,18 +41,26 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     const itemWidth = 100 / items;
     const isOnStart = distance < itemWidth;
     const isOnEnd = false //= position === count - items;
-    const childProps = {isOnStart, isOnEnd, gutter, itemWidth, getCount, distance, updateDistance}
+    const childProps = {isOnStart, isOnEnd, gutter, itemWidth, getCount, distance, updateDistance, moveLeft, moveRight}
+
+    function moveLeft(): void {
+        updateDistance(distance - itemWidth);
+    }
+
+    function moveRight(direction?: CarouselDirections): void {
+        updateDistance(distance + itemWidth)
+    }
 
     function getCount(count: number): void {
         setCount(count)
     }
 
-    function updateDistance(d?: number){
+    function updateDistance(d?: number) {
         setDistance(d)
     }
 
     return (
-        <CarouselStyled className={className} >
+        <CarouselStyled className={className}>
             {Children.map(children, (child: ReactNode) => clone(child, childProps))}
         </CarouselStyled>
     )

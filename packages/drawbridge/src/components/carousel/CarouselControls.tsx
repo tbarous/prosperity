@@ -2,43 +2,44 @@ import React, {isValidElement, ReactElement, ReactNode, Children} from "react";
 import CarouselControlsStyled from "@components/carousel/styled/CarouselControlsStyled";
 import {CarouselDirections} from "@components/carousel/Carousel";
 import {BasicComponentProps} from "@typings";
+import {clone} from "@utils/ComponentUtils";
+
+type ChildType =
+    ReactNode
+    & { props: { onMove?: (direction: CarouselDirections) => void, direction?: CarouselDirections, } };
+
+type CloneReturn = ReactElement | undefined | boolean;
 
 export interface CarouselControlsProps extends BasicComponentProps {
     onMove?: (direction: CarouselDirections) => void,
     isOnStart?: boolean,
     isOnEnd?: boolean,
-
-    updateDistance: (distance: any) => void,
-    distance: number,
-    itemWidth: number
+    moveLeft?: () => void,
+    moveRight?: () => void,
+    distance?: number,
+    itemWidth?: number
 }
 
 const CarouselControls: React.FunctionComponent<CarouselControlsProps> = (props: CarouselControlsProps): ReactElement => {
-    const {children, className, isOnStart, isOnEnd, updateDistance, distance, itemWidth} = props;
+    const {children, className, isOnStart, isOnEnd, moveLeft, moveRight} = props;
 
-    function onMove(direction?: CarouselDirections): void {
-        if (direction === CarouselDirections.LEFT) {
-            updateDistance(distance - itemWidth)
+    function enhancedChild(child: ChildType): CloneReturn {
+        if (!child.props.direction) return;
+
+        if (child.props.direction === CarouselDirections.LEFT && isOnStart) {
+            return;
         }
 
-        if (direction === CarouselDirections.RIGHT) {
-            updateDistance(distance + itemWidth)
+        if (child.props.direction === CarouselDirections.LEFT && isOnEnd) {
+            return;
         }
-    }
 
-    function getChild(child: ReactNode & { props: { onMove?: (direction: CarouselDirections) => void, direction?: CarouselDirections, } }): ReactElement | undefined | boolean {
-        const direction = child.props.direction;
-
-        if (!direction) return;
-
-        if ((direction === CarouselDirections.LEFT && isOnStart) || (direction === CarouselDirections.RIGHT && isOnEnd)) return;
-
-        return isValidElement(child) && React.cloneElement(child, {onMove});
+        return clone(child, {moveLeft, moveRight});
     }
 
     return (
         <CarouselControlsStyled className={className}>
-            {Children.map<ReactNode, any>(children, getChild)}
+            {Children.map<ReactNode, any>(children, enhancedChild)}
         </CarouselControlsStyled>
     )
 }

@@ -6,18 +6,31 @@ import CarouselControlIconStyled from "./styled/CarouselControlIconStyled";
 import {ArrowCircleLeftSolid, ArrowCircleRightSolid} from "@icons";
 
 export interface CarouselControlProps extends BasicComponentProps {
-    onMove?: (direction: CarouselDirections) => void,
-    direction?: CarouselDirections
+    moveLeft: () => void,
+    moveRight: () => void,
+    direction: CarouselDirections
 }
 
 const CarouselControl: React.FunctionComponent<CarouselControlProps> = (props: CarouselControlProps): ReactElement => {
-    const {children, className, direction, onMove} = props;
+    const {children, className, direction, moveLeft, moveRight} = props;
+
+    function onClick() {
+        if (direction === CarouselDirections.LEFT) {
+            moveLeft();
+        }
+
+        if (direction === CarouselDirections.RIGHT) {
+            moveRight();
+        }
+    }
+
+    const icon = direction === CarouselDirections.LEFT ? ArrowCircleLeftSolid : ArrowCircleRightSolid;
 
     return (
-        <CarouselControlStyled onClick={() => onMove && direction && onMove(direction)} direction={direction} className={className}>
+        <CarouselControlStyled onClick={onClick} direction={direction} className={className}>
             {children}
 
-            {!children && <CarouselControlIconStyled icon={direction === CarouselDirections.LEFT ? ArrowCircleLeftSolid : ArrowCircleRightSolid}/>}
+            {!children && <CarouselControlIconStyled icon={icon}/>}
         </CarouselControlStyled>
     )
 }
