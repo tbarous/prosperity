@@ -5,17 +5,19 @@ import {StyledProps} from "@typings";
 export interface CarouselItemsStyledProps extends StyledProps {
     distance?: number,
     gutter?: number,
-    dragPosition: number
+    dragDistance: number
 }
 
 type T = CarouselItemsStyledProps;
 
 function getTransform(p: T) {
+    if (p.dragDistance) return
+
     return `translateX(-${p.distance}%)`;
 }
 
 function getTransition(p: T) {
-    if (p.dragPosition > 0) return;
+    if (p.dragDistance) return;
 
     return transition({ms: p.theme.animation.carousel});
 }

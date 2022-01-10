@@ -13,7 +13,7 @@ const DefaultCarousel = (args: { items?: number, gutter?: number }) => {
     const {items, gutter} = args;
 
     return (
-        <CarouselStyled items={1} itemsLg={3} gutter={gutter}>
+        <CarouselStyled items={3} itemsLg={3} gutter={gutter}>
             <CarouselControls>
                 <CarouselControl direction={CarouselDirections.LEFT}/>
                 <CarouselControl direction={CarouselDirections.RIGHT}/>

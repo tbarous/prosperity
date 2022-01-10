@@ -20,107 +20,101 @@ export interface CarouselProps extends BasicComponentProps {
 }
 
 const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): ReactElement => {
-    const {children, className, items: _items, gutter = 0, current = 0, itemsLg} = props;
+    const {children, className, items = 2, gutter = 0, current = 0, itemsLg} = props;
 
     const [count, setCount] = useState(0);
-    const [position, setPosition] = useState(current);
 
-    const [dragPosition, setDragPosition] = useState(-1);
-    const [endingDragPosition, setEndingDragPosition] = useState(-1);
-    const [startingDragPosition, setStartingDragPosition] = useState(-1);
+    // Distance from the left in PERCENTAGE
+    const [distance, setDistance] = useState(0);
 
-    const {width} = useViewportWidthOnResize();
-    const theme = useTheme();
-    let items = 2;
-    if (_items) items = _items;
-    if (itemsLg && width > theme.breakpoint.lg) items = itemsLg;
+    const [dragDistance, setDragDistance] = useState(undefined);
+    const [endDragDistance, setEndDragDistance] = useState(0);
+    const [startDragDistance, setStartDragDistance] = useState(0);
 
-    useEffect(() => {
-        if (count === 0) return;
-        const countReached = current > count - items;
-        if (countReached || current < 0 || current === position) return;
-        setPosition(current);
-    }, [current]);
-
-    // useEffect(() =>{
-    //     if(endingDragPosition>0){
-    //         setDragPosition(false)
-    //     }
-    // }, [endingDragPosition])
+    // const {width} = useViewportWidthOnResize();
+    // const theme = useTheme();
+    // let items = 2;
+    // if (_items) items = _items;
+    // if (itemsLg && width > theme.breakpoint.lg) items = itemsLg;
 
     // useEffect(() => {
-    //     if (dragPosition === false) {
-    //         onMoveToClosest(endingDragPosition)
-    //     }
-    // }, [dragPosition])
+    //     if (count === 0) return;
+    //     const countReached = current > count - items;
+    //     if (countReached || current < 0 || current === position) return;
+    //     setPosition(current);
+    // }, [current]);
+
+    useEffect(() => {
+        if (endDragDistance > 0) {
+            setDragDistance(false)
+        }
+    }, [endDragDistance])
+
+    useEffect(() => {
+        if (dragDistance === false) {
+            onMoveToClosest(endDragDistance)
+        }
+    }, [dragDistance])
 
     const itemWidth = 100 / items;
-    const isOnStart = position === 0;
-    const isOnEnd = position === count - items;
-    const distance = position * itemWidth;
-    const childProps = {
-        isOnStart,
-        isOnEnd,
-        gutter,
-        itemWidth,
-        distance,
-        onMove,
-        getCount,
-        getItemDistance,
-        dragPosition: dragPosition * itemWidth
-    }
+
+    const isOnStart = distance < itemWidth;
+
+    const isOnEnd = false //= position === count - items;
+
+    const childProps = {isOnStart, isOnEnd, gutter, itemWidth, onMove, getCount, dragDistance, distance}
 
     function getCount(count: number): void {
         setCount(count)
     }
 
-    function getItemDistance(index: number): number {
-        return index * itemWidth;
-    }
-
     function onDrag(e) {
-        var xPercent = e.pageX / window.innerWidth;
+        var xPercent = (e.pageX / window.innerWidth) * 100;
+
         if (xPercent !== 0) {
-            const diff = (startingDragPosition - xPercent);
-            setDragPosition(diff*3)
+            const diff = (startDragDistance - xPercent);
+            setDragDistance(diff)
         }
     }
 
     function onDragExit(e) {
-        setEndingDragPosition(dragPosition)
+        setStartDragDistance(0)
+        setEndDragDistance(dragDistance)
     }
 
     function onDragStart(e) {
-        console.log(position + e.pageX / window.innerWidth)
-        setStartingDragPosition(position + e.pageX / window.innerWidth)
+        setEndDragDistance(0)
+        setStartDragDistance((e.pageX / window.innerWidth) * 100)
     }
 
     function onMoveToClosest(pos) {
-        setPosition(position+pos)
+        setDistance(pos)
         for (let i = 0; i < count; i++) {}
     }
 
     function onMove(direction?: CarouselDirections): void {
         if (direction === CarouselDirections.LEFT) {
-            setPosition(position - 1)
+            // setPosition(position - 1)
+            setDistance(distance - itemWidth)
         }
 
         if (direction === CarouselDirections.RIGHT) {
-            setPosition(position + 1)
+            // setPosition(position + 1)
+            setDistance(distance + itemWidth)
         }
     }
 
     return (
         <>
-            position: {position}
+            distance from left: {distance}%
             <br/>
-            distance: {distance}
+            item width: {itemWidth}%
             <br/>
-            dragPosition: {dragPosition}
+            dragDistance: {dragDistance}%
             <br/>
-            endingDragPosition: {endingDragPosition}
+            endDragDistance: {endDragDistance}%
             <br/>
-            startingDragPosition: {startingDragPosition}
+            startDragDistance: {startDragDistance}%
 
             <CarouselStyled className={className} onDrag={onDrag} onDragStart={onDragStart} onDragEnd={onDragExit}>
                 {Children.map(children, (child: ReactNode) => clone(child, childProps))}

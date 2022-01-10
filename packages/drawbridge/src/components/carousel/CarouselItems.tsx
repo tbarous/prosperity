@@ -11,11 +11,11 @@ interface CarouselItemsProps extends BasicComponentProps {
     getItemDistance?: (index: number) => number,
 
 
-    dragPosition: any
+    dragDistance: any
 }
 
 const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: CarouselItemsProps): ReactElement => {
-    const {children, className, gutter, itemWidth, distance, getCount, getItemDistance, dragPosition} = props;
+    const {children, className, gutter, itemWidth, distance, getCount, getItemDistance, dragDistance} = props;
 
     useEffect(() => {
         const slidesCount = Children.count(children);
@@ -23,15 +23,17 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
         if (getCount) getCount(slidesCount);
     }, []);
 
-    // console.log(dragPosition)
-
-    const style = dragPosition > 0 ? {transform: `translateX(-${dragPosition}%)`} : null
+    let style;
+    if (dragDistance) {
+        style = {transform: `translateX(-${distance + dragDistance}%)`}
+    }
 
     return (
-        <CarouselItemsStyled dragPosition={dragPosition} style={style} className={className} distance={distance}
+        <CarouselItemsStyled dragDistance={dragDistance} style={style} className={className}
+                             distance={distance}
                              gutter={gutter}>
             {Children.map(children, (child: ReactNode, index) => clone(child, {
-                itemX: getItemDistance && getItemDistance(index),
+                itemX: index * itemWidth,
                 gutter,
                 itemWidth
             }))}
