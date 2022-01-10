@@ -21,7 +21,7 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
     }, []);
 
     return (
-        <CarouselItemsStyled className={className} distance={distance} gutter={gutter}>
+        <CarouselItemsStyled style={{transform: `translateX(-${distance}%)`}} className={className} distance={distance} gutter={gutter}>
             {Children.map(children, (child: ReactNode, index) => clone(child, {
                 itemX: getItemDistance && getItemDistance(index),
                 gutter,

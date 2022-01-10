@@ -5,6 +5,7 @@ import {BasicComponentProps} from "@typings";
 import useViewportDimensions from "@hooks/useViewportDimensions";
 import {useTheme} from "styled-components";
 import useViewportWidthOnResize from "@hooks/useViewportWidthOnResize";
+import useDebounce from "@hooks/useDebounce";
 
 export enum CarouselDirections {
     LEFT = "left",
@@ -22,6 +23,8 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     const {children, className, items: _items, gutter = 0, current = 0, itemsLg} = props;
 
     const [position, setPosition] = useState(current);
+
+    const [startingDragPosition, setStartingDragPosition] = useState(false);
 
     const {width} = useViewportWidthOnResize();
 
@@ -57,8 +60,51 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
         getItemDistance
     }
 
+    function onDrag(e) {
+        var xPercent = e.pageX / window.innerWidth;
+
+        if (xPercent !== 0) {
+            const diff = (startingDragPosition - xPercent);
+
+            setPosition(diff)
+        }
+    }
+
+    function onDragExit(e) {
+        setStartingDragPosition(false)
+    }
+
+    function onDragStart(e) {
+        setStartingDragPosition(position + e.pageX / window.innerWidth)
+    }
+
     function onMove(direction: CarouselDirections): void {
-        setPosition(direction === CarouselDirections.LEFT ? position - 1 : position + 1);
+        let leftPosition;
+        let rightPosition;
+        let widthPercentage = 0.01 * itemWidth;
+
+        for (let i = 0; i < 10; i += widthPercentage) {
+            let distancePercentage = widthPercentage * i;
+            let itemPositionDifference = Math.abs(position - i);
+
+            if (itemPositionDifference > distancePercentage) {
+                leftPosition = i;
+                rightPosition = i + widthPercentage
+                break;
+            }
+        }
+
+        console.log(leftPosition, rightPosition)
+
+        if (direction === CarouselDirections.LEFT) {
+            setPosition(leftPosition)
+        }
+
+        if (direction === CarouselDirections.RIGHT) {
+            setPosition(rightPosition)
+        }
+
+        // setPosition(direction === CarouselDirections.LEFT ? position - 1 : position + 1);
     }
 
     function getCount(count: number): void {
@@ -70,9 +116,13 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     }
 
     return (
-        <CarouselStyled className={className}>
-            {Children.map(children, (child: ReactNode) => clone(child, childProps))}
-        </CarouselStyled>
+        <>
+            {position}
+            <CarouselStyled className={className} onDrag={onDrag} onDragStart={onDragStart} onDragEnd={onDragExit}>
+                {Children.map(children, (child: ReactNode) => clone(child, childProps))}
+            </CarouselStyled>
+        </>
+
     )
 }
 
