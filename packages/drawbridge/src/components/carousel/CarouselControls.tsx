@@ -4,11 +4,9 @@ import {CarouselDirections} from "@components/carousel/Carousel";
 import {BasicComponentProps} from "@typings";
 import {clone} from "@utils/ComponentUtils";
 
-type ChildType =
-    ReactNode
-    & { props: { onMove?: (direction: CarouselDirections) => void, direction?: CarouselDirections, } };
+type ChildType = ReactNode & { props: { moveLeft?: () => void, moveRight?: () => void, direction?: CarouselDirections } };
 
-type CloneReturn = ReactElement | undefined | boolean;
+type EnhancedChild = ReactElement | undefined | boolean;
 
 export interface CarouselControlsProps extends BasicComponentProps {
     onMove?: (direction: CarouselDirections) => void,
@@ -23,7 +21,7 @@ export interface CarouselControlsProps extends BasicComponentProps {
 const CarouselControls: React.FunctionComponent<CarouselControlsProps> = (props: CarouselControlsProps): ReactElement => {
     const {children, className, isOnStart, isOnEnd, moveLeft, moveRight} = props;
 
-    function enhancedChild(child: ChildType): CloneReturn {
+    function enhancedChild(child: ChildType): EnhancedChild {
         if (!child.props.direction) return;
 
         if (child.props.direction === CarouselDirections.LEFT && isOnStart) {

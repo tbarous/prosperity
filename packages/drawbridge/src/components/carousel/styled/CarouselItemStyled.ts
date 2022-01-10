@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import {px} from "@utils/ThemeUtils";
+import {percentage, px} from "@utils/ThemeUtils";
 import {StyledProps} from "@typings";
 
 export interface CarouselItemStyledProps extends StyledProps {
-    width?: number,
-    gutter?: number,
-    itemX?: number
+    width: number,
+    gutter: number,
+    distance: number
 }
 
 type T = CarouselItemStyledProps;
@@ -17,11 +17,11 @@ function getPadding(p: T) {
 }
 
 function getWidth(p: T) {
-    return `${p.width}%`;
+    return percentage(p.width);
 }
 
 function getLeft(p: T) {
-    return `${p.itemX}%`;
+    return percentage(p.distance);
 }
 
 const CarouselItemStyled = styled.div<T>`

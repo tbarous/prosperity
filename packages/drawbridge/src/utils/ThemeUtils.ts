@@ -4,6 +4,10 @@ function px(s: string | number) {
     return `${s}px`;
 }
 
+function percentage(s: number) {
+    return `${s}%`;
+}
+
 function animation(animation: any, ms: number) {
     return css`${animation} ${ms / 1000}s`;
 }
@@ -26,5 +30,6 @@ export {
     px,
     animation,
     transition,
-    transformY
+    transformY,
+    percentage
 }

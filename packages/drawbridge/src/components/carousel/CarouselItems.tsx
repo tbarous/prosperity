@@ -55,10 +55,6 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
         setStartDragDistance((e.pageX / window.innerWidth) * 100)
     }
 
-    function getItemX(index) {
-        return index * itemWidth
-    }
-
     return (
         <CarouselItemsStyled
             onDrag={onDrag}
@@ -70,7 +66,11 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
             distance={distance}
             gutter={gutter}
         >
-            {Children.map(children, (child: ReactNode, index) => clone(child, {itemX: getItemX(index), gutter, itemWidth}))}
+            {Children.map(children, (child: ReactNode, index) => clone(child, {
+                distance: index * itemWidth,
+                gutter,
+                width: itemWidth
+            }))}
         </CarouselItemsStyled>
     )
 }
