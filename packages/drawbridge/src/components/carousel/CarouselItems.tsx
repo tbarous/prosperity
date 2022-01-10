@@ -57,18 +57,13 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
         setStartDragDistance((e.pageX / window.innerWidth) * 100)
     }
 
-    let style;
-    if (dragDistance) {
-        style = {transform: `translateX(-${distance + dragDistance}%)`}
-    }
-
     return (
         <CarouselItemsStyled
             onDrag={onDrag}
             onDragStart={onDragStart}
             onDragEnd={onDragExit}
             dragDistance={dragDistance}
-            style={style}
+            style={{transform: `translateX(-${distance + dragDistance}%)`}}
             className={className}
             distance={distance}
             gutter={gutter}
