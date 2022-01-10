@@ -79,7 +79,7 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
 
     function onDragExit(e) {
         setStartDragDistance(0)
-        setEndDragDistance(dragDistance)
+        setEndDragDistance(distance+dragDistance)
     }
 
     function onDragStart(e) {
