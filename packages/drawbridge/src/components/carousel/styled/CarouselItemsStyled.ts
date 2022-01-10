@@ -22,12 +22,6 @@ function getTransition(p: T) {
     return transition({ms: p.theme.animation.carousel});
 }
 
-function getPadding(p: T) {
-    if (!p.gutter) return;
-
-    return px(p.gutter);
-}
-
 function getMargin(p: T) {
     if (!p.gutter) return;
 
@@ -37,17 +31,12 @@ function getMargin(p: T) {
 const CarouselItemsStyled = styled.div<T>`
   transform: ${getTransform};
   transition: ${getTransition};
-  // padding-left: ${getPadding};
-  // padding-right: ${getPadding};
   margin-left: ${getMargin};
   margin-right: ${getMargin};
-  width: ${(p: T) => p.theme.dimension.d100};
   height: ${(p: T) => p.theme.dimension.d100};
-  //box-sizing: ${(p: T) => p.theme.boxSizing.contentBox};
-  
-  cursor: grabbing;
-  
   display: ${(p: T) => p.theme.display.flex};
+  flex-wrap: wrap;
+  cursor: grabbing;
 `;
 
 export default CarouselItemsStyled;
