@@ -7,10 +7,24 @@ export interface CarouselControlsProps extends BasicComponentProps {
     onMove?: (direction: CarouselDirections) => void,
     isOnStart?: boolean,
     isOnEnd?: boolean,
+
+    updateDistance: (distance: any) => void,
+    distance: number,
+    itemWidth: number
 }
 
 const CarouselControls: React.FunctionComponent<CarouselControlsProps> = (props: CarouselControlsProps): ReactElement => {
-    const {children, className, onMove, isOnStart, isOnEnd} = props;
+    const {children, className, isOnStart, isOnEnd, updateDistance, distance, itemWidth} = props;
+
+    function onMove(direction?: CarouselDirections): void {
+        if (direction === CarouselDirections.LEFT) {
+            updateDistance(distance - itemWidth)
+        }
+
+        if (direction === CarouselDirections.RIGHT) {
+            updateDistance(distance + itemWidth)
+        }
+    }
 
     function getChild(child: ReactNode & { props: { onMove?: (direction: CarouselDirections) => void, direction?: CarouselDirections, } }): ReactElement | undefined | boolean {
         const direction = child.props.direction;
