@@ -87,14 +87,18 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
             let distancePercentage = widthPercentage * i;
             let itemPositionDifference = Math.abs(position - i);
 
-            if (itemPositionDifference > distancePercentage) {
+            if (itemPositionDifference - distancePercentage == widthPercentage) {
+                leftPosition = i;
+                rightPosition = i + 2*widthPercentage
+                break;
+            }
+
+            if (itemPositionDifference - distancePercentage < widthPercentage) {
                 leftPosition = i;
                 rightPosition = i + widthPercentage
                 break;
             }
         }
-
-        console.log(leftPosition, rightPosition)
 
         if (direction === CarouselDirections.LEFT) {
             setPosition(leftPosition)
