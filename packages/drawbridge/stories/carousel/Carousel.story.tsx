@@ -10,11 +10,11 @@ import styled, {useTheme} from "styled-components";
 const CarouselStyled = styled(Carousel)`height: 200px;`;
 
 
-const DefaultCarousel = (args: { itemsPerSlide?: number, gutter?: number }) => {
-    const {itemsPerSlide, gutter} = args;
+const DefaultCarousel = (args: { items?: number, gutter?: number }) => {
+    const {items, gutter} = args;
 
     return (
-        <CarouselStyled itemsPerSlide={itemsPerSlide} gutter={gutter}>
+        <CarouselStyled items={1} itemsLg={3} gutter={gutter}>
             <CarouselControls>
                 <CarouselControl direction={CarouselDirections.LEFT}/>
                 <CarouselControl direction={CarouselDirections.RIGHT}/>
@@ -30,7 +30,7 @@ const DefaultCarousel = (args: { itemsPerSlide?: number, gutter?: number }) => {
 }
 
 DefaultCarousel.args = {
-    itemsPerSlide: 3,
+    items: 3,
     gutter: 10
 };
 

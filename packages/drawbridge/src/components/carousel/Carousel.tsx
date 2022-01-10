@@ -2,6 +2,9 @@ import React, {ReactNode, Children, useState, useEffect, ReactElement, FunctionC
 import CarouselStyled from "@components/carousel/styled/CarouselStyled";
 import {clone} from "@utils/ComponentUtils";
 import {BasicComponentProps} from "@typings";
+import useViewportDimensions from "@hooks/useViewportDimensions";
+import {useTheme} from "styled-components";
+import useViewportWidthOnResize from "@hooks/useViewportWidthOnResize";
 
 export enum CarouselDirections {
     LEFT = "left",
@@ -9,33 +12,43 @@ export enum CarouselDirections {
 }
 
 export interface CarouselProps extends BasicComponentProps {
-    itemsPerSlide?: number,
+    items?: number,
+    itemsLg?: number,
     gutter?: number,
     current?: number
 }
 
 const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): ReactElement => {
-    const {children, className, itemsPerSlide = 2, gutter = 0, current = 0} = props;
+    const {children, className, items: _items, gutter = 0, current = 0, itemsLg} = props;
 
     const [position, setPosition] = useState(current);
+
+    const {width} = useViewportWidthOnResize();
+
+    const theme = useTheme();
+
+    let items = 2;
+
+    if (_items) items = _items;
+    if (itemsLg && width > theme.breakpoint.lg) items = itemsLg;
 
     const [count, setCount] = useState(0);
 
     useEffect(() => {
         if (count === 0) return;
 
-        const countReached = current > count - itemsPerSlide;
+        const countReached = current > count - items;
 
         if (countReached || current < 0 || current === position) return;
 
         setPosition(current);
     }, [current]);
 
-    const itemWidth = 100 / itemsPerSlide;
+    const itemWidth = 100 / items;
 
     const childProps = {
         isOnStart: position === 0,
-        isOnEnd: position === count - itemsPerSlide,
+        isOnEnd: position === count - items,
         gutter,
         itemWidth,
         distance: position * itemWidth,

@@ -13,7 +13,7 @@ const DefaultCard = (args: { rounded?: boolean }) => {
     return (
         <Wrapper>
             <Card rounded={rounded}>
-                <Image rounded-top={rounded} src="/img.jpg" alt="img"/>
+                <Image roundedTop={rounded} src="/img.jpg" alt="img"/>
 
                 <TextStyled>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aut beatae deserunt

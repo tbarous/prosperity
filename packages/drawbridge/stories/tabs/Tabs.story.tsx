@@ -46,7 +46,7 @@ const DefaultTabs = (args: TabsProps) => {
             </Tabs>
 
             <CardStyled>
-                <Carousel itemsPerSlide={1}>
+                <Carousel items={1}>
                     <CarouselItems>
                         {content.map((c: any, index: number) => (
                             <CarouselItem key={index}>
