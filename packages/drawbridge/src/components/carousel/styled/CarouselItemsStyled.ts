@@ -31,7 +31,7 @@ function getPadding(p: T) {
 function getMargin(p: T) {
     if (!p.gutter) return;
 
-    return `-${px(p.gutter)}`;
+    return `-${px(p.gutter/2)}`;
 }
 
 const CarouselItemsStyled = styled.div<T>`
@@ -43,7 +43,9 @@ const CarouselItemsStyled = styled.div<T>`
   margin-right: ${getMargin};
   width: ${(p: T) => p.theme.dimension.d100};
   height: ${(p: T) => p.theme.dimension.d100};
-  box-sizing: ${(p: T) => p.theme.boxSizing.contentBox};
+  //box-sizing: ${(p: T) => p.theme.boxSizing.contentBox};
+  
+  cursor: grabbing;
   
   display: ${(p: T) => p.theme.display.flex};
 `;

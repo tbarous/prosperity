@@ -28,7 +28,7 @@ const CarouselControls: React.FunctionComponent<CarouselControlsProps> = (props:
             return;
         }
 
-        if (child.props.direction === CarouselDirections.LEFT && isOnEnd) {
+        if (child.props.direction === CarouselDirections.RIGHT && isOnEnd) {
             return;
         }
 

@@ -20,7 +20,7 @@ const DefaultCarousel = (args: { items?: number, gutter?: number }) => {
             </CarouselControls>
 
             <CarouselItems>
-                {Array(10).fill(0).map((item, index) => (
+                {Array(4).fill(0).map((item, index) => (
                     <CarouselItem key={index}><Image src={`https://picsum.photos/id/${index}/700/500`} alt="img"/></CarouselItem>
                 ))}
             </CarouselItems>

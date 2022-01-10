@@ -66,11 +66,13 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
             distance={distance}
             gutter={gutter}
         >
-            {Children.map(children, (child: ReactNode, index) => clone(child, {
-                distance: index * itemWidth,
-                gutter,
-                width: itemWidth
-            }))}
+            {Children.map(children, (child: ReactNode, index) => {
+                return clone(child, {
+                    distance: index * itemWidth,
+                    gutter,
+                    width: itemWidth,
+                })
+            })}
         </CarouselItemsStyled>
     )
 }
