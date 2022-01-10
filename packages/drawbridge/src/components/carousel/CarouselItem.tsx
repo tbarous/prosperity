@@ -3,9 +3,9 @@ import CarouselItemStyled from "@components/carousel/styled/CarouselItemStyled";
 import {BasicComponentProps} from "@typings";
 
 export interface CarouselItemProps extends BasicComponentProps {
-    width: number,
-    distance: number,
-    gutter: number
+    width?: number,
+    distance?: number,
+    gutter?: number
 }
 
 const CarouselItem: React.FunctionComponent<CarouselItemProps> = (props: CarouselItemProps): ReactElement => {

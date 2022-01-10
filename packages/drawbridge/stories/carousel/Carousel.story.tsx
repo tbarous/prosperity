@@ -7,7 +7,7 @@ import CarouselControl from "@components/carousel/CarouselControl";
 import CarouselItems from "@components/carousel/CarouselItems";
 import styled, {useTheme} from "styled-components";
 
-const CarouselStyled = styled(Carousel)`height: 200px;`;
+const CarouselStyled = styled(Carousel)`height: 400px;`;
 
 const DefaultCarousel = (args: { items?: number, gutter?: number }) => {
     const {items, gutter} = args;
@@ -30,7 +30,7 @@ const DefaultCarousel = (args: { items?: number, gutter?: number }) => {
 
 DefaultCarousel.args = {
     items: 3,
-    gutter: 10
+    gutter: 30
 };
 
 export default DefaultCarousel;

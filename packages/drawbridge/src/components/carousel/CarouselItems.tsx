@@ -8,7 +8,7 @@ interface CarouselItemsProps extends BasicComponentProps {
     itemWidth?: number,
     distance?: number,
     getCount?: (count: number) => void,
-    updateDistance: any
+    updateDistance?: (distance: number) => void
 }
 
 const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: CarouselItemsProps): ReactElement => {

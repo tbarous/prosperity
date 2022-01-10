@@ -37,13 +37,15 @@ function getMargin(p: T) {
 const CarouselItemsStyled = styled.div<T>`
   transform: ${getTransform};
   transition: ${getTransition};
-  padding-left: ${getPadding};
-  padding-right: ${getPadding};
+  // padding-left: ${getPadding};
+  // padding-right: ${getPadding};
   margin-left: ${getMargin};
   margin-right: ${getMargin};
   width: ${(p: T) => p.theme.dimension.d100};
   height: ${(p: T) => p.theme.dimension.d100};
   box-sizing: ${(p: T) => p.theme.boxSizing.contentBox};
+  
+  display: ${(p: T) => p.theme.display.flex};
 `;
 
 export default CarouselItemsStyled;

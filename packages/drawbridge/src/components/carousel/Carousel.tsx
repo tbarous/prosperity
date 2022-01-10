@@ -55,8 +55,8 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
         setCount(count)
     }
 
-    function updateDistance(d?: number) {
-        setDistance(d)
+    function updateDistance(distance: number) {
+        setDistance(distance);
     }
 
     return (
