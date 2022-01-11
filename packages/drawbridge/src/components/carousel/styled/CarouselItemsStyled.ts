@@ -36,7 +36,7 @@ const CarouselItemsStyled = styled.div<T>`
   height: ${(p: T) => p.theme.dimension.d100};
   display: ${(p: T) => p.theme.display.flex};
   flex-wrap: wrap;
-  cursor: grabbing;
+  //cursor: grabbing;
 `;
 
 export default CarouselItemsStyled;

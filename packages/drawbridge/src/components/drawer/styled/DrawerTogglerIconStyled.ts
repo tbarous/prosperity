@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Icon from "@components/icon/Icon";
 import {StyledProps} from "@typings";
 import {DrawerUIProps} from "@components/drawer/Drawer";
+import {px} from "@utils/ThemeUtils";
 
 interface DrawerTogglerIconProps extends StyledProps, DrawerUIProps {}
 
@@ -19,8 +20,8 @@ function getColor(p: T) {
 
 const DrawerTogglerIconStyled = styled(Icon)<T>`
   color: ${getColor};
-  width: ${(p: T) => p.theme.dimension.drawer.toggler.icon};
-  height: ${(p: T) => p.theme.dimension.drawer.toggler.icon};
+  width: ${(p: T) => px(p.theme.dimension.drawer.toggler.icon)};
+  height: ${(p: T) => px(p.theme.dimension.drawer.toggler.icon)};
 `;
 
 export default DrawerTogglerIconStyled;
