@@ -12,7 +12,7 @@ interface CarouselItemsProps extends BasicComponentProps {
 }
 
 const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: CarouselItemsProps): ReactElement => {
-    const {children, className, gutter, itemWidth, distance, getCount, updateDistance, items} = props;
+    const {children, className, gutter, itemWidth, distance, getCount, updateDistance, items, moveLeft, moveRight, moveClosest} = props;
 
     const [dragDistance, setDragDistance] = useState(undefined);
     const [endDragDistance, setEndDragDistance] = useState(0);
@@ -32,7 +32,8 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
 
     useEffect(() => {
         if (dragDistance === false) {
-            updateDistance(endDragDistance)
+            // updateDistance(endDragDistance)
+            moveClosest(endDragDistance)
         }
     }, [dragDistance])
 
