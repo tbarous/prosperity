@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Drawer, {DrawerVariations} from "@components/drawer/Drawer";
 import DrawerLink from "@components/drawer/DrawerLink";
 import Divider from "@components/divider/Divider";
+import {Home, File} from "@icons";
 
 const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, transparent: boolean }) => {
     const {variation, transparent, fixed} = args;
@@ -10,21 +11,24 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
 
     const [display, setDisplay] = useState<boolean>(true);
 
-    const UIProps = {light: variation === DrawerVariations.LIGHT, dark: variation === DrawerVariations.DARK};
+    const UIProps = {
+        light: variation === DrawerVariations.LIGHT,
+        dark: variation === DrawerVariations.DARK
+    };
 
     return (
         <Drawer
             overlay
             small={small}
-            toggler
+            // toggler
             display={display}
             onStartDisplay={() => setDisplay(true)}
             onStopDisplay={() => setDisplay(false)}
             {...UIProps}
         >
-            <DrawerLink {...UIProps}>Home</DrawerLink>
             <Divider/>
-            <DrawerLink {...UIProps}>About</DrawerLink>
+            <DrawerLink {...UIProps} icon={Home} onClick={() => {}} text="Home" />
+            <DrawerLink {...UIProps} icon={File} onClick={() => {}} text="Files" />
             <DrawerLink {...UIProps}>Projects</DrawerLink>
         </Drawer>
     );

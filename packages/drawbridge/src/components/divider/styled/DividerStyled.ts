@@ -14,7 +14,7 @@ function getHeight(p: T) {
         return p.theme.dimension.d100;
     }
 
-    return px(p.theme.spacing.s1);
+    return "1px";
 }
 
 function getWidth(p: T) {
