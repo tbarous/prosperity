@@ -44,8 +44,8 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
 
     useEffect(() => {
         if (dragDistance === false) {
-            updateDistance(endDragDistance)
-            // moveClosest(endDragDistance)
+            // updateDistance(endDragDistance)
+            moveClosest(endDragDistance)
         }
     }, [dragDistance])
 

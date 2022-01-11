@@ -58,9 +58,6 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     function moveClosest(distance) {
         for (let i = 0; i < count; i++) {
             if (distance - i * itemWidth <= itemWidth) {
-                console.log((i + 1) * itemWidth - distance)
-                console.log(distance - i * itemWidth)
-
                 if ((i + 1) * itemWidth - distance < distance - i * itemWidth) {
                     updateDistance((i + 1) * itemWidth)
 
