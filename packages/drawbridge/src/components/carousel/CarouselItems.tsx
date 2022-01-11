@@ -12,7 +12,7 @@ interface CarouselItemsProps extends BasicComponentProps {
 }
 
 const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: CarouselItemsProps): ReactElement => {
-    const {children, className, gutter, itemWidth, distance, getCount, updateDistance} = props;
+    const {children, className, gutter, itemWidth, distance, getCount, updateDistance, items} = props;
 
     const [dragDistance, setDragDistance] = useState(undefined);
     const [endDragDistance, setEndDragDistance] = useState(0);
@@ -39,7 +39,12 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
     function onDrag(e) {
         var xPercent = (e.pageX / window.innerWidth) * 100;
 
-        if (xPercent !== 0) {
+        const reachedEnd = startDragDistance > xPercent && dragDistance + distance > itemWidth * Children.count(children) - items * itemWidth;
+        const reachedStart = startDragDistance < xPercent && distance + dragDistance < 0;
+
+        if (reachedStart) updateDistance(0);
+
+        if (xPercent > 0 && !reachedEnd && !reachedStart) {
             const diff = (startDragDistance - xPercent);
             setDragDistance(diff)
         }
@@ -56,24 +61,31 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
     }
 
     return (
-        <CarouselItemsStyled
-            onDrag={onDrag}
-            onDragStart={onDragStart}
-            onDragEnd={onDragExit}
-            dragDistance={dragDistance}
-            style={{transform: `translateX(-${distance + dragDistance}%)`}}
-            className={className}
-            distance={distance}
-            gutter={gutter}
-        >
-            {Children.map(children, (child: ReactNode, index) => {
-                return clone(child, {
-                    distance: index * itemWidth,
-                    gutter,
-                    width: itemWidth,
-                })
-            })}
-        </CarouselItemsStyled>
+        <>
+            dragDistance: {dragDistance}
+            <br/>
+            sum: {dragDistance + distance}
+            totalwidth: {itemWidth * Children.count(children)}
+            <CarouselItemsStyled
+                onDrag={onDrag}
+                onDragStart={onDragStart}
+                onDragEnd={onDragExit}
+                dragDistance={dragDistance}
+                style={{transform: `translateX(-${distance + dragDistance}%)`}}
+                className={className}
+                distance={distance}
+                gutter={gutter}
+            >
+                {Children.map(children, (child: ReactNode, index) => {
+                    return clone(child, {
+                        distance: index * itemWidth,
+                        gutter,
+                        width: itemWidth,
+                    })
+                })}
+            </CarouselItemsStyled>
+        </>
+
     )
 }
 

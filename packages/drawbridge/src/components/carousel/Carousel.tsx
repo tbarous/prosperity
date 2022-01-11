@@ -41,7 +41,7 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     const itemWidth = 100 / items;
     const isOnStart = distance < itemWidth;
     const isOnEnd = count * itemWidth - distance <= 100;
-    const childProps = {isOnStart, isOnEnd, gutter, itemWidth, getCount, distance, updateDistance, moveLeft, moveRight}
+    const childProps = {isOnStart, isOnEnd, gutter, itemWidth, getCount, distance, updateDistance, moveLeft, moveRight, items}
 
     function moveLeft(): void {
         for (let i = 0; i < count; i++) {
