@@ -58,10 +58,10 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     function moveClosest(distance) {
         for (let i = 0; i < count; i++) {
             if (distance - i * itemWidth <= itemWidth) {
-                console.log((i + 1) * itemWidth - distance )
+                console.log((i + 1) * itemWidth - distance)
                 console.log(distance - i * itemWidth)
 
-                if ((i + 1) * itemWidth - distance <  distance - i * itemWidth) {
+                if ((i + 1) * itemWidth - distance < distance - i * itemWidth) {
                     updateDistance((i + 1) * itemWidth)
 
                     break;
@@ -75,7 +75,7 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     }
 
     function moveLeft(): void {
-        for (let i = 0; i < count; i++) {
+        for (let i = 0; i <= count; i++) {
             if (distance - i * itemWidth <= itemWidth) {
                 updateDistance(i * itemWidth);
                 break;
@@ -84,8 +84,8 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     }
 
     function moveRight(): void {
-        for (let i = 0; i < count; i++) {
-            if (distance - i * itemWidth <= itemWidth) {
+        for (let i = 0; i <= count; i++) {
+            if (distance - i * itemWidth < itemWidth) {
                 updateDistance((i + 1) * (itemWidth));
                 break;
             }
@@ -101,13 +101,9 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     }
 
     return (
-        <>
-            distance: {distance}
-            <CarouselStyled className={className}>
-                {Children.map(children, (child: ReactNode) => clone(child, childProps))}
-            </CarouselStyled>
-        </>
-
+        <CarouselStyled className={className}>
+            {Children.map(children, (child: ReactNode) => clone(child, childProps))}
+        </CarouselStyled>
     )
 }
 
