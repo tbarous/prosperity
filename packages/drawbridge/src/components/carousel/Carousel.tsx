@@ -40,15 +40,25 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
 
     const itemWidth = 100 / items;
     const isOnStart = distance < itemWidth;
-    const isOnEnd = count*itemWidth-distance <= 100;
+    const isOnEnd = count * itemWidth - distance <= 100;
     const childProps = {isOnStart, isOnEnd, gutter, itemWidth, getCount, distance, updateDistance, moveLeft, moveRight}
 
     function moveLeft(): void {
-        updateDistance(distance - itemWidth);
+        for (let i = 0; i < count; i++) {
+            if (distance - i * itemWidth <= itemWidth) {
+                updateDistance(i * itemWidth);
+                break;
+            }
+        }
     }
 
-    function moveRight(direction?: CarouselDirections): void {
-        updateDistance(distance + itemWidth)
+    function moveRight(): void {
+        for (let i = 0; i < count; i++) {
+            if (distance - i * itemWidth <= itemWidth) {
+                updateDistance((i + 1) * (itemWidth));
+                break;
+            }
+        }
     }
 
     function getCount(count: number): void {
@@ -60,9 +70,13 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     }
 
     return (
-        <CarouselStyled className={className}>
-            {Children.map(children, (child: ReactNode) => clone(child, childProps))}
-        </CarouselStyled>
+        <>
+            distance: {distance}
+            <CarouselStyled className={className}>
+                {Children.map(children, (child: ReactNode) => clone(child, childProps))}
+            </CarouselStyled>
+        </>
+
     )
 }
 
