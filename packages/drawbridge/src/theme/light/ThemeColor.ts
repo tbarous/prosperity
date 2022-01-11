@@ -6,7 +6,7 @@ const ThemeColor: ThemeColorInterface = {
     ternary: "fff",
     surface: "#fff",
     dark: "#424242",
-    light: "#8c8c8c",
+    light: "#cccccc",
     warning: "yellow",
     success: "green",
     danger: "red",

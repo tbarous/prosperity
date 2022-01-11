@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {TextUIProps} from "@components/text/Text";
+import {lighten, mute} from "@utils/ColorUtils";
 
 interface TextStyledProps extends StyledProps, TextUIProps {}
 
@@ -36,7 +37,7 @@ function getFontSize(p: T) {
 
 function getColor(p: T) {
     if (p.muted) {
-        return p.theme.color.light;
+        return mute(p.theme.color.dark)
     }
 
     if (p.dark) {

@@ -11,6 +11,10 @@ type T = DrawerLinkTextStyledProps;
 
 const DrawerLinkTextStyled = styled(Text)`
   margin-left: 2rem;
+
+  //position: absolute;
+  //left: 3rem;
+  //top: 15px;
 `;
 
 export default DrawerLinkTextStyled;

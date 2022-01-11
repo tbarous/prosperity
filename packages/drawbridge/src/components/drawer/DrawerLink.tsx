@@ -26,7 +26,7 @@ const DrawerLink: FunctionComponent<DrawerLinkProps> = (props: DrawerLinkProps):
 
             {href && <Link href={href}>{text}</Link>}
 
-            {onClick && <DrawerLinkTextStyled onClick={onClick}>{text}</DrawerLinkTextStyled>}
+            {onClick && <DrawerLinkTextStyled bold onClick={onClick}>{text}</DrawerLinkTextStyled>}
 
             {children}
         </DrawerLinkStyled>

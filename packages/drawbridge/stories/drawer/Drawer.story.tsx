@@ -23,16 +23,19 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
         <Drawer
             overlay
             small={small}
-            // toggler
+            toggler
             display={display}
             onStartDisplay={() => setDisplay(true)}
             onStopDisplay={() => setDisplay(false)}
             {...UIProps}
         >
-            <div style={{height: "20px", width: "100%", background: "lightgray"}}/>
+            <div style={{height: "24px", width: "100%", background: "lightgray"}}/>
 
             <div style={{padding: "1rem"}}>
                 <Image src="/img/avatar.jpeg" circle width={50} height={50}/>
+
+                <br/>
+
                 <Text bold lg>Sandra Adams</Text>
                 <Text light sm muted>sandra_**@gmail.com</Text>
             </div>
@@ -41,8 +44,8 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
             <DrawerLink {...UIProps} icon={Home} onClick={() => {}} text="Home"/>
             <DrawerLink {...UIProps} icon={File} onClick={() => {}} text="Files"/>
             <DrawerLink {...UIProps} icon={Upload} onClick={() => {}} text="Upload"/>
-            <DrawerLink {...UIProps} icon={Star} onClick={() => {}} text="Starred"/>
             <DrawerLink {...UIProps} icon={Download} onClick={() => {}} text="Download"/>
+            <DrawerLink {...UIProps} icon={Star} onClick={() => {}} text="Starred"/>
         </Drawer>
     );
 }

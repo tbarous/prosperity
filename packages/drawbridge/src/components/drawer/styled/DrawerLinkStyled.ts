@@ -37,6 +37,7 @@ function getBackgroundColor(p: T) {
 }
 
 const DrawerLinkStyled = styled.div<T>`
+  position: relative;
   color: ${getColor};
   padding: .75rem .5rem;
   margin: 0 .5rem;
