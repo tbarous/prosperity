@@ -7,15 +7,6 @@ import Image from "@components/image/Image";
 import Text from "@components/text/Text";
 import styled from "styled-components";
 
-const Name = styled(Text)`
-  font-size: 16px;
-  font-weight: bold;
-`;
-
-const Email = styled(Text)`
-  font-size: 12px;
-`;
-
 const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, transparent: boolean }) => {
     const {variation, transparent, fixed} = args;
 
@@ -42,10 +33,8 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
 
             <div style={{padding: "1rem"}}>
                 <Image src="/img/avatar.jpeg" circle width={50} height={50}/>
-
                 <Text bold lg>Sandra Adams</Text>
-
-                <Email light sm>sandra_**@gmail.com</Email>
+                <Text light sm muted>sandra_**@gmail.com</Text>
             </div>
 
             <Divider/>

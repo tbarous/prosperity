@@ -10,19 +10,21 @@ interface DrawerStyledProps extends StyledProps, DrawerUIProps {
 type T = DrawerStyledProps;
 
 function getWidth(p: T) {
-    if (p.small === undefined) {
-        if (p.transition) {
-            return px(p.theme.dimension.drawer.width);
-        } else {
-            return 0;
-        }
-    }
+    // if (p.small === undefined) {
+    //     if (p.transition) {
+    //         return px(p.theme.dimension.drawer.width);
+    //     } else {
+    //         return 0;
+    //     }
+    // }
+    //
+    // if (p.small) {
+    //     return px(p.theme.dimension.drawer.small);
+    // } else {
+    //     return px(p.theme.dimension.drawer.width);
+    // }
 
-    if (p.small) {
-        return px(p.theme.dimension.drawer.small);
-    } else {
-        return px(p.theme.dimension.drawer.width);
-    }
+    return px(p.theme.dimension.drawer.width);
 }
 
 function getBackgroundColor(p: T) {
@@ -53,6 +55,10 @@ function getTransition(p: T) {
     return transition({property: "all", ms: p.theme.animation.drawer});
 }
 
+function getTranslateX(p: T){
+    return p.transition ? 0 : `translateX(-${px(p.theme.dimension.drawer.width)})`
+}
+
 const DrawerStyled = styled.div<T>`
   width: ${getWidth};
   max-width: ${getWidth};
@@ -64,6 +70,8 @@ const DrawerStyled = styled.div<T>`
   box-shadow: ${(p: T) => p.theme.shadow.strong};
   overflow: ${(p: T) => p.theme.overflow.hidden};
   z-index: ${(p: T) => p.theme.zIndex.drawer};
+  
+  transform: ${getTranslateX};
 `;
 
 export default DrawerStyled;

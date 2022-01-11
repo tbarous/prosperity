@@ -34,10 +34,18 @@ function getFontSize(p: T) {
     return p.theme.fontSize.md;
 }
 
+function getColor(p: T) {
+    if (p.muted) {
+        return p.theme.color.light;
+    }
+
+    return p.theme.color.dark;
+}
+
 const TextStyled = styled.div<T>`
   font-weight: ${getFontWeight};
   font-size: ${getFontSize};
-  color: ${(p: T) => p.theme.color.dark};
+  color: ${getColor};
   font-family: ${(p: T) => p.theme.fontFamily.primary};
 `;
 
