@@ -43,9 +43,9 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
             <div style={{padding: "1rem"}}>
                 <Image src="/img/avatar.jpeg" circle width={50} height={50}/>
 
-                <Name>Sandra Adams</Name>
+                <Text bold lg>Sandra Adams</Text>
 
-                <Email>sandra_**@gmail.com</Email>
+                <Email light sm>sandra_**@gmail.com</Email>
             </div>
 
             <Divider/>
