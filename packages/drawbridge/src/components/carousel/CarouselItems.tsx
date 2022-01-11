@@ -52,10 +52,17 @@ const CarouselItems: React.FunctionComponent<CarouselItemsProps> = (props: Carou
     function onDrag(e) {
         var xPercent = (e.pageX / window.innerWidth) * 100;
 
-        const reachedEnd = startDragDistance > xPercent && dragDistance + distance > itemWidth * Children.count(children) - items * itemWidth;
-        const reachedStart = startDragDistance < xPercent && distance + dragDistance < 0;
+        const goingRight = startDragDistance > xPercent;
+        const goingLeft = startDragDistance < xPercent;
+
+        const lastBatch = (itemWidth * Children.count(children) - items * itemWidth) - gutter / 100;
+        const target = dragDistance + distance
+
+        const reachedEnd = goingRight && target > lastBatch;
+        const reachedStart = goingLeft && target < 0;
 
         if (reachedStart) updateDistance(0);
+        // if (reachedEnd) updateDistance(lastBatch)
 
         if (xPercent > 0 && !reachedEnd && !reachedStart) {
             const diff = (startDragDistance - xPercent);
