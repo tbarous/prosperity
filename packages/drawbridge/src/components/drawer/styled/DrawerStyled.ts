@@ -10,20 +10,6 @@ interface DrawerStyledProps extends StyledProps, DrawerUIProps {
 type T = DrawerStyledProps;
 
 function getWidth(p: T) {
-    // if (p.small === undefined) {
-    //     if (p.transition) {
-    //         return px(p.theme.dimension.drawer.width);
-    //     } else {
-    //         return 0;
-    //     }
-    // }
-    //
-    // if (p.small) {
-    //     return px(p.theme.dimension.drawer.small);
-    // } else {
-    //     return px(p.theme.dimension.drawer.width);
-    // }
-
     return px(p.theme.dimension.drawer.width);
 }
 
@@ -65,13 +51,12 @@ const DrawerStyled = styled.div<T>`
   position: ${getPosition};
   background-color: ${getBackgroundColor};
   transition: ${getTransition};
+  transform: ${getTranslateX};
   display: ${(p: T) => p.theme.display.flex};
   height: ${(p: T) => p.theme.dimension.d100};
   box-shadow: ${(p: T) => p.theme.shadow.strong};
   overflow: ${(p: T) => p.theme.overflow.hidden};
   z-index: ${(p: T) => p.theme.zIndex.drawer};
-  
-  transform: ${getTranslateX};
 `;
 
 export default DrawerStyled;

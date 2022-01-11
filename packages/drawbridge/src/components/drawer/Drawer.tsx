@@ -5,11 +5,11 @@ import {useTheme} from "styled-components";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
 import useTransition, {useTransitionProps} from "@hooks/useTransition";
 import {ArrowLeft, ArrowRight} from "@icons";
-import DrawerTogglerIconStyled from "./styled/DrawerTogglerIconStyled";
-import DrawerTogglerStyled from "./styled/DrawerTogglerStyled";
-import DrawerPageOverlayStyled from "./styled/DrawerPageOverlayStyled";
-import DrawerOverlayStyled from "./styled/DrawerOverlayStyled";
-import DrawerContentStyled from "./styled/DrawerContentStyled";
+import DrawerContentStyled from "./styled/content/DrawerContentStyled";
+import DrawerPageOverlayStyled from "./styled/overlay/DrawerPageOverlayStyled";
+import DrawerOverlayStyled from "./styled/overlay/DrawerOverlayStyled";
+import DrawerTogglerStyled from "./styled/toggler/DrawerTogglerStyled";
+import DrawerTogglerIconStyled from "./styled/toggler/DrawerTogglerIconStyled";
 
 export enum DrawerVariations {
     LIGHT = "light",
@@ -38,11 +38,11 @@ const Drawer: FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElemen
         dark,
         transparent,
         display,
-        onStartDisplay,
-        onStopDisplay,
         small,
         toggler,
-        overlay
+        overlay,
+        onStartDisplay,
+        onStopDisplay,
     } = props;
 
     const UIProps = {fixed, light, dark, transparent};
@@ -53,7 +53,8 @@ const Drawer: FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElemen
 
     return (
         <>
-            {display && (<>
+            {display && (
+                <>
                     <DrawerStyled className={className} transition={transition} {...UIProps}>
                         <DrawerContentStyled>
                             {Children.map(children, child => clone(child, {light, dark}))}

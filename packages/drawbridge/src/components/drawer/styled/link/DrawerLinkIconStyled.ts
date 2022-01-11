@@ -21,7 +21,6 @@ function getHoveredColor(p: T) {
 const DrawerLinkIconStyled = styled(Icon)`
   width: ${(p: T) => px(p.theme.spacing.s6)};
   height: ${(p: T) => px(p.theme.spacing.s6)};
-  //color: ${getHoveredColor};
 `;
 
 export default DrawerLinkIconStyled;

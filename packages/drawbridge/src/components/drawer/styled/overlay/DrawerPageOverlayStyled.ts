@@ -26,7 +26,7 @@ const DrawerPageOverlayStyled = styled.div<T>`
   top: 0;
   left: 0;
   position: absolute;
-  background: ${(p: T) => lighten(p.theme.color.dark    , 0.2)};
+  background: ${(p: T) => lighten(p.theme.color.dark, 0.8)};
   z-index: 1;
   transition: ${getTransition};
   opacity: ${getOpacity};
