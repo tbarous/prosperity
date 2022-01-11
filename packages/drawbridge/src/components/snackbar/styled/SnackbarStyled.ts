@@ -11,11 +11,11 @@ type T = SnackbarStyledProps;
 
 function getColor(p: T) {
     if (p.danger) {
-        return p.theme.color.white;
+        return p.theme.color.surface;
     }
 
     if (p.success) {
-        return p.theme.color.white;
+        return p.theme.color.surface;
     }
 
     if (p.warning) {

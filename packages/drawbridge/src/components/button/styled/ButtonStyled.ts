@@ -21,14 +21,14 @@ function getBackgroundColor(p: T) {
 
 function getColor(p: T) {
     if (p.primary) {
-        return p.theme.color.white;
+        return p.theme.color.surface;
     }
 
     if (p.secondary) {
         return p.theme.color.dark;
     }
 
-    return p.theme.color.white;
+    return p.theme.color.surface;
 }
 
 function getPadding(p: T) {

@@ -1,7 +1,8 @@
 interface ThemeColorInterface {
     primary: string
     secondary: string,
-    white: string,
+    ternary: string,
+    surface: string,
     dark: string,
     warning: string,
     success: string,

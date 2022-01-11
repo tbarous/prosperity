@@ -19,14 +19,13 @@ function getTransition(p: T) {
     return transition({ms: p.theme.animation.drawer, property: "opacity"})
 }
 
-
 const DrawerPageOverlayStyled = styled.div<T>`
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
   position: absolute;
-  background: rgba(0, 0, 0, 0.6);
+  background: ${(p: T) => p.theme.color.light};
   z-index: 1;
   transition: ${getTransition};
   opacity: ${getOpacity};

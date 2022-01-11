@@ -55,7 +55,9 @@ const Drawer: FunctionComponent<DrawerProps> = (props: DrawerProps): ReactElemen
         <>
             {display && (<>
                     <DrawerStyled className={className} transition={transition} {...UIProps}>
-                        <DrawerContentStyled>{Children.map(children, child => clone(child, {light, dark}))}</DrawerContentStyled>
+                        <DrawerContentStyled>
+                            {Children.map(children, child => clone(child, {light, dark}))}
+                        </DrawerContentStyled>
 
                         {transparent && <DrawerOverlayStyled {...UIProps} />}
                     </DrawerStyled>

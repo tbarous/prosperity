@@ -7,10 +7,18 @@ interface ImageStyledProps extends StyledProps, ImageUIProps {}
 type T = ImageStyledProps;
 
 function getBorderRadiusTop(p: T) {
+    if(p.circle){
+        return p.theme.borderRadius.circle;
+    }
+
     return p.roundedTop || p.rounded ? p.theme.borderRadius.medium : p.theme.borderRadius.none;
 }
 
 function getBorderRadiusBottom(p: T) {
+    if(p.circle){
+        return p.theme.borderRadius.circle;
+    }
+
     return p.roundedBottom || p.rounded ? p.theme.borderRadius.medium : p.theme.borderRadius.none;
 }
 

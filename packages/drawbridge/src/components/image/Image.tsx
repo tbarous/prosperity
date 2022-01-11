@@ -6,20 +6,21 @@ import ImageWrapperStyled from "./styled/ImageWrapperStyled";
 export interface ImageUIProps {
     rounded?: boolean,
     roundedTop?: boolean,
-    roundedBottom?: boolean
+    roundedBottom?: boolean,
+    circle?: boolean
 }
 
 export interface ImageProps extends BasicComponentProps, ImageUIProps {
     width?: number,
     height?: number,
     src: string,
-    alt: string,
+    alt: string
 }
 
 const Image: FunctionComponent<ImageProps> = (props: ImageProps): ReactElement => {
-    const {src, alt, width, height, rounded, roundedTop, roundedBottom} = props;
+    const {src, alt, width, height, rounded, roundedTop, roundedBottom, circle} = props;
 
-    const UIProps = {rounded, roundedTop: roundedTop, roundedBottom}
+    const UIProps = {rounded, roundedTop: roundedTop, roundedBottom, circle}
 
     return (
         <ImageWrapperStyled width={width} height={height}>

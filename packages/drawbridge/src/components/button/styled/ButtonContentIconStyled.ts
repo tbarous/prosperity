@@ -13,7 +13,7 @@ type T = ButtonContentIconProps;
 
 function getColor(p: T) {
     if (p.primary) {
-        return p.theme.color.white;
+        return p.theme.color.surface;
     }
 
     if (p.secondary) {

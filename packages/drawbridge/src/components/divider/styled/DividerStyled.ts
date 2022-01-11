@@ -26,7 +26,7 @@ function getWidth(p: T) {
 }
 
 function getMargin(p: T) {
-    let spacing = p.spacing || 16;
+    let spacing = p.spacing || 8;
 
     if (p.vertical) {
         return `${px(p.theme.spacing.s0)} ${px(spacing)}`;

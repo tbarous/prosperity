@@ -17,7 +17,7 @@ function getColor(p: T) {
         return p.theme.color.light;
     }
 
-    return p.theme.color.white;
+    return p.theme.color.surface;
 }
 
 const DrawerTogglerIconStyled = styled(Icon)<T>`

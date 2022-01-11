@@ -29,7 +29,7 @@ function getLeft(p: T) {
 
 function getBackgroundColor(p: T) {
     if (p.light) {
-        return p.theme.color.white;
+        return p.theme.color.surface;
     }
 
     if (p.dark) {

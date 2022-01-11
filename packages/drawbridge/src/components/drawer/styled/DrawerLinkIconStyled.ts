@@ -10,7 +10,7 @@ type T = DrawerLinkIconStyledProps;
 
 function getHoveredColor(p: T) {
     if (p.dark) {
-        return p.theme.color.white;
+        return p.theme.color.surface;
     }
 
     if (p.light) {

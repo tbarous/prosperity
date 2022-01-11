@@ -13,7 +13,7 @@ function getHeight(p: T) {
 }
 
 function getBackgroundColor(p: T) {
-    return p.transparent ? p.theme.color.transparent : p.theme.color.white;
+    return p.transparent ? p.theme.color.transparent : p.theme.color.surface;
 }
 
 function getBoxShadow(p: T) {
