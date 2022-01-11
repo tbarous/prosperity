@@ -13,7 +13,15 @@ const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, tran
     const UIProps = {light: variation === DrawerVariations.LIGHT, dark: variation === DrawerVariations.DARK};
 
     return (
-        <Drawer small={small} toggler display={display} onStartDisplay={() => setDisplay(true)} onStopDisplay={() => setDisplay(false)} {...UIProps}>
+        <Drawer
+            overlay
+            small={small}
+            toggler
+            display={display}
+            onStartDisplay={() => setDisplay(true)}
+            onStopDisplay={() => setDisplay(false)}
+            {...UIProps}
+        >
             <DrawerLink {...UIProps}>Home</DrawerLink>
             <Divider/>
             <DrawerLink {...UIProps}>About</DrawerLink>

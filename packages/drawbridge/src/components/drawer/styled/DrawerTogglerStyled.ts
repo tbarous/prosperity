@@ -35,6 +35,8 @@ function getBackgroundColor(p: T) {
     if (p.dark) {
         return p.theme.color.dark;
     }
+
+    return p.theme.color.dark;
 }
 
 function getTransition(p: T) {
