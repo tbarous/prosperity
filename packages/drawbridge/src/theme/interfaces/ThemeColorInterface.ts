@@ -7,8 +7,10 @@ interface ThemeColorInterface {
     warning: string,
     success: string,
     danger: string,
-    light: string,
     transparent: string
+
+    // Light Grey Color
+    light: string,
 }
 
 export default ThemeColorInterface;

@@ -15,7 +15,7 @@ const ThemeDimension: ThemeDimensionInterface = {
     d100: "100%",
     auto: "auto",
     drawer: {
-        width: 260,
+        width: 300,
         small: 60,
         toggler: {
             width: 50,

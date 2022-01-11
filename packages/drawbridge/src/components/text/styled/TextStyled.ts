@@ -39,7 +39,9 @@ function getColor(p: T) {
         return p.theme.color.light;
     }
 
-    return p.theme.color.dark;
+    if (p.dark) {
+        return p.theme.color.dark;
+    }
 }
 
 const TextStyled = styled.div<T>`

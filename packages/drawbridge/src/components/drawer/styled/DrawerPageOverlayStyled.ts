@@ -2,6 +2,7 @@ import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {DrawerUIProps} from "@components/drawer/Drawer";
 import {transition} from "@utils/ThemeUtils";
+import {lighten} from "@utils/ColorUtils";
 
 interface DrawerOverlayProps extends StyledProps, DrawerUIProps {
     transition?: boolean
@@ -25,7 +26,7 @@ const DrawerPageOverlayStyled = styled.div<T>`
   top: 0;
   left: 0;
   position: absolute;
-  background: ${(p: T) => p.theme.color.light};
+  background: ${(p: T) => lighten(p.theme.color.dark    , 0.2)};
   z-index: 1;
   transition: ${getTransition};
   opacity: ${getOpacity};
