@@ -23,7 +23,7 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     const {children, className, items = 2, gutter = 0, current = 0, itemsLg} = props;
 
     const [count, setCount] = useState(0);
-    const [distance, setDistance] = useState(0);
+    const [distance, setDistance] = useState(current*itemWidth);
 
     // const {width} = useViewportWidthOnResize();
     // const theme = useTheme();
@@ -31,12 +31,12 @@ const Carousel: FunctionComponent<CarouselProps> = (props: CarouselProps): React
     // if (_items) items = _items;
     // if (itemsLg && width > theme.breakpoint.lg) items = itemsLg;
 
-    // useEffect(() => {
-    //     if (count === 0) return;
-    //     const countReached = current > count - items;
-    //     if (countReached || current < 0 || current === position) return;
-    //     setPosition(current);
-    // }, [current]);
+    useEffect(() => {
+        // if (count === 0) return;
+        // const countReached = current > count - items;
+        // if (countReached || current < 0 || current === position) return;
+        setDistance(current*itemWidth);
+    }, [current]);
 
     const itemWidth = 100 / items;
     const isOnStart = distance < itemWidth;

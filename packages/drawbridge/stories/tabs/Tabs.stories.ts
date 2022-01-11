@@ -5,6 +5,9 @@ export default {
     title: 'Tabs',
     component: () => {},
     argTypes: {},
+    parameters: {
+        layout: 'padded',
+    },
 };
 
 export {

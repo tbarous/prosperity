@@ -15,6 +15,8 @@ function getBackgroundColor(p: T) {
     if (p.secondary) {
         return p.theme.color.secondary;
     }
+
+    return p.theme.color.primary;
 }
 
 function getColor(p: T) {
@@ -25,6 +27,8 @@ function getColor(p: T) {
     if (p.secondary) {
         return p.theme.color.dark;
     }
+
+    return p.theme.color.white;
 }
 
 function getPadding(p: T) {
@@ -39,6 +43,8 @@ function getPadding(p: T) {
     if (p.large) {
         return px(p.theme.spacing.s6);
     }
+
+    return px(p.theme.spacing.s4);
 }
 
 const ButtonStyled = styled.button<T>`

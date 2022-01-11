@@ -8,10 +8,8 @@ import CarouselItems from "@components/carousel/CarouselItems";
 import CarouselItem from "@components/carousel/CarouselItem";
 import Carousel from "@components/carousel/Carousel";
 
-const CardStyled = styled(Card)`
-  padding: 2rem;
-  height: 120px;
-`;
+const CardStyled = styled(Card)`padding: 2rem;height: 120px;`;
+const TabsStyled = styled(Tabs)`height: 60px;`;
 
 const DefaultTabs = (args: TabsProps) => {
     const [active, setActive] = useState<any>(0);
@@ -32,21 +30,21 @@ const DefaultTabs = (args: TabsProps) => {
         exercitationem explicabo facilis hic ipsum iure magni natus, pariatur quaerat quasi ratione reiciendis sed
         veritatis voluptatem.`;
 
-    const [content, setContent] = useState<any>([
+    const content = [
         `Content 1: ${text}`,
         `Content 2: ${text}`,
         `Content 3: ${text}`,
         `Content 4: ${text}`,
-    ]);
+    ];
 
     return (
         <>
-            <Tabs onChange={onChange} activate={active}>
+            <TabsStyled onChange={onChange} activate={active}>
                 {tabs.map((tab: any, index: number) => <Tab key={index}>{tab}</Tab>)}
-            </Tabs>
+            </TabsStyled>
 
             <CardStyled>
-                <Carousel items={1}>
+                <Carousel items={1} current={active}>
                     <CarouselItems>
                         {content.map((c: any, index: number) => (
                             <CarouselItem key={index}>
