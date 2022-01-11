@@ -3,7 +3,7 @@ import DrawerStyled from "@components/drawer/styled/DrawerStyled";
 import {clone} from "@utils/ComponentUtils";
 import {useTheme} from "styled-components";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import useTransition from "@hooks/useTransition";
+import useTransition, {useTransitionProps} from "@hooks/useTransition";
 import {ArrowLeft, ArrowRight} from "@icons";
 import DrawerTogglerIconStyled from "./styled/DrawerTogglerIconStyled";
 import DrawerTogglerStyled from "./styled/DrawerTogglerStyled";
@@ -24,10 +24,7 @@ export interface DrawerUIProps {
     small?: boolean,
 }
 
-export interface DrawerProps extends BasicComponentProps, DrawerUIProps {
-    display?: boolean,
-    onStartDisplay: () => void,
-    onStopDisplay: () => void,
+export interface DrawerProps extends BasicComponentProps, DrawerUIProps, useTransitionProps {
     toggler?: boolean,
     overlay?: boolean
 }

@@ -1,17 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BasicComponentProps} from "@typings";
 import NavbarStatic from "@components/navbar/NavbarStatic";
 import NavbarFixed from "@components/navbar/NavbarFixed";
-import useOnScroll from "@hooks/UseOnScroll";
 
 const DefaultNavbar = (args: BasicComponentProps) => {
-    const scrollFromTop = useOnScroll();
+    const [display, setDisplay] = useState<boolean>(true);
 
     return (
         <>
             <NavbarStatic transparent>Navbar</NavbarStatic>
 
-            <NavbarFixed>Navbar</NavbarFixed>
+            <NavbarFixed
+                display={display}
+                onStartDisplay={() => setDisplay(true)}
+                onStopDisplay={() => setDisplay(false)}
+            >
+                Navbar
+            </NavbarFixed>
 
             <div style={{height: "3000px"}}/>
         </>

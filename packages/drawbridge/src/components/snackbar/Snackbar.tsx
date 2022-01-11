@@ -33,7 +33,9 @@ const Snackbar: React.FunctionComponent<SnackbarProps> = (props: SnackbarProps):
 
     const {remove, transition} = useTransition(useTheme().animation.snackbar, onStopDisplay);
 
-    if (closeOnDelay) useCallbackOnTimeout(closeOnDelay, remove);
+    if (closeOnDelay) {
+        useCallbackOnTimeout(closeOnDelay, remove);
+    }
 
     if (!display) return null;
 

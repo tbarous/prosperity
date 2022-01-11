@@ -3,6 +3,8 @@ import {useEffect, useRef, useState} from "react";
 function useTransition(duration: number, onStopDisplay: () => void, onStartDisplay?: () => void) {
     const [transition, setTransition] = useState(false);
 
+    const [initial, setInitial] = useState(false)
+
     const ref = useRef<any>(null);
 
     useEffect(() => {
@@ -11,6 +13,8 @@ function useTransition(duration: number, onStopDisplay: () => void, onStartDispl
 
     useEffect(() => {
         if (!transition) {
+            if (!initial) return;
+
             ref.current = setTimeout(() => {
                 onStopDisplay && onStopDisplay();
             }, duration)
@@ -26,9 +30,7 @@ function useTransition(duration: number, onStopDisplay: () => void, onStartDispl
     function insert() {
         onStartDisplay && onStartDisplay();
 
-        setTimeout(() => {
-            setTransition(true);
-        }, 100)
+        setTransition(true);
     }
 
     function toggle() {
@@ -40,6 +42,12 @@ function useTransition(duration: number, onStopDisplay: () => void, onStartDispl
     }
 
     return {remove, transition, toggle, insert}
+}
+
+export interface useTransitionProps {
+    display?: boolean,
+    onStartDisplay: () => void,
+    onStopDisplay: () => void,
 }
 
 export default useTransition;

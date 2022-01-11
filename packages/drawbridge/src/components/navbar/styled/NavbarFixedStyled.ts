@@ -4,6 +4,7 @@ import ThemeInterface from "@theme/interfaces/ThemeInterface";
 import {StyledProps} from "@typings";
 
 interface NavbarFixedStyledProps extends StyledProps {
+    transition?: boolean
 }
 
 type T = NavbarFixedStyledProps;
@@ -13,8 +14,7 @@ function getHeight(p: T) {
 }
 
 function getTransform(p: T) {
-    return null;
-    // return transformY(p.unmount, -p.theme.dimension.navbar.height);
+    return transformY(p.transition, -p.theme.dimension.navbar.height);
 }
 
 function getTransition(p: T) {
