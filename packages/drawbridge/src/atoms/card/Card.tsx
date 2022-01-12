@@ -1,5 +1,5 @@
 import React, {FunctionComponent, ReactElement} from "react";
-import CardStyled from "@components/card/styled/CardStyled";
+import CardStyled from "@atoms/card/styled/CardStyled";
 import {BasicComponentProps} from "@typings";
 
 export interface CardUIProps {

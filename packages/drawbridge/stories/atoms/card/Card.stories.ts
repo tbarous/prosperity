@@ -1,8 +1,7 @@
-import Card from "@components/card/Card";
-import DefaultCard from '@stories/card/Card.story';
+import DefaultCard from '@stories/atoms/card/Card.story';
 
 export default {
-    title: 'Card',
+    title: 'Design System/Atoms/Card',
     component: () => {},
     argTypes: {},
     parameters: {
@@ -11,5 +10,5 @@ export default {
 };
 
 export {
-
+DefaultCard
 }
