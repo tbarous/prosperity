@@ -1,12 +1,12 @@
 import React, {ReactElement} from "react";
 import {BasicComponentProps} from "@typings";
-import RadioIconWrapper from "./styled/radio/RadioIconWrapper";
-import RadioIconStyled from "./styled/radio/RadioIconStyled";
-import RippleStyled, {RippleVariations} from "@components/form/styled/common/CheckboxRadioRippleStyled";
-import CheckboxRadioInputStyled from "@components/form/styled/common/CheckboxRadioInputStyled";
-import CheckboxRadioStyled from "@components/form/styled/common/CheckboxRadioStyled";
-import CheckboxRadioWrapperStyled from "@components/form/styled/common/CheckboxRadioWrapperStyled";
-import CheckboxRadioLabelStyled from "@components/form/styled/common/CheckboxRadioLabelStyled";
+import RadioIconWrapper from "@atoms/radio/styled/RadioIconWrapper";
+import RadioIconStyled from "@atoms/radio/styled/RadioIconStyled";
+import RippleStyled, {RippleVariations} from "@atoms/radio/styled/RadioRippleStyled";
+import RadioInputStyled from "@atoms/radio/styled/RadioInputStyled";
+import RadioStyled from "@atoms/radio/styled/RadioStyled";
+import RadioWrapperStyled from "@atoms/radio/styled/RadioWrapperStyled";
+import RadioLabelStyled from "@atoms/radio/styled/RadioLabelStyled";
 import useRipple from "@hooks/useRipple";
 
 export interface RadioProps extends BasicComponentProps {
@@ -22,10 +22,10 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps): ReactEle
     const {startRipple, stopRipple, startClickRipple, ripple, clicked} = useRipple();
 
     return (
-        <CheckboxRadioStyled className={className}>
-            <CheckboxRadioInputStyled type="radio" onChange={!disabled ? onChange : () => {}} checked={checked}/>
+        <RadioStyled className={className}>
+            <RadioInputStyled type="radio" onChange={!disabled ? onChange : () => {}} checked={checked}/>
 
-            <CheckboxRadioWrapperStyled>
+            <RadioWrapperStyled>
                 <RadioIconWrapper
                     onMouseEnter={startRipple}
                     onMouseLeave={stopRipple}
@@ -40,9 +40,9 @@ const Radio: React.FunctionComponent<RadioProps> = (props: RadioProps): ReactEle
                     {clicked && !disabled && <RippleStyled variation={RippleVariations.STRONG}/>}
                 </RadioIconWrapper>
 
-                {label && <CheckboxRadioLabelStyled disabled={disabled}>{label}</CheckboxRadioLabelStyled>}
-            </CheckboxRadioWrapperStyled>
-        </CheckboxRadioStyled>
+                {label && <RadioLabelStyled disabled={disabled}>{label}</RadioLabelStyled>}
+            </RadioWrapperStyled>
+        </RadioStyled>
     )
 }
 

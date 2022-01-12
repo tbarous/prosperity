@@ -10,5 +10,5 @@ export default {
 };
 
 export {
-    DefaultDivider
+
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import Card from "@components/card/Card";
-import Image from "@components/image/Image";
+import Image from "@atoms//image/Image";
 import styled from "styled-components";
-import Text from "@components/text/Text";
+import Text from "@atoms//text/Text";
 
 const Wrapper = styled.div`width: 300px;`;
 const TextStyled = styled(Text)`padding: 1rem`;

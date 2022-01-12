@@ -14,9 +14,5 @@ export default {
 };
 
 export {
-    DefaultInput,
-    DefaultForm,
-    DefaultCheckbox,
-    DefaultRadio,
-    DefaultSwitch
+
 }

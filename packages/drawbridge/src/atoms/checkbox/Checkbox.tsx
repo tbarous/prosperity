@@ -1,12 +1,12 @@
 import React, {FunctionComponent, ReactElement} from "react";
 import {Checkmark} from "@icons";
 import CheckboxIconStyled from "@atoms/checkbox/styled/CheckboxIconStyled";
-import RippleStyled, {RippleVariations} from "@components/form/styled/common/CheckboxRadioRippleStyled";
-import CheckboxRadioInputStyled from "@components/form/styled/common/CheckboxRadioInputStyled";
-import CheckboxRadioStyled from "@components/form/styled/common/CheckboxRadioStyled";
+import RippleStyled, {RippleVariations} from "@atoms/checkbox/styled/CheckboxRippleStyled";
+import CheckboxInputStyled from "@atoms/checkbox/styled/CheckboxInputStyled";
+import CheckboxStyled from "@atoms/checkbox/styled/CheckboxStyled";
 import CheckboxIconWrapperStyled from "@atoms/checkbox/styled/CheckboxIconWrapperStyled";
-import CheckboxRadioWrapperStyled from "@components/form/styled/common/CheckboxRadioWrapperStyled";
-import CheckboxRadioLabelStyled from "@components/form/styled/common/CheckboxRadioLabelStyled";
+import CheckboxWrapperStyled from "@atoms/checkbox/styled/CheckboxWrapperStyled";
+import CheckboxLabelStyled from "@atoms/checkbox/styled/CheckboxLabelStyled";
 import useRipple from "@hooks/useRipple";
 
 interface CheckboxProps {
@@ -23,10 +23,10 @@ const Checkbox: FunctionComponent<CheckboxProps> = (props: CheckboxProps): React
     const {startRipple, stopRipple, startClickRipple, ripple, clicked} = useRipple();
 
     return (
-        <CheckboxRadioStyled className={className}>
-            <CheckboxRadioInputStyled type="checkbox" onChange={onChange} checked={checked} disabled={disabled}/>
+        <CheckboxStyled className={className}>
+            <CheckboxInputStyled type="checkbox" onChange={onChange} checked={checked} disabled={disabled}/>
 
-            <CheckboxRadioWrapperStyled>
+            <CheckboxWrapperStyled>
                 <CheckboxIconWrapperStyled
                     onMouseEnter={startRipple}
                     onMouseLeave={stopRipple}
@@ -41,9 +41,9 @@ const Checkbox: FunctionComponent<CheckboxProps> = (props: CheckboxProps): React
                     {clicked && !disabled && <RippleStyled variation={RippleVariations.STRONG}/>}
                 </CheckboxIconWrapperStyled>
 
-                {label && <CheckboxRadioLabelStyled disabled={disabled}>{label}</CheckboxRadioLabelStyled>}
-            </CheckboxRadioWrapperStyled>
-        </CheckboxRadioStyled>
+                {label && <CheckboxLabelStyled disabled={disabled}>{label}</CheckboxLabelStyled>}
+            </CheckboxWrapperStyled>
+        </CheckboxStyled>
     )
 }
 

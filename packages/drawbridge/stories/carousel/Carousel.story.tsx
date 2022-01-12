@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel, {CarouselDirections} from "@components/carousel/Carousel";
 import CarouselItem from "@components/carousel/CarouselItem";
-import Image from "@components/image/Image";
+import Image from "@atoms//image/Image";
 import CarouselControls from "@components/carousel/CarouselControls";
 import CarouselControl from "@components/carousel/CarouselControl";
 import CarouselItems from "@components/carousel/CarouselItems";

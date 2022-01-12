@@ -3,8 +3,8 @@ import Drawer, {DrawerVariations} from "@components/drawer/Drawer";
 import DrawerLink from "@components/drawer/DrawerLink";
 import Divider from "@components/divider/Divider";
 import {Home, File, Star, Upload, Download} from "@icons";
-import Image from "@components/image/Image";
-import Text from "@components/text/Text";
+import Image from "@atoms//image/Image";
+import Text from "@atoms//text/Text";
 import styled from "styled-components";
 
 const DefaultDrawer = (args: { variation: DrawerVariations, fixed: boolean, transparent: boolean }) => {

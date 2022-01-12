@@ -11,5 +11,5 @@ export default {
 };
 
 export {
-    DefaultCard
+
 }

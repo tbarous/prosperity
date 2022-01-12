@@ -1,6 +1,6 @@
 import React from 'react';
 import Divider from "@components/divider/Divider";
-import Text from "@components/text/Text";
+import Text from "@atoms//text/Text";
 import styled from 'styled-components';
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
 import {px} from "@utils/ThemeUtils";

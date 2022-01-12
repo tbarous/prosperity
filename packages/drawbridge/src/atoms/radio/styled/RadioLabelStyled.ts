@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Text from "@components/text/Text";
+import Text from "@atoms//text/Text";
 import {px} from "@utils/ThemeUtils";
 import {StyledProps} from "@typings";
 

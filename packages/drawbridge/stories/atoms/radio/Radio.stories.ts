@@ -1,8 +1,7 @@
-import Tabs from "@components/tabs/Tabs";
-import DefaultTabs from '@stories/tabs/Tabs.story';
+import DefaultRadio from "@stories/atoms/radio/Radio.story";
 
 export default {
-    title: 'Tabs',
+    title: 'Design System/Atoms/Radio',
     component: () => {},
     argTypes: {},
     parameters: {
@@ -11,5 +10,5 @@ export default {
 };
 
 export {
-
+    DefaultRadio
 }
