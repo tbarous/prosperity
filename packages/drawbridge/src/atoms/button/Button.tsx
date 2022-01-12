@@ -1,9 +1,7 @@
 import React, {FunctionComponent, ReactElement} from "react";
-import {IconInterface} from "@icons";
-import ButtonStyled from "@atoms/button/styled/ButtonStyled";
-import ButtonContentIconStyled from "@atoms/button/styled/ButtonContentIconStyled";
-import ButtonContentStyled from "@atoms/button/styled/ButtonContentStyled";
-import {BasicComponentProps} from "@typings";
+import {BasicComponentProps, StyledProps} from "@typings";
+import styled from "styled-components";
+import {px} from "@utils/ThemeUtils";
 
 export enum ButtonSizes {
     SMALL = "Small",
@@ -26,35 +24,70 @@ export enum ButtonRoles {
     BUTTON = "button"
 }
 
-export interface ButtonUIProps {
-    primary?: boolean,
-    secondary?: boolean,
-    small?: boolean,
-    medium?: boolean,
-    large?: boolean,
+export interface ButtonStyledProps extends StyledProps {
+    variation?: ButtonVariations
 }
 
-export interface ButtonProps extends BasicComponentProps, ButtonUIProps {
-    onClick?: () => void,
+function getBackgroundColor(p: ButtonStyledProps) {
+    if (p.variation === ButtonVariations.SECONDARY) {
+        return p.theme.color.secondary;
+    }
+
+    return p.theme.color.primary;
+}
+
+function getColor(p: ButtonStyledProps) {
+    if (p.variation === ButtonVariations.SECONDARY) {
+        return p.theme.color.dark;
+    }
+
+    return p.theme.color.surface;
+}
+
+export const ButtonStyled = styled.button<ButtonStyledProps>`
+  padding: ${p => px(p.theme.spacing.s4)};
+  background-color: ${getBackgroundColor};
+  color: ${getColor};
+  cursor: ${p => p.theme.cursor.pointer};
+  border: ${p => p.theme.border.none};
+  border-radius: ${p => p.theme.borderRadius.xlarge};
+  font-family: ${p => p.theme.fontFamily.primary};
+  box-shadow: ${p => p.theme.shadow.light};
+  font-size: ${p => p.theme.fontSize.md};
+  font-weight: ${p => p.theme.fontWeight.bold};
+  width: ${p => p.theme.dimension.d100};
+  letter-spacing: ${p => p.theme.letterSpacing.small};
+  transition: ${p => p.theme.transition.elevation};
+
+  &:hover {
+    box-shadow: ${p => p.theme.shadow.elevate};
+  }
+
+  &:focus {
+    filter: ${p => p.theme.brightness.darken};
+  }
+
+  &:active {
+    filter: ${p => p.theme.brightness.darken};
+  }
+
+  &:visited {
+    filter: ${p => p.theme.brightness.darken};
+  }
+`;
+
+export interface ButtonProps extends BasicComponentProps {
     type?: ButtonTypes,
-    icon?: IconInterface,
-    role?: string
+    variation?: ButtonVariations,
+    size?: ButtonSizes,
+    role?: ButtonRoles,
+    onClick?: () => void
 }
 
 const Button: FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElement => {
-    const {children, className, type, primary, secondary, small, medium, large, icon, role, onClick} = props;
+    const {children} = props;
 
-    const UIProps = {small, medium, large, primary, secondary};
-
-    return (
-        <ButtonStyled className={className} type={type} role={role} {...UIProps} onClick={onClick}>
-            <ButtonContentStyled>
-                {icon && <ButtonContentIconStyled icon={icon} {...UIProps} />}
-
-                {children}
-            </ButtonContentStyled>
-        </ButtonStyled>
-    );
+    return <ButtonStyled {...props}>{children}</ButtonStyled>;
 }
 
 export default Button;

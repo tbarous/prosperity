@@ -8,7 +8,7 @@ export default {
         text: {
             options: [],
             control: {type: 'text'},
-            defaultValue: `Lorem ipsum`
+            defaultValue: `Lorem`
         },
     },
     parameters: {

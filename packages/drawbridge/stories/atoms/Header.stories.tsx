@@ -1,8 +1,8 @@
 import React from "react";
-import TextStyled, {TextBoldness} from "@atoms/Text";
+import HeaderStyled, {HeaderBoldness} from "@atoms/Header";
 
 export default {
-    title: 'Design System/Atoms/Text',
+    title: 'Design System/Atoms/Header',
     component: () => {},
     argTypes: {
         text: {
@@ -11,9 +11,9 @@ export default {
             defaultValue: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`
         },
         boldness: {
-            options: [TextBoldness.LIGHT, TextBoldness.NORMAL, TextBoldness.BOLD],
+            options: [HeaderBoldness.LIGHT, HeaderBoldness.NORMAL, HeaderBoldness.BOLD],
             control: {type: 'radio'},
-            defaultValue: TextBoldness.NORMAL
+            defaultValue: HeaderBoldness.NORMAL
         },
     },
     parameters: {
@@ -21,10 +21,10 @@ export default {
     },
 };
 
-type T = { text: string, boldness: TextBoldness };
+type T = { text: string, boldness: HeaderBoldness };
 
-const Text = (args: T) => <TextStyled boldness={args.boldness}>{args.text}</TextStyled>;
+const Header = (args: T) => <HeaderStyled boldness={args.boldness}>{args.text}</HeaderStyled>;
 
 export {
-    Text,
+    Header,
 }

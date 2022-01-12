@@ -1,8 +1,13 @@
 interface ThemeFontSizeInterface {
-    xs: string,
-    sm: string,
-    md: string,
-    lg: string
+    fs1: number,
+    fs2: number,
+    fs3: number,
+    fs4: number,
+    fs5: number,
+    fs6: number,
+    fs7: number,
+    fs8: number,
+    fs9: number
 }
 
 export default ThemeFontSizeInterface;
