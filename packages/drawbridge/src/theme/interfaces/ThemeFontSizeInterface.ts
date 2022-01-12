@@ -6,8 +6,7 @@ interface ThemeFontSizeInterface {
     fs5: number,
     fs6: number,
     fs7: number,
-    fs8: number,
-    fs9: number
+    fs8: number
 }
 
 export default ThemeFontSizeInterface;

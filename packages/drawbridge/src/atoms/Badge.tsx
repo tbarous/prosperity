@@ -13,12 +13,12 @@ const Badge = styled.span<BadgeProps>`
   background-color: ${p => p.theme.color.primary};
   color: ${p => p.theme.color.surface};
   border-radius: ${p => p.theme.borderRadius.large};
-  font-size: ${p => p.theme.fontSize.sm};
+  font-size: ${p => px(p.theme.fontSize.fs2)};
   box-shadow: ${p => p.theme.shadow.light};
   transition: ${p => p.theme.transition.elevation};
   font-weight: ${p => p.theme.fontWeight.bold};
   font-family: ${p => p.theme.fontFamily.primary};
-  
+
   &:hover {
     box-shadow: ${p => p.theme.shadow.elevate};
   }

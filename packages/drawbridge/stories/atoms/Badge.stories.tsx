@@ -1,5 +1,5 @@
 import React from "react";
-import Badge from "@atoms/badge/Badge";
+import BadgeComponent from "@atoms/Badge";
 
 export default {
     title: 'Design System/Atoms/Badge',
@@ -16,8 +16,8 @@ export default {
     },
 };
 
-const Primary = (args: { text: string }) => <Badge>{args.text}</Badge>
+const Badge = (args: { text: string }) => <BadgeComponent>{args.text}</BadgeComponent>
 
 export {
-    Primary
+    Badge
 }

@@ -24,11 +24,11 @@ function getFontWeight(p: SubheaderProps) {
     return p.theme.fontWeight.normal;
 }
 
-const Subheader = styled.h1<SubheaderProps>`
+const Subheader = styled.h2<SubheaderProps>`
   font-weight: ${getFontWeight};
   margin: ${p => p.theme.spacing.s0};
   padding: ${p => p.theme.spacing.s0};
-  font-size: ${p => px(p.theme.fontSize.fs4)};
+  font-size: ${p => px(p.theme.fontSize.fs6)};
   color: ${p => p.theme.color.dark};
   font-family: ${p => p.theme.fontFamily.secondary};
 `;
