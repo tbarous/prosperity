@@ -1,7 +1,7 @@
-import DefaultRadio from "./Radio.story";
+import DefaultSwitch from "@stories/atoms/switch/Switch.story";
 
 export default {
-    title: 'Design System/Atoms/Radio',
+    title: 'Design System/Atoms/Switch',
     component: () => {},
     argTypes: {},
     parameters: {
@@ -10,5 +10,5 @@ export default {
 };
 
 export {
-    DefaultRadio
+    DefaultSwitch
 }

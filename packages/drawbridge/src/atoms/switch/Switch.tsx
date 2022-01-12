@@ -1,7 +1,7 @@
 import React, {FunctionComponent, ReactElement, ReactNode, useState} from "react";
-import SwitchStyled from "./styled/switch/SwitchStyled";
+import SwitchStyled from "@atoms/switch/styled/SwitchStyled";
 import {BasicComponentProps} from "@typings";
-import SwitchCircleStyled from "./styled/switch/SwitchCircleStyled";
+import SwitchCircleStyled from "@atoms/switch/styled/SwitchCircleStyled";
 
 export interface SwitchProps extends BasicComponentProps {
     active?: boolean,
