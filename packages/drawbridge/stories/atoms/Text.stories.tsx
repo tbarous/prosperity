@@ -6,21 +6,23 @@ import TextEmphasized from "@atoms/text/TextEmphasized";
 export default {
     title: 'Design System/Atoms/Text',
     component: () => {},
-    argTypes: {},
+    argTypes: {
+        text: {
+            options: [],
+            control: {type: 'text'},
+            defaultValue: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`
+        },
+    },
     parameters: {
         layout: 'padded',
     },
 };
 
-const text = `
- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut commodi corporis deserunt dolorem, esse est facere
-fugit magni, necessitatibus officia porro quam ratione reprehenderit repudiandae voluptates. Cupiditate dolor
-obcaecati quam.
-`
+type T = { text: string };
 
-const Normal = (args: {}) => <Text>{text}</Text>;
-const Muted = (args: {}) => <TextMuted>{text}</TextMuted>;
-const Emphasized = (args: {}) => <TextEmphasized>{text}</TextEmphasized>;
+const Normal = (args: T) => <Text>{args.text}</Text>;
+const Muted = (args: T) => <TextMuted>{args.text}</TextMuted>;
+const Emphasized = (args: T) => <TextEmphasized>{args.text}</TextEmphasized>;
 
 export {
     Normal,
