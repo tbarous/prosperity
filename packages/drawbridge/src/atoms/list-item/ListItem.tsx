@@ -1,6 +1,6 @@
 import React, {FunctionComponent, ReactElement, ReactNode} from "react";
 import {BasicComponentProps} from "@typings";
-import ListItemStyled from "./styled/ListItemStyled";
+import ListItemStyled from "@atoms/list-item/styled/ListItemStyled";
 
 interface ListItemProps extends BasicComponentProps {}
 
