@@ -7,7 +7,7 @@ export interface CheckboxIconStyledProps extends StyledProps {}
 type T = CheckboxIconStyledProps;
 
 const CheckboxIconStyled = styled(Icon)<T>`
-  color: ${(p: T) => p.theme.color.white};
+  color: ${(p: T) => p.theme.color.surface};
   width: 12px;
   height: 12px;
 `;

@@ -1,10 +1,10 @@
 import React, {FunctionComponent, ReactElement} from "react";
 import {Checkmark} from "@icons";
-import CheckboxIconStyled from "@components/form/styled/checkbox/CheckboxIconStyled";
+import CheckboxIconStyled from "@atoms/checkbox/styled/CheckboxIconStyled";
 import RippleStyled, {RippleVariations} from "@components/form/styled/common/CheckboxRadioRippleStyled";
 import CheckboxRadioInputStyled from "@components/form/styled/common/CheckboxRadioInputStyled";
 import CheckboxRadioStyled from "@components/form/styled/common/CheckboxRadioStyled";
-import CheckboxIconWrapperStyled from "@components/form/styled/checkbox/CheckboxIconWrapperStyled";
+import CheckboxIconWrapperStyled from "@atoms/checkbox/styled/CheckboxIconWrapperStyled";
 import CheckboxRadioWrapperStyled from "@components/form/styled/common/CheckboxRadioWrapperStyled";
 import CheckboxRadioLabelStyled from "@components/form/styled/common/CheckboxRadioLabelStyled";
 import useRipple from "@hooks/useRipple";
