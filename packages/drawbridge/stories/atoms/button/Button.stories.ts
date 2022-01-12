@@ -2,7 +2,7 @@ import Button, {ButtonSizes, ButtonVariations} from "@atoms/button/Button";
 import DefaultButton from "@stories/atoms/button/Button.story";
 
 export default {
-    title: 'Atoms/Button',
+    title: 'Design System/Atoms/Button',
     component: () => {},
     argTypes: {
         variation: {

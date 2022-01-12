@@ -1,5 +1,5 @@
 import React, {FunctionComponent, ReactElement} from "react";
-import BadgeStyled from "@components/badge/styled/BadgeStyled";
+import BadgeStyled from "@atoms/badge/styled/BadgeStyled";
 import {BasicComponentProps} from "@typings";
 
 interface BadgeProps extends BasicComponentProps {}

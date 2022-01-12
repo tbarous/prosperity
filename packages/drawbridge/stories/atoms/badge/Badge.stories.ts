@@ -1,8 +1,7 @@
-import DefaultBadge from "@stories/badge/Badge.story";
-import Badge from "@components/badge/Badge";
+import DefaultBadge from "@stories/atoms/badge/Badge.story";
 
 export default {
-    title: 'Badge',
+    title: 'Design System/Atoms/Badge',
     component: () => {},
     argTypes: {},
     parameters: {

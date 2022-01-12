@@ -1,5 +1,5 @@
 import React from 'react';
-import Badge from "@components/badge/Badge";
+import Badge from "@atoms/badge/Badge";
 
 const DefaultBadge = (args: { children?: string }) => {
     const {children} = args;

@@ -47,7 +47,7 @@ const Button: FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElemen
     const UIProps = {small, medium, large, primary, secondary};
 
     return (
-        <ButtonStyled className={className} type={type} role={role}{...UIProps} onClick={onClick}>
+        <ButtonStyled className={className} type={type} role={role} {...UIProps} onClick={onClick}>
             <ButtonContentStyled>
                 {icon && <ButtonContentIconStyled icon={icon} {...UIProps} />}
 
