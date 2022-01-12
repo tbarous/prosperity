@@ -1,5 +1,5 @@
 import React, {FunctionComponent, ReactElement} from "react";
-import TabStyled from "@components/tabs/styled/TabStyled";
+import TabStyled from "@atoms//tab/styled/TabStyled";
 import {BasicComponentProps} from "@typings";
 
 export interface TabProps extends BasicComponentProps {

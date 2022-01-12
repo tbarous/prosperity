@@ -1,7 +1,7 @@
 import DefaultGrid from './Grid.story';
 
 export default {
-    title: 'Grid',
+    title: 'Design System/Molecules/Grid',
     component: () => {},
     argTypes: {
         container: {
@@ -15,5 +15,5 @@ export default {
 };
 
 export {
-
+    DefaultGrid
 }

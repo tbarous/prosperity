@@ -1,7 +1,7 @@
-import DefaultDivider from "./Divider.story";
+import DefaultTab from "./Tab.story";
 
 export default {
-    title: 'Divider',
+    title: 'Design System/Atoms/Tab',
     component: () => {},
     argTypes: {},
     parameters: {
@@ -10,5 +10,5 @@ export default {
 };
 
 export {
-
+    DefaultTab
 }

@@ -1,5 +1,5 @@
 import React, {FunctionComponent, ReactElement, ReactNode} from "react";
-import ContainerStyled from "@components/grid/styled/ContainerStyled";
+import ContainerStyled from "@atoms/container/styled/ContainerStyled";
 import {BasicComponentProps} from "@typings";
 
 export interface ContainerProps extends BasicComponentProps {

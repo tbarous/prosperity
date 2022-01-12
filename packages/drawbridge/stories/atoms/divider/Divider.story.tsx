@@ -1,5 +1,5 @@
 import React from 'react';
-import Divider from "@components/divider/Divider";
+import Divider from "@atoms/divider/Divider";
 import Text from "@atoms//text/Text";
 import styled from 'styled-components';
 import ThemeInterface from "@theme/interfaces/ThemeInterface";
@@ -12,11 +12,7 @@ const Wrapper = styled.div<{ vertical?: boolean }>`
 
 const DefaultDivider = (args: { spacing?: number, vertical?: boolean }) => (
     <Wrapper vertical={args.vertical}>
-        <Text>Text</Text>
-
         <Divider spacing={args.spacing} vertical={args.vertical}/>
-
-        <Text>Text</Text>
     </Wrapper>
 );
 

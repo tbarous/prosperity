@@ -28,6 +28,10 @@
         "src/atoms/*"
       ],
 
+      "@molecules/*": [
+        "src/molecules/*"
+      ],
+
 
       "@typings": [
         "src/typings/index"

@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components";
 import MediaUtils from "@utils/MediaUtils";
-import {ColUIProps} from "@components/grid/Col";
+import {ColUIProps} from "@atoms/col/Col";
 import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
 
@@ -10,7 +10,7 @@ export interface ColStyledProps extends StyledProps, ColUIProps {
 
 type T = ColStyledProps;
 
-function getWidth(breakpoint: string, columns?: number) {
+function getWidth(breakpoint: any, columns?: number) {
     if (!columns) return;
 
     let width = `${(100 / 12)}%`;

@@ -1,7 +1,7 @@
 import React from 'react';
-import Container from "@components/grid/Container";
-import Row from "@components/grid/Row";
-import Col from "@components/grid/Col";
+import Container from "@atoms/container/Container";
+import Row from "@atoms/row/Row";
+import Col from "@atoms/col/Col";
 import styled from "styled-components";
 import {StyledProps} from "@typings";
 import {px} from "@utils/ThemeUtils";
@@ -9,7 +9,7 @@ import {px} from "@utils/ThemeUtils";
 const Item = styled.div`
   padding: ${(p: StyledProps) => px(p.theme.spacing.s3)};
   background: ${(p: StyledProps) => p.theme.color.primary};
-  color: ${(p: StyledProps) => p.theme.color.white};
+  color: ${(p: StyledProps) => p.theme.color.surface};
 `
 
 const DefaultGrid = (args: { fluid: boolean, gutter: number }) => {

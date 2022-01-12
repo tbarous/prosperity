@@ -1,6 +1,6 @@
 import React, {Children, FunctionComponent, ReactElement, ReactNode} from "react";
 import {BasicComponentProps} from "@typings";
-import RowStyled from "@components/grid/styled/RowStyled";
+import RowStyled from "@atoms/row/styled/RowStyled";
 import {clone} from "@utils/ComponentUtils";
 
 export interface RowProps extends BasicComponentProps {

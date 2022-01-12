@@ -16,7 +16,7 @@ const TabStyled = styled.div<T>`
   position: ${(p: T) => p.theme.position.relative};
   justify-content: ${(p: T) => p.theme.justifyContent.center};
   background-color: ${(p: T) => p.theme.color.primary};
-  color: ${(p: T) => p.theme.color.white};
+  color: ${(p: T) => p.theme.color.surface};
   font-family: ${(p: T) => p.theme.fontFamily.primary};
   font-size: ${(p: T) => p.theme.fontSize.md};
 `;

@@ -15,7 +15,7 @@ interface ContainerStyledProps extends StyledProps {
 
 type T = ContainerStyledProps;
 
-function getMediaMaxWidthMargin(p: T, breakpoint: string, maxWidth?: string) {
+function getMediaMaxWidthMargin(p: T, breakpoint: any, maxWidth?: string) {
     let width;
     let margin;
 

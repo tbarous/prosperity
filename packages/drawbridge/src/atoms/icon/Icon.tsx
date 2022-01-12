@@ -1,6 +1,6 @@
 import React, {FunctionComponent, ReactElement} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import IconStyled from "@components/icon/styled/IconStyled";
+import IconStyled from "@atoms/icon/styled/IconStyled";
 import {IconInterface} from "@icons";
 
 export interface IconProps extends BasicComponentProps {
