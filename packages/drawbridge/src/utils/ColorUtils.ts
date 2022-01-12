@@ -26,12 +26,7 @@ function lighten(hex, howMuch) {
     return `rgba(${r}, ${g}, ${b}, ${howMuch})`;
 }
 
-function mute(hex) {
-    return lighten(hex, 0.7);
-}
-
 export {
     hexToRgb,
-    lighten,
-    mute
+    lighten
 }

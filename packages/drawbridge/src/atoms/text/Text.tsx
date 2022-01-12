@@ -1,28 +1,15 @@
-import React, {FunctionComponent, ReactElement, ReactNode} from "react";
-import TextStyled from "@atoms/text/styled/TextStyled";
-import {BasicComponentProps} from "@typings";
+import styled from "styled-components";
+import {StyledProps} from "@typings";
 
-export interface TextUIProps {
-    bold?: boolean,
-    light?: boolean,
-    xs?: boolean,
-    sm?: boolean,
-    md?: boolean,
-    lg?: boolean,
-    muted?: boolean,
-    dark?: boolean
-}
+export interface TextProps extends StyledProps {}
 
-export interface TextProps extends BasicComponentProps, TextUIProps {}
-
-const Text: FunctionComponent<TextProps> = (props: TextProps): ReactElement => {
-    const {children, className, bold, md, lg, sm, xs, light, muted, dark} = props;
-
-    const UIProps = {bold, md, lg, sm, xs, light, muted, dark, className};
-
-    return (
-        <TextStyled {...UIProps}>{children}</TextStyled>
-    )
-}
+const Text = styled.p<TextProps>`
+  margin: ${p => p.theme.spacing.s0};
+  padding: ${p => p.theme.spacing.s0};
+  font-weight: ${p => p.theme.fontWeight.normal};
+  font-size: ${p => p.theme.fontSize.md};
+  color: ${p => p.theme.color.dark};
+  font-family: ${p => p.theme.fontFamily.primary};
+`;
 
 export default Text;
