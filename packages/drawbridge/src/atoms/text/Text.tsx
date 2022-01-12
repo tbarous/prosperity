@@ -1,5 +1,5 @@
 import React, {FunctionComponent, ReactElement, ReactNode} from "react";
-import TextStyled from "@components/text/styled/TextStyled";
+import TextStyled from "@atoms/text/styled/TextStyled";
 import {BasicComponentProps} from "@typings";
 
 export interface TextUIProps {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import {TextUIProps} from "@components/text/Text";
+import {TextUIProps} from "@atoms/text/Text";
 import {lighten, mute} from "@utils/ColorUtils";
 
 interface TextStyledProps extends StyledProps, TextUIProps {}

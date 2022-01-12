@@ -1,10 +1,12 @@
-import Link from "@components/link/Link";
 import DefaultLink from './Link.story';
 
 export default {
-    title: 'Link',
+    title: 'Design System/Atoms/Link',
     component: () => [],
     argTypes: {},
+    parameters: {
+        layout: 'padded',
+    },
 };
 
 export {

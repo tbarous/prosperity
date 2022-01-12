@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from "@components/link/Link";
+import Link from "@atoms/link/Link";
 
 const DefaultLink = (args: any) => {
 

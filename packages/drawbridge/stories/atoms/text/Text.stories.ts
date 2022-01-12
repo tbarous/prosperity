@@ -1,8 +1,7 @@
-import Text from "@components/text/Text";
-import DefaultText from '@stories/text/Text.story';
+import DefaultText from '@stories/atoms/text/Text.story';
 
 export default {
-    title: 'Text',
+    title: 'Design System/Atoms/Text',
     component: () => {},
     argTypes: {},
     parameters: {

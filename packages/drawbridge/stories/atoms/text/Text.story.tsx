@@ -1,5 +1,5 @@
 import React from 'react';
-import Text from "@components/text/Text";
+import Text from "@atoms/text/Text";
 
 const DefaultText = (args: { bold?: boolean }) => (
     <Text bold={args.bold}>
