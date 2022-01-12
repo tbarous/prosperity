@@ -25,7 +25,8 @@ export enum ButtonRoles {
 }
 
 export interface ButtonStyledProps extends StyledProps {
-    variation?: ButtonVariations
+    variation?: ButtonVariations,
+    size?: ButtonSizes
 }
 
 function getBackgroundColor(p: ButtonStyledProps) {
@@ -44,8 +45,20 @@ function getColor(p: ButtonStyledProps) {
     return p.theme.color.surface;
 }
 
+function getPadding(p: ButtonStyledProps) {
+    if (p.size === ButtonSizes.SMALL) {
+        return px(p.theme.spacing.s3);
+    }
+
+    if (p.size === ButtonSizes.LARGE) {
+        return px(p.theme.spacing.s5);
+    }
+
+    return px(p.theme.spacing.s4);
+}
+
 export const ButtonStyled = styled.button<ButtonStyledProps>`
-  padding: ${p => px(p.theme.spacing.s4)};
+  padding: ${getPadding};
   background-color: ${getBackgroundColor};
   color: ${getColor};
   cursor: ${p => p.theme.cursor.pointer};
