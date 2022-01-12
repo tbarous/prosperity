@@ -1,5 +1,5 @@
 import React from "react";
-import SubheaderStyled, {SubheaderBoldness} from "@atoms/Subheader";
+import SubheaderStyled, {Boldness, Variations} from "@atoms/Subheader";
 
 export default {
     title: 'Design System/Atoms/Subheader',
@@ -11,9 +11,14 @@ export default {
             defaultValue: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`
         },
         boldness: {
-            options: [SubheaderBoldness.LIGHT, SubheaderBoldness.NORMAL, SubheaderBoldness.BOLD],
+            options: [Boldness.LIGHT, Boldness.NORMAL, Boldness.BOLD],
             control: {type: 'radio'},
-            defaultValue: SubheaderBoldness.NORMAL
+            defaultValue: Boldness.NORMAL
+        },
+        variation: {
+            options: [Variations.H2, Variations.H3, Variations.H4, Variations.H5],
+            control: {type: 'radio'},
+            defaultValue: Variations.H2
         },
     },
     parameters: {
@@ -21,9 +26,9 @@ export default {
     },
 };
 
-type T = { text: string, boldness: SubheaderBoldness };
+type T = { text: string, boldness: Boldness, variation: Variations };
 
-const Subheader = (args: T) => <SubheaderStyled boldness={args.boldness}>{args.text}</SubheaderStyled>;
+const Subheader = (args: T) => <SubheaderStyled variation={args.variation} boldness={args.boldness}>{args.text}</SubheaderStyled>;
 
 export {
     Subheader,
