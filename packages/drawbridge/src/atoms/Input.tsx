@@ -1,4 +1,4 @@
-import React, {FunctionComponent, ReactElement, useRef, useState} from "react";
+import React, {ChangeEvent, FunctionComponent, ReactElement, useRef, useState} from "react";
 import {BasicComponentProps, StyledProps} from "@typings";
 import useOnClickOutside from "@hooks/useOnClickOutside";
 import styled from "styled-components";
@@ -53,7 +53,7 @@ export interface Props extends BasicComponentProps {
     label?: string,
     focused?: boolean,
     value?: string,
-    onChange?: (e: InputEvent) => void
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 const Input: FunctionComponent<Props> = (props: Props): ReactElement => {
@@ -72,8 +72,8 @@ const Input: FunctionComponent<Props> = (props: Props): ReactElement => {
     return (
         <Wrapper focused={isFocused} ref={ref} onClick={onFocus} className={className}>
             <Label focused={isFocused} filled={!!value}>{label}</Label>
-            <InputStyled onChange={onChange} value={value} />
-            <Line focused={isFocused} filled={!!value} />
+            <InputStyled onChange={onChange} value={value}/>
+            <Line focused={isFocused} filled={!!value}/>
         </Wrapper>
     )
 }

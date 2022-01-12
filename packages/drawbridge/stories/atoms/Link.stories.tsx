@@ -1,8 +1,8 @@
 import React, {ChangeEvent, FormEvent, useState} from "react";
-import InputComponent from "@atoms/Input";
+import LinkComponent from "@atoms/Link";
 
 export default {
-    title: 'Design System/Atoms/Input',
+    title: 'Design System/Atoms/Link',
     component: () => {},
     argTypes: {
         label: {
@@ -23,12 +23,10 @@ export default {
 
 type T = { label: string, value: string };
 
-const Input = (args: T) => {
-    const [value, setValue] = useState(args.value);
-
-    return <InputComponent onChange={(e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value)} value={value} label={args.label}/>
+const Link = (args: T) => {
+    return <LinkComponent href="">Link</LinkComponent>
 }
 
 export {
-    Input,
+    Link,
 }
