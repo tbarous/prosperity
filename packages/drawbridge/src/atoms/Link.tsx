@@ -9,7 +9,7 @@ export interface LineProps extends StyledProps {
 }
 
 const Line = styled.div<LineProps>`
-  transform: ${p=> p.active || p.hovered ? "scale(1)" : "scale(0)"};
+  transform: ${p => p.active || p.hovered ? "scale(1)" : "scale(0)"};
   background-color: ${p => p.active ? p.theme.color.primary : p.theme.color.dark};
   position: ${p => p.theme.position.absolute};
   height: ${p => p.theme.spacing.s1};
@@ -19,7 +19,7 @@ const Line = styled.div<LineProps>`
   transition: all .3s;
 `;
 
-const LinkStyled = styled.a<{  }>`
+const LinkStyled = styled.a<{ active?: boolean }>`
   display: ${p => p.theme.display.block};
   text-decoration: ${p => p.theme.textDecoration.none};
   color: ${p => p.theme.color.dark};
@@ -40,13 +40,11 @@ const Link: FunctionComponent<Props> = (props: Props): ReactElement => {
 
     const [hovered, setHovered] = useState(false);
 
-    const target = blank ? "_blank" : "";
-
     return (
         <LinkStyled
             className={className}
             href={href}
-            target={target}
+            target={blank ? "_blank" : ""}
             onMouseEnter={() => setHovered(true)}
             onMouseLeave={() => setHovered(false)}
             active={active}
