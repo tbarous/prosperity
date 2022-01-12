@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {px} from "@utils/ThemeUtils";
 import {StyledProps} from "@typings";
-import {ButtonUIProps} from "@components/button/Button";
+import {ButtonUIProps} from "@atoms/button/Button";
 
 export interface ButtonStyledProps extends StyledProps, ButtonUIProps {}
 

@@ -3,7 +3,7 @@ import Icon from "@components/icon/Icon";
 import {px} from "@utils/ThemeUtils";
 import {IconInterface} from "@icons";
 import {StyledProps} from "@typings";
-import {ButtonUIProps} from "@components/button/Button";
+import {ButtonUIProps} from "@atoms/button/Button";
 
 export interface ButtonContentIconProps extends StyledProps, ButtonUIProps {
     icon?: IconInterface

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import Tooltip from "@components/tooltip/Tooltip";
-import Button from "@components/button/Button";
 import TooltipContentStyled from '@components/tooltip/styled/TooltipContentStyled';
 import {px} from "@utils/ThemeUtils";
 
@@ -19,7 +18,7 @@ const DefaultTooltip = (args: { clickable: boolean }) => {
     return (
         <Wrapper>
             <Tooltip clickable={clickable}>
-                <Button>Trigger</Button>
+                <button>Trigger</button>
 
                 <Content>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium aliquid, amet architecto

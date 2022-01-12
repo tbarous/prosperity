@@ -1,8 +1,8 @@
-import Button, {ButtonSizes, ButtonVariations} from "@components/button/Button";
-import DefaultButton from "@stories/button/Button.story";
+import Button, {ButtonSizes, ButtonVariations} from "@atoms/button/Button";
+import DefaultButton from "@stories/atoms/button/Button.story";
 
 export default {
-    title: 'Button',
+    title: 'Atoms/Button',
     component: () => {},
     argTypes: {
         variation: {

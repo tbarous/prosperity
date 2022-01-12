@@ -1,5 +1,5 @@
 import React from 'react';
-import Button, {ButtonSizes, ButtonVariations} from "@components/button/Button";
+import Button, {ButtonSizes, ButtonVariations} from "@atoms/button/Button";
 import {Google} from "@icons";
 import styled from "styled-components";
 

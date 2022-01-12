@@ -1,8 +1,8 @@
 import React, {FunctionComponent, ReactElement} from "react";
 import {IconInterface} from "@icons";
-import ButtonStyled from "@components/button/styled/ButtonStyled";
-import ButtonContentIconStyled from "@components/button/styled/ButtonContentIconStyled";
-import ButtonContentStyled from "@components/button/styled/ButtonContentStyled";
+import ButtonStyled from "@atoms/button/styled/ButtonStyled";
+import ButtonContentIconStyled from "@atoms/button/styled/ButtonContentIconStyled";
+import ButtonContentStyled from "@atoms/button/styled/ButtonContentStyled";
 import {BasicComponentProps} from "@typings";
 
 export enum ButtonSizes {
