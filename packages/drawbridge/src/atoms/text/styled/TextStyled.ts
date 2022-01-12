@@ -45,7 +45,9 @@ function getColor(p: T) {
     }
 }
 
-const TextStyled = styled.div<T>`
+const TextStyled = styled.p<T>`
+  margin: 0;
+  padding: 0;
   font-weight: ${getFontWeight};
   font-size: ${getFontSize};
   color: ${getColor};

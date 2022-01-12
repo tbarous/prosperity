@@ -18,12 +18,10 @@ export interface TextProps extends BasicComponentProps, TextUIProps {}
 const Text: FunctionComponent<TextProps> = (props: TextProps): ReactElement => {
     const {children, className, bold, md, lg, sm, xs, light, muted, dark} = props;
 
-    const UIProps = {bold, md, lg, sm, xs, light, muted, dark};
+    const UIProps = {bold, md, lg, sm, xs, light, muted, dark, className};
 
     return (
-        <TextStyled className={className} {...UIProps}>
-            {children}
-        </TextStyled>
+        <TextStyled {...UIProps}>{children}</TextStyled>
     )
 }
 
