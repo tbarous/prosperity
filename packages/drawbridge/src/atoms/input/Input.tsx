@@ -1,10 +1,10 @@
 import React, {FunctionComponent, ReactElement, useRef, useState} from "react";
 import {BasicComponentProps} from "@typings";
 import useOnClickOutside from "@hooks/useOnClickOutside";
-import InputStyled from "@components/form/styled/input/InputStyled";
-import InputLineStyled from "@components/form/styled/input/InputLineStyled";
-import InputStyledLabel from "@components/form/styled/input/InputLabelStyled";
-import InputStyledWrapper from "@components/form/styled/input/InputWrapperStyled";
+import InputStyled from "@atoms/input/styled/InputStyled";
+import InputLineStyled from "@atoms/input/styled/InputLineStyled";
+import InputStyledLabel from "@atoms/input/styled/InputLabelStyled";
+import InputStyledWrapper from "@atoms/input/styled/InputWrapperStyled";
 
 export interface InputProps extends BasicComponentProps {
     label?: string,
