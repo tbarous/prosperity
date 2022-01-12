@@ -1,5 +1,4 @@
-import DefaultImage from "@stories/image/Image.story";
-import Image from "@components/image/Image";
+import DefaultImage from "@stories/atoms/image/Image.story";
 
 export default {
     title: 'Image',

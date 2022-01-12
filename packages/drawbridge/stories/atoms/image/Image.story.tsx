@@ -1,5 +1,5 @@
 import React from 'react';
-import Image from "@components/image/Image";
+import Image from "@atoms/image/Image";
 
 const DefaultImage = (args: {}) => (
     <Image src="" alt=""/>

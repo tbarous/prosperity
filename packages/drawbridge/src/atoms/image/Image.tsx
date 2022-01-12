@@ -1,6 +1,6 @@
 import React, {FunctionComponent, ReactElement} from "react";
 import {BasicComponentProps, ReactElementOrNull} from "@typings";
-import ImageStyled from "@components/image/styled/ImageStyled";
+import ImageStyled from "@atoms/image/styled/ImageStyled";
 import ImageWrapperStyled from "./styled/ImageWrapperStyled";
 
 export interface ImageUIProps {

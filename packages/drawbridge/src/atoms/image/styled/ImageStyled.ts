@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import {StyledProps} from "@typings";
-import {ImageUIProps} from "@components/image/Image";
+import {ImageUIProps} from "@atoms/image/Image";
 
 interface ImageStyledProps extends StyledProps, ImageUIProps {}
 
