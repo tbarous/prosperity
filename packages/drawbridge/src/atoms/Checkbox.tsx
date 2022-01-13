@@ -14,38 +14,12 @@ interface IconWrapperProps extends StyledProps {
     disabled?: boolean
 }
 
-const CheckboxIcon = styled(Icon)<StyledProps>`
-  color: ${p => p.theme.color.surface};
-  width: 12px;
-  height: 12px;
-`;
-
-const Input = styled.input<StyledProps>`
-  position: ${p => p.theme.position.absolute};
-  cursor: ${p => p.theme.cursor.pointer};
-  opacity: ${p => p.theme.opacity.hidden};
-  height: ${p => p.theme.dimension.d0};
-  width: ${p => p.theme.dimension.d0};
-`;
-
-const Label = styled(Text)<LabelProps>`
-  margin-left: ${p => px(p.theme.spacing.s3)};
-  color: ${p => p.disabled ? lighten(p.theme.color.dark, 50) : p.theme.color.dark};
-`
-
-const CheckboxStyled = styled.label<StyledProps>`
-  display: ${p => p.theme.display.block};
-  position: ${p => p.theme.position.relative};
-  cursor: ${p => p.theme.cursor.pointer};
-  font-size: ${p => p.theme.fontSize.fs3};
-  border-radius: ${p => p.theme.borderRadius.large};
-  user-select: none;
-`;
-
-const Wrapper = styled.div<StyledProps>`
-  display: ${p => p.theme.display.flex};
-  align-items: ${p => p.theme.alignItems.center};
-`
+interface Props extends BasicComponentProps {
+    onChange?: () => void,
+    checked?: boolean,
+    label?: string,
+    disabled?: boolean
+}
 
 function getBorderColor(p: IconWrapperProps) {
     if (p.checked) return;
@@ -80,6 +54,39 @@ const ripple = keyframes`
   100% {transform: scale(1);}
 `;
 
+const CheckboxIcon = styled(Icon)<StyledProps>`
+  color: ${p => p.theme.color.surface};
+  width: ${p => px(p.theme.spacing.s4)};
+  height: ${p => px(p.theme.spacing.s4)};
+`;
+
+const Input = styled.input<StyledProps>`
+  position: ${p => p.theme.position.absolute};
+  cursor: ${p => p.theme.cursor.pointer};
+  opacity: ${p => p.theme.opacity.hidden};
+  height: ${p => p.theme.dimension.d0};
+  width: ${p => p.theme.dimension.d0};
+`;
+
+const Label = styled(Text)<LabelProps>`
+  margin-left: ${p => px(p.theme.spacing.s3)};
+  color: ${p => p.disabled ? lighten(p.theme.color.dark, 50) : p.theme.color.dark};
+`
+
+const CheckboxStyled = styled.label<StyledProps>`
+  display: ${p => p.theme.display.block};
+  position: ${p => p.theme.position.relative};
+  cursor: ${p => p.theme.cursor.pointer};
+  font-size: ${p => p.theme.fontSize.fs3};
+  border-radius: ${p => p.theme.borderRadius.large};
+  user-select: none;
+`;
+
+const Wrapper = styled.div<StyledProps>`
+  display: ${p => p.theme.display.flex};
+  align-items: ${p => p.theme.alignItems.center};
+`
+
 const IconWrapper = styled.div<IconWrapperProps>`
   background-color: ${getBackgroundColor};
   border: ${getBorder};
@@ -106,13 +113,6 @@ const IconWrapper = styled.div<IconWrapperProps>`
     }
   }
 `
-
-interface Props extends BasicComponentProps {
-    onChange?: () => void,
-    checked?: boolean,
-    label?: string,
-    disabled?: boolean
-}
 
 const Checkbox: FunctionComponent<Props> = (props: Props): ReactElement => {
     const {className, onChange, checked, label, disabled} = props;
