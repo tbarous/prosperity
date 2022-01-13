@@ -14,6 +14,12 @@ function hexToRgb(hex: string) {
     return b;
 }
 
+function decreaseOpacity(hex: string, amount: number) {
+    const {r, g, b} = hexToRgb(hex)
+
+    return `rgba(${r}, ${g}, ${b}, ${amount / 100})`;
+}
+
 function LightenDarkenColor(col: string, amt: number) {
     var usePound = false;
 
@@ -52,5 +58,6 @@ function darken(hex: string, amount: number) {
 
 export {
     hexToRgb,
-    lighten
+    lighten,
+    decreaseOpacity
 }
