@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "@atoms/Icon";
+import IconComponent from "@atoms/Icon";
 import {Times as TimesIcon, ArrowRight as ArrowToTheRight} from "@icons";
 
 export default {
@@ -8,10 +8,9 @@ export default {
     argTypes: {},
 };
 
-const Times = () => <Icon icon={TimesIcon}/>;
-const ArrowRight = () => <Icon icon={ArrowToTheRight}/>;
+const Icon = () => <IconComponent icon={TimesIcon}/>;
+const ArrowRight = () => <IconComponent icon={ArrowToTheRight}/>;
 
 export {
-    Times,
-    ArrowRight
+    Icon
 }
