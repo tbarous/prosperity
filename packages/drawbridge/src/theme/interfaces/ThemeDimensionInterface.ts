@@ -36,6 +36,10 @@ interface ThemeDimensionInterface {
     checkbox: {
         width: number,
         height: number
+    },
+    radio: {
+        width: number,
+        height: number
     }
 }
 

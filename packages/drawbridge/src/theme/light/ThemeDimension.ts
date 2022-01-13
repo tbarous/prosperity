@@ -38,6 +38,10 @@ const ThemeDimension: ThemeDimensionInterface = {
     checkbox: {
         width: 18,
         height: 18
+    },
+    radio: {
+        width: 22,
+        height: 22
     }
 }
 
