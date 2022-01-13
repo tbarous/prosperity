@@ -2,11 +2,9 @@ import styled, {css, keyframes} from "styled-components";
 import {hexToRgb} from "@utils/ColorUtils";
 import {StyledProps} from "@typings";
 
-interface CheckboxRadioRippleStyledProps extends StyledProps {
+interface Props extends StyledProps {
     variation?: string
 }
-
-type T = CheckboxRadioRippleStyledProps;
 
 export enum RippleVariations {
     BASIC = "basic",
@@ -40,7 +38,7 @@ const ripple2 = keyframes`
   }
 `;
 
-function getBackground(p: T) {
+function getBackground(p: Props) {
     const {r, g, b} = hexToRgb(p.theme.color.primary);
 
     let colorOpacity = 0.1;
@@ -52,7 +50,7 @@ function getBackground(p: T) {
     return `rgba(${r}, ${g}, ${b}, ${colorOpacity})`;
 }
 
-function getAnimation(p: T) {
+function getAnimation(p: Props) {
     if (p.variation && p.variation === RippleVariations.STRONG) {
         return css`${ripple} .2s linear forwards`;
     }
@@ -60,7 +58,7 @@ function getAnimation(p: T) {
     return css`${ripple2} .2s linear forwards`;
 }
 
-function getSize(p: T) {
+function getSize(p: Props) {
     if (p.variation && p.variation === RippleVariations.STRONG) {
         return `60px`;
     }
@@ -68,15 +66,15 @@ function getSize(p: T) {
     return `40px`;
 }
 
-const RippleStyled = styled.div<T>`
+const Ripple = styled.div<Props>`
   width: ${getSize};
   height: ${getSize};
   background-color: ${getBackground};
   animation: ${getAnimation};
-  display: ${(p: T) => p.theme.display.block};
+  display: ${p => p.theme.display.block};
+  border-radius: ${p => p.theme.borderRadius.circle};
+  position: ${p => p.theme.position.absolute};
   z-index: -1;
-  border-radius: ${(p: T) => p.theme.borderRadius.circle};
-  position: ${(p: T) => p.theme.position.absolute};
 `;
 
-export default RippleStyled;
+export default Ripple;

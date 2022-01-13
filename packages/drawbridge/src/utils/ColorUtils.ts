@@ -14,16 +14,40 @@ function hexToRgb(hex: string) {
     return b;
 }
 
-function lighten(hex, howMuch) {
-    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+function LightenDarkenColor(col: string, amt: number) {
+    var usePound = false;
 
-    if (!result) return;
+    if (col[0] == "#") {
+        col = col.slice(1);
+        usePound = true;
+    }
 
-    const r = parseInt(result[1], 16)
-    const g = parseInt(result[2], 16)
-    const b = parseInt(result[3], 16)
+    var num = parseInt(col, 16);
 
-    return `rgba(${r}, ${g}, ${b}, ${howMuch})`;
+    var r = (num >> 16) + amt;
+
+    if (r > 255) r = 255;
+    else if (r < 0) r = 0;
+
+    var b = ((num >> 8) & 0x00FF) + amt;
+
+    if (b > 255) b = 255;
+    else if (b < 0) b = 0;
+
+    var g = (num & 0x0000FF) + amt;
+
+    if (g > 255) g = 255;
+    else if (g < 0) g = 0;
+
+    return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
+}
+
+function lighten(hex: string, amount: number) {
+    return LightenDarkenColor(hex, amount);
+}
+
+function darken(hex: string, amount: number) {
+    return LightenDarkenColor(hex, -amount);
 }
 
 export {
