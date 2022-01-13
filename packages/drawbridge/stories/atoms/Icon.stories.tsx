@@ -1,5 +1,5 @@
 import React from "react";
-import Icon from "@atoms/icon/Icon";
+import Icon from "@atoms/Icon";
 import {Times as TimesIcon, ArrowRight as ArrowToTheRight} from "@icons";
 
 export default {

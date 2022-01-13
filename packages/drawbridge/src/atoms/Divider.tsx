@@ -15,8 +15,8 @@ enum SpacingVariations {
 }
 
 interface Props extends StyledProps {
-    variation: DirectionVariations,
-    spacing: SpacingVariations
+    variation?: DirectionVariations,
+    spacing?: SpacingVariations
 }
 
 function getHeight(p: Props) {
