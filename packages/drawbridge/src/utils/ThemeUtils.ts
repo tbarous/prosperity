@@ -1,6 +1,8 @@
 import {css} from "styled-components";
 
-function px(s: string | number) {
+function px(s?: string | number) {
+    if (!s) return;
+
     return `${s}px`;
 }
 
