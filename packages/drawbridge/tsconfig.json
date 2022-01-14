@@ -33,6 +33,10 @@
       ],
 
 
+      "@organisms/*": [
+        "src/organisms/*"
+      ],
+
       "@typings": [
         "src/typings/index"
       ],
