@@ -1,17 +1,12 @@
-import React, {FunctionComponent, ReactElement} from "react";
-import {BasicComponentProps} from "@typings";
-import AppStyled from "./styled/AppStyled";
+import React from "react";
+import {StyledProps} from "@typings";
+import styled from "styled-components";
 
-export interface AppProps extends BasicComponentProps {}
+export interface Props extends StyledProps {}
 
-const App: FunctionComponent<AppProps> = (props: AppProps): ReactElement => {
-    const {children, className} = props;
-
-    return (
-        <AppStyled className={className}>
-            {children}
-        </AppStyled>
-    )
-}
+const App = styled.div<Props>`
+  display: ${(p: Props) => p.theme.display.flex};
+  height: ${(p: Props) => p.theme.dimension.d100};
+`;
 
 export default App;

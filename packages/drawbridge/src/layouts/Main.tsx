@@ -1,40 +1,12 @@
-import React, {FunctionComponent, ReactElement, ReactNode} from "react";
-import Container from "@components/grid/Container";
-import Row from "@components/grid/Row";
-import Col from "@components/grid/Col";
-import Card from "@components/card/Card";
-import Image from "@components/image/Image";
-import {BasicComponentProps} from "@typings";
-import MainStyled from "./styled/MainStyled";
+import React from "react";
+import {StyledProps} from "@typings";
+import styled from "styled-components";
 
-export interface MainProps extends BasicComponentProps {}
+export interface Props extends StyledProps {}
 
-const Main: FunctionComponent<MainProps> = (props: MainProps): ReactElement => {
-    const {children, className} = props;
-
-    return (
-        <MainStyled>
-            <Container fluid>
-                <Row gutter={20}>
-                    <Col xs={3}>
-                        <Card rounded>
-                            <Image rounded-top src="/img.jpg" alt="img"/>
-
-                            <div>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aut beatae
-                                deserunt
-                                dignissimos, distinctio
-                                dolore error exercitationem minima nisi placeat praesentium provident quas quo
-                                ratione sunt
-                                temporibus unde vel
-                                voluptas.
-                            </div>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
-        </MainStyled>
-    )
-}
+const Main = styled.div<Props>`
+  padding: 1rem 3rem;
+  flex: 1;
+`;
 
 export default Main;
