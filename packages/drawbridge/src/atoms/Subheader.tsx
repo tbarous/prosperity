@@ -36,18 +36,18 @@ function getFontWeight(p: SubheaderProps) {
 
 function getFontSize(p: SubheaderProps) {
     if (p.variation === Variations.H3) {
-        return px(p.theme.fontSize.fs6);
-    }
-
-    if (p.variation === Variations.H4) {
         return px(p.theme.fontSize.fs5);
     }
 
-    if (p.variation === Variations.H5) {
+    if (p.variation === Variations.H4) {
         return px(p.theme.fontSize.fs4);
     }
 
-    return px(p.theme.fontSize.fs7);
+    if (p.variation === Variations.H5) {
+        return px(p.theme.fontSize.fs3);
+    }
+
+    return px(p.theme.fontSize.fs6);
 }
 
 const Subheader = styled.h2<SubheaderProps>`
