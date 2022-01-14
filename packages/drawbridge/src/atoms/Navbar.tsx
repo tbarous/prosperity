@@ -2,22 +2,28 @@ import styled from "styled-components";
 import {px} from "@utils/ThemeUtils";
 import {StyledProps} from "@typings";
 
-export enum NavbarVariations {
+export enum NavbarColorVariations {
     LIGHT = "light",
     DARK = "dark",
     TRANSPARENT = "transparent"
 }
 
+export enum NavbarPositionVariations {
+    STATIC = "static",
+    FIXED = "fixed"
+}
+
 interface Props extends StyledProps {
-    variation?: NavbarVariations
+    variation?: NavbarColorVariations,
+    position?: NavbarPositionVariations
 }
 
 function getBackgroundColor(p: Props) {
-    if (p.variation === NavbarVariations.TRANSPARENT) {
+    if (p.variation === NavbarColorVariations.TRANSPARENT) {
         return p.theme.color.transparent;
     }
 
-    if (p.variation === NavbarVariations.DARK) {
+    if (p.variation === NavbarColorVariations.DARK) {
         return p.theme.color.dark;
     }
 
@@ -25,7 +31,7 @@ function getBackgroundColor(p: Props) {
 }
 
 function getBoxShadow(p: Props) {
-    if (p.variation === NavbarVariations.TRANSPARENT) {
+    if (p.variation === NavbarColorVariations.TRANSPARENT) {
         return
     }
 
@@ -33,11 +39,19 @@ function getBoxShadow(p: Props) {
 }
 
 function getColor(p: Props) {
-    if (p.variation === NavbarVariations.DARK) {
+    if (p.variation === NavbarColorVariations.DARK) {
         return p.theme.color.surface;
     }
 
     return p.theme.color.dark;
+}
+
+function getPosition(p: Props) {
+    if (p.position === NavbarPositionVariations.FIXED) {
+        return p.theme.position.fixed;
+    }
+
+    return p.theme.position.relative;
 }
 
 const Navbar = styled.div<Props>`
@@ -51,7 +65,7 @@ const Navbar = styled.div<Props>`
   z-index: ${p => p.theme.zIndex.navbar};
   align-items: ${p => p.theme.alignItems.center};
   display: ${p => p.theme.display.flex};
-  position: ${p => p.theme.position.relative};
+  position: ${getPosition};
   width: ${p => p.theme.dimension.d100};
 `;
 
