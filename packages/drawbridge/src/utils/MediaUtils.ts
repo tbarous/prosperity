@@ -1,6 +1,6 @@
 import {css, FlattenSimpleInterpolation} from "styled-components";
 
-function up(breakpoint: string, styles: FlattenSimpleInterpolation): FlattenSimpleInterpolation {
+function up(breakpoint: number, styles: FlattenSimpleInterpolation): FlattenSimpleInterpolation {
     return css`
       @media screen and (min-width: ${breakpoint}) {
         ${styles}
