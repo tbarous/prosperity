@@ -28,8 +28,6 @@ const TooltipContent = styled.div<StyledProps>`
   margin-top: ${p => px(p.theme.spacing.s5)};
 `;
 
-
-
 const Tooltip: FunctionComponent<TooltipProps> = (props: TooltipProps): ReactElement => {
     const {className, children, clickable} = props;
 
