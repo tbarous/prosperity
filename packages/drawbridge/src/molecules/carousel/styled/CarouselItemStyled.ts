@@ -29,10 +29,10 @@ function getLeft(p: T) {
 }
 
 const CarouselItemStyled = styled.div<T>`
-  user-select: none;
   padding: ${getPadding};
   width: ${getWidth};
   left: ${getLeft};
+  user-select: none;
   position: ${(p: T) => p.theme.position.absolute};
   box-sizing: ${(p: T) => p.theme.boxSizing.borderBox};
   height: ${(p: T) => p.theme.dimension.d100};
