@@ -26,7 +26,10 @@ export enum ButtonRoles {
 
 export interface ButtonStyledProps extends StyledProps {
     variation?: ButtonVariations,
-    size?: ButtonSizes
+    size?: ButtonSizes,
+    type?: ButtonTypes,
+    role?: ButtonRoles,
+    onClick?: () => void
 }
 
 function getBackgroundColor(p: ButtonStyledProps) {
@@ -57,7 +60,11 @@ function getPadding(p: ButtonStyledProps) {
     return px(p.theme.spacing.s4);
 }
 
-export const ButtonStyled = styled.button<ButtonStyledProps>`
+export const Button = styled.button.attrs(p => ({
+    onClick: p.onClick,
+    type: p.type,
+    role: p.role
+}))<ButtonStyledProps>`
   padding: ${getPadding};
   background-color: ${getBackgroundColor};
   color: ${getColor};
@@ -88,29 +95,5 @@ export const ButtonStyled = styled.button<ButtonStyledProps>`
     filter: ${p => p.theme.brightness.darken};
   }
 `;
-
-export interface ButtonProps extends BasicComponentProps {
-    type?: ButtonTypes,
-    variation?: ButtonVariations,
-    size?: ButtonSizes,
-    role?: ButtonRoles,
-    onClick?: () => void
-}
-
-const Button: FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElement => {
-    const {children, type, variation, size, role, onClick} = props;
-
-    return (
-        <ButtonStyled
-            type={type}
-            variation={variation}
-            size={size}
-            role={role}
-            onClick={onClick}
-        >
-            {children}
-        </ButtonStyled>
-    );
-}
 
 export default Button;
