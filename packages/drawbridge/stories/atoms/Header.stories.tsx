@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderStyled, {HeaderBoldness} from "@atoms/Header";
+import HeaderComponent, {Boldness, Variations} from "@atoms/Header";
 
 export default {
     title: 'Design System/Atoms/Header',
@@ -11,9 +11,14 @@ export default {
             defaultValue: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`
         },
         boldness: {
-            options: [HeaderBoldness.LIGHT, HeaderBoldness.NORMAL, HeaderBoldness.BOLD],
+            options: [Boldness.LIGHT, Boldness.NORMAL, Boldness.BOLD],
             control: {type: 'radio'},
-            defaultValue: HeaderBoldness.NORMAL
+            defaultValue: Boldness.NORMAL
+        },
+        variation: {
+            options: [Variations.H1, Variations.H2, Variations.H3, Variations.H4, Variations.H5],
+            control: {type: 'radio'},
+            defaultValue: Variations.H1
         },
     },
     parameters: {
@@ -21,9 +26,16 @@ export default {
     },
 };
 
-type T = { text: string, boldness: HeaderBoldness };
+type T = { text: string, boldness: Boldness, variation: Variations };
 
-const Header = (args: T) => <HeaderStyled boldness={args.boldness}>{args.text}</HeaderStyled>;
+const Header = (args: T) => (
+    <HeaderComponent
+        variation={args.variation}
+        boldness={args.boldness}
+    >
+        {args.text}
+    </HeaderComponent>
+);
 
 export {
     Header,
