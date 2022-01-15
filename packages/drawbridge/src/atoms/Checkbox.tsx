@@ -118,15 +118,33 @@ const Checkbox: FunctionComponent<Props> = (props: Props): ReactElement => {
     const {className, onChange, checked, label, disabled} = props;
 
     return (
-        <CheckboxStyled className={className}>
-            <Input type="checkbox" onChange={onChange} checked={checked} disabled={disabled}/>
+        <CheckboxStyled
+            className={className}
+        >
+            <Input
+                type="checkbox"
+                onChange={onChange}
+                checked={checked}
+                disabled={disabled}
+            />
 
             <Wrapper>
-                <IconWrapper checked={checked} disabled={disabled}>
-                    {checked && <CheckboxIcon icon={Checkmark}/>}
+                <IconWrapper
+                    checked={checked}
+                    disabled={disabled}
+                >
+                    {checked && (
+                        <CheckboxIcon
+                            icon={Checkmark}
+                        />
+                    )}
                 </IconWrapper>
 
-                <Label disabled={disabled}>{label}</Label>
+                <Label
+                    disabled={disabled}
+                >
+                    {label}
+                </Label>
             </Wrapper>
         </CheckboxStyled>
     )
