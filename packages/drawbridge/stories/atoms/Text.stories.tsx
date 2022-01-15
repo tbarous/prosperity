@@ -1,5 +1,5 @@
 import React from "react";
-import TextStyled, {TextBoldness} from "@atoms/Text";
+import TextComponent, {TextBoldness} from "@atoms/Text";
 
 export default {
     title: 'Design System/Atoms/Text',
@@ -23,7 +23,7 @@ export default {
 
 type T = { text: string, boldness: TextBoldness };
 
-const Text = (args: T) => <TextStyled boldness={args.boldness}>{args.text}</TextStyled>;
+const Text = (args: T) => <TextComponent boldness={args.boldness}>{args.text}</TextComponent>;
 
 export {
     Text,
