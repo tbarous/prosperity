@@ -1,4 +1,4 @@
-# Prosperity - UI Library
+UI Library
 
 ## Components
 
@@ -26,3 +26,5 @@
 ### Link
 
 - Link
+
+& more (to be updated)
